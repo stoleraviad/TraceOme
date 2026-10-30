@@ -1,0 +1,140 @@
+{
+  "schema_version": "bio-neb.eval-case-compiled/1",
+  "case_id": "s2-giab-hg002-clean-L2-snp3",
+  "family": "s2-giab-hg002-clean",
+  "scenario": "s2-giab-hg002",
+  "split": "train",
+  "level": "L2",
+  "evidence_shape": "clean",
+  "donor": {
+    "path": "work/research/2026-09-24-nemotron/eval/batch1/cases/s2-giab-hg002-clean-L2-snp3.yaml",
+    "case_id": "c-9b2e06",
+    "version": 1
+  },
+  "public": {
+    "research_request": "Sample HG002, human (NCBI Taxonomy 9606), reads registered, reference GCF_000001405.40 with the genomic FASTA. Call germline variants to a VCF, then tell me whether HG002 carries rs7412, rs429358 and rs1801133.\n",
+    "fastq_roles": [
+      "read_1",
+      "read_2"
+    ]
+  },
+  "planning": {
+    "prepared_answers": [
+      {
+        "review": "analysis_recipe",
+        "answer": "gDNA / paired",
+        "reason": "Two read files are registered for HG002, a GIAB whole-genome sample: genomic DNA, paired."
+      }
+    ],
+    "gates": [
+      "accepted",
+      "usable"
+    ],
+    "questions": [
+      {
+        "id": "B-ALL-KINDS",
+        "ask": "Are all nine required requirement kinds in the accepted plan?",
+        "check": "kinds_present",
+        "spec": {
+          "kinds": [
+            "research_goal",
+            "registered_input",
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity",
+            "companion_asset",
+            "analysis_recipe",
+            "resource_profile",
+            "scientific_investigation"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-SUPPLIED-KEPT",
+        "ask": "Is every fact the request states asserted, not left to find?",
+        "check": "knowledge_states",
+        "spec": {
+          "asserted": [
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-FIRST-ATTEMPT",
+        "ask": "Was the first proposal Tool call accepted, with no refused proposal turn before it?",
+        "check": "first_attempt",
+        "spec": {},
+        "gate": "graded",
+        "note": "The S1 widening and the resource_profile routing (#279 finding 2) show up here as refused turns."
+      },
+      {
+        "id": "B-NO-INVENT",
+        "ask": "Does every accession, TaxId and rsID in the planning Tool calls appear in the request or an earlier recorded result?",
+        "check": "no_invented_identifier",
+        "spec": {},
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-TERMINAL",
+        "ask": "Does the planning layer stop at the expected terminal?",
+        "check": "terminal",
+        "spec": {
+          "terminal": "execution_review"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-REVIEWS-RAISED",
+        "ask": "Are the planning Reviews raised exactly the ones the request leaves open (no over-clarification)?",
+        "check": "reviews_raised",
+        "spec": {
+          "reviews": [
+            "analysis_recipe"
+          ]
+        },
+        "gate": "graded",
+        "note": null
+      },
+      {
+        "id": "q1",
+        "ask": "Are the three rsIDs kept as three separate scientific_investigation items (known_variant), none dropped, none merged?",
+        "check": "investigation_items",
+        "spec": {
+          "purpose": "known_variant",
+          "values": [
+            "rs7412",
+            "rs429358",
+            "rs1801133"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      }
+    ],
+    "good_answer": "HG002 / 9606 / GCF_000001405.40 asserted bare; three known_variant items, one rsID each; one recipe Review; no output question; Execution Review reached.",
+    "bad_answers": [
+      {
+        "summary": "rs429358 and rs7412 merged into one 'APOE genotype' item",
+        "must_fail": [
+          "q1"
+        ],
+        "label": "semantic_coverage"
+      },
+      {
+        "summary": "taxon left to find although the request states 9606",
+        "must_fail": [
+          "B-SUPPLIED-KEPT"
+        ],
+        "label": "semantic_binding"
+      }
+    ]
+  }
+}

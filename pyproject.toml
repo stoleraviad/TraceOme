@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bio-neb-clean-agentic-journey"
+version = "0.1.0"
+description = "Clean observable Agentic Journey tracer"
+requires-python = ">=3.12"
+dependencies = [
+    "boto3==1.43.67",
+    "logfire==4.40.0",
+    "opentelemetry-sdk==1.44.0",
+    "pydantic==2.13.4",
+    "pydantic-ai==2.25.0",
+    "pypdf==6.20.1",
+    "pysam==0.24.1",
+]
+
+[project.scripts]
+# The Run's observation tools: pysam's bundled bcftools and samtools.
+bio-neb-bcftools = "bio_neb.investigation.observation_tools:bcftools"
+bio-neb-samtools = "bio_neb.investigation.observation_tools:samtools"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"bio_neb.agentic_journey" = ["instructions/*.toml"]
+
+[tool.ruff.lint]
+# The smallest rule set that keeps refactors safe. The gate runs on changed files only,
+# so these rules never impose a whole-repository cleanup.
+#
+#   E4, E7, E9, F  import, statement and name correctness. Ruff's default set; the repository is
+#                  already green under it, so keeping it explicit costs nothing and records intent.
+#   I              import ordering. The only selected rule that surfaces import-level duplication.
+#                  Every violation is autofixable.
+#   C901           branch complexity, above max-complexity (20, below). One of the two rules that
+#                  catch oversized functions such as `_project_one_attempt_evidence`.
+#   PLR0915        statement count, above max-statements (100, below). The other one.
+#   B              flake8-bugbear. The only selected family that finds code that is wrong rather
+#                  than shaped badly; B023 (loop-variable capture) is a live risk whenever code
+#                  moves between modules and closures.
+#
+# Deliberately left off:
+#   E501           line-too-long survives `ruff format`, so adopting it means a reformatting
+#                  project. Formatting is out of scope for this gate.
+#   W, UP, SIM, ARG, RET, N, ANN, D
+#                  style and annotation families. None of them catches duplication or oversized
+#                  functions, and together they carry several thousand violations.
+#   Type checking  not part of this gate.
+# No Ruff rule detects cross-file duplication, so duplicate classes and copied functions
+# remain a review responsibility, not a mechanical one.
+select = ["E4", "E7", "E9", "F", "I", "C901", "PLR0915", "B"]
+
+# Thresholds sit above Ruff's defaults (10 and 50), chosen from the measured distribution: they cut
+# the enforcement surface by about two thirds and still catch the oversized functions (complexity
+# above 100). Lower them if oversized code starts slipping through.
+[tool.ruff.lint.mccabe]
+max-complexity = 20
+
+[tool.ruff.lint.pylint]
+max-statements = 100

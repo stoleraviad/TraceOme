@@ -1,0 +1,15 @@
+**
+!containers/
+!containers/parabricks-worker/
+!containers/parabricks-worker/requirements.txt
+!src/
+!src/bio_neb/
+!src/bio_neb/contracts.py
+!src/bio_neb/fasta_selection.py
+!src/bio_neb/parabricks/
+!src/bio_neb/parabricks/worker_exchange.py
+!src/bio_neb/parabricks/reusable_object_storage_parabricks.py
+# Explicitly retain the highest-risk exclusions as readable policy evidence.
+**/.env
+**/.git
+**/.venv

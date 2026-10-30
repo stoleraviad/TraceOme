@@ -1,0 +1,51 @@
+{
+  "question": "Does this paper report rs1800562 or rs4244285 in the female reference sample HG001?",
+  "paper": {
+    "doi": "10.1038/s41598-025-97047-7",
+    "pmid": "40258889",
+    "pmcid": "PMC12012014",
+    "title": "Benchmarking of variant calling software for whole-exome sequencing using gold standard datasets.",
+    "journal": "Sci Rep",
+    "year": "2025",
+    "open_access": true,
+    "resolved_by": "europe_pmc",
+    "landing_url": null
+  },
+  "documents": [
+    {
+      "document_id": "main",
+      "kind": "main_text",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12012014.1/PMC12012014.1.xml",
+      "via": "recorded",
+      "characters": 36806
+    }
+  ],
+  "reference": {
+    "candidate": {
+      "candidate_id": "r-8b3e015ec663",
+      "name": "GRCh38",
+      "spellings": [
+        "GRCh38"
+      ],
+      "sources": [
+        {
+          "document_id": "main",
+          "section": "Abstract",
+          "start": 823,
+          "end": 1035,
+          "text": "Following alignment of sequence reads to the human reference genome GRCh38, variants were compared against high-confidence regions from GIAB datasets and assessed using the Variant Calling Assessment Tool (VCAT)."
+        },
+        {
+          "document_id": "main",
+          "section": "Software and variant calling",
+          "start": 7542,
+          "end": 7676,
+          "text": "Samples were aligned to human reference genome version GRCh38 and variant calling were done in single sample mode on default settings."
+        }
+      ]
+    },
+    "reason": "The paper states that reads were aligned to the human reference genome GRCh38 (see Abstract and Methods sections)."
+  },
+  "findings": [],
+  "not_answered": "The paper does not report variant calls for rs1800562 or rs4244285 in the female reference sample HG001; neither rsID appears in the main text, supplementary tables, or supplementary files.; rs1800562: The paper and its supplementary tables do not contain the rsIDs rs1800562 or rs4244285, nor do they provide per‑variant call information for the female reference sample HG001.; rs4244285: The paper does not report the variants rs1800562 or rs4244285 in the female reference sample HG001; searches of the full text and supplementary material return zero matches for both rsIDs."
+}

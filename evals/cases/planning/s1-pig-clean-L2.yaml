@@ -1,0 +1,47 @@
+schema_version: bio-neb.eval-case/1
+case_id: s1-pig-clean-L2
+family: s1-pig-clean
+scenario: s1-pig-duroc07
+split: train
+level: L2                    # all identifiers given, neutral wording (no behaviour hints)
+evidence_shape: clean
+donor: {path: work/research/2026-09-24-nemotron/eval/batch1/cases/s1-pig-clean-L2.yaml, case_id: c-7f3a02, version: 1}
+refresh:
+  - "Request unwrapped: the donor's YAML block broke 'germline variant calling' across a line, which exact grounding cannot quote (#279 finding 1, owner 2026-10-13)."
+  - "Roles: the retired proposal/reference role Agents became the one planning_agent; inputs are the product roles read_1 and read_2."
+  - "Prepared answers: the donor's companion_roles answer has no Review today (the companion is found by a Tool); the analysis_recipe Review asks assay and layout, answered from 'paired-end WGS'."
+  - "Terminal: the planning layer ends at the unanswered Execution Review (was slice_terminal:reference_facts)."
+  - "Donor B-ATOMIC is the product usable gate; q1 and q2 keep the donor's gold; q3 (sample) is the donor's first bad answer made a question."
+public:
+  research_request: "I have paired-end WGS reads from pig sample DUROC-07 (NCBI Taxonomy 9823). Please plan germline variant calling against GCF_054392235.1 with the genomic FASTA as companion, and give me a VCF.\n"
+  fastq_roles: [read_1, read_2]
+planning:
+  prepared_answers:
+    - {review: analysis_recipe, answer: "gDNA / paired", reason: "The request says paired-end WGS: genomic DNA in a paired layout."}
+  questions:
+    - {ref: B-ALL-KINDS}
+    - {ref: B-SUPPLIED-KEPT, params: {asserted: [sample_identity, taxon_identity, reference_assembly_identity]}}
+    - {ref: B-FIRST-ATTEMPT}
+    - {ref: B-NO-INVENT}
+    - {ref: B-TERMINAL, params: {terminal: execution_review}}
+    - {ref: B-REVIEWS-RAISED, params: {reviews: [analysis_recipe]}}
+    - id: q1
+      ask: "Is taxon_identity asserted as 9823, not as 'pig'?"
+      check: plan_value
+      spec: {kind: taxon_identity, state: asserted, value: "9823"}
+      gate: hard
+    - id: q2
+      ask: "Is the verified reference GCF_054392235.1?"
+      check: reference_verified
+      spec: {accession: GCF_054392235.1}
+      gate: hard
+    - id: q3
+      ask: "Is sample_identity asserted exactly as DUROC-07?"
+      check: plan_value
+      spec: {kind: sample_identity, state: asserted, value: DUROC-07}
+      gate: hard
+  good_answer: "DUROC-07 / 9823 / GCF_054392235.1 asserted bare; reference and genomic FASTA verified; one recipe Review; Execution Review reached."
+  bad_answers:
+    - {summary: "sample_identity 'pig sample DUROC-07'", must_fail: [q3, B-FIRST-ATTEMPT], label: value_not_atomic}
+    - {summary: "taxon asserted as 'pig' (the common name) instead of the given TaxId", must_fail: [q1], label: semantic_binding}
+    - {summary: "reference swapped to GCF_000003025.5 (Sscrofa10.2) from memory", must_fail: [q2, B-NO-INVENT], label: fabrication}

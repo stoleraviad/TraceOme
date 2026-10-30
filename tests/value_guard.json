@@ -1,0 +1,1416 @@
+{
+  "schema_version": 1,
+  "about": "Reviewed rows for tests/value_guard.py (#375 D3). A row is its class word, or {class, field}. Classes and their fields: tests/value_guard.py VALUE_CLASSES and RULE_CLASSES.",
+  "values": {
+    "agentic_journey/assignment_context.py": {
+      "HG001": {
+        "class": "example",
+        "partner": "MM-04"
+      }
+    },
+    "agentic_journey/instructions/investigation_planner.v24.blocks.toml": {
+      "CM000823.5": {
+        "class": "example",
+        "partner": "NC_010454.4"
+      },
+      "NC_010454.4": {
+        "class": "example",
+        "partner": "CM000823.5"
+      }
+    },
+    "agentic_journey/instructions/investigation_planner.v24.qwen_3_5.toml": {
+      "CM000823.5": {
+        "class": "example",
+        "partner": "NC_010454.4"
+      },
+      "NC_010454.4": {
+        "class": "example",
+        "partner": "CM000823.5"
+      }
+    },
+    "agentic_journey/instructions/paper_reader.v14.blocks.toml": {
+      "NC_000005.10": {
+        "class": "pinned",
+        "reason": "paper-reading examples are human-only (owner R3 a); kept, owner #486 Q4 a"
+      },
+      "rs12345": {
+        "class": "pinned",
+        "reason": "paper-reading examples are human-only (owner R3 a); kept, owner #486 Q4 a"
+      }
+    },
+    "agentic_journey/instructions/planning_agent.v22.blocks.toml": {
+      "GCF_000001405.40": {
+        "class": "example",
+        "partner": "GCF_000001635.27"
+      },
+      "GCF_000001635.27": {
+        "class": "example",
+        "partner": "GCF_000001405.40"
+      },
+      "HG001": {
+        "class": "example",
+        "partner": "MM-04"
+      },
+      "chr19": {
+        "class": "example",
+        "partner": "V:2129317 C>T"
+      },
+      "rs429358": {
+        "class": "example",
+        "partner": "11:3200410 G>A"
+      }
+    },
+    "agentic_journey/planning_assignment.py": {
+      "HG001": {
+        "class": "example",
+        "partner": "MM-04"
+      },
+      "rs429358": {
+        "class": "example",
+        "partner": "V:2129317 C>T"
+      }
+    },
+    "devtools/parabricks_fixture_export.py": {
+      "Ticket-94": {
+        "class": "pinned",
+        "reason": "names the retained #94 evidence packet in an export error"
+      },
+      "ticket94": {
+        "class": "pinned",
+        "reason": "schema names of the retained #94 evidence files this exporter reads"
+      }
+    },
+    "devtools/run_ledger/ledger.py": {
+      "#39": {
+        "class": "pinned",
+        "reason": "the ledger schema's deciding issue, named in its error"
+      }
+    },
+    "investigation/scientific_continuation.py": {
+      "Ticket 123": {
+        "class": "debt",
+        "owner": "#450",
+        "note": "a ticket token in a product error message (ADR 0010)"
+      }
+    },
+    "paper_reading/answer.py": {
+      "chr5": {
+        "class": "pinned",
+        "reason": "paper-reading examples are human-only (owner R3 a); kept, owner #486 Q4 a"
+      },
+      "NC_000005.10": {
+        "class": "pinned",
+        "reason": "paper-reading examples are human-only (owner R3 a); kept, owner #486 Q4 a"
+      }
+    },
+    "paper_reading/contracts.py": {
+      "rs12345": {
+        "class": "pinned",
+        "reason": "paper-reading examples are human-only (owner R3 a); kept, owner #486 Q4 a"
+      }
+    },
+    "parabricks/execution_runtime.py": {
+      "12f564eafc27802c23d152ad61d2ce81d79fbd49b78a1a6671673e843d4a4878": {
+        "class": "pinned",
+        "reason": "pinned image or executable digest; changing it publishes a new image (ADR 0029)"
+      },
+      "1c1f7eb88b71b56c42e9a31e36a734123b0f1bba9bc97079e03d47fc3afeda5b": {
+        "class": "pinned",
+        "reason": "pinned image or executable digest; changing it publishes a new image (ADR 0029)"
+      },
+      "0447bb178c2b6f35322e2fc9169655c2df550ea232c74021c21eedde95db3a56": {
+        "class": "pinned",
+        "reason": "pinned image or executable digest; changing it publishes a new image (ADR 0029)"
+      },
+      "4121c9d26c21cd902938322ce314a63ff26340d6caac1173e0c3ed08ccb7927c": {
+        "class": "pinned",
+        "reason": "pinned image or executable digest; changing it publishes a new image (ADR 0029)"
+      }
+    },
+    "parabricks/proposal_information.py": {
+      "HG001": {
+        "class": "example",
+        "partner": "MM-04"
+      },
+      "RS429358": {
+        "class": "example",
+        "partner": "V:2129317 C>T"
+      },
+      "chr19": {
+        "class": "example",
+        "partner": "mm10"
+      },
+      "rs429358": {
+        "class": "example",
+        "partner": "V:2129317 C>T"
+      }
+    },
+    "parabricks/reusable_object_storage_parabricks.py": {
+      "89c4a8cdf0765fd5a641d6e75045d240f9e55cfdd1bd009fa0e299ea31cb9722": {
+        "class": "pinned",
+        "reason": "pinned image or executable digest; changing it publishes a new image (ADR 0029)"
+      },
+      "5b150781a9309ed7da310bc14d05ef65152438d71d6f86203758343d3f6e5f09": {
+        "class": "pinned",
+        "reason": "pinned image or executable digest; changing it publishes a new image (ADR 0029)"
+      },
+      "21a43680514d1dbce941c91f0913b84be27cc5bfefa119328b0cc270a404ff32": {
+        "class": "pinned",
+        "reason": "pinned image or executable digest; changing it publishes a new image (ADR 0029)"
+      }
+    },
+    "providers/nebius_controller_runtime.py": {
+      "8712903f152120e40ec64e96d242e754496e46dffde3b491a8f1a0d4cf67896d": {
+        "class": "pinned",
+        "reason": "pinned image or executable digest; changing it publishes a new image (ADR 0029)"
+      }
+    },
+    "reference_discovery/reference_tools.py": {
+      "#459": {
+        "class": "pinned",
+        "reason": "the owner decision a refusal's sentence cites (docs/agents/test-design.md, Refusals cite their decision)"
+      }
+    }
+  },
+  "rules": {
+    "agentic_journey/action_admission.py": {
+      "_BLANK": "vocabulary"
+    },
+    "agentic_journey/action_policy.py": {
+      "CANONICAL_TEXT_PATTERN": "vocabulary"
+    },
+    "agentic_journey/agent_work_review.py": {
+      "_EFFECTS": "vocabulary",
+      "_REFUSALS": "vocabulary",
+      "_RESPONSES": "vocabulary"
+    },
+    "agentic_journey/assignment_context.py": {
+      "_CALL_SHAPES": "vocabulary"
+    },
+    "agentic_journey/attempt_journey.py": {
+      "MODEL_REQUEST_TERMINALS": "vocabulary",
+      "_ACTIVITY_TERMINALS": "vocabulary",
+      "_FACT_TYPES": "vocabulary",
+      "_LAWFUL_DISPOSITIONS": "vocabulary",
+      "_FAILURE_CODES": "vocabulary"
+    },
+    "agentic_journey/attempt_terminal.py": {
+      "_TERMINAL_ROLES": "vocabulary"
+    },
+    "agentic_journey/continuation.py": {
+      "REVIEW_RESPONSE_KINDS": "vocabulary"
+    },
+    "agentic_journey/continuation_policy.py": {
+      "<module> /^[a-z][a-z0-9_-]*$/": "vocabulary",
+      "_CALLLESS_KEYS": "vocabulary",
+      "_SHOWN_FAULTS": "vocabulary"
+    },
+    "agentic_journey/failure_cause.py": {
+      "_CLASS_NAME": "vocabulary",
+      "_MODULE_NAME": "vocabulary"
+    },
+    "agentic_journey/injection.py": {
+      "_REFUSED": "vocabulary",
+      "_REPLY_RECORDS": "vocabulary"
+    },
+    "agentic_journey/injection_patterns.py": {
+      "FOLDED": "vocabulary",
+      "_BLANK": "vocabulary",
+      "_LiteralGuard.codes": "vocabulary",
+      "_PlanReview.stages": "vocabulary",
+      "_QUIRK_NOTICES": "vocabulary"
+    },
+    "agentic_journey/invocation.py": {
+      "_COERCED_SCALAR_TYPES": {
+        "class": "format",
+        "note": "pydantic-core's error types for a scalar of the wrong JSON type in strict mode"
+      }
+    },
+    "agentic_journey/lifecycle.py": {
+      "_FACT_TYPES": "vocabulary"
+    },
+    "agentic_journey/model_settings.py": {
+      "COMPATIBLE_SCHEMA_KEYWORDS": "vocabulary",
+      "COMPATIBLE_WIRE_SETTINGS": "vocabulary",
+      "_CALL_REASONING_DESCRIPTIONS": "vocabulary",
+      "_CHAT_TEMPLATE": "vocabulary",
+      "_TEMPLATE_CONTROLS": "vocabulary"
+    },
+    "agentic_journey/model_transport.py": {
+      "_CONTACT_OUTCOMES": "vocabulary"
+    },
+    "agentic_journey/model_turn.py": {
+      "_FENCE": "vocabulary"
+    },
+    "agentic_journey/planning_assignment.py": {
+      "CompanionsStageOutput.evidence_types": "vocabulary",
+      "ExecutionPlanningStageOutput.evidence_types": "vocabulary",
+      "InputCorrectionStageOutput.evidence_types": "vocabulary",
+      "ProposalRequirementsStageOutput.evidence_types": "vocabulary",
+      "ReferenceStageOutput.agrees_with": "vocabulary",
+      "ReferenceStageOutput.evidence_types": "vocabulary",
+      "_CONTINUATION_KEYS": "vocabulary"
+    },
+    "agentic_journey/repeated_calls.py": {
+      "_LOOP_RECORDS": "vocabulary"
+    },
+    "agentic_journey/role_instructions.py": {
+      "_FORMS": "vocabulary",
+      "_FORM_TEXTS": "vocabulary",
+      "_MESSAGE_FIELDS": "vocabulary",
+      "_STAGE_SECTION": "vocabulary",
+      "_USES": "vocabulary",
+      "_checked_version /v[1-9][0-9]*/": "vocabulary"
+    },
+    "agentic_journey/runtime_config.py": {
+      "PER_RUN_LAUNCH_SELECTIONS": "vocabulary",
+      "_CREDENTIAL_ENV": "safety"
+    },
+    "agentic_journey/source_answers.py": {
+      "SourceAnswer.sha256 /^[0-9a-f]{64}$/": "minted_shape"
+    },
+    "agentic_journey/source_contacts.py": {
+      "_FACTS": "vocabulary"
+    },
+    "agentic_journey/tool_execution.py": {
+      "_ADMITTED_TURNS": "vocabulary",
+      "_INTERNAL_KEYS": "vocabulary",
+      "_OBSERVED_FACT_TYPES": "vocabulary"
+    },
+    "investigation/bam_materialization.py": {
+      "CurrentBamAcquisitionReceipt.receipt_id /^current-bam-acquisition-receipt:[0-9a-f]{64}$/": "minted_shape",
+      "CurrentBamMaterializationLineage.reference_configuration_id /^reference-preparation-configuration:[0-9a-f]{64}$/": "minted_shape",
+      "CurrentBamMaterializationLineage.reference_fasta_sha256 /^[0-9a-f]{64}$/": "minted_shape"
+    },
+    "investigation/download_review.py": {
+      "DOWNLOAD_STAGES": "vocabulary",
+      "REVIEWED_CODES": "vocabulary",
+      "_ACTIONS": "vocabulary",
+      "_EXECUTION_ROLES": "vocabulary",
+      "_PAYLOADS": "vocabulary"
+    },
+    "investigation/investigation.py": {
+      "ADMISSIBLE_LOOKUP_STATUSES": "vocabulary",
+      "ApproveInvestigationResponse.proposal_id /^investigation-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "AssemblyReportToolResult.result_id /^assembly-report-result:[0-9a-f]{64}$/": "minted_shape",
+      "ClarifyInvestigationRequest.request_member_id /^request-member:[0-9a-f]{64}$/": "minted_shape",
+      "DECISION_ASKS": "vocabulary",
+      "EVA_SUPPORTING_OPERATIONS": "vocabulary",
+      "EvidenceAssessment.assessment_id /^evidence-assessment:[0-9a-f]{64}$/": "minted_shape",
+      "EvidenceAssessment.source_id /^retrieved-source:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationAttemptBound.revision_id /^investigation-revision:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationAttemptFailed.reason /^[A-Za-z_][A-Za-z0-9_]*(?:@[A-Za-z0-9_][A-Za-z0-9_.-]*:[1-9][0-9]*)?$/": "minted_shape",
+      "InvestigationAuthority.authority_id /^investigation-authority:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationAuthority.proposal_id /^investigation-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationAuthority.review_response_id /^investigation-review-response:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationCollectionRevision.response_id /^investigation-review-response:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationCollectionRevision.revision_id /^investigation-revision:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationCollectionRevision.supersedes_proposal_id /^investigation-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationInput.input_id /^investigation-input:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationProposal.assertion_id /^user-assertion:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationProposal.investigation_input_id /^investigation-input:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationProposal.proposal_id /^investigation-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationProposal.supersedes_proposal_id /^investigation-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationProposalOutputLineageView.proposal_id /^investigation-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationRequestMember.previous_request_member_id /^request-member:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationRequestMember.request_member_id /^request-member:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationRequestMember.work_item_ids /^work-item:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationReviewRequested.legal_actions": "vocabulary",
+      "InvestigationReviewResponded.response_id /^investigation-review-response:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationRevisionMember.member_id /^investigation-revision-member:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationRevisionMember.previous_request_member_id /^request-member:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationRevisionMember.previous_work_item_id /^work-item:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationStarted.continuation_id /^scientific-continuation:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationVcfIdentity.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationVcfIdentity.vcf_id /^investigation-vcf:[0-9a-f]{64}$/": "minted_shape",
+      "LOCATION_OPERATIONS": "vocabulary",
+      "QUESTION_ACTIONS": "vocabulary",
+      "RefSnpToolResult.result_id /^refsnp-result:[0-9a-f]{64}$/": "minted_shape",
+      "RegionTarget.reference_bases /^[ACGTN]+$/": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      },
+      "RegionTarget.target_id /^region-target:[0-9a-f]{64}$/": "minted_shape",
+      "RetrievedSource.raw_response_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "RetrievedSource.source_id /^retrieved-source:[0-9a-f]{64}$/": "minted_shape",
+      "ReviseInvestigationResponse.proposal_id /^investigation-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "SOURCE_AUTHORITY": "vocabulary",
+      "StopInvestigationResponse.proposal_id /^investigation-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "TYPED_ENDINGS": "vocabulary",
+      "UserAssertion.assertion_id /^user-assertion:[0-9a-f]{64}$/": "minted_shape",
+      "VariantTarget.target_id /^variant-target:[0-9a-f]{64}$/": "minted_shape",
+      "WorkItem.previous_work_item_id /^work-item:[0-9a-f]{64}$/": "minted_shape",
+      "WorkItem.revision_id /^investigation-revision:[0-9a-f]{64}$/": "minted_shape",
+      "WorkItem.work_item_id /^work-item:[0-9a-f]{64}$/": "minted_shape",
+      "_ALLELE": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      },
+      "_DECISION_TOOLS": "vocabulary",
+      "_EVENT_TYPES": "vocabulary",
+      "_ExistingInvestigationMemberOperation.work_item_id /^work-item:[0-9a-f]{64}$/": "minted_shape",
+      "_LOOKUP_NAMES": "vocabulary",
+      "_LOOKUP_SOURCES": "vocabulary",
+      "_RETAINED_MEDIA": {
+        "class": "format",
+        "note": "the media types of retained source answers: JSON, and the FTP assembly report as text"
+      },
+      "_RSID": {
+        "class": "format",
+        "note": "dbSNP rsID (rs + digits)"
+      }
+    },
+    "investigation/investigation_agent.py": {
+      "DECISION_TOOLS": "vocabulary",
+      "INVESTIGATION_TOOLS": "vocabulary",
+      "LOOKUP_TOOLS": "vocabulary",
+      "SourceReadingOutput.agrees_with": "vocabulary",
+      "SourceReadingOutput.evidence_types": "vocabulary",
+      "_RSID_FIELDS": {
+        "class": "format",
+        "note": "where dbSNP's record and EVA's clustered and submitted variants write an rsID's number, by operation, read for membership (#468 Q3 a)"
+      },
+      "named_in_answers /f'(?<![A-Za-z0-9]){rsid}(?![A-Za-z0-9])'/": "membership"
+    },
+    "investigation/investigation_assignment.py": {
+      "_SHARED_OUTCOMES": "vocabulary",
+      "_SHARED_TERMINALS": "vocabulary"
+    },
+    "investigation/investigation_observation.py": {
+      "InvestigationCollectionEvidenceRecorded.carried_revision_id /^investigation-revision:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationCollectionItemState.evidence_state_id /^investigation-evidence-state:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationCollectionItemState.work_item_id /^work-item:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationObservationCommand.authority_id /^investigation-authority:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationWorkItemStarted.authority_id /^investigation-authority:[0-9a-f]{64}$/": "minted_shape",
+      "InvestigationWorkItemStarted.work_item_id /^work-item:[0-9a-f]{64}$/": "minted_shape",
+      "SampleObservation.investigation_authority_id /^investigation-authority:[0-9a-f]{64}$/": "minted_shape",
+      "SampleObservation.materialization_receipt_id /^vcf-materialization-receipt:[0-9a-f]{64}$/": "minted_shape",
+      "SampleObservation.materialization_receipt_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "SampleObservation.proposal_id /^investigation-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "SampleObservation.review_response_id /^investigation-review-response:[0-9a-f]{64}$/": "minted_shape",
+      "SampleObservation.work_item_id /^work-item:[0-9a-f]{64}$/": "minted_shape"
+    },
+    "investigation/investigation_observation_commands.py": {
+      "MaterializationObservationEvidence.receipt_id /^vcf-materialization-receipt:[0-9a-f]{64}$/": "minted_shape"
+    },
+    "investigation/investigation_policy.py": {
+      "POLICY_FRONTIERS": "vocabulary"
+    },
+    "investigation/investigation_request.py": {
+      "RESEARCHER_INSTRUCTION_ACTIONS": "vocabulary",
+      "RSID_CANONICAL_PATTERN": {
+        "class": "format",
+        "note": "dbSNP rsID (rs + digits)"
+      },
+      "_POSITION_STEPS": "vocabulary",
+      "_RSID_TOKEN": "membership",
+      "_STATED_ALLELE": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      }
+    },
+    "investigation/investigation_sources.py": {
+      "EVA_CONTIG_NAMINGS": {
+        "class": "format",
+        "note": "EVA identifiers API's documented contigNamingConvention values, passed through verbatim (#468 spike, owner R3)"
+      },
+      "_EVA_GETS": "vocabulary",
+      "_POSITION_GETS": "vocabulary",
+      "_PositionLookup.read_reference /[ACGTN]+/": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      },
+      "_SPDI_ALLELE": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      },
+      "_region /[ACGTN]+/": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      },
+      "EVA_VARIANT_TYPES": {
+        "class": "format",
+        "note": "EVA identifiers API's documented variantType values for its variants at a position, passed through verbatim (#469 spike, owner R1 a)"
+      },
+      "_SOURCE_NAMES": "vocabulary",
+      "EVA_NAMING_COLUMNS": {
+        "class": "format",
+        "note": "the NCBI assembly-report column that names a sequence as each EVA contigNamingConvention value does, for EVA's by-position referenceName (#469 review r1 SP4 a)"
+      }
+    },
+    "investigation/item_evidence.py": {
+      "_AUTHORITY": "minted_shape",
+      "_FACTS": "vocabulary",
+      "_PREPARATION": "minted_shape",
+      "_RUN_ARGUMENTS": "vocabulary",
+      "_SETTLED": "vocabulary",
+      "_SHARED_TERMINALS": "vocabulary",
+      "_WORK_ITEM": "minted_shape"
+    },
+    "investigation/item_history.py": {
+      "TARGET_ANSWERS": "vocabulary",
+      "TARGET_FREE_RESULTS": "vocabulary",
+      "TARGET_TIED_FACTS": "vocabulary",
+      "_ATTEMPT_BOOKKEEPING": "vocabulary",
+      "_REVIEW_ANSWERS": "vocabulary"
+    },
+    "investigation/member_context.py": {
+      "SOURCE_RESULTS": "vocabulary",
+      "_INSTRUCTIONS": "vocabulary"
+    },
+    "investigation/observation_defaults.py": {
+      "CoverageDefaults.excluded_flags": {
+        "class": "decision",
+        "cite": "owner #344 Q9: named observation defaults (SAM FLAG names)"
+      }
+    },
+    "investigation/observation_inputs.py": {
+      "_SCOPE_ITERATION": "vocabulary"
+    },
+    "investigation/observation_tools.py": {
+      "ObservationToolsProbe.receipt_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ProbedTool.executable_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_TOOLS": "vocabulary",
+      "_versions /Using htslib ([0-9]+(?:\\.[0-9]+)+)/": {
+        "class": "format",
+        "note": "htslib version line of bcftools/samtools --version"
+      },
+      "_versions /f'{name} ([0-9]+(?:\\\\.[0-9]+)+)'/": {
+        "class": "format",
+        "note": "bcftools/samtools --version first line"
+      }
+    },
+    "investigation/qualification_origins.py": {
+      "_JUDGED": "vocabulary",
+      "_SOURCE_WORDS": "vocabulary"
+    },
+    "investigation/run_health.py": {
+      "_SHA256": "minted_shape",
+      "_ACTIONS": "vocabulary",
+      "FACTS": "vocabulary"
+    },
+    "investigation/run_measurement.py": {
+      "SAM_FLAGS": {
+        "class": "format",
+        "note": "SAM flag bits by the names the SAM specification and samtools give them"
+      },
+      "_DEPTH_DEFAULT_EXCLUDED": {
+        "class": "format",
+        "note": "the flags samtools depth leaves out by default, which -g clears"
+      }
+    },
+    "investigation/run_reference.py": {
+      "CARRIED_OPERATIONS": "vocabulary",
+      "_BELOW_SPECIES": {
+        "class": "format",
+        "note": "NCBI Taxonomy's rank names below species"
+      }
+    },
+    "investigation/scientific_continuation.py": {
+      "ContinuationCandidateEvidence.content_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ContinuationInput.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ContinuationRetrievedSource.content_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ContinuationSourceAdmission.authority_locator_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ContinuationSourceAdmission.checksum_authority_locator_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ContinuationSourceAdmission.content_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ScientificContinuationPacket.continuation_id /^scientific-continuation:[0-9a-f]{64}$/": "minted_shape",
+      "ScientificContinuationPublicationReceipt.sha256 /^[0-9a-f]{64}$/": "minted_shape"
+    },
+    "investigation/state_words.py": {
+      "ITEM_WORDS": "vocabulary",
+      "_REQUEST_WORDS": "vocabulary"
+    },
+    "investigation/vcf_materialization.py": {
+      "VcfMaterializationReceipt.receipt_id /^vcf-materialization-receipt:[0-9a-f]{64}$/": "minted_shape",
+      "VcfMaterializationReceipt.source_candidate_receipt_id /^vcf-materialization-receipt:[0-9a-f]{64}$/": "minted_shape"
+    },
+    "investigation/vcf_observation.py": {
+      "AttestedPlainVcf.acquisition_receipt_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "AttestedPlainVcf.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "BcftoolsRuntimeBinding.executable_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "BcftoolsRuntimeBinding.probe_receipt_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "LocalFileObservation.coherent_state /[0-9a-f]{64}/": "minted_shape",
+      "ObserveRegionInput.reference_bases /^[ACGTN]+$/": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      },
+      "PreparedVcfObservationReceipt.acquisition_receipt_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "PreparedVcfObservationReceipt.continuation_id /^(?:scientific-continuation|investigation-authority|vcf-observation-mechanics):[0-9a-f]{64}$/": "minted_shape",
+      "PreparedVcfObservationReceipt.receipt_id /^vcf-observation-preparation:[0-9a-f]{64}$/": "minted_shape",
+      "ProcessInvocationReceipt.stderr_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ProcessInvocationReceipt.stdout_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "VariantObservationRefused.continuation_id /^(?:scientific-continuation|investigation-authority|vcf-observation-mechanics):[0-9a-f]{64}$/": "minted_shape",
+      "VariantObservationRefused.preparation_receipt_id /^vcf-observation-preparation(?:-failure)?:[0-9a-f]{64}$/": "minted_shape",
+      "VcfRegionObserved.preparation_receipt_id /^vcf-observation-preparation:[0-9a-f]{64}$/": "minted_shape",
+      "VcfWindowObserved.preparation_receipt_id /^vcf-observation-preparation:[0-9a-f]{64}$/": "minted_shape",
+      "VcfWindowQueryRefused.preparation_receipt_id /^vcf-observation-preparation:[0-9a-f]{64}$/": "minted_shape",
+      "_CALLED_ALLELE": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      },
+      "_ObservationBase.continuation_id /^(?:scientific-continuation|investigation-authority|vcf-observation-mechanics):[0-9a-f]{64}$/": "minted_shape",
+      "_ObservationBase.preparation_receipt_id /^vcf-observation-preparation:[0-9a-f]{64}$/": "minted_shape",
+      "_TARGET_ALLELE": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      },
+      "_validate_authority_id_kind /investigation-authority:[0-9a-f]{64}/": "minted_shape",
+      "_validate_authority_id_kind /scientific-continuation:[0-9a-f]{64}/": "minted_shape",
+      "_validate_authority_id_kind /vcf-observation-mechanics:[0-9a-f]{64}/": "minted_shape",
+      "_validate_authority_identity /[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/": "minted_shape",
+      "RegionsFile.sha256 /^[0-9a-f]{64}$/": "minted_shape"
+    },
+    "investigation/vcf_table_reading.py": {
+      "_SHARED_TERMINALS": "vocabulary"
+    },
+    "paper_intake/documents.py": {
+      "_LinkPreservingText._BLOCK": {
+        "class": "format",
+        "note": "HTML block elements (HTML Living Standard)"
+      },
+      "_LinkPreservingText._SKIP": {
+        "class": "format",
+        "note": "HTML elements that hold no document text"
+      },
+      "_MARKDOWN_ESCAPE": {
+        "class": "format",
+        "note": "markdown backslash escapes (CommonMark)"
+      },
+      "_SHEET_HEADING": {
+        "class": "format",
+        "note": "the sheet heading workbook_to_text writes"
+      },
+      "_TEXT_EXTENSIONS": {
+        "class": "format",
+        "note": "plain-text file suffixes, read as text"
+      },
+      "_column_number /[A-Z]+/": {
+        "class": "format",
+        "note": "SpreadsheetML cell reference (ECMA-376)"
+      },
+      "_flat /[\\t\\r\\n]/": {
+        "class": "format",
+        "note": "line and tab characters inside one cell"
+      },
+      "_worksheets /\\D/": {
+        "class": "format",
+        "note": "SpreadsheetML worksheet part number (ECMA-376)"
+      },
+      "_worksheets /xl/worksheets/sheet\\d+\\.xml/": {
+        "class": "format",
+        "note": "SpreadsheetML worksheet part name (ECMA-376)"
+      },
+      "document_text /charset=([\\w.-]+)/": {
+        "class": "format",
+        "note": "HTTP Content-Type charset parameter (RFC 9110)"
+      },
+      "html_to_text /\\[([^\\]]*)\\]\\(([^)]+)\\)/": {
+        "class": "format",
+        "note": "the markdown link html_to_text writes"
+      },
+      "html_to_text /\\n\\s*\\n+/": {
+        "class": "format",
+        "note": "blank lines between HTML blocks"
+      },
+      "normalize_text /(?<![*\\w])\\*([ACGTN]{1,20})\\*(?![*\\w])/": {
+        "class": "format",
+        "note": "markdown emphasis around a base run"
+      }
+    },
+    "paper_intake/journey.py": {
+      "AMENDABLE": "vocabulary",
+      "PAYLOADS": "vocabulary",
+      "PaperDocumentRead.document_id /^(main|supp:.+)$/": "minted_shape",
+      "PaperDocumentRead.text_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "PaperDocumentRetained.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "PaperRecorded.paper_id /^paper-[0-9a-f]{64}$/": "minted_shape",
+      "PaperSearchInput.subject_key /^[a-z][a-z0-9_]{0,79}$/": "minted_shape",
+      "REVIEW_ACTIONS": "vocabulary",
+      "_STEPS": "vocabulary"
+    },
+    "paper_intake/tools.py": {
+      "PAPER_TOOLS": "vocabulary",
+      "PaperStageOutput.evidence_types": "vocabulary",
+      "_SETTLED": "vocabulary",
+      "_TO_FIND": "vocabulary",
+      "find_paper /^[a-z][a-z0-9_]{0,79}$/": "minted_shape"
+    },
+    "paper_reading/answer.py": {
+      "REFUSALS": "vocabulary",
+      "UNRESOLVED": "vocabulary",
+      "_LOCUS_SLOTS": "vocabulary",
+      "_QUOTE_SLOTS": "vocabulary",
+      "_ROW_SPAN": "minted_shape",
+      "_bounded /[A-Za-z0-9_-]/": "membership",
+      "_bounded /[A-Za-z0-9_]/": "membership",
+      "_bounded /[\\w.,]/": "membership",
+      "_bounded /\\w|[.,]\\d/": "membership",
+      "_bounded /f'\\\\d{group}$'/": "membership",
+      "_bounded /f'{group}\\\\d{{3}}(?!\\\\d)'/": "membership",
+      "_read /[A-Za-z0-9][A-Za-z0-9_.\\-]*/": {
+        "class": "format",
+        "note": "a gene or genome version token as written, read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_read /[ACGTN]+\\s?/\\s?[ACGTN]+/": {
+        "class": "format",
+        "note": "bases and a written pair of them (A>G, A/C), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_read /\\s?:\\s?(?=\\d)/": {
+        "class": "format",
+        "note": "a contig as written (chr or chromosome and a name, an accession, a name before :position), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_repair_line /[a-z_]+/": "vocabulary",
+      "alias_written /f'(?<!\\\\w){re.escape(alias)}(?!\\\\w)'/": "membership",
+      "contig_name /^(?:chr(?:omosome)?)\\s*/": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; contig spellings equated when findings merge (ADR 0046 One variant, one finding), until #467's named sequence reaches the reader"
+      }
+    },
+    "paper_reading/contracts.py": {
+      "ReadDocument.text_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ReadingItem.item_id /^(paper|area-[1-9]\\d*|id-[1-9]\\d*)$/": "minted_shape"
+    },
+    "paper_reading/journey.py": {
+      "PAYLOADS": "vocabulary",
+      "PaperReadingStarted.paper_id /^paper-[0-9a-f]{64}$/": "minted_shape",
+      "TERMINAL_ANSWERS": "vocabulary",
+      "_STEPS": "vocabulary"
+    },
+    "paper_reading/question.py": {
+      "_BETWEEN_IDS": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; ADR 0046 List intent in code (owner #344: no thousand-call reply)"
+      },
+      "_LISTED_ID": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; ADR 0046 List intent in code (owner #344: no thousand-call reply)"
+      }
+    },
+    "paper_reading/reader.py": {
+      "_HEADING": {
+        "class": "format",
+        "note": "markdown ATX heading (CommonMark), as the converters write sections"
+      },
+      "_LABEL": {
+        "class": "format",
+        "note": "a table's caption label as journals print it (Table 1, Supplementary Table S2), shown as the table's location"
+      },
+      "_Lines.__init__ /\n/": {
+        "class": "format",
+        "note": "line breaks of the stored text"
+      },
+      "_POSITION": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; ADR 0046 List intent in code (owner #344: no thousand-call reply)"
+      },
+      "_ROW_SPAN": "minted_shape",
+      "_RSID": {
+        "class": "format",
+        "note": "dbSNP rsID syntax"
+      },
+      "_TEXT_SPAN": "minted_shape",
+      "_TOKEN": "membership",
+      "_word /[\\d,]+/": "membership",
+      "_word_pattern /f'(?<![A-Za-z0-9_])(?<![A-Za-z0-9_][.-]){re.escape(word)}(?![A-Za-z0-9_]|[.-][A-Za-z0-9_])'/": "membership",
+      "_word_pattern /f'(?<![\\\\d,]){body}(?![\\\\d]|,\\\\d)'/": "membership"
+    },
+    "paper_reading/reading.py": {
+      "_ID_POSITION": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; ADR 0046 List intent in code (owner #344: no thousand-call reply)"
+      },
+      "_NUMBER": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; ADR 0046 List intent in code (owner #344: no thousand-call reply)"
+      },
+      "_RUN_ARGUMENTS": "vocabulary",
+      "_TERMINALS": "vocabulary"
+    },
+    "paper_reading/targets.py": {
+      "_DNA_INDEL": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; a paper target's HGVS kind (ADR 0049 Paper targets), until #473's NCBI HGVS service reaches the reader"
+      },
+      "_DNA_SUBSTITUTION": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; a paper target's HGVS kind (ADR 0049 Paper targets), until #473's NCBI HGVS service reaches the reader"
+      },
+      "_VCF_BASES": {
+        "class": "format",
+        "note": "VCF REF and ALT bases (VCF 4.x)"
+      }
+    },
+    "paper_reading/tools.py": {
+      "READING_TOOLS": "vocabulary"
+    },
+    "parabricks/bwa_index.py": {
+      "_RETAINED": "vocabulary"
+    },
+    "parabricks/capability_policy.py": {
+      "_SHA256": "minted_shape",
+      "_TIMESTAMP": {
+        "class": "format",
+        "note": "ISO 8601 UTC timestamp"
+      }
+    },
+    "parabricks/configuration.py": {
+      "ParabricksLaunch.object_scope /^[a-z0-9][a-z0-9-]*(?:/[a-z0-9][a-z0-9-]*)*$/": "safety",
+      "_BUILD_LAUNCH_DEFAULTS": "vocabulary",
+      "_run_token /[^a-z0-9]+/": "safety"
+    },
+    "parabricks/execution_contact_accounting.py": {
+      "_CREDENTIAL_NAMES": "vocabulary",
+      "_EXECUTION_PATTERN": "minted_shape",
+      "_NEBIUS_OPERATIONS": "vocabulary",
+      "_PARSE_CLASSIFICATIONS": "vocabulary",
+      "_REGISTRY_OPERATIONS": "vocabulary",
+      "_S3_OPERATIONS": "vocabulary",
+      "_SHA256_PATTERN": "minted_shape",
+      "_UNIT_PATTERN": "minted_shape"
+    },
+    "parabricks/execution_observations.py": {
+      "WorkerSourceAcquiredObserved.md5 /^[0-9a-f]{32}$/": "minted_shape",
+      "WorkerSourceMismatchObserved.expected_md5 /^[0-9a-f]{32}$/": "minted_shape",
+      "WorkerSourceMismatchObserved.observed_md5 /^[0-9a-f]{32}$/": "minted_shape",
+      "_MARKER": "minted_shape",
+      "_SHA256": "minted_shape",
+      "_TERMINAL_FAILURE": "vocabulary",
+      "_TERMINAL_SUCCESS": "vocabulary"
+    },
+    "parabricks/execution_package.py": {
+      "ExecutionInputSource.file_id /^execution-file:[0-9a-f]{64}$/": "minted_shape",
+      "ExecutionInputSource.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ExecutionPackage.package_id /^execution-package:[0-9a-f]{64}$/": "minted_shape",
+      "ExecutionPackageSourcePlan.planned_proposal_id /^execution-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "ExecutionReference.source_admission_id /^reference-source-admission:[0-9a-f]{64}$/": "minted_shape"
+    },
+    "parabricks/execution_planning_action_policy.py": {
+      "_EXECUTION_VALUES": "vocabulary",
+      "_STEPS": "vocabulary"
+    },
+    "parabricks/execution_planning_journey.py": {
+      "EXECUTION_OUTPUT_FORMATS": "vocabulary",
+      "_FACTS": "vocabulary",
+      "ORGANISM_RECORD_EVENTS": "vocabulary"
+    },
+    "parabricks/execution_proposal.py": {
+      "ExecutionAuthority.authority_id /^execution-authority:[0-9a-f]{64}$/": "minted_shape",
+      "ExecutionProposal.proposal_id /^execution-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "_JUDGED": "vocabulary"
+    },
+    "parabricks/execution_runtime.py": {
+      "RuntimeImage.provider_image_index_digest /^sha256:[0-9a-f]{64}$/": "minted_shape",
+      "RuntimeImage.worker_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_disk_size_bytes /([0-9]+(?:\\.[0-9]+)?)([KMGTPE]i|[kMGTPE])?/": {
+        "class": "format",
+        "note": "Kubernetes resource quantity"
+      }
+    },
+    "parabricks/h100_recipe.py": {
+      "H100ExecutionRequest.deterministic_job_name /^bio-neb-h100-[0-9a-f]{16}$/": "minted_shape",
+      "H100ExecutionRequest.request_id /^h100-execution-request:[0-9a-f]{64}$/": "minted_shape",
+      "H100SubmissionReceipt.create_response_sha256 /^[0-9a-f]{64}$/": "minted_shape"
+    },
+    "parabricks/object_storage_tracer.py": {
+      "ObjectStorageTracerIdentity.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ObjectStorageTracerReceipt.data_audit_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ObjectStorageTracerReview.receipt_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_OFFLINE_RETRY_EVIDENCE": "vocabulary",
+      "_UNRELATED_METADATA": "vocabulary"
+    },
+    "parabricks/planning_hitl.py": {
+      "_PLAN_ID": "minted_shape",
+      "_REQUIREMENT_ID": "minted_shape",
+      "_SUBJECT_KEY": "minted_shape"
+    },
+    "parabricks/planning_readiness.py": {
+      "_PREPARATION_INFORMATION": "vocabulary"
+    },
+    "parabricks/proposal_information.py": {
+      "AcceptedPreParabricksEvidence.binding_id /^adapter-acceptance-binding:[0-9a-f]{64}$/": "minted_shape",
+      "AcceptedPreParabricksValidation.binding_id /^adapter-acceptance-binding:[0-9a-f]{64}$/": "minted_shape",
+      "AssertedSampleDraft.value /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/": {
+        "class": "format",
+        "note": "SAM @RG SM sample name the aligner writes (ADR 0049 keeps it)"
+      },
+      "_FACT_SLOT_KINDS": "vocabulary",
+      "_KEY": "minted_shape",
+      "_REQUIRED_KIND_ORDER": "vocabulary",
+      "_REQUIREMENT_IDENTIFIER_RULES": "vocabulary"
+    },
+    "parabricks/recipe_resources.py": {
+      "CapabilityGrounding.plan_id /^plan_[0-9a-f]{64}$/": "minted_shape",
+      "CapabilityGrounding.requirement_id /^requirement_[0-9a-f]{32}$/": "minted_shape",
+      "CapabilityGrounding.subject_key /^[a-z][a-z0-9_]{0,79}$/": "minted_shape",
+      "CapabilityImageClaim.image_index_digest /^sha256:[0-9a-f]{64}$/": "minted_shape",
+      "CapabilityImageClaim.platform_child_digest /^sha256:[0-9a-f]{64}$/": "minted_shape",
+      "CapabilityImageClaim.worker_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "CapabilitySource.request_identity /^[0-9a-f]{64}$/": "minted_shape",
+      "CapabilitySource.response_digest /^[0-9a-f]{64}$/": "minted_shape",
+      "CapabilitySource.snapshot_id /^[0-9a-f]{64}$/": "minted_shape",
+      "CapabilitySourceManifestEntry.content_digest /^[0-9a-f]{64}$/": "minted_shape",
+      "CapabilityToolClaim.executable_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "RecipeCandidate.candidate_id /^recipe-candidate:[0-9a-f]{64}$/": "minted_shape",
+      "RecipeCandidate.snapshot_id /^[0-9a-f]{64}$/": "minted_shape",
+      "RecipeCandidate.source_evidence_id /^recipe-evidence:[0-9a-f]{64}$/": "minted_shape",
+      "RecipeWorkItem.work_item_id /^recipe-work:[0-9a-f]{64}$/": "minted_shape",
+      "ResourceCandidate.candidate_id /^resource-candidate:[0-9a-f]{64}$/": "minted_shape",
+      "ResourceCandidate.snapshot_id /^[0-9a-f]{64}$/": "minted_shape",
+      "ResourceCandidate.source_evidence_id /^resource-evidence:[0-9a-f]{64}$/": "minted_shape",
+      "ResourceWorkItem.work_item_id /^resource-work:[0-9a-f]{64}$/": "minted_shape"
+    },
+    "parabricks/reference_recipe.py": {
+      "ExistingObjectReferenceSource.expected_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ExistingObjectReferenceSource.plain_fasta_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "PreparedReferenceCompatibility.worker_image_child_digest /^sha256:[0-9a-f]{64}$/": "minted_shape",
+      "PreparedReferenceManifest.source_md5 /^[0-9a-f]{32}$/": "minted_shape",
+      "PublicUrlReferenceSource.url /^https:///": "safety",
+      "ReferencePreparationRequest.authority_id /^execution-authority:[0-9a-f]{64}$/": "minted_shape",
+      "ReferencePreparationRequest.bundle_id /^[0-9a-f]{64}$/": "minted_shape",
+      "ReferencePreparationRequest.configuration_id /^reference-preparation-configuration:[0-9a-f]{64}$/": "minted_shape",
+      "ReferencePreparationRequest.deterministic_job_name /^bio-neb-(?:ref|cpu)-[0-9a-f]{16}$/": "minted_shape",
+      "ReferencePreparationRequest.proposal_id /^execution-proposal:[0-9a-f]{64}$/": "minted_shape",
+      "ReferencePreparationRequest.request_id /^reference-preparation-request:[0-9a-f]{64}$/": "minted_shape",
+      "ReferencePreparationRequest.source_md5 /^[0-9a-f]{32}$/": "minted_shape",
+      "ReferencePreparationTerminalSnapshot.request_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "ReferencePreparationTerminalSnapshot.worker_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_SHA256": "minted_shape",
+      "_TERMINAL_PROVIDER_STATES": "vocabulary"
+    },
+    "parabricks/reference_stages.py": {
+      "_NAMED_FORMATS": "vocabulary",
+      "_SOURCE_REFUSALS": "vocabulary"
+    },
+    "parabricks/requirement_resolution.py": {
+      "ExecutionRequirementResolution.resolution_id /^execution-resolution:[0-9a-f]{64}$/": "minted_shape",
+      "RequirementValue.value_id /^requirement-value:[0-9a-f]{64}$/": "minted_shape",
+      "ScientificInvestigationHandoff.handoff_id /^scientific-investigation:[0-9a-f]{64}$/": "minted_shape",
+      "_NON_EXECUTION_KINDS": "vocabulary",
+      "_RESEARCHER_SOURCES": "vocabulary"
+    },
+    "parabricks/reusable_object_storage_parabricks.py": {
+      "_FORBIDDEN_REQUEST_KEYS": "vocabulary",
+      "_SHA256": "minted_shape",
+      "_VALIDATION_KINDS": "vocabulary"
+    },
+    "parabricks/review.py": {
+      "_REQUEST_EVENT_TYPES": "vocabulary"
+    },
+    "parabricks/run_method.py": {
+      "GERMLINE_COMMAND": "vocabulary"
+    },
+    "parabricks/runner.py": {
+      "_METHODS": "vocabulary"
+    },
+    "parabricks/slot_satisfaction.py": {
+      "SINGLE_REQUIREMENT_KINDS": "vocabulary",
+      "_REMAINING_VALIDATION": "vocabulary",
+      "_ROUTES_WHEN_ASSERTED": "vocabulary",
+      "_ROUTES_WHEN_TO_FIND": "vocabulary",
+      "_TOOLS_BY_KIND": "vocabulary"
+    },
+    "parabricks/storage_readiness.py": {
+      "DirectStorageReadinessReview.receipt_sha256 /^[0-9a-f]{64}$/": "minted_shape"
+    },
+    "parabricks/worker_exchange.py": {
+      "AcquiredSource.md5 /^[0-9a-f]{32}$/": "minted_shape",
+      "ObservedObject.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "PREPARATION_COMMANDS": "vocabulary",
+      "PREPARED_ROLES": "vocabulary",
+      "PublicReferenceDownload.md5 /^[0-9a-f]{32}$/": "minted_shape"
+    },
+    "parabricks/worker_request.py": {
+      "WorkerRequestIdentity.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_exact_object /[0-9a-f]{64}/": "minted_shape",
+      "_preparation_source_checked /[0-9a-f]{64}/": "minted_shape"
+    },
+    "parabricks/worker_request_placement.py": {
+      "_SAFE_COMPONENT": "safety"
+    },
+    "prebuilt_index/catalogue.py": {
+      "INDEX_SUFFIXES": "vocabulary",
+      "REPOSITORIES": {
+        "class": "format",
+        "note": "Galaxy's datacache repositories: each CVMFS prefix and its HTTP mirror"
+      }
+    },
+    "prebuilt_index/contigs.py": {
+      "REFERENCE_ROLES": {
+        "class": "decision",
+        "cite": "owner #464 (2026-10-26, 2026-10-29): the Run's reference is its assembled molecules and unlocalized/unplaced scaffolds by NCBI's Sequence-Role; alt loci and patches left out"
+      }
+    },
+    "prebuilt_index/rename.py": {
+      "_HEADER_NAME": {
+        "class": "format",
+        "note": "FASTA header line: '>' then the record name, its first word"
+      }
+    },
+    "providers/eva_investigation.py": {
+      "_ANSWERS": "vocabulary",
+      "_PLACE": {
+        "class": "format",
+        "note": "EVA variant id assembly:contig:start:kind"
+      }
+    },
+    "providers/job_observations.py": {
+      "_SHA256": "minted_shape"
+    },
+    "providers/ncbi_assembly_report.py": {
+      "COLUMNS": {
+        "class": "format",
+        "note": "NCBI's assembly report column names, as its header line writes them"
+      }
+    },
+    "providers/ncbi_datasets.py": {
+      "GENOME_REPORT_PARAMETERS": {
+        "class": "format",
+        "note": "NCBI Datasets' documented query parameters of a taxon's genome reports (OpenAPI v2)"
+      },
+      "_CURRENT_COMPANION_KEYS": {
+        "class": "format",
+        "note": "NCBI Datasets file types per companion role"
+      },
+      "_GENOMES_ACCESSION": {
+        "class": "format",
+        "note": "NCBI genomes FTP directory from an assembly accession"
+      },
+      "_genomes_directory /[^A-Za-z0-9._-]/": "safety",
+      "genome_report_url /[1-9][0-9]*/": "safety"
+    },
+    "providers/ncbi_investigation.py": {
+      "_ACCESSION": {
+        "class": "format",
+        "note": "INSDC assembly accession GCA_/GCF_"
+      },
+      "_SPAN": {
+        "class": "format",
+        "note": "NCBI reference span sequence:start:length"
+      },
+      "_SPDI": {
+        "class": "format",
+        "note": "NCBI SPDI sequence:position:deleted:inserted"
+      }
+    },
+    "providers/nebius_authentication.py": {
+      "_PROBE_ARGUMENTS": "vocabulary"
+    },
+    "providers/nebius_common.py": {
+      "RegistryResponseEvidence.body_digest /^sha256:[0-9a-f]{64}$/": "minted_shape",
+      "RegistryResponseEvidence.declared_digest /^sha256:[0-9a-f]{64}$/": "minted_shape",
+      "RegistryResponseEvidence.expected_digest /^sha256:[0-9a-f]{64}$/": "minted_shape",
+      "RegistryResponseEvidence.redirect_from_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "RegistryResponseEvidence.request_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_RPC_CODE_MARKER": {
+        "class": "format",
+        "note": "Nebius CLI error text"
+      },
+      "_RPC_CODE_NAME": {
+        "class": "format",
+        "note": "Nebius CLI error text"
+      },
+      "_TRACE_ID_MARKER": {
+        "class": "format",
+        "note": "Nebius CLI error text"
+      },
+      "_TRACE_ID_VALUE": {
+        "class": "format",
+        "note": "Nebius CLI error text"
+      }
+    },
+    "providers/nebius_context.py": {
+      "NebiusExecutionContextSelection.nebius_executable_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "NebiusObjectStorageTopologyCandidate.candidate_id /^nebius-object-storage-topology:[0-9a-f]{64}$/": "minted_shape"
+    },
+    "providers/nebius_model_endpoint.py": {
+      "_FUNCTION_TAGS": {
+        "class": "format",
+        "note": "tool-call text forms a model endpoint returns"
+      },
+      "_NAME_SPELLING": {
+        "class": "format",
+        "note": "tool-call text forms a model endpoint returns"
+      },
+      "_NAME_WORD": {
+        "class": "format",
+        "note": "tool-call text forms a model endpoint returns"
+      },
+      "_PARAMETER_TAGS": {
+        "class": "format",
+        "note": "tool-call text forms a model endpoint returns"
+      },
+      "_TEXT_CALL_START": {
+        "class": "format",
+        "note": "tool-call text forms a model endpoint returns"
+      },
+      "_TOOL_CALL_TAGS": {
+        "class": "format",
+        "note": "tool-call text forms a model endpoint returns"
+      }
+    },
+    "providers/nebius_object_storage.py": {
+      "PartsDownload.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_ABSENT_CODES": {
+        "class": "format",
+        "note": "S3 error codes and HTTP statuses"
+      },
+      "_ACCESS_CODES": "vocabulary",
+      "_COLLISION_CODES": {
+        "class": "format",
+        "note": "S3 error codes and HTTP statuses"
+      },
+      "_S3_EXECUTION_CONTACT_OPERATIONS": "vocabulary",
+      "_SHA256": "minted_shape",
+      "_TRANSIENT_CODES": {
+        "class": "format",
+        "note": "S3 error codes and HTTP statuses"
+      }
+    },
+    "providers/nebius_registry_v2.py": {
+      "NebiusRegistryV2Resolver.__call__ /sha256:[0-9a-f]{64}/": "minted_shape",
+      "NebiusRegistryV2Resolver._bearer_token /Bearer realm=\"([^\"]+)\",service=\"([^\"]+)\"(?:,scope=\"([^\"]+)\")?/": {
+        "class": "format",
+        "note": "OCI registry API (Docker Registry HTTP API V2)"
+      },
+      "NebiusRegistryV2Resolver._exchange /sha256:[0-9a-f]{64}/": "minted_shape",
+      "NebiusRegistryV2Resolver._split_reference /[A-Za-z0-9_][A-Za-z0-9_.-]{0,63}/": {
+        "class": "format",
+        "note": "OCI registry API (Docker Registry HTTP API V2)"
+      }
+    },
+    "providers/nebius_serverless_job_contact.py": {
+      "_JOB_ID_PATTERN": "minted_shape",
+      "_TERMINAL_FAILURE": "vocabulary",
+      "_TERMINAL_SUCCESS": "vocabulary"
+    },
+    "providers/paper_sources.py": {
+      "DOI_PATTERN": {
+        "class": "format",
+        "note": "DOI syntax"
+      },
+      "PAPER_DOWNLOAD_SURFACES": "vocabulary",
+      "PMCID_PATTERN": {
+        "class": "format",
+        "note": "PMC id syntax"
+      },
+      "PMID_PATTERN": {
+        "class": "format",
+        "note": "PubMed id syntax"
+      },
+      "_BUCKET_KEY": {
+        "class": "format",
+        "note": "PMC open-data bucket key"
+      },
+      "_EUROPE_PMC_ROUTES": "vocabulary",
+      "_IMAGE": {
+        "class": "format",
+        "note": "image file suffixes"
+      },
+      "_OPERATION_HOSTS": "vocabulary",
+      "_PMCID": {
+        "class": "format",
+        "note": "PMC id syntax"
+      },
+      "_SEARCH_FIELDS": "vocabulary",
+      "parse_pmc_open_data_listing /f'{re.escape(pmcid)}\\\\.(\\\\d+)/(.+)'/": {
+        "class": "format",
+        "note": "PMC open-data listing key"
+      }
+    },
+    "providers/runtime.py": {
+      "NebiusCliTarget.executable_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "NebiusCliTarget.registry_id /^registry-[a-z0-9]+$/": "minted_shape",
+      "NebiusCliTarget.subnet_id /^vpcsubnet-[a-z0-9]+$/": "minted_shape",
+      "RunObjectStorageTarget.bucket /^[a-z0-9](?:[a-z0-9-]{1,61}[a-z0-9])$/": {
+        "class": "format",
+        "note": "Nebius resource ids and S3 bucket names"
+      }
+    },
+    "providers/source_transport.py": {
+      "HOSTS": "vocabulary",
+      "SourceHost.path_prefixes": "safety"
+    },
+    "reference_discovery/reference_companions_tool.py": {
+      "CompanionSourceRecord.authority_locator /^https:///": "safety",
+      "CompanionSourceRecord.checksum_authority_locator /^https:///": "safety",
+      "CompanionSourceRecord.source_locator /^https:///": "safety",
+      "CompanionWorkItem.work_item_id /^companion-work:[0-9a-f]{64}$/": "minted_shape",
+      "_ASSEMBLY_ACCESSION": {
+        "class": "format",
+        "note": "INSDC assembly accession GCA_/GCF_"
+      },
+      "_CHECKSUMS": {
+        "class": "format",
+        "note": "checksum hex lengths (md5, sha256, sha512)"
+      },
+      "_PLAN_ID": "minted_shape",
+      "_REQUIREMENT_ID": "minted_shape",
+      "_SUBJECT_KEY": "minted_shape"
+    },
+    "reference_discovery/reference_facts_journey.py": {
+      "_PREBUILT_FACTS": "vocabulary",
+      "_ROLE_SETS": "vocabulary"
+    },
+    "reference_discovery/reference_identity_tool.py": {
+      "ASSEMBLY_ACCESSION_PATTERN": {
+        "class": "format",
+        "note": "INSDC assembly accession GCA_/GCF_"
+      },
+      "ResolvedTaxonEvidence.candidate_id /^taxon:ncbitaxon:[1-9][0-9]*$/": "minted_shape",
+      "SourceObservation.citation_url /^https:///": "safety",
+      "SourceObservation.request_identity /^https:///": "safety",
+      "SourceObservation.response_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "TaxonCandidate.candidate_id /^taxon:ncbitaxon:[1-9][0-9]*$/": "minted_shape",
+      "_ASSEMBLY_ACCESSION": {
+        "class": "format",
+        "note": "INSDC assembly accession GCA_/GCF_"
+      },
+      "_ISO_DATE": {
+        "class": "format",
+        "note": "ISO 8601 calendar date NCBI Datasets' release-date filters take"
+      },
+      "_PLAN_ID": "minted_shape",
+      "_REQUIREMENT_ID": "minted_shape",
+      "_SAMPLE_IDENTIFIER": {
+        "class": "format",
+        "note": "SAM @RG SM sample name the aligner writes (ADR 0049 keeps it)"
+      },
+      "_SAMPLE_TOKEN": "membership",
+      "_STATED_ASSEMBLY_ACCESSION": "membership",
+      "_SUBJECT_KEY": "minted_shape",
+      "_TAXON_CANDIDATE": "minted_shape",
+      "_WHOLE_NUMBER": "membership"
+    },
+    "reference_discovery/reference_journey.py": {
+      "ReferenceSourceRetrieved.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_FACT_TYPES": "vocabulary",
+      "_REQUIREMENT_ID": "minted_shape",
+      "_SOURCE_LOOKUP_FACTS": "vocabulary",
+      "_SUBJECT_KEY": "minted_shape"
+    },
+    "reference_discovery/reference_source.py": {
+      "ReferenceSourceAdmission.admission_id /^reference-source-admission:[0-9a-f]{64}$/": "minted_shape"
+    },
+    "reference_discovery/reference_tools.py": {
+      "<module> /^\\S(.*\\S)?$/": "vocabulary",
+      "PREBUILT_INDEX_TOOLS": "vocabulary",
+      "RECORDED_TOOLS": "vocabulary",
+      "REFERENCE_TOOLS": "vocabulary",
+      "_MEDIA": "vocabulary",
+      "_REFERENCE_CHOICES": "vocabulary",
+      "_REFERENCE_VALUES": "vocabulary"
+    },
+    "reporting/explanation.py": {
+      "RETIRED_EXPLANATION_SCHEMAS": "minted_shape",
+      "ReadableReportWritten.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_EXPLANATION": "minted_shape",
+      "_FACTS": "vocabulary",
+      "_OPEN": "vocabulary",
+      "_REPORT": "minted_shape",
+      "_REPORT_BASIS": "minted_shape",
+      "_RUN_ARGUMENTS": "vocabulary",
+      "_SHARED_TERMINALS": "vocabulary"
+    },
+    "reporting/explanation_agent.py": {
+      "_BOUND_TYPES": "vocabulary",
+      "_SHARED_TERMINALS": "vocabulary"
+    },
+    "reporting/explanation_draft.py": {
+      "_internal_term_issues /f'(?<![\\\\w-]){re.escape(term)}(?![\\\\w-])'/": "vocabulary"
+    },
+    "reporting/finalization.py": {
+      "FinalizationBasis.evidence_state_id /^investigation-collection-evidence:[0-9a-f]{64}$/": "minted_shape",
+      "FinalizationBasis.supersedes_basis_digest /^finalization-basis:[0-9a-f]{64}$/": "minted_shape",
+      "FinalizationEvidencePointer.sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "FinalizationReturnToInvestigation.basis_digest /^finalization-basis:[0-9a-f]{64}$/": "minted_shape",
+      "FinalizationReturnToInvestigation.correction_id /^finalization-correction:[0-9a-f]{64}$/": "minted_shape",
+      "FinalizationReviewReceipt.basis_digest /^finalization-basis:[0-9a-f]{64}$/": "minted_shape",
+      "FinalizationReviewRequestView.legal_actions": "vocabulary",
+      "FinalizationStop.basis_digest /^finalization-basis:[0-9a-f]{64}$/": "minted_shape",
+      "_ACCOUNTING_OMITTED_EVENTS": "vocabulary"
+    },
+    "reporting/grounded_report.py": {
+      "GroundedReport.finalization_basis_digest /^finalization-basis:[0-9a-f]{64}$/": "minted_shape",
+      "GroundedReport.report_basis_digest /^report-basis:[0-9a-f]{64}$/": "minted_shape",
+      "GroundedReport.report_digest /^grounded-report:[0-9a-f]{64}$/": "minted_shape",
+      "GroundedSampleObservation.materialization_receipt_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "_REPORT_SAFE_OBSERVATION_FIELDS": "vocabulary"
+    },
+    "reporting/readable_report.py": {
+      "_AUTHORITY": "vocabulary",
+      "_INDEX": "vocabulary",
+      "_OUTCOMES": "vocabulary",
+      "_PROVENANCE": "vocabulary"
+    },
+    "reporting/report_commands.py": {
+      "PublishGroundedReportCommand.report_basis_digest /^report-basis:[0-9a-f]{64}$/": "minted_shape",
+      "ReadReadableReportCommand.report_digest /^grounded-report:[0-9a-f]{64}$/": "minted_shape",
+      "ReopenGroundedReportCommand.report_digest /^grounded-report:[0-9a-f]{64}$/": "minted_shape",
+      "ReopenReportExplanationCommand.explanation_id /^report-explanation:[0-9a-f]{64}$/": "minted_shape",
+      "RequestReportExplanationCommand.report_digest /^grounded-report:[0-9a-f]{64}$/": "minted_shape",
+      "RequestReportExplanationCommand.supersedes_explanation_id /^report-explanation:[0-9a-f]{64}$/": "minted_shape",
+      "_UNWRITTEN": "vocabulary"
+    },
+    "target_request/ncbi_sources.py": {
+      "_BASES": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      }
+    },
+    "target_request/paper_targets.py": {
+      "PaperIdentity.paper_id /^paper-[0-9a-f]{64}$/": "minted_shape",
+      "is_protein_name /(?:^|:)p\\./": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; a paper target's HGVS kind (ADR 0049 Paper targets), until #473's NCBI HGVS service reaches the reader"
+      },
+      "reference_key /[\\s._-]+/": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; a stated reference's spellings are one candidate (ADR 0046 paper item)"
+      }
+    },
+    "target_request/paper_text.py": {
+      "_BASES": {
+        "class": "format",
+        "note": "bases and a written pair of them (A>G, A/C), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_CELL_CONTIG": {
+        "class": "format",
+        "note": "a contig as written (chr or chromosome and a name, an accession, a name before :position), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_CHANGE_BASES": {
+        "class": "format",
+        "note": "HGVS change-name syntax (HGVS nomenclature), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_CHROMOSOME": {
+        "class": "format",
+        "note": "a contig as written (chr or chromosome and a name, an accession, a name before :position), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_CONTIG_BEFORE": {
+        "class": "format",
+        "note": "a contig as written (chr or chromosome and a name, an accession, a name before :position), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_DECIMAL": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_GENOMIC_SUBSTITUTION": {
+        "class": "format",
+        "note": "HGVS change-name syntax (HGVS nomenclature), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_GROUPS": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_LOCUS": {
+        "class": "format",
+        "note": "a contig as written (chr or chromosome and a name, an accession, a name before :position), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_LOCUS_CONTIG": {
+        "class": "format",
+        "note": "a contig as written (chr or chromosome and a name, an accession, a name before :position), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_LOOSE_GROUPS": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_NAMED_CONTIG": {
+        "class": "format",
+        "note": "a contig as written (chr or chromosome and a name, an accession, a name before :position), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_NUCLEOTIDE_CHANGE": {
+        "class": "format",
+        "note": "HGVS change-name syntax (HGVS nomenclature), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_PAIR": {
+        "class": "format",
+        "note": "bases and a written pair of them (A>G, A/C), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_PAIR_AFTER": {
+        "class": "format",
+        "note": "bases and a written pair of them (A>G, A/C), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_POSITION": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_PROTEIN_CHANGE": {
+        "class": "format",
+        "note": "HGVS change-name syntax (HGVS nomenclature), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_PROTEIN_NAME": {
+        "class": "format",
+        "note": "HGVS change-name syntax (HGVS nomenclature), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_SCIENTIFIC": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_SEPARATOR": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_SEQUENCE_CONTIG": {
+        "class": "format",
+        "note": "a contig as written (chr or chromosome and a name, an accession, a name before :position), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_SPACED_VERSION": {
+        "class": "format",
+        "note": "a gene or genome version token as written, read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_TRANSCRIPT": {
+        "class": "decision",
+        "cite": "owner #486 Q4 a: kept; a paper target's HGVS kind (ADR 0049 Paper targets), until #473's NCBI HGVS service reaches the reader"
+      },
+      "_VERSION_TOKEN": {
+        "class": "format",
+        "note": "a gene or genome version token as written, read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_read_text /\\D/": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "_read_text /\\d/": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "bare_contig_ok /[A-Za-z] $/": {
+        "class": "format",
+        "note": "a contig as written (chr or chromosome and a name, an accession, a name before :position), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "written_number /0\\d/": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "written_number /[\\d, \\u00a0\\u2009\\u202f]+/": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "written_number /\\D/": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      },
+      "written_number /\\d+/": {
+        "class": "format",
+        "note": "a number as written (whole, grouped, decimal, scientific), read for 0046's value-in-span check (ADR 0049 Paper quotes, accepted; owner #486 Q3 a)"
+      }
+    },
+    "target_request/records.py": {
+      "ALLELE_PATTERN": {
+        "class": "format",
+        "note": "allele bases A/C/G/T/N as VCF REF/ALT and NCBI SPDI write them"
+      },
+      "PaperTargetsPlaced.paper_targets_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "PaperTargetsPlaced.request_sha256 /^[0-9a-f]{64}$/": "minted_shape",
+      "PaperTargetsPlaced.resumed_from /^[0-9a-f]{64}$/": "minted_shape",
+      "StatedSequenceRow.accession /^[A-Z]{1,2}_?[0-9]{5,9}\\.[0-9]+$/": {
+        "class": "debt",
+        "owner": "#485",
+        "note": "curated stated-sequence rows of place()'s paper-target tables; #459 calls no place() (handed over at #459 closure)"
+      },
+      "TableUsed.sha256 /^[0-9a-f]{64}$/": "minted_shape"
+    },
+    "target_request/resolver.py": {
+      "MOVE_ANSWERS": "vocabulary"
+    }
+  }
+}

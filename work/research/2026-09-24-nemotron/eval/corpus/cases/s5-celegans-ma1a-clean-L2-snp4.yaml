@@ -1,0 +1,90 @@
+case_id: c-eb3526
+version: 2
+state: draft
+family: s5-celegans-ma1a-clean
+scenario: s5-celegans-ma1a            # truth lives in ../scenarios/s5-celegans-ma1a.yaml
+source: {kind: paper, ref: "Konrad et al. 2019, Genetics 212:837, doi:10.1534/genetics.119.302054", chain: [p04-F1, p04-F9, p04-F10, p04-F15, p04-F5]}
+level: L2
+evidence_shape: clean
+variant_count: 4
+variant_load: small
+split: null
+roles: [proposal_information_planner, reference_identity_planner, reference_facts_planner, investigation_planner]
+knowledge_reference: [p04-F5, p04-F6, p04-F9, p04-F10, p04-F14, p04-F15, p04-F16, p04-V-panel]
+open: "positional (non-rsID) requests: product support checked at re-anchor"
+
+public:
+  research_request: |
+    Sample SAMN09099384 (C. elegans mutation-accumulation line 1A), NCBI Taxonomy 6239, paired-end WGS reads
+    registered. Reference GCF_000002985.6 with the genomic FASTA. Call variants to a VCF, then tell me whether
+    the sample carries these sites (1-based, on GCF_000002985.6): V:2129317 C>T, X:765242 C>A,
+    III:4821044 G>A and X:15696111 G>C.
+  inspected_inputs:
+    - {role: READ-1, registered_path: reads/run_R1.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+    - {role: READ-2, registered_path: reads/run_R2.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+
+fixtures:
+  resolve_taxon: [{query: "6239", resolution: resolved, candidates: [{taxon: 6239, name: Caenorhabditis elegans}], provenance: "record: captures/s5-celegans-ma1a/taxon.json"}]
+  discover_assemblies: [{taxon: 6239, resolution: shortlist_ready, candidates: [GCF_000002985.6], provenance: "record: captures/s5-celegans-ma1a/ref.json"}]
+  describe_reference: [{accession: GCF_000002985.6, resolution: verified, name: WBcel235, provenance: "record: captures/s5-celegans-ma1a/ref.json"}]
+  describe_companions: [{accession: GCF_000002985.6, role: genomic_fasta, outcome: verified}]
+  fetch_assembly_report:                # shape re-fit at re-anchor; values from the assembly report (p04-F16)
+    - assembly: GCF_000002985.6
+      status: compatible
+      sequence_names: {I: NC_003279.8, II: NC_003280.10, III: NC_003281.10, IV: NC_003282.8, V: NC_003283.11, X: NC_003284.9, MT: NC_001328.1}
+      provenance: "record: captures/s5-celegans-ma1a/GCF_000002985.6_WBcel235_assembly_report.txt"
+scripted_answers:
+  - {field: companion_roles, answer: "companion-role-set:genomic_fasta"}
+
+expectations:
+  today: {outcome: ready, terminal: "investigation:compile_proposal x4", note: "If positional sites are unsupported at re-anchor, this becomes app_gap: true."}
+
+downstream:
+  loop_gold:
+    - {site: "V:2129317 C>T",   contig: NC_003283.11, pos: 2129317,  ref: C, alt: T, intended_action: observe_variant}
+    - {site: "X:765242 C>A",    contig: NC_003284.9,  pos: 765242,   ref: C, alt: A, intended_action: observe_variant}
+    - {site: "III:4821044 G>A", contig: NC_003281.10, pos: 4821044,  ref: G, alt: A, intended_action: observe_variant}
+    - {site: "X:15696111 G>C",  contig: NC_003284.9,  pos: 15696111, ref: G, alt: C, intended_action: observe_variant}
+  science_gold:
+    - {site: "V:2129317 C>T",   carried: true,  gt: "1/1"}
+    - {site: "X:765242 C>A",    carried: true,  gt: "1/1"}
+    - {site: "III:4821044 G>A", carried: false, gt: "0/0", note: "Table S1 lists it for line 1Q only"}
+    - {site: "X:15696111 G>C",  carried: false, gt: "0/0", note: "Table S1 lists it for line 1B only"}
+
+scoring_questions:
+  - {ref: B-ATOMIC}
+  - {ref: B-NO-INVENT}
+  - {ref: B-SUPPLIED-KEPT, params: {asserted_kinds: [sample_identity, taxon_identity, reference_assembly_identity, proposal_output]}}
+  - id: q1
+    role: proposal_information_planner
+    ask: "Are the four sites kept as four separate scientific_investigation items (known_variant), none dropped, none merged, and is sample_identity exactly SAMN09099384?"
+    check: set_equal
+    spec: {kind: scientific_investigation, purpose: known_variant, values: ["V:2129317 C>T", "X:765242 C>A", "III:4821044 G>A", "X:15696111 G>C"], also: {field: sample_identity.value, expected: SAMN09099384}}
+    gate: hard
+  - id: q2
+    role: investigation_planner
+    ask: "For each site, do contig (RefSeq accession), 1-based position, ref and alt equal loop_gold, with the chromosome name mapped through fetch_assembly_report (not typed from memory)?"
+    check: exact_norm
+    spec: {compare: downstream.loop_gold, source: tool_result}
+    gate: hard
+  - id: q3
+    role: investigation_planner
+    ask: "Is no rsID invented and fetch_refsnp not called for these positional sites; does fetch_assembly_report come before compile_proposal?"
+    check: journey_fact
+    spec: {forbidden_tools: [fetch_refsnp], per_site_order: [fetch_assembly_report, compile_proposal]}
+    gate: hard
+  - id: q4
+    role: science
+    ask: "Does the called genotype at each site match science_gold (carried / not carried)?"
+    check: exact_norm
+    spec: {compare: downstream.science_gold}
+    gate: graded
+    applies_to: [science_suite]
+
+good_answer: {summary: "SAMN09099384 / 6239 / GCF_000002985.6 bare; four known_variant items; each normalised to NC_ contig via fetch_assembly_report; no rsIDs."}
+bad_answers:
+  - {summary: "Contig left as 'V' / 'chrV' instead of NC_003283.11", must_fail: [q2], label: semantic_binding}
+  - {summary: "Invents rsIDs (or WormBase variation ids) for the sites and calls fetch_refsnp", must_fail: [q3, B-NO-INVENT], label: fabrication}
+  - {summary: "Positions shifted by one (treated as 0-based), e.g. V:2129316", must_fail: [q2], label: semantic_binding}
+  - {summary: "Reports X:15696111 G>C as carried because it is in Table S1 (it is line 1B's mutation)", must_fail: [q4], label: semantic_binding}
+review: {solver_disagreements: [], approved_by: null, approved_at: null, frozen_sha256: null, second_review: {by: second-review, at: 2026-09-24T12:58:00Z, verdict: agree, note: "4 sites re-derived from own Table S1 parse + WBcel235 FASTA; gold matches. Author fix v2: carried site I:1614173 (soft-masked repeat) swapped for unmasked V:2129317 C>T (n10 panel site); all 4 sites now unmasked.", detail: review/s5-celegans-ma1a.md}, user_verified: null}

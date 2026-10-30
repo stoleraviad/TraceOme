@@ -1,0 +1,133 @@
+[
+  {
+    "capability_id": null,
+    "defer_loading": false,
+    "description": "Propose the areas the question needs, each read as its own item, and the genome version the paper's positions are on, as written, with its line.. The paper item's output: the reference as written and the areas to read.",
+    "include_return_schema": null,
+    "kind": "output",
+    "metadata": null,
+    "name": "propose_reading_areas",
+    "outer_typed_dict_key": null,
+    "parameters_json_schema": {
+      "$defs": {
+        "PassagePointer": {
+          "additionalProperties": false,
+          "description": "A pointer into a retrieved document; code copies the paragraph or row it falls in.",
+          "properties": {
+            "document_id": {
+              "description": "The document of a grep hit, a read span or a table row",
+              "type": "string"
+            },
+            "offset": {
+              "description": "An offset inside the paragraph or row, as grep, read or rows gave it",
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "document_id",
+            "offset"
+          ],
+          "type": "object"
+        },
+        "ReadingArea": {
+          "additionalProperties": false,
+          "description": "One area the paper item proposes; it becomes its own reading item.",
+          "properties": {
+            "area": {
+              "description": "What to read for, in the paper's terms: a table's variants, the protein changes of a results paragraph, the rows of one gene",
+              "minLength": 1,
+              "type": "string"
+            },
+            "reason": {
+              "description": "Why the question needs this area",
+              "minLength": 1,
+              "type": "string"
+            },
+            "views": {
+              "default": [],
+              "description": "The section, table or document ids from outline_paper that hold it",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "area",
+            "reason"
+          ],
+          "type": "object"
+        },
+        "ReferencePointer": {
+          "additionalProperties": false,
+          "description": "The genome version the paper's positions are on, as the paper writes it.",
+          "properties": {
+            "name": {
+              "description": "The version exactly as the paper writes it, such as GRCh37 or TAIR10",
+              "minLength": 1,
+              "type": "string"
+            },
+            "passage": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PassagePointer"
+                }
+              ],
+              "description": "The paragraph or row that writes it, by document and offset"
+            },
+            "reason": {
+              "description": "Why the paper's positions are on this version, from the paper",
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "passage",
+            "reason"
+          ],
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "areas": {
+          "description": "Every area the question needs, each read as its own item; empty only when the ids found in code answer it or nothing in the paper does",
+          "items": {
+            "$ref": "#/$defs/ReadingArea"
+          },
+          "type": "array"
+        },
+        "not_answered": {
+          "description": "When you give no reference or no area: why, in one sentence",
+          "type": "string"
+        },
+        "reference": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReferencePointer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The reference the paper's positions are on, or null if none is stated"
+        }
+      },
+      "required": [
+        "reference",
+        "areas"
+      ],
+      "type": "object"
+    },
+    "return_schema": null,
+    "sequential": false,
+    "strict": false,
+    "timeout": null,
+    "tool_kind": null,
+    "toolset_id": "<output>",
+    "unless_native": null,
+    "with_native": null
+  }
+]

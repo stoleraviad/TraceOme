@@ -1,0 +1,37 @@
+schema_version: bio-neb.eval-case/1
+case_id: s2-giab-hg002-clean-L2-snp3
+family: s2-giab-hg002-clean
+scenario: s2-giab-hg002
+split: train
+level: L2
+evidence_shape: clean
+donor: {path: work/research/2026-09-24-nemotron/eval/batch1/cases/s2-giab-hg002-clean-L2-snp3.yaml, case_id: c-9b2e06, version: 1}
+refresh:
+  - "Request unwrapped (the donor's YAML block broke the first sentence across a line)."
+  - "Planning block only. The donor's investigation questions q2-q4, loop_gold, science_gold and fetch_refsnp fixtures (pre-#273 shape) stay in the donor file for #283's Investigation-block refresh."
+  - "Roles, inputs, prepared answers and terminal refreshed as for s1-pig-clean-L2."
+  - "q1 keeps the donor's gold: three separate known_variant items; today's Tool types each rsID as the item's value."
+  - "#342 (cfdc3efd): BAM + VCF is the fixed output contract; no output requirement or Review; the three rsIDs are asserted targets, so no target question."
+  - "#343 (20c993bc): planning gold unchanged. For #323's Investigation block: rs1801133 lists three SNV ALTs (G>A, G>C, G>T), one candidate Work item each; rs7412 and rs429358 have merged aliases rs3200542 and rs61228756."
+public:
+  research_request: "Sample HG002, human (NCBI Taxonomy 9606), reads registered, reference GCF_000001405.40 with the genomic FASTA. Call germline variants to a VCF, then tell me whether HG002 carries rs7412, rs429358 and rs1801133.\n"
+  fastq_roles: [read_1, read_2]
+planning:
+  prepared_answers:
+    - {review: analysis_recipe, answer: "gDNA / paired", reason: "Two read files are registered for HG002, a GIAB whole-genome sample: genomic DNA, paired."}
+  questions:
+    - {ref: B-ALL-KINDS}
+    - {ref: B-SUPPLIED-KEPT, params: {asserted: [sample_identity, taxon_identity, reference_assembly_identity]}}
+    - {ref: B-FIRST-ATTEMPT}
+    - {ref: B-NO-INVENT}
+    - {ref: B-TERMINAL, params: {terminal: execution_review}}
+    - {ref: B-REVIEWS-RAISED, params: {reviews: [analysis_recipe]}}
+    - id: q1
+      ask: "Are the three rsIDs kept as three separate scientific_investigation items (known_variant), none dropped, none merged?"
+      check: investigation_items
+      spec: {purpose: known_variant, values: [rs7412, rs429358, rs1801133]}
+      gate: hard
+  good_answer: "HG002 / 9606 / GCF_000001405.40 asserted bare; three known_variant items, one rsID each; one recipe Review; no output question; Execution Review reached."
+  bad_answers:
+    - {summary: "rs429358 and rs7412 merged into one 'APOE genotype' item", must_fail: [q1], label: semantic_coverage}
+    - {summary: "taxon left to find although the request states 9606", must_fail: [B-SUPPLIED-KEPT], label: semantic_binding}

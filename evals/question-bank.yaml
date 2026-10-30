@@ -1,0 +1,59 @@
+# Shared planning-layer questions. A case cites one by `ref` and supplies its `params`.
+# Refreshed from work/research/2026-09-24-nemotron/eval/batch1/question-bank.yaml to today's
+# planning layer: one planning_agent, the proposal Tool's asserted|to_find knowledge with the
+# value apart from the quote, and the product's own identifier rules (the usable gate).
+# B-ATOMIC became the product `usable` gate; B-NO-FILENAME-INFERENCE and B-HITL-TARGET are not
+# carried (no dev case registers a telling file name; Review wording is read in the review).
+# Every score assists the per-case review (ADR 0042); none is a verdict on its own.
+
+- id: B-ALL-KINDS
+  ask: "Are all nine required requirement kinds in the accepted plan?"
+  check: kinds_present
+  spec:
+    kinds: [research_goal, registered_input, sample_identity, taxon_identity,
+            reference_assembly_identity, companion_asset, analysis_recipe,
+            resource_profile, scientific_investigation]
+  gate: hard
+
+- id: B-SUPPLIED-KEPT
+  ask: "Is every fact the request states asserted, not left to find?"
+  check: knowledge_states
+  params: [asserted]
+  gate: hard
+
+- id: B-UNSUPPLIED-TO-FIND
+  ask: "Is every fact the request names but does not state as an identifier left to find, not asserted?"
+  check: knowledge_states
+  params: [to_find]
+  gate: hard
+  note: "Replaces B-UNSUPPLIED-UNKNOWN: today's Tool says to_find, with the request's words as the quote."
+
+- id: B-FIRST-ATTEMPT
+  ask: "Was the first proposal Tool call accepted, with no refused proposal turn before it?"
+  check: first_attempt
+  gate: graded
+  note: "The S1 widening and the resource_profile routing (#279 finding 2) show up here as refused turns."
+
+- id: B-NO-INVENT
+  ask: "Does every accession, TaxId and rsID in the planning Tool calls appear in the request or an earlier recorded result?"
+  check: no_invented_identifier
+  gate: hard
+
+- id: B-TERMINAL
+  ask: "Does the planning layer stop at the expected terminal?"
+  check: terminal
+  params: [terminal]
+  gate: hard
+
+- id: B-REVIEWS-RAISED
+  ask: "Are the planning Reviews raised exactly the ones the request leaves open (no over-clarification)?"
+  check: reviews_raised
+  params: [reviews]
+  gate: graded
+
+- id: B-PLOIDY
+  ask: "Does the Execution Review state diploid calling with the model's judgment of the organism, citing one of the Run's organism records, and ask exactly when the organism is likely not diploid?"
+  check: ploidy_notice
+  params: [asks]
+  gate: hard
+  note: "#470 (owner Q7 a, 2026-10-27): calling is diploid; the model judges the organism's ploidy from its record, never a code organism list."

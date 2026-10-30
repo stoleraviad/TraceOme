@@ -1,0 +1,100 @@
+case_id: c-12a669
+version: 2
+state: draft
+family: s7-rice-albatros-clean
+scenario: s7-rice-albatros       # truth lives in ../scenarios/s7-rice-albatros.yaml
+source: {kind: paper, ref: "Rodrigues et al. 2025, Sci Rep, doi:10.1038/s41598-025-23999-5", chain: [p06-F1, p06-F2, p06-F6, p06-F7, p06-F12, p06-F5]}
+level: L2
+evidence_shape: clean
+variant_count: 5
+variant_load: small
+split: null
+roles: [proposal_information_planner, reference_identity_planner, reference_facts_planner, investigation_planner]
+knowledge_reference: [p06-F5, p06-F6, p06-F7, p06-F10, p06-F12, p06-F14, p06-F15, p06-F21]
+open: "positional (non-rsID) requests: product support checked at re-anchor"
+
+public:
+  research_request: |
+    Sample Albatros (BioSample SAMEA114006083), Oryza sativa (NCBI Taxonomy 4530), paired-end reads registered.
+    Reference GCA_001433935.1 (IRGSP-1.0) with the genomic FASTA. Call germline variants to a VCF, then tell me
+    the genotype of Albatros at these IRGSP-1.0 sites: 4:22375729 G>T, 6:20640731 C>T, 10:6918411 C>T,
+    11:19577767 C>T and 11:28814241 G>A.
+  inspected_inputs:
+    - {role: READ-1, registered_path: reads/run_R1.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+    - {role: READ-2, registered_path: reads/run_R2.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+
+fixtures:
+  resolve_taxon: [{query: "4530", resolution: resolved, candidates: [{taxon: 4530, name: Oryza sativa}]}]
+  describe_reference:
+    - {accession: GCA_001433935.1, resolution: verified, name: IRGSP-1.0, organism_taxon: 39947, status: current,
+       note: "genome_notes: superseded by newer assembly for species (record: datasets.json)"}
+  describe_companions: [{accession: GCA_001433935.1, role: genomic_fasta, outcome: verified}]
+  fetch_assembly_report:         # record: captures/s7-rice-albatros/seqreports.json; shape re-fit at re-anchor
+    - {assembly: GCA_001433935.1, status: compatible,
+       sequences: {"4": AP014960.1, "6": AP014962.1, "10": AP014966.1, "11": AP014967.1}}
+scripted_answers:
+  - {field: companion_roles, answer: "companion-role-set:genomic_fasta"}
+
+expectations:
+  today:
+    outcome: ready
+    terminal: "investigation:compile_proposal x5"
+    note: >-
+      The user named the paper's assembly by accession; proceeding on it is correct even though NCBI's reference
+      genome for rice is now AGIS1.0. Assembly taxon 39947 is a child of the sample's 4530: compatible, not a
+      mismatch (product check to confirm at re-anchor, p06-F21).
+
+downstream:
+  loop_gold:                     # contig in the requested (GenBank) assembly's accession form
+    - {site: "4:22375729 G>T",  contig: AP014960.1, pos: 22375729, ref: G, alt: T, intended_action: observe_variant}
+    - {site: "6:20640731 C>T",  contig: AP014962.1, pos: 20640731, ref: C, alt: T, intended_action: observe_variant}
+    - {site: "10:6918411 C>T",  contig: AP014966.1, pos: 6918411,  ref: C, alt: T, intended_action: observe_variant}
+    - {site: "11:19577767 C>T", contig: AP014967.1, pos: 19577767, ref: C, alt: T, intended_action: observe_variant}
+    - {site: "11:28814241 G>A", contig: AP014967.1, pos: 28814241, ref: G, alt: A, intended_action: observe_variant}
+  science_gold:
+    - {site: "4:22375729 G>T",  carried: false, gt: "0/0"}
+    - {site: "6:20640731 C>T",  carried: false, gt: "0/0"}
+    - {site: "10:6918411 C>T",  carried: false, gt: "0/0"}
+    - {site: "11:19577767 C>T", carried: true,  gt: "1/1"}
+    - {site: "11:28814241 G>A", carried: null,  gt: null, scored: false, note: "Table 4 says 0/1, but 12/22 inbred varieties are 0/1 and none 1/1: suspected mapping artefact; loop gold only"}
+
+scoring_questions:
+  - {ref: B-ATOMIC}
+  - {ref: B-NO-INVENT}
+  - {ref: B-SUPPLIED-KEPT, params: {asserted_kinds: [sample_identity, taxon_identity, reference_assembly_identity, proposal_output]}}
+  - id: q1
+    role: proposal_information_planner
+    ask: "Are the five sites kept as five separate scientific_investigation items (known_variant), none dropped or merged?"
+    check: set_equal
+    spec: {kind: scientific_investigation, purpose: known_variant,
+           values: ["4:22375729 G>T", "6:20640731 C>T", "10:6918411 C>T", "11:19577767 C>T", "11:28814241 G>A"]}
+    gate: hard
+  - id: q2
+    role: investigation_planner
+    ask: "For each site, do contig, position, ref and alt equal loop_gold, with the contig accession taken from fetch_assembly_report on GCA_001433935.1 (not typed from memory, not an AGIS1.0 or RefSeq NC_ contig)?"
+    check: exact_norm
+    spec: {compare: downstream.loop_gold, source: tool_result}
+    gate: hard
+    open: "If the product normalizes to RefSeq names, NC_029259.1/NC_029261.1/NC_029265.1/NC_029266.1 are the same sequences; decide at re-anchor whether they count."
+  - id: q3
+    role: reference_identity_planner
+    ask: "Is the verified reference exactly GCA_001433935.1 (no switch to GCF_034140825.1 AGIS1.0 or to the suppressed GCF_001433935.1)?"
+    check: exact_norm
+    spec: {field: reference_assembly_identity.value, expected: GCA_001433935.1}
+    gate: hard
+  - id: q4
+    role: science
+    ask: "Does the called genotype at each site match science_gold (carried / not carried)?"
+    check: exact_norm
+    spec: {compare: downstream.science_gold}
+    gate: graded
+    applies_to: [science_suite]
+
+good_answer: {summary: "Albatros / 4530 / GCA_001433935.1 asserted bare; five known_variant items, each normalized to AP0149xx contigs via fetch_assembly_report; five compile_proposal calls."}
+bad_answers:
+  - {summary: "Switches the reference to GCF_034140825.1 because it is NCBI's current rice reference genome", must_fail: [q3], label: semantic_binding}
+  - {summary: "Invents rsIDs for the sites and calls fetch_refsnp", must_fail: [B-NO-INVENT], label: fabrication}
+  - {summary: "Contig written as 'chr4' / '4' instead of the assembly-report accession", must_fail: [q2], label: semantic_binding}
+  - {summary: "Two chr11 sites merged into one 'chromosome 11 haplotype' item", must_fail: [q1], label: semantic_coverage}
+review: {solver_disagreements: [], approved_by: null, approved_at: null, frozen_sha256: null,
+  second_review: {by: second-review, at: 2026-09-24T12:55:30Z, verdict: agree, note: "Table 4 GTs, REFs and AP0149xx contigs re-derived, match; keep 11:28814241 het graded (12/22 het, 0 hom-alt). Author v2: 11:28814241 science_gold set carried null / unscored (fix 1).", detail: review/s7-rice-albatros.md}}

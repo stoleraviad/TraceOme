@@ -1,0 +1,18 @@
+{
+  "version": "v3",
+  "note": "Train scenarios of the eval corpus; validation and sealed scenarios are withheld.",
+  "scenarios": {
+    "s1-pig-duroc07": "train",
+    "s11-drosophila-ma3345": "train",
+    "s12-human-hg005": "train",
+    "s15-human-hg001-wes": "train",
+    "s16-dog-asprv1": "train",
+    "s2-giab-hg002": "train",
+    "s20-bsubtilis-t30r7": "train",
+    "s23-duck-pk1": "train",
+    "s26-sorghum-ars20": "train",
+    "s4-chicken-naa01": "train",
+    "s5-celegans-ma1a": "train",
+    "s7-rice-albatros": "train"
+  }
+}

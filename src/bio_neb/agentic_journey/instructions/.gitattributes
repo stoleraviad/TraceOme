@@ -1,0 +1,2 @@
+# Published instruction bytes must survive checkout without newline conversion.
+*.toml -text

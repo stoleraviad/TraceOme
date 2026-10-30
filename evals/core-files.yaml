@@ -1,0 +1,80 @@
+# Eval core files: each scenario's downloaded reads and reference (evals/core_files.py).
+# Files live under the local state root; `path` is relative to it. Rows are appended, never edited.
+- id: s5-celegans-ma1a.reference
+  scenario: s5-celegans-ma1a
+  kind: reference_fasta
+  assembly_accession: GCF_000002985.6
+  reference_asset_id: all_genomic_fasta
+  source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/985/GCF_000002985.6_WBcel235/GCF_000002985.6_WBcel235_genomic.fna.gz
+  source_checksum: md5:177a91ec15063e305188306b7e709cb1
+  source_checksum_locator: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/985/GCF_000002985.6_WBcel235/md5checksums.txt
+  path: eval-core/s5-celegans-ma1a/reference/GCF_000002985.6_WBcel235_genomic.fna.gz
+  bytes: 31710738
+  sha256: d62fb938c408acd0df3126aa38fd126d4a411f070e1a41ffa4f4a1056984cdd4
+  plain_bytes: 101540352
+  plain_sha256: 739d1fb774ef9f5a2de12fd16de3e559201d00d69502b7013d820584d9369220
+  retrieved_at: '2026-10-13T13:16:02Z'
+  retrieved_by: '#282 eval prep worker (owner 2026-10-13)'
+- id: s5-celegans-ma1a.read_1
+  scenario: s5-celegans-ma1a
+  kind: fastq
+  role: read_1
+  source_url: https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR714/006/SRR7145496/SRR7145496_1.fastq.gz
+  source_checksum: md5:a3b7f6fc96741f5c032e8457f28fcfb1
+  source_checksum_locator: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR7145496&result=read_run&fields=fastq_ftp,fastq_md5,fastq_bytes
+  path: eval-core/s5-celegans-ma1a/reads/SRR7145496_1.fastq.gz
+  bytes: 572201032
+  sha256: 23b58daf84b43e06ff5bd9621f4e9d3b2920a854e8bbef18572042b84229adf3
+  retrieved_at: '2026-10-13T13:16:02Z'
+  retrieved_by: '#282 eval prep worker (owner 2026-10-13)'
+- id: s5-celegans-ma1a.read_2
+  scenario: s5-celegans-ma1a
+  kind: fastq
+  role: read_2
+  source_url: https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR714/006/SRR7145496/SRR7145496_2.fastq.gz
+  source_checksum: md5:ca1b69fd2c1cf860360146ad5019ab26
+  source_checksum_locator: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR7145496&result=read_run&fields=fastq_ftp,fastq_md5,fastq_bytes
+  path: eval-core/s5-celegans-ma1a/reads/SRR7145496_2.fastq.gz
+  bytes: 569337208
+  sha256: e1ef89b0f369a0435c60a3495deb2e23896b748aa5f4270b1c63bd5f3ade6b2d
+  retrieved_at: '2026-10-13T13:16:02Z'
+  retrieved_by: '#282 eval prep worker (owner 2026-10-13)'
+- id: s2-giab-hg002.reference
+  scenario: s2-giab-hg002
+  kind: reference_fasta
+  assembly_accession: GCF_000001405.40
+  reference_asset_id: all_genomic_fasta
+  source_url: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.fna.gz
+  source_checksum: md5:c30471567037b2b2389d43c908c653e1
+  source_checksum_locator: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/md5checksums.txt
+  path: eval-core/s2-giab-hg002/reference/GCF_000001405.40_GRCh38.p14_genomic.fna.gz
+  bytes: 972898531
+  sha256: 11912a45a545bf01a10b2a7f10eb7a42924436b4d19b476b1899834fb7ba74a3
+  plain_bytes: 3339739109
+  plain_sha256: df6e4918316e05a9cc1fd29c352841d3678b607d7a436819cd43371b52c814c0
+  retrieved_at: '2026-10-13T13:57:30Z'
+  retrieved_by: '#282 eval prep worker: copied from the local #266 t11 fixture, md5 matched NCBI'
+- id: s2-giab-hg002.read_1
+  scenario: s2-giab-hg002
+  kind: fastq
+  role: read_1
+  source_url: https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR176/006/SRR1766476/SRR1766476_1.fastq.gz
+  source_checksum: md5:302ccb2101c6cb052137fd6e32103a92
+  source_checksum_locator: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR1766476&result=read_run&fields=fastq_ftp,fastq_md5,fastq_bytes
+  path: eval-core/s2-giab-hg002/reads/SRR1766476_1.fastq.gz
+  bytes: 1286575548
+  sha256: 74adc00b8b54dac319a03c417c0482b04c275aa5ec8e91dd0f4b58e2e274d064
+  retrieved_at: '2026-10-13T13:57:30Z'
+  retrieved_by: '#282 eval prep worker (owner 2026-10-13)'
+- id: s2-giab-hg002.read_2
+  scenario: s2-giab-hg002
+  kind: fastq
+  role: read_2
+  source_url: https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR176/006/SRR1766476/SRR1766476_2.fastq.gz
+  source_checksum: md5:6d1f7b1cb8ae55452f4aa9cb67f58a74
+  source_checksum_locator: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR1766476&result=read_run&fields=fastq_ftp,fastq_md5,fastq_bytes
+  path: eval-core/s2-giab-hg002/reads/SRR1766476_2.fastq.gz
+  bytes: 1367235218
+  sha256: aaf7cae2b68d51bb8ff768a3b4fcf343540065a3682144b32fa3e4001d332cfc
+  retrieved_at: '2026-10-13T13:57:30Z'
+  retrieved_by: '#282 eval prep worker (owner 2026-10-13)'

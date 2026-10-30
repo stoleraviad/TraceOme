@@ -1,0 +1,52 @@
+case_id: c-7f3a02
+version: 1
+state: draft
+family: s1-pig-clean
+scenario: s1-pig-duroc07
+source: {kind: agg06h, ref: agg06g-06-mammal}
+level: L2                    # all identifiers given, neutral wording (no behaviour hints)
+evidence_shape: clean
+split: null
+roles: [proposal_information_planner, reference_identity_planner, reference_facts_planner]
+knowledge_reference: [P1, P3, P4, S0]
+
+public:
+  research_request: |
+    I have paired-end WGS reads from pig sample DUROC-07 (NCBI Taxonomy 9823). Please plan germline
+    variant calling against GCF_054392235.1 with the genomic FASTA as companion, and give me a VCF.
+  inspected_inputs:
+    - {role: READ-1, registered_path: reads/lane1_R1.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+    - {role: READ-2, registered_path: reads/lane1_R2.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+
+fixtures: {same_as: s1-pig-clean-L1}
+scripted_answers:
+  - {field: companion_roles, answer: "companion-role-set:genomic_fasta"}
+
+expectations:
+  today: {outcome: ready, terminal: "slice_terminal:reference_facts"}
+
+scoring_questions:
+  - {ref: B-ATOMIC}
+  - {ref: B-ALL-KINDS}
+  - {ref: B-FIRST-ATTEMPT}
+  - {ref: B-SUPPLIED-KEPT, params: {asserted_kinds: [sample_identity, taxon_identity, reference_assembly_identity, proposal_output]}}
+  - {ref: B-TERMINAL, params: {terminal: "slice_terminal:reference_facts"}}
+  - id: q1
+    role: proposal_information_planner
+    ask: "Is taxon_identity asserted as the span '9823' (or 'NCBI Taxonomy 9823', which the policy parses), and not as 'pig'?"
+    check: one_of
+    spec: {field: taxon_identity.value, any_of: ["9823", "NCBI Taxonomy 9823"]}
+    gate: hard
+  - id: q2
+    role: reference_identity_planner
+    ask: "Is the verified reference GCF_054392235.1?"
+    check: exact_norm
+    spec: {journey: ReferenceDescriptionRecorded.accession, expected: GCF_054392235.1}
+    gate: hard
+
+good_answer: {summary: "As L1, reached without the behaviour hints."}
+bad_answers:
+  - {summary: "sample_identity 'pig sample DUROC-07'", must_fail: [B-ATOMIC, B-FIRST-ATTEMPT], label: value_not_atomic}
+  - {summary: "taxon asserted as 'pig' (the common name) instead of the given TaxId", must_fail: [q1], label: semantic_binding}
+  - {summary: "reference swapped to GCF_000003025.5 (Sscrofa10.2) from memory", must_fail: [q2, B-NO-INVENT], label: fabrication}
+review: {solver_disagreements: [], approved_by: null, approved_at: null, frozen_sha256: null}

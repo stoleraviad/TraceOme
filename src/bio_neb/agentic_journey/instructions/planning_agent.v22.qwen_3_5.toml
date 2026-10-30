@@ -1,0 +1,75 @@
+# planning_agent v22, Qwen 3.5's form text (reference lane landing on M, 2026-10-30): v21's
+# rows unchanged (the lane's v19 rows are v17's, as v21's are); the block source's
+# companion_lookups and the four prebuilt-index Tool purposes, which Qwen reads as written,
+# carry the lane's v18 (#464) and v19 (#459) text. M's v21 header:
+#   planning_agent v21, Qwen 3.5's form text (lane P landing on M, 2026-10-30): v20's rows
+#   unchanged (M's v18 rows are v17's, as v20's are); the block source's targets and
+#   non_human_example, which Qwen reads as written, carry M's v18 (#482) sentences. v20's header:
+#     planning_agent v20, Qwen 3.5's form text (#383 A2): v19's rows unchanged; the block
+#     source's reference_lookups sentence and record_reference_choice purpose, which Qwen reads
+#     as written, take a value to find in a cited paper from its reading. v19's header:
+#     planning_agent v19, Qwen 3.5's form text (#420 D1 b): v18's rows unchanged; the block
+#     source's cited_papers and paper_lookups blocks and the find_paper purpose, which Qwen
+#     reads as written, find and retrieve a cited paper from the plan stage on and settle a
+#     declared one in the paper stage (Qwen's own validation row keeps v18's words; the Tool's
+#     rules name cited_paper's route). v18's header:
+#     planning_agent v18, Qwen 3.5's form text (#420): v17's rows unchanged; the block source's
+#     reference_lookups line on a cited paper and the find_paper, retrieve_paper and
+#     request_planning_hitl purposes, which Qwen reads as written, find, confirm and retrieve
+#     it. v17's header:
+#     planning_agent v17, Qwen 3.5's form text (#478): v16's rows, with the shared text's
+#     callable_now and waiting as the block source names them. v16's header:
+#     planning_agent v16, Qwen 3.5's form text (#473): v15's rows unchanged; the block source's
+#     human_example, answered_targets and record_answered_targets purpose, which Qwen reads as
+#     written, type a gene change. v15's header:
+#     planning_agent v15, Qwen 3.5's form text (#472): v14's rows, and asserted_values types a
+#     coordinate site as the block source's does. v14's header:
+#     planning_agent v14, Qwen 3.5's form text (#471): v13's rows unchanged; the block source's
+#     reference_lookups and the discovery, choice and question purposes, which Qwen reads as
+#     written, say discovery copies NCBI's page and the model chooses a row. v13's header:
+#     planning_agent v13, Qwen 3.5's form text (#470): v12's rows unchanged; the block source's
+#     select_recipe_candidate purpose, which Qwen reads as written, adds the ploidy judgment.
+#     v12's header:
+#     planning_agent v12, Qwen 3.5's form text (#462 SP4): v11's rows, and asserted_values
+#     adds the block source's stated_version sentence. v11's header:
+#     planning_agent v11, Qwen 3.5's form text (#458): v10's rows unchanged; the block
+#     source's reference_lookups, which Qwen reads as written, adds the source_answers
+#     sentence. v10's header:
+#     planning_agent v10, Qwen 3.5's form text (#441; owner, #439 A4: Nemotron's wording is
+#     the block source, Qwen's the overlay). Each row replaces the named block of
+#     planning_agent.v10.blocks.toml for Qwen only; the block keeps its place and stage, and
+#     every other block reads as the block source writes it. These rows are the block
+#     source's text before #441, so Qwen reads the bytes it read since v9 was selected.
+#     v10 (#442) adds the rows for wording outside the instructions that Qwen read in
+#     its own words before: the role's job.
+#  The lane's v19 header:
+#   planning_agent v19, Qwen 3.5's form text (#459): v18's rows unchanged; the block source's
+#   companion_lookups and the index Tool purposes, which Qwen reads as written, put the index
+#   before the companions and add the suggestion of another assembly. v18's header:
+#   planning_agent v18, Qwen 3.5's form text (#464): v17's rows unchanged; the block source's
+#   companion_lookups and the three prebuilt-index Tool purposes, which Qwen reads as written,
+#   say the model searches Galaxy, reads a candidate's contigs and chooses. v17's header:
+#    (v17's header is in M's v21 chain above.)
+
+[[block]]
+name = "asserted_values"
+text = '''
+- A value the request states is asserted: its typed value plus the quote, the request's words that state it, copied exactly on whole words; a quote may occur more than once. The server checks that the quote states the value; it never reads a value out of the quote. A site the request states only by coordinates is asserted too: type it as site, its sequence exactly as the quote writes it, the position as a number and REF and ALT when the quote writes a directed pair, and the server checks the quote holds each. When the request writes the genome version a site is on, the site's quote runs through those words and stated_version names the version exactly as the quote writes it (hg19, GRCh37, mm10, WBcel235); a sample, strain or other name is no version.
+'''
+
+[[block]]
+name = "to_find_values"
+text = '''
+- A value the request does not state is to_find, citing the request, registration or inspection event; a Tool or the researcher finds it: an rsID the request does not give is to_find, never a placeholder. Never assert a value the request does not state, and never infer organism, sample or assay from file names.
+'''
+
+[[block]]
+name = "validation"
+text = '''
+Research goal may use use_supplied_assertion with validation none; identity and capability requirements always use tool_evidence validation. Consumer-known genomic FASTA requirements are not a questionnaire.
+
+'''
+
+[[block]]
+name = "job"
+text = '''Resolve the information needed for a grounded Parabricks proposal. Choose relevant capabilities using checked facts and retained history. A read grants no execution authority. Ask a scoped question only when the remaining work needs human direction.'''

@@ -1,0 +1,44 @@
+{
+  "_note": "#396 pre-registered gold, written from each paper's text before any #396 contact, in v2's format (work/research/2026-10-08-paper-retrieval/v2/gold.json). The lane-only scorer reads reference.names and key; other fields are notes. A spike signal, not the full eval.",
+  "c1": {
+    "paper": "doi:10.1016/j.hrcr.2025.06.021",
+    "pmcid": "PMC12666932",
+    "organism": "Homo sapiens",
+    "reference": {"names": ["Hg38", "hg38"], "accession": null},
+    "key": [
+      {"gene": "CASQ2", "rsid": "rs2101052355", "hgvs": ["c.1029G>C", "p.W343C", "p.Trp343Cys"], "chrom": "1", "pos": 115701412},
+      {"gene": "ANK2", "rsid": "rs769038996", "hgvs": ["c.6389G>A", "p.R2130K"], "chrom": "4", "pos": 113355007}
+    ],
+    "_alleles": "Table 1 writes each locus with its alleles in one cell: \"1:115701412 C>G\" and \"4:113355007 G>A\" under \"Chromosome: position (Hg38)\"; the table is transposed (fields as rows, variants as columns).",
+    "_ank2": "ANK2 is a de novo heterozygous VUS in the proband, \"not thought to contribute to her phenotype\": an answer that leaves it out with that reason is a recorded difference, not a miss.",
+    "_source": "Europe PMC PMC12666932 fullTextXML, retained by #335's paper search (.bio-neb-local/issue335-p2/search/bodies/4e486acd...)."
+  },
+  "c2": {
+    "paper": "doi:10.1371/journal.pone.0225834",
+    "pmcid": "PMC6903725",
+    "organism": "Gallus gallus",
+    "reference": {"names": ["galGal5", "Gallus gallus-5.0"], "accession": null},
+    "key": [
+      {"gene": null, "phrases": ["SV1"], "chrom": "2", "pos": 86770373},
+      {"gene": null, "phrases": ["SV2"], "chrom": "2", "pos": 86870271}
+    ],
+    "_text": "Results: \"Both of these SNPs (chr 2: 86,770, 373, SV1 and 86,870,271, SV2) were present in the filtered SNP dataset and held true for the Rp mutation\", proximal to IRX1 and IRX2. SV1's position carries a stray space; SV2's has no contig of its own.",
+    "_no_alleles": "Alleles appear only as genotypes (wildtype A/A; rumpless A/C or C/C): no REF/ALT pair is written, so REF/ALT in an answer is invented.",
+    "_source": "NemoEval corpus facts s4-chicken-naa01 p03-F5, p03-F6 and captures/s4-chicken-naa01/paper.md l.218, l.403."
+  },
+  "c3": {
+    "paper": "doi:10.1038/s41598-025-23999-5",
+    "pmcid": "PMC12624038",
+    "organism": "Oryza sativa",
+    "reference": {"names": ["IRGSP-1.0", "Nipponbare 1.0"], "accession": null},
+    "key": [
+      {"gene": null, "chrom": "4", "pos": 22375729},
+      {"gene": null, "chrom": "6", "pos": 20640731},
+      {"gene": null, "chrom": "10", "pos": 6918411},
+      {"gene": null, "chrom": "11", "pos": 19577767},
+      {"gene": null, "chrom": "11", "pos": 28814241}
+    ],
+    "_alleles": "Table 4 REF>ALT: G>T, C>T, C>T, C>T, G>A, with a GT column per variety.",
+    "_source": "NemoEval corpus facts s7-rice-albatros p06-F3, p06-F5."
+  }
+}

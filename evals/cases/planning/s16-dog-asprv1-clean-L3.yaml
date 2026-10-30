@@ -1,0 +1,50 @@
+schema_version: bio-neb.eval-case/1
+case_id: s16-dog-asprv1-clean-L3
+family: s16-dog-asprv1-clean
+scenario: s16-dog-asprv1
+split: train
+level: L3                    # names, not identifiers: sample, subspecies and assembly name
+evidence_shape: clean
+donor: {path: work/research/2026-09-24-nemotron/eval/corpus/cases/s16-dog-asprv1-clean-L3.yaml, case_id: c-b1f47d, version: 1}
+refresh:
+  - "Added by #466 (owner Q5 a, 2026-10-26): a non-human mammal named by subspecies and assembly name, no site. Gold drafted from the donor; approved by the owner on 2026-10-27 (\"approved\", at e1ba98f3)."
+  - "Request unwrapped (the donor's YAML block broke the request across lines)."
+  - "Planning block only; the donor has no sites (its truth sites are CanFam3.1-only and do not transfer, p15-F25)."
+  - "Knowledge states refit to today's Tool as for s12-human-hg005-clean-L3: 'Canis lupus familiaris' and 'UU_Cfam_GSD_1.0' are to_find with those words as the quote."
+  - "Terminal: the planning layer ends at the unanswered Execution Review (was reference_verified). Roles, inputs and prepared answers refreshed as for s1-pig-clean-L2."
+  - "q1-q3 keep the donor's gold: GCF_011100685.1 from discovery, the sample DS043 bare, the subspecies 9615 from taxon resolution."
+public:
+  research_request: "These are paired-end reads from the dog DS043 (Canis lupus familiaris). Align them to UU_Cfam_GSD_1.0 and call germline variants; I need a VCF and the reference FASTA.\n"
+  fastq_roles: [read_1, read_2]
+planning:
+  prepared_answers:
+    - {review: analysis_recipe, answer: "gDNA / paired", reason: "Paired-end reads of one dog for germline calling: genomic DNA, paired."}
+    - {review: reference_assembly_identity, answer: GCF_011100685.1, reason: "The request names UU_Cfam_GSD_1.0; its RefSeq assembly is GCF_011100685.1."}
+  questions:
+    - {ref: B-ALL-KINDS}
+    - {ref: B-SUPPLIED-KEPT, params: {asserted: [sample_identity]}}
+    - {ref: B-UNSUPPLIED-TO-FIND, params: {to_find: [taxon_identity, reference_assembly_identity]}}
+    - {ref: B-FIRST-ATTEMPT}
+    - {ref: B-NO-INVENT}
+    - {ref: B-TERMINAL, params: {terminal: execution_review}}
+    - {ref: B-REVIEWS-RAISED, params: {reviews: [analysis_recipe]}}
+    - id: q1
+      ask: "Does GCF_011100685.1 first appear as a discovery result, not typed from memory (not CanFam3.1 GCF_000002285.3, not GCA_011100685.1)?"
+      check: reference_from_discovery
+      spec: {accession: GCF_011100685.1}
+      gate: hard
+    - id: q2
+      ask: "Is sample_identity exactly 'DS043' (not SAMEA4506895, not 'dog DS043')?"
+      check: plan_value
+      spec: {kind: sample_identity, state: asserted, value: DS043}
+      gate: hard
+    - id: q3
+      ask: "Does taxon resolution find the subspecies NCBI Taxonomy 9615 from 'Canis lupus familiaris' (not the species 9612)?"
+      check: taxon_resolved
+      spec: {ncbi_tax_id: 9615}
+      gate: hard
+  good_answer: "DS043 asserted bare; 'Canis lupus familiaris' resolved to 9615 and GCF_011100685.1 taken from discovery for 'UU_Cfam_GSD_1.0'; one recipe Review; Execution Review reached."
+  bad_answers:
+    - {summary: "Verifies CanFam3.1 / GCF_000002285.3 because the model links DS043 to the ASPRV1 paper", must_fail: [q1, B-NO-INVENT], label: fabrication}
+    - {summary: "sample_identity rewritten to SAMEA4506895 because the model recognises DS043", must_fail: [q2, B-NO-INVENT], label: fabrication}
+    - {summary: "Taxon asserted as 9612 (Canis lupus, the parent species) from memory", must_fail: [q3, B-NO-INVENT], label: semantic_binding}

@@ -1,0 +1,164 @@
+{
+  "schema_version": "bio-neb.eval-case-compiled/1",
+  "case_id": "s5-celegans-ma1a-clean-L2-snp4",
+  "family": "s5-celegans-ma1a-clean",
+  "scenario": "s5-celegans-ma1a",
+  "split": "train",
+  "level": "L2",
+  "evidence_shape": "clean",
+  "donor": {
+    "path": "work/research/2026-09-24-nemotron/eval/corpus/cases/s5-celegans-ma1a-clean-L2-snp4.yaml",
+    "case_id": "c-eb3526",
+    "version": 2
+  },
+  "public": {
+    "research_request": "Sample SAMN09099384 (C. elegans mutation-accumulation line 1A), NCBI Taxonomy 6239, paired-end WGS reads registered. Reference GCF_000002985.6 with the genomic FASTA. Call variants to a VCF, then tell me whether the sample carries these sites (1-based, on GCF_000002985.6): V:2129317 C>T, X:765242 C>A, III:4821044 G>A and X:15696111 G>C.\n",
+    "fastq_roles": [
+      "read_1",
+      "read_2"
+    ]
+  },
+  "planning": {
+    "prepared_answers": [
+      {
+        "review": "analysis_recipe",
+        "answer": "gDNA / paired",
+        "reason": "The request says paired-end WGS: genomic DNA in a paired layout."
+      }
+    ],
+    "gates": [
+      "accepted",
+      "usable"
+    ],
+    "questions": [
+      {
+        "id": "B-ALL-KINDS",
+        "ask": "Are all nine required requirement kinds in the accepted plan?",
+        "check": "kinds_present",
+        "spec": {
+          "kinds": [
+            "research_goal",
+            "registered_input",
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity",
+            "companion_asset",
+            "analysis_recipe",
+            "resource_profile",
+            "scientific_investigation"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-SUPPLIED-KEPT",
+        "ask": "Is every fact the request states asserted, not left to find?",
+        "check": "knowledge_states",
+        "spec": {
+          "asserted": [
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-FIRST-ATTEMPT",
+        "ask": "Was the first proposal Tool call accepted, with no refused proposal turn before it?",
+        "check": "first_attempt",
+        "spec": {},
+        "gate": "graded",
+        "note": "The S1 widening and the resource_profile routing (#279 finding 2) show up here as refused turns."
+      },
+      {
+        "id": "B-NO-INVENT",
+        "ask": "Does every accession, TaxId and rsID in the planning Tool calls appear in the request or an earlier recorded result?",
+        "check": "no_invented_identifier",
+        "spec": {},
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-TERMINAL",
+        "ask": "Does the planning layer stop at the expected terminal?",
+        "check": "terminal",
+        "spec": {
+          "terminal": "execution_review"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-PLOIDY",
+        "ask": "Does the Execution Review state diploid calling with the model's judgment of the organism, citing one of the Run's organism records, and ask exactly when the organism is likely not diploid?",
+        "check": "ploidy_notice",
+        "spec": {
+          "asks": false
+        },
+        "gate": "hard",
+        "note": "#470 (owner Q7 a, 2026-10-27): calling is diploid; the model judges the organism's ploidy from its record, never a code organism list."
+      },
+      {
+        "id": "B-REVIEWS-RAISED",
+        "ask": "Are the planning Reviews raised exactly the ones the request leaves open (no over-clarification)?",
+        "check": "reviews_raised",
+        "spec": {
+          "reviews": [
+            "analysis_recipe"
+          ]
+        },
+        "gate": "graded",
+        "note": null
+      },
+      {
+        "id": "q1",
+        "ask": "Are the four sites kept as four separate scientific_investigation items (known_variant), none dropped, none merged, and no rsID invented for them?",
+        "check": "investigation_items",
+        "spec": {
+          "purpose": "known_variant",
+          "quotes": [
+            "V:2129317 C>T",
+            "X:765242 C>A",
+            "III:4821044 G>A",
+            "X:15696111 G>C"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q2",
+        "ask": "Is sample_identity asserted exactly as SAMN09099384?",
+        "check": "plan_value",
+        "spec": {
+          "kind": "sample_identity",
+          "state": "asserted",
+          "value": "SAMN09099384"
+        },
+        "gate": "hard",
+        "note": null
+      }
+    ],
+    "good_answer": "SAMN09099384 / 6239 / GCF_000002985.6 asserted bare; four known_variant items, one site each, no rsIDs; one recipe Review; Execution Review reached.",
+    "bad_answers": [
+      {
+        "summary": "Invents rsIDs (or WormBase variation ids) for the sites",
+        "must_fail": [
+          "q1",
+          "B-NO-INVENT"
+        ],
+        "label": "fabrication"
+      },
+      {
+        "summary": "The four sites recorded as one item",
+        "must_fail": [
+          "q1"
+        ],
+        "label": "semantic_coverage"
+      }
+    ]
+  }
+}

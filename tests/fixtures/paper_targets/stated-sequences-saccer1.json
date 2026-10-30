@@ -1,0 +1,24 @@
+{
+  "schema_version": "bio-neb.stated-sequences/1",
+  "name": "s3 sacCer1 (test fixture, #332's proof)",
+  "rows": [
+    {
+      "version": "sacCer1",
+      "contig": "11",
+      "accession": "NC_001143.4",
+      "proof": {
+        "source": "docs/development/reviews/issue332-snv-move/proof.md at 170273a8, Spike step 1",
+        "window": "NC_001143.4:207439-207499 (efetch, sha256 d7c3f70e...) equals the captured sacCer1-era chrXI window (chrXI_old_versions.json, .4 and .5); UCSC is not an allowed host, so the proof is this 61-base window, not a whole-sequence comparison"
+      }
+    },
+    {
+      "version": "sacCer1",
+      "contig": "chr11",
+      "accession": "NC_001143.4",
+      "proof": {
+        "source": "docs/development/reviews/issue332-snv-move/proof.md at 170273a8, Spike step 1",
+        "window": "NC_001143.4:207439-207499 (efetch, sha256 d7c3f70e...) equals the captured sacCer1-era chrXI window (chrXI_old_versions.json, .4 and .5); UCSC is not an allowed host, so the proof is this 61-base window, not a whole-sequence comparison"
+      }
+    }
+  ]
+}

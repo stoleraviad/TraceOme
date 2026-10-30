@@ -1,0 +1,74 @@
+case_id: c-9eafc7
+version: 1
+state: draft
+family: s12-human-hg005-clean
+scenario: s12-human-hg005
+source: {kind: paper, ref: "Zook et al. 2019", chain: [p11-F1, p11-F4, p11-F5, p11-F10]}
+level: L3
+evidence_shape: clean
+variant_count: 1
+variant_load: small
+split: null
+roles: [proposal_information_planner, reference_identity_planner, reference_facts_planner, investigation_planner]
+knowledge_reference: [p11-F4, p11-F5, p11-F9, p11-F10, p11-F11, p11-F14]
+
+public:
+  research_request: |
+    These are paired-end Illumina reads from HG005 (Homo sapiens). Align them to GRCh38 and call germline
+    variants; I need a VCF, the reference FASTA, and whether the sample carries the ALDH2 variant rs671.
+  inspected_inputs:
+    - {role: READ-1, registered_path: reads/run_R1.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+    - {role: READ-2, registered_path: reads/run_R2.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+
+fixtures:
+  resolve_taxon: [{query: "Homo sapiens", resolution: resolved, candidates: [{taxon: 9606, name: Homo sapiens}]}]
+  discover_assemblies: [{taxon: 9606, resolution: shortlist_ready, candidates: [GCF_000001405.40]}]   # p11-F10: the only reference_only report
+  describe_reference: [{accession: GCF_000001405.40, resolution: verified, name: GRCh38.p14}]
+  describe_companions: [{accession: GCF_000001405.40, role: genomic_fasta, outcome: verified}]
+  fetch_refsnp:
+    - {rsid: rs671, status: resolved, assembly: GCF_000001405.40, contig: NC_000012.12, pos: 111803962, ref: G, alt: A}
+  fetch_assembly_report: [{assembly: GCF_000001405.40, status: compatible}]
+scripted_answers:
+  - {field: companion_roles, answer: "companion-role-set:genomic_fasta"}
+
+expectations:
+  today: {outcome: ready, terminal: "investigation:compile_proposal x1", note: "'GRCh38' (no patch) is a name; the accession must come from discovery. Planning may stop at the reference_facts slice terminal if the investigation stage is not reached for name-level requests; re-check at re-anchor."}
+
+downstream:
+  loop_gold:
+    - {rsid: rs671, contig: NC_000012.12, pos: 111803962, ref: G, alt: A, intended_action: observe_variant}
+  science_gold:
+    - {rsid: rs671, carried: false, gt: "0/0"}
+
+scoring_questions:
+  - {ref: B-ATOMIC}
+  - {ref: B-NO-INVENT}
+  - {ref: B-SUPPLIED-KEPT, params: {asserted_kinds: [sample_identity, taxon_identity, reference_assembly_identity, proposal_output]}}
+  - id: q1
+    role: reference_identity_planner
+    ask: "Does GCF_000001405.40 first appear as a tool result (not typed by the model from memory)?"
+    check: journey_fact
+    spec: {first_occurrence_of: GCF_000001405.40, must_be: tool_result}
+    gate: hard
+    open: "Same product question as s2-giab-hg002-clean-L3 q1 (assembly name assertions)."
+  - id: q2
+    role: proposal_information_planner
+    ask: "Is sample_identity exactly 'HG005' (not NA24631, not SAMN03283350, not 'HG005 (Homo sapiens)')?"
+    check: exact_norm
+    spec: {field: sample_identity.value, expected: HG005}
+    gate: hard
+  - id: q3
+    role: investigation_planner
+    ask: "Does rs671's contig/pos/ref/alt equal loop_gold, from fetch_refsnp?"
+    check: exact_norm
+    spec: {compare: downstream.loop_gold, source: tool_result}
+    gate: hard
+
+good_answer: {summary: "HG005 asserted bare; 'GRCh38' kept as a name span and GCF_000001405.40 taken from discovery; rs671 resolved by fetch_refsnp."}
+bad_answers:
+  - {summary: "Asserts GCA_000001405.15 (the GIAB analysis-set base) from memory", must_fail: [q1, B-NO-INVENT], label: fabrication}
+  - {summary: "Asserts an older GRCh38 RefSeq version (e.g. GCF_000001405.39) from memory", must_fail: [q1, B-NO-INVENT], label: fabrication}
+  - {summary: "sample_identity 'HG005 (NA24631)'", must_fail: [q2, B-ATOMIC], label: value_not_atomic}
+  - {summary: "Asks the user which GRCh38 patch to use although discovery returns one current reference", must_fail: [B-SUPPLIED-KEPT], label: over_clarification}
+review: {solver_disagreements: [], approved_by: null, approved_at: null, frozen_sha256: null,
+  second_review: {by: second-review, at: "2026-09-24T13:15Z", verdict: agree, note: "rs671 NC_000012.12:111803962 G>A 0/0 inside v3.3.2 BED; no leak", detail: review/s12-human-hg005.md}}

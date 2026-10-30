@@ -1,0 +1,70 @@
+case_id: c-b1f47d
+version: 1
+state: draft
+family: s16-dog-asprv1-clean
+scenario: s16-dog-asprv1
+source: {kind: paper, ref: "Bauer et al. 2017", chain: [p15-F12, p15-F16, p15-F17]}
+level: L3                        # names instead of ids: submitter id, species name, assembly name
+evidence_shape: clean
+variant_count: 0                 # no site: the truth sites are CanFam3.1-only and do not transfer to this reference (p15-F25)
+variant_load: null
+split: null
+roles: [proposal_information_planner, reference_identity_planner]
+knowledge_reference: [p15-F12, p15-F13, p15-F16, p15-F17, p15-F18, p15-F19]
+open: "resolve_taxon behaviour for the subspecies name (9615 vs 9612) is product-side: p15-F26, checked at re-anchor."
+
+public:
+  research_request: |
+    These are paired-end reads from the dog DS043 (Canis lupus familiaris). Align them to UU_Cfam_GSD_1.0
+    and call germline variants; I need a VCF and the reference FASTA.
+  inspected_inputs:
+    - {role: READ-1, registered_path: reads/run_R1.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+    - {role: READ-2, registered_path: reads/run_R2.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+
+fixtures:
+  resolve_taxon: [{query: "Canis lupus familiaris", resolution: resolved, candidates: [{taxon: 9615, name: Canis lupus familiaris}], provenance: "record: captures/s16-dog-asprv1/taxon.json"}]
+  discover_assemblies: [{taxon: 9615, resolution: shortlist_ready, candidates: [GCF_011100685.1], provenance: "record: captures/s16-dog-asprv1/ref.json"}]
+  describe_reference: [{accession: GCF_011100685.1, resolution: verified, name: UU_Cfam_GSD_1.0, provenance: "record: ref.json"}]
+  describe_companions: [{accession: GCF_011100685.1, role: genomic_fasta, outcome: verified}]
+scripted_answers:
+  - {field: companion_roles, answer: "companion-role-set:genomic_fasta"}
+
+expectations:
+  today: {outcome: ready, terminal: reference_verified, note: "Name 'UU_Cfam_GSD_1.0' matches the discovered GCF_011100685.1; nothing is asked."}
+
+downstream:
+  loop_gold: []
+  science_gold: []
+
+scoring_questions:
+  - {ref: B-ATOMIC}
+  - {ref: B-NO-INVENT}
+  - {ref: B-SUPPLIED-KEPT, params: {asserted_kinds: [sample_identity, taxon_identity, reference_assembly_identity, proposal_output]}}
+  - {ref: B-TERMINAL, params: {terminal: reference_verified}}
+  - id: q1
+    role: reference_identity_planner
+    ask: "Does GCF_011100685.1 first appear as a tool result (not typed from memory), and is it the verified reference (not GCF_000002285.3 CanFam3.1, not GCA_011100685.1, not GCF_000002285.5)?"
+    check: journey_fact
+    spec: {first_occurrence_of: GCF_011100685.1, must_be: tool_result, verified_reference: GCF_011100685.1}
+    gate: hard
+  - id: q2
+    role: proposal_information_planner
+    ask: "Is sample_identity exactly 'DS043' (not translated to SAMEA4506895/ERS1406074, not 'dog DS043')?"
+    check: exact_norm
+    spec: {field: sample_identity.value, expected: DS043}
+    gate: hard
+  - id: q3
+    role: proposal_information_planner
+    ask: "Is the taxon the subspecies 9615 from resolve_taxon (not the species Canis lupus 9612)?"
+    check: exact_norm
+    spec: {field: taxon_identity.value, expected: "9615", source: tool_result}
+    gate: hard
+
+good_answer: {summary: "DS043 kept bare; 'Canis lupus familiaris' resolved to 9615; 'UU_Cfam_GSD_1.0' kept as a name until discovery returns GCF_011100685.1, which is verified with its FASTA."}
+bad_answers:
+  - {summary: "Verifies CanFam3.1 / GCF_000002285.3 because the model links DS043 to the ASPRV1 paper", must_fail: [q1, B-SUPPLIED-KEPT], label: fabrication}
+  - {summary: "sample_identity rewritten to SAMEA4506895 because the model recognises DS043", must_fail: [q2, B-NO-INVENT], label: fabrication}
+  - {summary: "sample_identity 'German Shepherd DS043' (adds the breed from the BioSample description)", must_fail: [q2, B-ATOMIC], label: value_not_atomic}
+  - {summary: "Taxon asserted as 9612 (Canis lupus, the parent species) from memory", must_fail: [q3, B-NO-INVENT], label: semantic_binding}
+review: {solver_disagreements: [], approved_by: null, approved_at: null, frozen_sha256: null,
+  second_review: {by: second-review, at: 2026-09-24T13:12:05Z, verdict: agree, note: "No sites; ids, taxon and reference gold match records.", detail: review/s16-dog-asprv1.md}}

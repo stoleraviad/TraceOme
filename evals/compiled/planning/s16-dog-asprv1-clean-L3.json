@@ -1,0 +1,183 @@
+{
+  "schema_version": "bio-neb.eval-case-compiled/1",
+  "case_id": "s16-dog-asprv1-clean-L3",
+  "family": "s16-dog-asprv1-clean",
+  "scenario": "s16-dog-asprv1",
+  "split": "train",
+  "level": "L3",
+  "evidence_shape": "clean",
+  "donor": {
+    "path": "work/research/2026-09-24-nemotron/eval/corpus/cases/s16-dog-asprv1-clean-L3.yaml",
+    "case_id": "c-b1f47d",
+    "version": 1
+  },
+  "public": {
+    "research_request": "These are paired-end reads from the dog DS043 (Canis lupus familiaris). Align them to UU_Cfam_GSD_1.0 and call germline variants; I need a VCF and the reference FASTA.\n",
+    "fastq_roles": [
+      "read_1",
+      "read_2"
+    ]
+  },
+  "planning": {
+    "prepared_answers": [
+      {
+        "review": "analysis_recipe",
+        "answer": "gDNA / paired",
+        "reason": "Paired-end reads of one dog for germline calling: genomic DNA, paired."
+      },
+      {
+        "review": "reference_assembly_identity",
+        "answer": "GCF_011100685.1",
+        "reason": "The request names UU_Cfam_GSD_1.0; its RefSeq assembly is GCF_011100685.1."
+      }
+    ],
+    "gates": [
+      "accepted",
+      "usable"
+    ],
+    "questions": [
+      {
+        "id": "B-ALL-KINDS",
+        "ask": "Are all nine required requirement kinds in the accepted plan?",
+        "check": "kinds_present",
+        "spec": {
+          "kinds": [
+            "research_goal",
+            "registered_input",
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity",
+            "companion_asset",
+            "analysis_recipe",
+            "resource_profile",
+            "scientific_investigation"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-SUPPLIED-KEPT",
+        "ask": "Is every fact the request states asserted, not left to find?",
+        "check": "knowledge_states",
+        "spec": {
+          "asserted": [
+            "sample_identity"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-UNSUPPLIED-TO-FIND",
+        "ask": "Is every fact the request names but does not state as an identifier left to find, not asserted?",
+        "check": "knowledge_states",
+        "spec": {
+          "to_find": [
+            "taxon_identity",
+            "reference_assembly_identity"
+          ]
+        },
+        "gate": "hard",
+        "note": "Replaces B-UNSUPPLIED-UNKNOWN: today's Tool says to_find, with the request's words as the quote."
+      },
+      {
+        "id": "B-FIRST-ATTEMPT",
+        "ask": "Was the first proposal Tool call accepted, with no refused proposal turn before it?",
+        "check": "first_attempt",
+        "spec": {},
+        "gate": "graded",
+        "note": "The S1 widening and the resource_profile routing (#279 finding 2) show up here as refused turns."
+      },
+      {
+        "id": "B-NO-INVENT",
+        "ask": "Does every accession, TaxId and rsID in the planning Tool calls appear in the request or an earlier recorded result?",
+        "check": "no_invented_identifier",
+        "spec": {},
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-TERMINAL",
+        "ask": "Does the planning layer stop at the expected terminal?",
+        "check": "terminal",
+        "spec": {
+          "terminal": "execution_review"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-REVIEWS-RAISED",
+        "ask": "Are the planning Reviews raised exactly the ones the request leaves open (no over-clarification)?",
+        "check": "reviews_raised",
+        "spec": {
+          "reviews": [
+            "analysis_recipe"
+          ]
+        },
+        "gate": "graded",
+        "note": null
+      },
+      {
+        "id": "q1",
+        "ask": "Does GCF_011100685.1 first appear as a discovery result, not typed from memory (not CanFam3.1 GCF_000002285.3, not GCA_011100685.1)?",
+        "check": "reference_from_discovery",
+        "spec": {
+          "accession": "GCF_011100685.1"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q2",
+        "ask": "Is sample_identity exactly 'DS043' (not SAMEA4506895, not 'dog DS043')?",
+        "check": "plan_value",
+        "spec": {
+          "kind": "sample_identity",
+          "state": "asserted",
+          "value": "DS043"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q3",
+        "ask": "Does taxon resolution find the subspecies NCBI Taxonomy 9615 from 'Canis lupus familiaris' (not the species 9612)?",
+        "check": "taxon_resolved",
+        "spec": {
+          "ncbi_tax_id": 9615
+        },
+        "gate": "hard",
+        "note": null
+      }
+    ],
+    "good_answer": "DS043 asserted bare; 'Canis lupus familiaris' resolved to 9615 and GCF_011100685.1 taken from discovery for 'UU_Cfam_GSD_1.0'; one recipe Review; Execution Review reached.",
+    "bad_answers": [
+      {
+        "summary": "Verifies CanFam3.1 / GCF_000002285.3 because the model links DS043 to the ASPRV1 paper",
+        "must_fail": [
+          "q1",
+          "B-NO-INVENT"
+        ],
+        "label": "fabrication"
+      },
+      {
+        "summary": "sample_identity rewritten to SAMEA4506895 because the model recognises DS043",
+        "must_fail": [
+          "q2",
+          "B-NO-INVENT"
+        ],
+        "label": "fabrication"
+      },
+      {
+        "summary": "Taxon asserted as 9612 (Canis lupus, the parent species) from memory",
+        "must_fail": [
+          "q3",
+          "B-NO-INVENT"
+        ],
+        "label": "semantic_binding"
+      }
+    ]
+  }
+}

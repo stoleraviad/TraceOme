@@ -1,0 +1,1736 @@
+{
+ "schema_version": "bio-neb.recorded-source-answers/1",
+ "recorded_by": "#466 (owner answers 1a-6a, 2026-10-26)",
+ "note": "Each answer is one GET as SourceTransport received it; the body file holds its exact bytes (gzipped when it ends .gz). 'breaks' names today's rule a test shows failing; 'owner_ticket' owns its fix.",
+ "fixtures": {
+  "naming-nz-sequence": {
+   "axis": "naming",
+   "case": "E. coli ATCC 25922 (GCF_000743255.1): its chromosome is RefSeq NZ_CP009072.1, the name of every E. coli complete-genome RefSeq sequence.",
+   "breaks": "investigation_sources.SEQUENCE_ACCESSION refuses NZ_CP009072.1, so named_sequences_of raises and the whole sequence report goes unread (also providers/ncbi_investigation._SEQUENCE, paper_text._SEQUENCE). Fixed by #467: the whole FTP assembly report is copied and the model names the sequence, checked by membership.",
+   "owner_ticket": 467,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000743255.1/sequence_reports?role_filters=assembled-molecule",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "1057",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-nz-sequence/00.json",
+     "byte_count": 1057,
+     "sha256": "f9b53cee7f2e2685091be441239e79af8abf373ee6c0a7029e682820e96d3dfe",
+     "recorded_at": "2026-10-27T05:44:50Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000743255.1/sequence_reports?page_size=1000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "1057",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-nz-sequence/01.json",
+     "byte_count": 1057,
+     "sha256": "f9b53cee7f2e2685091be441239e79af8abf373ee6c0a7029e682820e96d3dfe",
+     "recorded_at": "2026-10-27T05:44:51Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000743255.1/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-nz-sequence/02.json",
+     "byte_count": 3947,
+     "sha256": "d27c0ea5ac85202f2480983fb905ec0671bb6db559b0cd52ff9941a7ca2eb3a9",
+     "recorded_at": "2026-10-27T05:44:52Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000743255.1/links",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "914",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-nz-sequence/03.json",
+     "byte_count": 914,
+     "sha256": "c97fcff8c2a429c0037e470e1c96b698e5669c760e8f4dc7bc28e3b1e997c139",
+     "recorded_at": "2026-10-27T08:26:20Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/743/255/GCF_000743255.1_ASM74325v1/GCF_000743255.1_ASM74325v1_assembly_report.txt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Length": "1534",
+      "Last-Modified": "Mon, 29 Aug 2022 23:32:27 GMT"
+     },
+     "body": "naming-nz-sequence/04.txt",
+     "byte_count": 1534,
+     "sha256": "8519b31c4a296a52459781642801edd5ed9d61dda514698d2c9bfa7db4a12625",
+     "recorded_at": "2026-10-27T08:26:21Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.NamingTests.test_an_nz_refseq_name_is_copied_with_the_report"
+   ]
+  },
+  "naming-wgs-scaffold": {
+   "axis": "naming",
+   "case": "Dog CanFam3.1 (GCF_000002285.3, now 'previous'): unplaced scaffolds named by WGS accession, e.g. GenBank AAEX03018827.1 = RefSeq NW_003726146.1 = UCSC chrUn_AAEX03018827.",
+   "breaks": "ncbi_investigation.fetch_sequence_report asks role_filters=assembled-molecule, so no unplaced scaffold reaches the reader; a site on one is 'names no sequence'. Fixed by #467: the whole FTP assembly report is copied and the model names the sequence, checked by membership.",
+   "owner_ticket": 467,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/sequence_reports?role_filters=assembled-molecule",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-wgs-scaffold/00.json",
+     "byte_count": 14733,
+     "sha256": "8efd000beff0233c87e612406a1309d1c4ae6c4c58ba48e512b24727e4558cef",
+     "recorded_at": "2026-10-27T05:44:53Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/sequence_reports?page_size=1000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-wgs-scaffold/01.json.gz",
+     "byte_count": 355294,
+     "sha256": "8ffe545706f5f0a83ba089dbe9755b7f6e42bab50e006cd6afd9995e6c605761",
+     "recorded_at": "2026-10-27T05:44:55Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "2",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-wgs-scaffold/02.json",
+     "byte_count": 2,
+     "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "recorded_at": "2026-10-27T05:44:56Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/dataset_report?filters.assembly_version=all_assemblies",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-wgs-scaffold/03.json",
+     "byte_count": 3200,
+     "sha256": "c65da4313abfd66d659f0240be2095a285baa2109dcf39cc170d53944a1640c7",
+     "recorded_at": "2026-10-27T05:44:56Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/links",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "1404",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-wgs-scaffold/04.json",
+     "byte_count": 1404,
+     "sha256": "bdad5f00ac9e0290c943ee6cbee58ab68825054950890e7b0148b7f4e569b7bf",
+     "recorded_at": "2026-10-27T08:26:22Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/285/GCF_000002285.3_CanFam3.1/GCF_000002285.3_CanFam3.1_assembly_report.txt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Length": "363862",
+      "Last-Modified": "Wed, 30 Oct 2024 20:59:12 GMT"
+     },
+     "body": "naming-wgs-scaffold/05.txt.gz",
+     "byte_count": 363862,
+     "sha256": "b3ae87c2c2e07f64bc804319fb985619127588def3770efdcdebf87a29587e10",
+     "recorded_at": "2026-10-27T08:26:23Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.NamingTests.test_an_unplaced_wgs_scaffold_is_copied_with_its_names"
+   ]
+  },
+  "naming-mitochondrion": {
+   "axis": "naming",
+   "case": "Human GRCh38.p14 (GCF_000001405.40): the mitochondrion is MT / chrM / NC_012920.1 / J01415.2; a paper may write chrMT, M or m.",
+   "breaks": "investigation_sources name_sequence keeps a written contig only when it is literally one of the report's names, while paper_text.contig_name (the stated-version path) folds chr/Chromosome prefixes by grammar: two code rules that disagree and neither lets the model match. Fixed by #467: the whole FTP assembly report is copied and the model names the sequence, checked by membership.",
+   "owner_ticket": 467,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.40/sequence_reports?role_filters=assembled-molecule",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-mitochondrion/00.json",
+     "byte_count": 9454,
+     "sha256": "8ead23d1d4c90b84dd1b0f2eb1140ba06b210791a45631039cfa78532cc06aad",
+     "recorded_at": "2026-10-27T05:44:58Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.40/sequence_reports?page_size=1000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-mitochondrion/01.json",
+     "byte_count": 249567,
+     "sha256": "02c1f9b2d3fc51cf35551365fc81bdeabb94bc8585d497a7057f8d0e2854597c",
+     "recorded_at": "2026-10-27T05:44:59Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.40/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-mitochondrion/02.json",
+     "byte_count": 3515,
+     "sha256": "53289366a0cee7e6d49ba375ba5cbfb0165a8069df0b2fe38472393bf28799d7",
+     "recorded_at": "2026-10-27T05:45:00Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.40/links",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "1425",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-mitochondrion/03.json",
+     "byte_count": 1425,
+     "sha256": "b3194be7ffd71dcb7273cf4444a6b01408dbfb51a4ce15742d6ec8e9ab2ef315",
+     "recorded_at": "2026-10-27T08:26:24Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_assembly_report.txt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Length": "80454",
+      "Last-Modified": "Thu, 07 Aug 2025 00:15:22 GMT"
+     },
+     "body": "naming-mitochondrion/04.txt",
+     "byte_count": 80454,
+     "sha256": "64318ddff470b69b261a667d813210044f60d4ce654253a547db80ff73638d38",
+     "recorded_at": "2026-10-27T08:26:25Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.NamingTests.test_a_mitochondrion_written_chrmt_is_not_refused_by_code"
+   ]
+  },
+  "naming-roman-chromosome": {
+   "axis": "naming",
+   "case": "S. cerevisiae R64 (GCF_000146045.2): chromosome IV is IV / chrIV / NC_001136.10 / BK006938.2; sacCer1-era papers write chr4.",
+   "breaks": "name_sequence's literal membership and paper_text.contig_name both miss arabic for roman; today the curated StatedSequences table patches it (#459/#414). Fixed by #467: the whole FTP assembly report is copied and the model names the sequence, checked by membership.",
+   "owner_ticket": 467,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/sequence_reports?role_filters=assembled-molecule",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-roman-chromosome/00.json",
+     "byte_count": 6176,
+     "sha256": "07d5d1183fd1f54af5bdab7254b25a2c55e56e66efd7cb0157f6ef3742d3cc91",
+     "recorded_at": "2026-10-27T05:45:02Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/sequence_reports?page_size=1000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-roman-chromosome/01.json",
+     "byte_count": 6176,
+     "sha256": "07d5d1183fd1f54af5bdab7254b25a2c55e56e66efd7cb0157f6ef3742d3cc91",
+     "recorded_at": "2026-10-27T05:45:03Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-roman-chromosome/02.json",
+     "byte_count": 3180,
+     "sha256": "72faeec7a34dec0ea608f8a34f129e17b45f6933d6e41b72ddf9626b4c05ad0f",
+     "recorded_at": "2026-10-27T05:45:04Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/links",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "1398",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-roman-chromosome/03.json",
+     "byte_count": 1398,
+     "sha256": "4db738a074e09821e842173461f5c4cac50c3a08c7372ea7a87b35b75a029acb",
+     "recorded_at": "2026-10-27T08:26:26Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_assembly_report.txt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Length": "2603",
+      "Last-Modified": "Sat, 11 Jul 2026 00:51:46 GMT"
+     },
+     "body": "naming-roman-chromosome/04.txt",
+     "byte_count": 2603,
+     "sha256": "6534526baea6bdaae69c1a2ec1339d9f15d4ba0fe65ad58e8579cad3d0af2a0c",
+     "recorded_at": "2026-10-27T08:26:27Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.NamingTests.test_an_arabic_chromosome_on_a_roman_named_assembly_is_not_refused_by_code"
+   ]
+  },
+  "naming-plant-chromosome": {
+   "axis": "naming",
+   "case": "Arabidopsis TAIR10 (GCF_000001735.4): NCBI names chromosome 1 only 1 / NC_003070.9 / CP002684.1 (no UCSC name); TAIR papers write Chr1, ChrC, ChrM.",
+   "breaks": "name_sequence's literal membership refuses Chr1; paper_text._CHROMOSOME reads no ChrC/Pltd. Fixed by #467: the whole FTP assembly report is copied and the model names the sequence, checked by membership.",
+   "owner_ticket": 467,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001735.4/sequence_reports?role_filters=assembled-molecule",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-plant-chromosome/00.json",
+     "byte_count": 2335,
+     "sha256": "653e9a7c2c1d60400b789149652d4a7418dd95fd02ff209e2c4362e813ed0ed7",
+     "recorded_at": "2026-10-27T05:45:05Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001735.4/sequence_reports?page_size=1000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-plant-chromosome/01.json",
+     "byte_count": 2335,
+     "sha256": "653e9a7c2c1d60400b789149652d4a7418dd95fd02ff209e2c4362e813ed0ed7",
+     "recorded_at": "2026-10-27T05:45:06Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001735.4/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-plant-chromosome/02.json",
+     "byte_count": 2579,
+     "sha256": "a18408640999e3a51e5139468f43195e36ad61527639d68b09c7c982eb95f32e",
+     "recorded_at": "2026-10-27T05:45:08Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001735.4/links",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "1407",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-plant-chromosome/03.json",
+     "byte_count": 1407,
+     "sha256": "4b2e23b0f09b80271c52cfb4ee994ce28898d0c8fefe253260ca0f9b7dde2366",
+     "recorded_at": "2026-10-27T08:26:28Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/735/GCF_000001735.4_TAIR10.1/GCF_000001735.4_TAIR10.1_assembly_report.txt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Length": "1783",
+      "Last-Modified": "Wed, 06 Mar 2019 07:33:19 GMT"
+     },
+     "body": "naming-plant-chromosome/04.txt",
+     "byte_count": 1783,
+     "sha256": "12ce7833ce4d38b8ad49256e5fbe8eec6b6d4f870ec39ae698f9d74bcb750e19",
+     "recorded_at": "2026-10-27T08:26:31Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.NamingTests.test_a_tair_chromosome_name_is_not_refused_by_code"
+   ]
+  },
+  "naming-large-report": {
+   "axis": "naming",
+   "case": "Wheat IWGSC CS RefSeq v2.1 (GCF_018294505.1): 21 chromosomes, plastid and mitochondrion, and 91,588 scaffolds.",
+   "breaks": "The sequence report's role filter hides every scaffold and named_sequences_of names no cut; the FTP assembly report breaks describe_companion's 1 MiB bound (SourceAnswerTooLarge), so the prebuilt-index search is 'unavailable'. Fixed by #467: the whole FTP assembly report is copied and the model names the sequence, checked by membership.",
+   "owner_ticket": 467,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/sequence_reports?role_filters=assembled-molecule",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-large-report/00.json",
+     "byte_count": 7562,
+     "sha256": "e34e9fcfb03be4a5c7a4d2b355d4d954ec1532d7973790a501d6f67ac77b716e",
+     "recorded_at": "2026-10-27T05:45:09Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/sequence_reports?page_size=1000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-large-report/01.json.gz",
+     "byte_count": 317843,
+     "sha256": "8c0f48d0ee5bc7f2db435f6e6ecc8120d3e559c6f35b1805374defa462fc291e",
+     "recorded_at": "2026-10-27T05:45:10Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-large-report/02.json",
+     "byte_count": 4120,
+     "sha256": "23b5f7132bde9ea3a75bf70c5bf2f563a3a3f1133bed16705c9c9a00d5b08e14",
+     "recorded_at": "2026-10-27T05:45:12Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/018/294/505/GCF_018294505.1_IWGSC_CS_RefSeq_v2.1/GCF_018294505.1_IWGSC_CS_RefSeq_v2.1_assembly_report.txt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Length": "9097246",
+      "Last-Modified": "Fri, 11 Oct 2024 07:15:56 GMT"
+     },
+     "body": "naming-large-report/03.txt.gz",
+     "byte_count": 9097246,
+     "sha256": "e14b11d4d61d3cb6b03a9e5eb25d7ba1e6d1782833bbfd37e71c2a7cf5ef989c",
+     "recorded_at": "2026-10-27T05:45:14Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/sequence_reports?page_size=1000&page_token=eNrjYjM0MDQxMQUABJUBQA",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-large-report/04.json.gz",
+     "byte_count": 317005,
+     "sha256": "6bc59a485c019a8f2207c6b40ca7f0cd111f64631f7137f6b4cc226dee183610",
+     "recorded_at": "2026-10-27T05:46:03Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/links",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "1423",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "naming-large-report/05.json",
+     "byte_count": 1423,
+     "sha256": "adb0b0fa73952ed6a30e840e6f6ac00181bfd8d02c2c5e315253decf8abc69cb",
+     "recorded_at": "2026-10-27T08:26:32Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.NamingTests.test_a_scaffold_of_a_large_assembly_is_reachable_from_its_copied_names",
+    "tests.test_source_fixture_cases.NamingTests.test_a_large_assembly_report_is_read_whole"
+   ]
+  },
+  "naming-galaxy-unit": {
+   "axis": "naming",
+   "case": "Mouse GRCm39 (GCF_000001635.27), listed in Galaxy's BRC bwa_mem_index catalogue: its assembly report names the primary unit C57BL/6J.",
+   "breaks": "prebuilt_index.search.PRIMARY_UNITS was the name set {Primary Assembly, non-nuclear}, so no mouse chromosome was requested and the pre-fit was refused; #464 selects the Run's sequences by NCBI's Sequence-Role (REFERENCE_ROLES).",
+   "owner_ticket": 464,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.NamingTests.test_a_mouse_reference_requests_its_chromosomes",
+    "tests.test_source_fixture_cases.NamingTests.test_a_brc_search_for_homo_sapiens_lists_grch38_with_its_candidate",
+    "tests.test_source_fixture_cases.NamingTests.test_a_search_pages_every_row_galaxy_publishes"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "http://datacache.galaxyproject.org/brc/config/bwa_mem_index.loc",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "1093939",
+      "Last-Modified": "Fri, 16 Oct 2026 22:13:18 GMT",
+      "ETag": "\"6ad2a17e-10b133\""
+     },
+     "body": "naming-galaxy-unit/00.txt.gz",
+     "byte_count": 1093939,
+     "sha256": "c9b08dd4b503cb354fc00eb714fa078a7627374a3c4c9143086d44e81f1b193d",
+     "recorded_at": "2026-10-27T05:45:18Z"
+    },
+    {
+     "method": "GET",
+     "url": "http://datacache.galaxyproject.org/vgp/config/bwa_mem_index.loc",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "131688",
+      "Last-Modified": "Fri, 17 Apr 2026 19:14:08 GMT",
+      "ETag": "\"69e28680-20268\""
+     },
+     "body": "naming-galaxy-unit/01.txt",
+     "byte_count": 131688,
+     "sha256": "a276f8749a018a8dd58e04bc3636651a274dcaa98ea0435f5590f41e0058076c",
+     "recorded_at": "2026-10-27T05:45:19Z"
+    },
+    {
+     "method": "GET",
+     "url": "http://datacache.galaxyproject.org/brc/config/fasta_indexes.loc",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "1105073",
+      "Last-Modified": "Fri, 16 Oct 2026 22:12:17 GMT",
+      "ETag": "\"6ad2a141-10dcb1\""
+     },
+     "body": "naming-galaxy-unit/02.txt.gz",
+     "byte_count": 1105073,
+     "sha256": "f103fae1f046e06d75ec911552011cf220cd13de37ad28944308da3daaf0d471",
+     "recorded_at": "2026-10-27T05:45:24Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.27_GRCm39/GCF_000001635.27_GRCm39_assembly_report.txt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Length": "7187",
+      "Last-Modified": "Thu, 08 Feb 2024 13:26:21 GMT"
+     },
+     "body": "naming-galaxy-unit/03.txt",
+     "byte_count": 7187,
+     "sha256": "e3fb259bf1d1ee3b646c1f697a39c8394a6342d790fca9c1b36a8c873063ae26",
+     "recorded_at": "2026-10-27T05:45:25Z"
+    },
+    {
+     "method": "GET",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/sam_fasta_index/v1/GCF_000001635.27/GCF_000001635.27.fa.fai",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "2371",
+      "Last-Modified": "Thu, 05 Dec 2024 16:49:52 GMT",
+      "ETag": "\"6751d9b0-943\""
+     },
+     "body": "naming-galaxy-unit/04.txt",
+     "byte_count": 2371,
+     "sha256": "fd308b480d65628164248ea39bb5cb6c80dd61f809291025cffae4f46cddb127",
+     "recorded_at": "2026-10-27T05:46:05Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/sam_fasta_index/v1/GCF_000001635.27/GCF_000001635.27.fa",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "2782787884",
+      "Last-Modified": "Thu, 05 Dec 2024 16:49:52 GMT",
+      "ETag": "\"6751d9b0-a5ddf92c\""
+     },
+     "body": "naming-galaxy-unit/05.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-27T05:46:06Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.amb",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "5961",
+      "Last-Modified": "Thu, 03 Oct 2024 09:50:25 GMT",
+      "ETag": "\"66fe68e1-1749\""
+     },
+     "body": "naming-galaxy-unit/06.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-27T05:46:07Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.ann",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "2702",
+      "Last-Modified": "Thu, 03 Oct 2024 09:50:31 GMT",
+      "ETag": "\"66fe68e7-a8e\""
+     },
+     "body": "naming-galaxy-unit/07.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-27T05:46:10Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.bwt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "2728222532",
+      "Last-Modified": "Thu, 03 Oct 2024 09:50:57 GMT",
+      "ETag": "\"66fe6901-a29d5f44\""
+     },
+     "body": "naming-galaxy-unit/08.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-27T05:46:13Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.pac",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "682055614",
+      "Last-Modified": "Thu, 03 Oct 2024 09:50:31 GMT",
+      "ETag": "\"66fe68e7-28a757be\""
+     },
+     "body": "naming-galaxy-unit/09.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-27T05:46:16Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.sa",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "1364111280",
+      "Last-Modified": "Thu, 03 Oct 2024 09:50:39 GMT",
+      "ETag": "\"66fe68ef-514eafb0\""
+     },
+     "body": "naming-galaxy-unit/10.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-27T05:46:19Z"
+    },
+    {
+     "method": "GET",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.ann",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "2702",
+      "Last-Modified": "Thu, 03 Oct 2024 09:50:31 GMT",
+      "ETag": "\"66fe68e7-a8e\""
+     },
+     "body": "naming-galaxy-unit/11.txt",
+     "byte_count": 2702,
+     "sha256": "306f28340076c8a48f87f1162ee5d3b5e225e3c47a3f2aed2148013c502eaf50",
+     "recorded_at": "2026-10-29T12:11:54Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/sam_fasta_index/v1/GCF_000001635.27/GCF_000001635.27.fa.fai",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "2371",
+      "Last-Modified": "Thu, 05 Dec 2024 16:49:52 GMT",
+      "ETag": "\"6751d9b0-943\""
+     },
+     "body": "naming-galaxy-unit/12.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-29T12:11:55Z"
+    }
+   ]
+  },
+  "naming-galaxy-human": {
+   "axis": "naming",
+   "case": "Human GRCh38.p14 (GCF_000001405.40), Galaxy BRC's prebuilt BWA index: its .ann names 455 contigs, NCBI's 25 assembled molecules and unlocalized and unplaced scaffolds under UCSC names and the alt loci (#457 human a1). Read with naming-galaxy-unit's catalogues and naming-mitochondrion's assembly report.",
+   "breaks": "The retired code-side search's pre-fit refused it: 455 contigs against NCBI's 191, 264 not one requested sequence (#457 a1). #464: the model reads the candidate's contigs as facts, every requested sequence paired and each extra with its NCBI role, and chooses.",
+   "owner_ticket": 464,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.NamingTests.test_the_human_index_pairs_every_requested_sequence_and_lists_alt_loci"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.ann",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "21705",
+      "Last-Modified": "Wed, 04 Dec 2024 20:26:02 GMT",
+      "ETag": "\"6750bada-54c9\""
+     },
+     "body": "naming-galaxy-human/00.txt",
+     "byte_count": 21705,
+     "sha256": "93a8c0743302566f9f1c05fdbd8c7b5a3af5995fe985dcd85c387628fdfc45e8",
+     "recorded_at": "2026-10-29T12:11:56Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/sam_fasta_index/v1/GCF_000001405.40/GCF_000001405.40.fa",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "3273481150",
+      "Last-Modified": "Wed, 04 Dec 2024 18:43:26 GMT",
+      "ETag": "\"6750a2ce-c31d5bbe\""
+     },
+     "body": "naming-galaxy-human/01.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-29T12:11:59Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/sam_fasta_index/v1/GCF_000001405.40/GCF_000001405.40.fa.fai",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "19381",
+      "Last-Modified": "Wed, 04 Dec 2024 18:42:53 GMT",
+      "ETag": "\"6750a2ad-4bb5\""
+     },
+     "body": "naming-galaxy-human/02.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-29T12:12:02Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.amb",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "21070",
+      "Last-Modified": "Wed, 04 Dec 2024 20:27:33 GMT",
+      "ETag": "\"6750bb35-524e\""
+     },
+     "body": "naming-galaxy-human/03.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-29T12:12:03Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.ann",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "21705",
+      "Last-Modified": "Wed, 04 Dec 2024 20:26:02 GMT",
+      "ETag": "\"6750bada-54c9\""
+     },
+     "body": "naming-galaxy-human/04.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-29T12:12:04Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.bwt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "3209286200",
+      "Last-Modified": "Wed, 04 Dec 2024 20:27:33 GMT",
+      "ETag": "\"6750bb35-bf49d238\""
+     },
+     "body": "naming-galaxy-human/05.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-29T12:12:05Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.pac",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "802321528",
+      "Last-Modified": "Wed, 04 Dec 2024 20:26:13 GMT",
+      "ETag": "\"6750bae5-2fd27478\""
+     },
+     "body": "naming-galaxy-human/06.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-29T12:12:08Z"
+    },
+    {
+     "method": "HEAD",
+     "url": "http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.sa",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "1604643104",
+      "Last-Modified": "Wed, 04 Dec 2024 20:27:52 GMT",
+      "ETag": "\"6750bb48-5fa4e920\""
+     },
+     "body": "naming-galaxy-human/07.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-29T12:12:11Z"
+    }
+   ]
+  },
+  "assembly-species-pages": {
+   "axis": "assembly",
+   "case": "E. coli, taxon 562: NCBI lists hundreds of thousands of assemblies (two reference_only).",
+   "breaks": "Discovery asks one 100-row page and never pages; rows of descendant taxa are filtered incompatible_taxon, the rest ranked and cut to 3, a truncated listing forced ambiguous; Investigation's RefSeq listing is refused when it runs past a page. Fixed by #471: discovery copies NCBI's own page with its total_count and page token, and a stated version is found by NCBI's own search.",
+   "owner_ticket": 471,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.AssemblyTests.test_every_row_of_the_species_page_reaches_the_model",
+    "tests.test_source_fixture_cases.AssemblyTests.test_ncbis_reference_only_option_lists_the_species_reference_genomes",
+    "tests.test_source_fixture_cases.AssemblyTests.test_a_stated_version_on_a_paged_species_listing_is_looked_up"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?page_size=100&filters.assembly_source=all",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-species-pages/00.json.gz",
+     "byte_count": 380834,
+     "sha256": "5abea8d678aa190aec30091bd8c1820481191cc095f2efc6d50689b440e3518d",
+     "recorded_at": "2026-10-27T05:46:21Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?filters.reference_only=true",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-species-pages/01.json",
+     "byte_count": 9161,
+     "sha256": "e4ff8b2a535f6430c8f8fff77c587cb0cdfd474f576de91cc9cc66bc9234ec96",
+     "recorded_at": "2026-10-27T05:46:22Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?filters.assembly_source=refseq&filters.assembly_version=all_assemblies&page_size=1000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-species-pages/02.json.gz",
+     "byte_count": 3923557,
+     "sha256": "df16bdfa0131b476c56542cc3428d4ec77db418d1b0d29ba3bc1073caa914115",
+     "recorded_at": "2026-10-27T05:46:31Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?page_size=100&filters.assembly_source=all&page_token=eNrjMo1WMnU2jDAwNTC1tDQxNjSwMDQyMLEwNbOwNDK1tLC0UNJRUHJ3douHC-oZKsUCAEETC5o",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-species-pages/03.json.gz",
+     "byte_count": 379486,
+     "sha256": "864e1eb8f88b929aff23d7b4ae8465b211d455ad6298ee7f432828a9f1d55baf",
+     "recorded_at": "2026-10-27T05:47:33Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?page_size=100",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-species-pages/04.json.gz",
+     "byte_count": 380834,
+     "sha256": "f4a358371af2984e547e6a336795f4d099fbeea4b1b3c1313e4421a57cbad20b",
+     "recorded_at": "2026-10-27T21:12:04Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?filters.reference_only=true&page_size=100",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-species-pages/05.json",
+     "byte_count": 9161,
+     "sha256": "e4ff8b2a535f6430c8f8fff77c587cb0cdfd474f576de91cc9cc66bc9234ec96",
+     "recorded_at": "2026-10-27T21:12:06Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?filters.exclude_paired_reports=true&filters.assembly_version=all_assemblies&filters.search_text=ASM584v2&page_size=100",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-species-pages/06.json",
+     "byte_count": 3013,
+     "sha256": "5b11e43adb06bfa26852319ad8f771b243f2881b46636f8f714e89a8fc3dc05c",
+     "recorded_at": "2026-10-27T21:12:07Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?page_size=100&page_token=eNrjMo1WMnU2jDAwNTC1tDQxNjSwMDQyMLEwNbOwNDK1tLC0UNJRUHJ3douHC-oZKsUCAEETC5o",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-species-pages/07.json.gz",
+     "byte_count": 379486,
+     "sha256": "6d5aaafca7e700240203f6569feca6f2ad2284a6d454b838bbc72b7e023cee14",
+     "recorded_at": "2026-10-27T21:12:34Z"
+    }
+   ]
+  },
+  "assembly-strain": {
+   "axis": "assembly",
+   "case": "E. coli K-12 MG1655, taxon 511145 (about a hundred assemblies).",
+   "breaks": "ncbi_datasets matches strain by casefold substring with at most MAX_DESCENDANT_TAXON_CHECKS lineage checks, and discovery keeps three code-ranked candidates of one page. Fixed by #471: the strain's own TaxId is listed page by page, every row copied; no substring or lineage check.",
+   "owner_ticket": 471,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.AssemblyTests.test_every_row_of_the_strain_page_reaches_the_model"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/511145/dataset_report?page_size=100&filters.assembly_source=all",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-strain/00.json.gz",
+     "byte_count": 380686,
+     "sha256": "e37189fb2811b02cf54a702a91b9662c33dbc40c9ea9184a80edf7e39f7ea1ab",
+     "recorded_at": "2026-10-27T05:46:33Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/511145/dataset_report?page_size=100",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-strain/01.json.gz",
+     "byte_count": 381305,
+     "sha256": "83e66d3a840ffd401a7d40b854c5a26913a86d08a913f58547a9bb2f3330c7f5",
+     "recorded_at": "2026-10-27T21:12:09Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/511145/dataset_report?page_size=100&page_token=eNrjMo1WsnQ2izAwNTK1tLS0MLIwNLAwMDMyMLG0NDaytDAwUNJRUHJ3doyHC-oZKsUCAEIhC4g",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-strain/02.json",
+     "byte_count": 2842,
+     "sha256": "cea5859853c1ddcd55c9670430405b05df564b8ef93019a629e6a65d37f39b8c",
+     "recorded_at": "2026-10-27T21:12:35Z"
+    }
+   ]
+  },
+  "assembly-genbank-only": {
+   "axis": "assembly",
+   "case": "Loblolly pine, taxon 3352: assemblies in GenBank only.",
+   "breaks": "ncbi_investigation.fetch_taxon_assemblies lists RefSeq only and stated_version_sequence requires a RefSeq sequence, so a stated GenBank assembly is 'names no' (#393 G1 A, superseded by ADR 0049). Fixed by #471: a stated version is searched over every source.",
+   "owner_ticket": 471,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.AssemblyTests.test_a_genbank_only_assembly_is_looked_up"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/3352/dataset_report?filters.assembly_source=refseq&filters.assembly_version=all_assemblies&page_size=1000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "2",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-genbank-only/00.json",
+     "byte_count": 2,
+     "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+     "recorded_at": "2026-10-27T05:46:34Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/3352/dataset_report?page_size=100&filters.assembly_source=all",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-genbank-only/01.json",
+     "byte_count": 2100,
+     "sha256": "5ed41e248920db80aeee3d60ef0a4914b3268123b6a7ac4f9d87989a66d11ded",
+     "recorded_at": "2026-10-27T05:46:35Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/3352/dataset_report?filters.exclude_paired_reports=true&filters.assembly_version=all_assemblies&filters.search_text=Ptaeda2.0&page_size=100",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-genbank-only/02.json",
+     "byte_count": 2100,
+     "sha256": "5ed41e248920db80aeee3d60ef0a4914b3268123b6a7ac4f9d87989a66d11ded",
+     "recorded_at": "2026-10-27T21:12:12Z"
+    }
+   ]
+  },
+  "assembly-suppressed": {
+   "axis": "assembly",
+   "case": "Horse EquCab3.0: RefSeq GCF_002863925.1 is suppressed, GenBank GCA_002863925.1 current; breed thoroughbred, isolate Twilight, sex female.",
+   "breaks": "Discovery rejects the suppressed RefSeq row by a status substring (decision 'rejected suppressed') and keeps the first infraspecific field only; the source's own status never reaches the model as a copied field. Fixed by #471: every row is copied with NCBI's status and every infraspecific field.",
+   "owner_ticket": 471,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.AssemblyTests.test_a_suppressed_assembly_is_copied_with_its_status_not_rejected"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_002863925.1/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-suppressed/00.json",
+     "byte_count": 3964,
+     "sha256": "5af0aec933f590420e13ef4b426b697cdb9635766c9951dbba60d0fe17540122",
+     "recorded_at": "2026-10-27T05:46:36Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9796/dataset_report?page_size=100&filters.assembly_source=all",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-suppressed/02.json",
+     "byte_count": 73964,
+     "sha256": "89368c17145bf3d08531653ddc48f1aafcb14eab8b0c13fda10f1860146e443a",
+     "recorded_at": "2026-10-27T05:46:39Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9796/dataset_report?page_size=100",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-suppressed/01.json",
+     "byte_count": 73964,
+     "sha256": "89368c17145bf3d08531653ddc48f1aafcb14eab8b0c13fda10f1860146e443a",
+     "recorded_at": "2026-10-27T21:12:11Z"
+    }
+   ]
+  },
+  "assembly-stated-grch37": {
+   "axis": "assembly",
+   "case": "GRCh37 stated on a GRCh38 Run: NCBI names GRCh37 GCF_000001405.13 and its patch releases GRCh37.p1-p13 (GCF_000001405.14-.25).",
+   "breaks": "investigation_request.same_version strips the GRC patch (_GRC_PATCH) and stated_version_sequence picks the latest version, so 'GRCh37' resolves to GRCh37.p13 (GCF_000001405.25), a code choice (#417, #393 G1 A, superseded). Fixed by #471: the model names the version, and a caller with no model takes only the row literally named GRCh37.",
+   "owner_ticket": 471,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.AssemblyTests.test_grch37_is_not_resolved_to_a_patch_release_code_chose"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9606/dataset_report?filters.assembly_source=refseq&filters.assembly_version=all_assemblies&page_size=1000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-stated-grch37/00.json",
+     "byte_count": 56775,
+     "sha256": "2e7b1ea1c34d0ed6b33539a8ff2afb1fd8285ec5742a6930253320feab0a6a35",
+     "recorded_at": "2026-10-27T05:46:40Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.25/sequence_reports?role_filters=assembled-molecule",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-stated-grch37/01.json",
+     "byte_count": 9400,
+     "sha256": "ac370ed9443e643e1bf9d8fded459a07c7100280dac7da46e7e70db36f2f8b6f",
+     "recorded_at": "2026-10-27T05:46:41Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.13/sequence_reports?role_filters=assembled-molecule",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-stated-grch37/02.json",
+     "byte_count": 9061,
+     "sha256": "b20eab5030144dcae4316f330119925975bcf1fc8e1838d8fed3a701bde35b84",
+     "recorded_at": "2026-10-27T05:46:43Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9606/dataset_report?filters.exclude_paired_reports=true&filters.assembly_version=all_assemblies&filters.search_text=GRCh37&page_size=100",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "assembly-stated-grch37/03.json",
+     "byte_count": 10943,
+     "sha256": "1df3aefe2800286a42ebded7ff7c641ec77749bf46192926d78c54b71f03682d",
+     "recorded_at": "2026-10-27T21:12:13Z"
+    }
+   ]
+  },
+  "variant-eva-retired": {
+   "axis": "variant_source",
+   "case": "EVA rs160719159: HTTP 410 whose body is the retired record on sheep GCA_000298735.2 (taxon 9940), as #457's C. elegans check met it.",
+   "breaks": "_EvaLookup.run maps every non-2xx answer to status malformed ('not a clustered variant'), a verdict on the source's own answer.",
+   "owner_ticket": 468,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/160719159",
+     "status": 410,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-eva-retired/00.json",
+     "byte_count": 232,
+     "sha256": "7564ae56c4054d2fdf68cac282dcc7d36eeb55e8a28ad03667f40e384602b123",
+     "recorded_at": "2026-10-27T05:47:34Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.VariantSourceTests.test_evas_410_is_the_sources_answer_not_a_verdict"
+   ]
+  },
+  "variant-non-human-snp": {
+   "axis": "variant_source",
+   "case": "C. elegans rs7089734242 on WBcel235 (GCF_000002985.6): EVA holds it; dbSNP holds no non-human record.",
+   "breaks": "HUMAN_ASSEMBLY_SERIES/lookup_source_of route a Run to one lookup Tool and drop the other (investigation_agent.investigation_tools). Fixed by #469: both lookup Tools are offered on every Run, the model chooses the source, and dbSNP's no record is its answer for the model to read before it asks EVA.",
+   "owner_ticket": 469,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.VariantSourceTests.test_a_non_human_run_is_offered_both_lookup_tools",
+    "tests.test_source_fixture_cases.VariantSourceTests.test_dbsnp_answers_a_non_human_rsid_with_404_and_eva_holds_it"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/7089734242",
+     "status": 404,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "variant-non-human-snp/00.json",
+     "byte_count": 51,
+     "sha256": "b1cbf89b4d56e3318f9fd471b0ad271eaa0eb35d9f2c835082e760db79314018",
+     "recorded_at": "2026-10-27T05:47:35Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/7089734242",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-non-human-snp/01.json",
+     "byte_count": 235,
+     "sha256": "a8a25cbb7ff090b29223b5de5c7507374c2140fade91acb40e7585d4fc0d2a09",
+     "recorded_at": "2026-10-27T05:47:36Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/contig-alias/v1/chromosomes/genbank/BX284603.4",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-non-human-snp/04.json",
+     "byte_count": 671,
+     "sha256": "4d8a89ae945beb152f504304a5bb221ce3d3129882e71d0a93847566180e2119",
+     "recorded_at": "2026-10-27T05:48:46Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/7089734242/submitted",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-non-human-snp/02.json",
+     "byte_count": 512,
+     "sha256": "4a16f5a8d8bae37e632880c9fb74073a1cbdceca4a8deb9e7d27156d21c53436",
+     "recorded_at": "2026-10-27T05:47:37Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002985.6/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "variant-non-human-snp/03.json",
+     "byte_count": 3873,
+     "sha256": "7ab73bc733091411881dd286169019d14baa79d079f542c358cc19fa9e0f1704",
+     "recorded_at": "2026-10-27T05:47:38Z"
+    }
+   ]
+  },
+  "variant-dbsnp-non-ptlp": {
+   "axis": "variant_source",
+   "case": "dbSNP rs429358 (APOE): its GRCh37 placement NC_000019.9 is not the primary top-level placement (is_ptlp false).",
+   "breaks": "_PlacedAlleles reads only is_ptlp placements, so on a GRCh37 Run the record has 'no eligible placement on the exact assembly'.",
+   "owner_ticket": 468,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/429358",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "variant-dbsnp-non-ptlp/00.json",
+     "byte_count": 117598,
+     "sha256": "8cc8f8a079322e9a6a7e6f88206d1f150420d2a92ed5a52cf700326619f8fea6",
+     "recorded_at": "2026-10-27T05:47:39Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.VariantSourceTests.test_a_grch37_placement_that_is_not_ptlp_is_copied"
+   ]
+  },
+  "variant-merged": {
+   "axis": "variant_source",
+   "case": "dbSNP rs60037639, merged into rs4149056 (a passing control: merged_into is copied today).",
+   "breaks": "none today for dbSNP (control); EVA's merge answer has no recording (none found, #468 Q3 conditional).",
+   "owner_ticket": 468,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.VariantSourceTests.test_a_merged_dbsnp_record_names_its_current_rsid"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/60037639",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "variant-merged/00.json",
+     "byte_count": 339,
+     "sha256": "b8cbd5ec0d0722593f254140818c18d5e03c2397349e559f86dc4fbbfa51c01f",
+     "recorded_at": "2026-10-27T05:47:40Z"
+    }
+   ]
+  },
+  "variant-dbsnp-withdrawn": {
+   "axis": "variant_source",
+   "case": "dbSNP rs94: a withdrawn record (withdrawn_snapshot_data, first entry of NCBI's refsnp-withdrawn list).",
+   "breaks": "normalize_refsnp reads only primary_snapshot_data, so a withdrawn record falls to not_found 'no eligible placement' (#468 Q5).",
+   "owner_ticket": 468,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/94",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "variant-dbsnp-withdrawn/00.json",
+     "byte_count": 421,
+     "sha256": "9d1fafba652f6cb831631e50ad74190396759c9a7f2381a646d9dfc6fcc5bf6a",
+     "recorded_at": "2026-10-27T05:47:41Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.VariantSourceTests.test_a_withdrawn_record_is_copied_as_withdrawn_not_absent"
+   ]
+  },
+  "identifiers-rsid-text": {
+   "axis": "identifiers",
+   "case": "A researcher's answer naming two rsIDs, 'not rs429358, I meant rs7412': the two dbSNP records.",
+   "breaks": "investigation_request.researcher_rsids / effective_requested_rsid read rsIDs from free text by IdentifierRule (answer_value, stated), so a rejected rsID stays admissible. Fixed by #472: the model types the rsID an answer means, quoting it, and code checks only membership.",
+   "owner_ticket": 472,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/7412",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "identifiers-rsid-text/00.json",
+     "byte_count": 99579,
+     "sha256": "41f32a3dc1413a771b5843cec6169ebfba6673cd8484147cb9432865d39cb9e5",
+     "recorded_at": "2026-10-27T05:47:43Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.IdentifierTests.test_an_rsid_the_researcher_rejects_is_not_admissible"
+   ]
+  },
+  "identifiers-hgvs-text": {
+   "axis": "identifiers",
+   "case": "A site written as HGVS g. in free text: NC_049231.1:g.69888722_69888723del (dog, s16's train paper). NCBI's HGVS service answers 400 'The submitted sequence is not human.'",
+   "breaks": "paper_text.written_position reads positions by grammar and returns None for a g. deletion, so the target stays untyped_target. The recorded 400 shows NCBI's HGVS service reads human sequences only (#473's validation route). Fixed by #472: the model types the g. site by its first position, checked by membership.",
+   "owner_ticket": 472,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/hgvs/NC_049231.1:g.69888722_69888723del/contextuals",
+     "status": 400,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "identifiers-hgvs-text/00.json",
+     "byte_count": 164,
+     "sha256": "15a305cbd4ca4d1a0934eaae13f7221637f3021b5ad270f6ac2ef5d99359694f",
+     "recorded_at": "2026-10-27T05:47:44Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.IdentifierTests.test_an_hgvs_g_site_in_free_text_is_a_site"
+   ]
+  },
+  "biology-genetic-code": {
+   "axis": "biology",
+   "case": "S. cerevisiae R64: ATP6 (Q0085) is one mitochondrial CDS on NC_001224.1 (28487-29266, transl_table=3); its codon 68 (28688-28690) is TGA, Trp under table 3.",
+   "breaks": "target_request.gene_change.CODE is the standard table and the GFF reader drops transl_table, so a TGA Trp codon reads as a stop. Fixed by #469: each transcript's translation table is copied from its CDS's transl_table (table 1 when none is written, marked default) and translates its codons.",
+   "owner_ticket": 469,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "biology-genetic-code/00.json",
+     "byte_count": 3180,
+     "sha256": "72faeec7a34dec0ea608f8a34f129e17b45f6933d6e41b72ddf9626b4c05ad0f",
+     "recorded_at": "2026-10-27T05:47:45Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/download?include_annotation_type=GENOME_GFF",
+     "accept": "application/zip",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/zip",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "biology-genetic-code/01.zip",
+     "byte_count": 2207328,
+     "sha256": "44968f897d69bc883a412850c4dbf0383c447f3a39387c24e3bfa196bb39653b",
+     "recorded_at": "2026-10-27T05:47:48Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/spdi/NC_001224.1:28687:3:NNN/contextual",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "biology-genetic-code/02.json",
+     "byte_count": 101,
+     "sha256": "5bf87eba0c4292b2103600cafc8c5b7abf026fadaed85f1e52e0621d8cd37c0a",
+     "recorded_at": "2026-10-27T05:48:42Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.BiologyTests.test_a_mitochondrial_tga_codon_reads_as_tryptophan"
+   ]
+  },
+  "variant-many-placements": {
+   "axis": "variant_source",
+   "case": "Cattle rs109500000 placed on more than five (assembly, contig) pairs. DERIVED: no real EVA record with more than five placements was found in 67 probes (owner Q8 a, 2026-10-27); the served clustered answer is rs109500000's real answer (4 placements) plus two real placements of rs41255587 on other assemblies, re-keyed to accession 109500000.",
+   "breaks": "investigation_sources.MAX_EVA_PLACEMENT_SEQUENCES = 5: past five distinct (assembly, contig) pairs _EvaLookup returns ambiguous with no placement copied.",
+   "owner_ticket": 468,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/109500000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-many-placements/04.json",
+     "byte_count": 1393,
+     "sha256": "8413a4d4dc4b6e88f6d3c54058e47344ee1f60f3ca7373c337f729ab818222d5",
+     "recorded_at": "2026-10-27T05:51:11Z",
+     "derived": {
+      "from": [
+       "variant-many-placements/00.json",
+       "variant-many-placements/01.json"
+      ],
+      "transformation": "rs109500000's four placements as recorded, then rs41255587's placements on GCA_000003055.5/GK000007.2 and GCA_000003205.1/CM000183.4 with accession set to 109500000; compact JSON as EVA writes it."
+     }
+    },
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/109500000/submitted",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-many-placements/02.json",
+     "byte_count": 19007,
+     "sha256": "1f47317b2fc0670b1c3327c1fb75447a8c7b87e8f56908eab156fac97f9268d1",
+     "recorded_at": "2026-10-27T05:51:15Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/contig-alias/v1/chromosomes/genbank/CM008183.2",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-many-placements/03.json",
+     "byte_count": 1546,
+     "sha256": "52d115c436af8d7db6c3786f1b8d238d270acf98f05266beb8c570408e7a89ee",
+     "recorded_at": "2026-10-27T05:51:21Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_002263795.3/dataset_report",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "variant-many-placements/05.json",
+     "byte_count": 4800,
+     "sha256": "596584b387e24a95f9fbe7241d23d157e6317488e6360c7f2297a953a39a1751",
+     "recorded_at": "2026-10-27T12:34:47Z"
+    }
+   ],
+   "originals": [
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/109500000",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-many-placements/00.json",
+     "byte_count": 931,
+     "sha256": "493615c232b201cd6aaadb59dbae3d9e601aa23325a37f8006acaad5e61d7f4b",
+     "recorded_at": "2026-10-27T05:51:11Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/41255587",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-many-placements/01.json",
+     "byte_count": 929,
+     "sha256": "54aa462b68f35188642a7724a900a3eea249c808dd5e0759b3977d4db10ffc65",
+     "recorded_at": "2026-10-27T05:51:14Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.VariantSourceTests.test_every_eva_placement_is_copied_without_a_cap"
+   ]
+  },
+  "biology-ploidy": {
+   "axis": "biology",
+   "case": "A haploid bacterium's calls (GT 1, 0 on B. subtilis NZ_CP020102.1) and a tetraploid's (GT 0/0/1/1, 0/0/0/0 and the mixed-phase 0/1|1 VCF 4.3 allows), as tiny VCF 4.3 files.",
+   "breaks": "vcf_observation._assess_genotype stamps a haploid call phased=False and refuses a genotype carrying both / and | as malformed (owner Q7 a). Fixed by #470: a genotype is read by its alleles under either separator; phased is a bool only when every separator agrees, and None for a one-allele or mixed-separator call (owner #470 Q4 a).",
+   "owner_ticket": 470,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.BiologyTests.test_a_haploid_call_states_no_phase",
+    "tests.test_source_fixture_cases.BiologyTests.test_a_mixed_phase_polyploid_call_is_read",
+    "tests.test_source_fixture_cases.BiologyTests.test_haploid_and_polyploid_calls_are_read_by_their_alleles"
+   ],
+   "answers": [],
+   "inputs": [
+    {
+     "name": "haploid.vcf",
+     "body": "biology-ploidy/haploid.vcf",
+     "byte_count": 353,
+     "sha256": "ff54a30aee78f53de206e58a1b106c5d925cca1d090ab3daace8d9073080cdbe",
+     "origin": "synthetic for #466: two haploid records at invented positions on B. subtilis NZ_CP020102.1"
+    },
+    {
+     "name": "polyploid.vcf",
+     "body": "biology-ploidy/polyploid.vcf",
+     "byte_count": 401,
+     "sha256": "f0fa1720062269f4dec4d63acb9c259ed31aceef4eb30ff78f2a27ddd4b58c91",
+     "origin": "synthetic for #466: three tetraploid records on wheat chromosome 1A NC_057794.1 at invented positions"
+    }
+   ]
+  },
+  "paper-allele-labels": {
+   "axis": "paper",
+   "case": "A paper table whose allele columns are headed 'Major allele' and 'Minor allele', with no REF/ALT label word.",
+   "breaks": "target_request.paper_text._REF_COLUMNS / _ALT_COLUMNS decide REF and ALT by header words, so the row's alleles never reach the model to name their direction (owner option b of 2026-10-20, superseded by ADR 0049).",
+   "owner_ticket": 383,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.PaperTests.test_the_model_names_a_rows_ref_and_alt_cells_without_ref_alt_label_words"
+   ],
+   "answers": [],
+   "inputs": [
+    {
+     "name": "table.tsv",
+     "body": "paper-allele-labels/table.tsv",
+     "byte_count": 72,
+     "sha256": "32f3d04f9d9e04fba7010508fce537f70280c16342b8faced5cf9eab88818ff1",
+     "origin": "synthetic for #466: an invented GWAS-style table row (chr2:1630127 C/A), no site of any eval case"
+    }
+   ]
+  },
+  "variant-eva-by-position": {
+   "axis": "variant_source",
+   "case": "C. elegans WBcel235 (GCF_000002985.6): rs7089734242, EVA's AG deletion at BX284603.4:931673 (NC_003281.10, chromosome III), stated as a VCF position; EVA lists it at that position under its own variantType DEL and answers INDEL with an empty 404 (#469 spike probes 1-2). Under contigNamingConvention=REFSEQ, with the sequence's RefSeq name, EVA lists it named NC_003281.10 (#469 review r1 SP4; the report gives the sequence no UCSC-style name).",
+   "breaks": "_PositionLookup listed EVA's variants at a position only from the route and only under the type eva_form computes; the model could neither choose EVA nor name EVA's own variantType. Fixed by #469: locate_variant(source=, variant_type=), passed verbatim.",
+   "owner_ticket": 469,
+   "expected_red": [],
+   "controls": [
+    "tests.test_source_fixture_cases.VariantSourceTests.test_a_position_is_listed_by_evas_own_variant_type_the_model_names"
+   ],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002985.6/links",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json",
+      "Content-Length": "1403",
+      "X-Datasets-Version": "18.40.0"
+     },
+     "body": "variant-eva-by-position/00.json",
+     "byte_count": 1403,
+     "sha256": "c126a5403ecc148d3bb5f61387a143ab489a34bedd8c858304d95bc12a2cfb6d",
+     "recorded_at": "2026-10-27T16:02:16Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/985/GCF_000002985.6_WBcel235/GCF_000002985.6_WBcel235_assembly_report.txt",
+     "status": 200,
+     "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Length": "1735",
+      "Last-Modified": "Fri, 06 May 2022 05:13:04 GMT"
+     },
+     "body": "variant-eva-by-position/01.txt",
+     "byte_count": 1735,
+     "sha256": "bdbf9fd4cb2961859b1fe6fdaa0349f62e93fa8d13dbcd4f044409e35c7e3dbe",
+     "recorded_at": "2026-10-27T16:02:17Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/spdi/NC_003281.10:931671:3:NNN/contextual",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "variant-eva-by-position/02.json",
+     "byte_count": 103,
+     "sha256": "1ee884f53f9358f9eb1251d572a005431abb55a365529e5100e7dc5c1bcb8636",
+     "recorded_at": "2026-10-27T16:02:19Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants?assemblyId=GCA_000002985.3&referenceName=BX284603.4&start=931673&variantType=DEL",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-eva-by-position/03.json",
+     "byte_count": 235,
+     "sha256": "a8a25cbb7ff090b29223b5de5c7507374c2140fade91acb40e7585d4fc0d2a09",
+     "recorded_at": "2026-10-27T16:02:20Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants?assemblyId=GCA_000002985.3&referenceName=BX284603.4&start=931673&variantType=INDEL",
+     "status": 404,
+     "headers": {
+      "Content-Length": "0"
+     },
+     "body": "variant-eva-by-position/04.txt",
+     "byte_count": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "recorded_at": "2026-10-27T16:02:21Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants?assemblyId=GCA_000002985.3&referenceName=NC_003281.10&start=931673&variantType=DEL&contigNamingConvention=REFSEQ",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json"
+     },
+     "body": "variant-eva-by-position/05.json",
+     "byte_count": 237,
+     "sha256": "7b17ed90d5695d3f796299c8fb3e8b229463aad8f008c540dc3e0c3d11014c4f",
+     "recorded_at": "2026-10-27T17:16:32Z"
+    }
+   ]
+  },
+  "identifiers-hgvs-human": {
+   "axis": "identifiers",
+   "case": "A human gene change typed from a researcher's words, BRAF V600E on its MANE transcript NM_004333.6 (c.1799T>A) and protein NP_004324.2: NCBI's HGVS service's own answers for the coding and the protein name, and the coding allele's equivalents.",
+   "breaks": "ncbi_investigation._HGVS judged an HGVS name's spelling before NCBI answered, and _hgvs_check turned NCBI's reading into an agrees verdict. #473 (owner Q3 a) copies NCBI's answer, status and body, with no verdict.",
+   "owner_ticket": 473,
+   "expected_red": [],
+   "answers": [
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/hgvs/NM_004333.6:c.1799T%3EA/contextuals",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "identifiers-hgvs-human/00.json",
+     "byte_count": 138,
+     "sha256": "802bcc3b59f8fdca46bd8560ef029ba8b94e828b5684d73e08eff5a9446fa720",
+     "recorded_at": "2026-10-28T13:13:31Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/hgvs/NP_004324.2:p.V600E/contextuals",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "identifiers-hgvs-human/01.json",
+     "byte_count": 137,
+     "sha256": "760e8f87faf40b2e1a0cfc8dba2a1eed984dc36463f60d8ad0e52274fe80b8b0",
+     "recorded_at": "2026-10-28T13:13:32Z"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ncbi.nlm.nih.gov/variation/v0/spdi/NM_004333.6:2024:T:A/all_equivalent_contextual",
+     "status": 200,
+     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+     },
+     "body": "identifiers-hgvs-human/02.json",
+     "byte_count": 1927,
+     "sha256": "c21d717bd24f2506691ee072aaf49b262a915c33b7b617e9890587f8e24ece2d",
+     "recorded_at": "2026-10-28T13:13:45Z"
+    }
+   ],
+   "controls": [
+    "tests.test_source_fixture_cases.IdentifierTests.test_ncbis_hgvs_answers_are_copied_whatever_the_organism"
+   ]
+  }
+ },
+ "recorded_through": "2026-10-29"
+}

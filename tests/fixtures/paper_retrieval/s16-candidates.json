@@ -1,0 +1,657 @@
+{
+  "identity": {
+    "doi": "10.1371/journal.pgen.1006651",
+    "pmid": "28249031",
+    "pmcid": "PMC5352138",
+    "title": "A de novo variant in the ASPRV1 gene in a dog with ichthyosis.",
+    "journal": "PLoS Genet",
+    "year": "2017",
+    "open_access": true,
+    "resolved_by": "europe_pmc"
+  },
+  "candidates": {
+    "documents": [
+      {
+        "document_id": "main",
+        "kind": "main_text",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5352138.1/PMC5352138.1.xml",
+        "via": "direct_http",
+        "characters": 33494
+      },
+      {
+        "document_id": "supp:pgen.1006651.s002.xlsx",
+        "kind": "supplementary",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5352138.1/pgen.1006651.s002.xlsx",
+        "via": "direct_http",
+        "characters": 5027
+      },
+      {
+        "document_id": "supp:pgen.1006651.s003.xlsx",
+        "kind": "supplementary",
+        "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5352138.1/pgen.1006651.s003.xlsx",
+        "via": "direct_http",
+        "characters": 6909
+      }
+    ],
+    "references": [
+      {
+        "candidate_id": "r-f604d127f3d1",
+        "name": "CanFam 3.1",
+        "spellings": [
+          "CanFam 3.1",
+          "CanFam3.1"
+        ],
+        "sources": [
+          {
+            "document_id": "main",
+            "section": "Genetic analysis",
+            "start": 9837,
+            "end": 9988,
+            "text": "We sequenced the genome of the affected dog at 31x coverage and called SNVs and small indel variants with respect to the reference genome (CanFam 3.1)."
+          },
+          {
+            "document_id": "main",
+            "section": "Genetic analysis",
+            "start": 10993,
+            "end": 11073,
+            "text": "a The sequences were compared to the reference genome (CanFam 3.1) from a Boxer."
+          },
+          {
+            "document_id": "main",
+            "section": "Whole genome sequencing of the affected German Shepherd and its parents",
+            "start": 23987,
+            "end": 24146,
+            "text": "The reads were mapped to the dog reference genome assembly CanFam3.1 and aligned using Burrows-Wheeler Aligner (BWA) version 0.7.5a [28] with default settings."
+          },
+          {
+            "document_id": "main",
+            "section": "Variant calling",
+            "start": 25081,
+            "end": 25230,
+            "text": "To predict the functional effects of the called variants, SnpEFF [32] software together with the ENSEMBL (version 80) annotation CanFam 3.1 was used."
+          },
+          {
+            "document_id": "main",
+            "section": "Gene analysis",
+            "start": 25791,
+            "end": 26098,
+            "text": "We used the dog CanFam 3.1 reference genome assembly for all analyses. Numbering within the canine ASPRV1 gene corresponds to the accessions XM_014117456.1 (mRNA) and XP_013972931.1 (protein). Numbering within the human ASPRV1 gene corresponds to the accessions NM_152792.2 (mRNA) and NP_690005.2 (protein)."
+          },
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 14,
+            "end": 784,
+            "text": "S1 Table. Private protein-changing variants in the affected dog. The table lists 23 variants that were identified by the automated bioinformatic analysis as being present in the affected dog and absent from 288 genome sequences from unrelated control dogs. The genotypes of the parents of the affected dog revealed that only one of these variants, located in the ASPRV1 gene, is a de novo variant. Please note that the \"amino acid\" and \"gene\" columns refer to the ENSEMBL version 80 annotation of the CanFam3.1 genome assembly. In the ENSEMBL annotation the ASPRV1 protein has a shorter N-terminus compared to the RefSeq entry XP_013972931.1. Therefore, the variant ASPRV1:p.L258P in this table corresponds to XP_013972931.1:p.L351P in the main manuscript.\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+          },
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 785,
+            "end": 1112,
+            "text": "Chromosome\tPosition CanFam 3.1\tReference allele\tAlternative allele\tEffect\tPredicted impact\tClassification\tCodon\tAmino acid\tGene\tGenotype case (DS043) by automated bioinformatic analysis (vcf-file)\tGenotype case (DS043) by visual inspection of the read-alignments (IGV)\tGenotype sire (DS053)\tGenotype dam (DS051)\tDe novo variant"
+          }
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "candidate_id": "v-c68554f5e06b",
+        "contig": null,
+        "position": null,
+        "ref": null,
+        "alt": null,
+        "hgvs": [
+          "c.1052T>C",
+          "p.(Leu351Pro)"
+        ],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "main",
+            "section": "Abstract",
+            "start": 1555,
+            "end": 1679,
+            "text": "It was a missense variant, c.1052T>C, affecting a conserved residue close to an autoprocessing cleavage site, p.(Leu351Pro)."
+          },
+          {
+            "document_id": "main",
+            "section": "Genetic analysis",
+            "start": 12627,
+            "end": 12876,
+            "text": "This de novo variant was a missense variant, c.1052T>C, located in the ASPRV1 gene encoding \u201caspartic peptidase, retroviral-like 1\u201d also known as skin aspartic protease (SASPase), which is involved in profilaggrin-to-filaggrin processing [17,18,22]."
+          },
+          {
+            "document_id": "main",
+            "section": "Genetic analysis",
+            "start": 13133,
+            "end": 13345,
+            "text": "Sanger electropherograms of the ASPRV1:c.1052T>C variant and evolutionary conservation of leucine 351 in the ASPRV1 protein.(A) A genomic ASPRV1 fragment was amplified by PCR and sequenced with the Sanger method."
+          },
+          {
+            "document_id": "main",
+            "section": "Genetic analysis",
+            "start": 14206,
+            "end": 14520,
+            "text": "The ASPRV1:c.1052T>C variant is predicted to result in the amino acid substitution p.(Leu351Pro). The leucine at position 351 is strictly conserved among different species of placental mammals and only one residue away from one of the major cleavage sites required for auto-activation of the protein (Fig 3B) [17]."
+          },
+          {
+            "document_id": "main",
+            "section": "Discussion",
+            "start": 16258,
+            "end": 16520,
+            "text": "First, the c.1052T>C variant leads to a non-conservative amino acid exchange p.(Leu351Pro) close to the functionally important auto-cleavage site of the ASPRV1 protease. It is thus conceivable that this specific genetic variant might affect the protein function."
+          },
+          {
+            "document_id": "main",
+            "section": "Discussion",
+            "start": 16521,
+            "end": 16655,
+            "text": "Second, the c.1052T>C was absent from 288 non-affected dogs of different breeds and thus perfectly associated with the disease status."
+          },
+          {
+            "document_id": "main",
+            "section": "Sanger sequencing",
+            "start": 26121,
+            "end": 26252,
+            "text": "We used Sanger sequencing to confirm the candidate variant c.1052T>C in ASPRV1 in the affected dog and its absence in both parents."
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-aaa4e1793414",
+        "contig": null,
+        "position": null,
+        "ref": null,
+        "alt": null,
+        "hgvs": [
+          "p.V243A"
+        ],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "main",
+            "section": "Discussion",
+            "start": 21067,
+            "end": 21255,
+            "text": "Two of the identified variants, p.V243A (identified in a control subject) and p.V187I (identified in 3 atopic eczema patients) led to absence or reduction of ASPRV1 activity in vitro [23]."
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-a503ac63cc4b",
+        "contig": null,
+        "position": null,
+        "ref": null,
+        "alt": null,
+        "hgvs": [
+          "p.V187I"
+        ],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "main",
+            "section": "Discussion",
+            "start": 21067,
+            "end": 21255,
+            "text": "Two of the identified variants, p.V243A (identified in a control subject) and p.V187I (identified in 3 atopic eczema patients) led to absence or reduction of ASPRV1 activity in vitro [23]."
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-bb1f5b789b44",
+        "contig": null,
+        "position": null,
+        "ref": null,
+        "alt": null,
+        "hgvs": [
+          "p.L258P"
+        ],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 14,
+            "end": 784,
+            "text": "S1 Table. Private protein-changing variants in the affected dog. The table lists 23 variants that were identified by the automated bioinformatic analysis as being present in the affected dog and absent from 288 genome sequences from unrelated control dogs. The genotypes of the parents of the affected dog revealed that only one of these variants, located in the ASPRV1 gene, is a de novo variant. Please note that the \"amino acid\" and \"gene\" columns refer to the ENSEMBL version 80 annotation of the CanFam3.1 genome assembly. In the ENSEMBL annotation the ASPRV1 protein has a shorter N-terminus compared to the RefSeq entry XP_013972931.1. Therefore, the variant ASPRV1:p.L258P in this table corresponds to XP_013972931.1:p.L351P in the main manuscript.\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-2f33bc530700",
+        "contig": null,
+        "position": null,
+        "ref": null,
+        "alt": null,
+        "hgvs": [
+          "XP_013972931.1:p.L351P"
+        ],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 14,
+            "end": 784,
+            "text": "S1 Table. Private protein-changing variants in the affected dog. The table lists 23 variants that were identified by the automated bioinformatic analysis as being present in the affected dog and absent from 288 genome sequences from unrelated control dogs. The genotypes of the parents of the affected dog revealed that only one of these variants, located in the ASPRV1 gene, is a de novo variant. Please note that the \"amino acid\" and \"gene\" columns refer to the ENSEMBL version 80 annotation of the CanFam3.1 genome assembly. In the ENSEMBL annotation the ASPRV1 protein has a shorter N-terminus compared to the RefSeq entry XP_013972931.1. Therefore, the variant ASPRV1:p.L258P in this table corresponds to XP_013972931.1:p.L351P in the main manuscript.\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-8540fa2422da",
+        "contig": "11",
+        "position": 66211524,
+        "ref": "C",
+        "alt": "CT",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 1113,
+            "end": 1258,
+            "text": "11\t66211524\tC\tCT\tFRAME_SHIFT\tHIGH\t\tccc/ccTc\tP76P?\tENSCAFG00000030529\t1/1 (homozygous)\theterozygous (4 reads ref & 5 reads alt)\tref/alt\tref/alt\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-1ac5a2f74ca0",
+        "contig": "30",
+        "position": 36680375,
+        "ref": "C",
+        "alt": "CGGCCTCCGG",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 1259,
+            "end": 1500,
+            "text": "30\t36680375\tC\tCGGCCTCCGG\tCODON_INSERTION\tMODERATE\t\tatc/atcCCGGAGGCC\tI108IPEA\tHCN4\t1/1 (homozygous)\tfalse positive variant call; variant is 18 nucleotides away from gap in the assembly, probable errors in the reference sequence\tn.a.\tn.a.\t(no)"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-8a9f406e0039",
+        "contig": "30",
+        "position": 36680382,
+        "ref": "C",
+        "alt": "CGGCCGCGCCTCCCTCCACTTTGA",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 1501,
+            "end": 1767,
+            "text": "30\t36680382\tC\tCGGCCGCGCCTCCCTCCACTTTGA\tFRAME_SHIFT\tHIGH\t\tcag/caTCAAAGTGGAGGGAGGCGCGGCCg\tQ106HQSGGRRG?\tHCN4\t1/1 (homozygous)\tfalse positive variant call; variant is 11 nucleotides away from gap in the assembly, probable errors in the reference sequence\tn.a.\tn.a.\t(no)"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-321af3189f96",
+        "contig": "32",
+        "position": 404226,
+        "ref": "AAAGAAAG",
+        "alt": "A",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 1768,
+            "end": 1916,
+            "text": "32\t404226\tAAAGAAAG\tA\tFRAME_SHIFT\tHIGH\taaagaaaga/\tKER69\tENSCAFG00000032588\t1/1 (homozygous)\t(GAAA)23 repeat; genotype calls unreliable\tn.a.\tn.a.\t(no)"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-4410b6d789e8",
+        "contig": "1",
+        "position": 116143070,
+        "ref": "C",
+        "alt": "T",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 1917,
+            "end": 2074,
+            "text": "1\t116143070\tC\tT\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\ttGt/tAt\tC166Y\tZNF260\t0/1 (heterozygous)\theterozygous (11 reads ref & 19 reads alt)\tref/ref\tref/alt\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-f5b6f72f6fcf",
+        "contig": "10",
+        "position": 68587027,
+        "ref": "A",
+        "alt": "G",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 2075,
+            "end": 2233,
+            "text": "10\t68587027\tA\tG\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\tcTg/cCg\tL258P\tASPRV1\t0/1 (heterozygous)\theterozygous (16 reads ref & 12 reads alt)\tref/ref\tref/ref\tyes"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-adb73147ac71",
+        "contig": "12",
+        "position": 934109,
+        "ref": "T",
+        "alt": "G",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 2234,
+            "end": 2403,
+            "text": "12\t934109\tT\tG\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\ttTc/tGc\tF119C\tDLA-12\t0/1 (heterozygous)\tfalse positive variant call (19 reads ref & 0 reads alt)\tref/ref\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-6ef846fdb750",
+        "contig": "12",
+        "position": 934114,
+        "ref": "T",
+        "alt": "A",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 2404,
+            "end": 2572,
+            "text": "12\t934114\tT\tA\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\tTgg/Agg\tW121R\tDLA-12\t0/1 (heterozygous)\tfalse positive variant call (17 reads ref & 1 read alt)\tref/ref\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-934d632c935f",
+        "contig": "12",
+        "position": 934115,
+        "ref": "G",
+        "alt": "C",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 2573,
+            "end": 2742,
+            "text": "12\t934115\tG\tC\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\ttGg/tCg\tW121S\tDLA-12\t0/1 (heterozygous)\tfalse positive variant call (18 reads ref & 0 reads alt)\tref/ref\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-a9a76d33d96e",
+        "contig": "12",
+        "position": 934116,
+        "ref": "G",
+        "alt": "C",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 2743,
+            "end": 2912,
+            "text": "12\t934116\tG\tC\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\ttgG/tgC\tW121C\tDLA-12\t0/1 (heterozygous)\tfalse positive variant call (17 reads ref & 0 reads alt)\tref/ref\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-8e8c2b4745e8",
+        "contig": "12",
+        "position": 934118,
+        "ref": "T",
+        "alt": "C",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 2913,
+            "end": 3082,
+            "text": "12\t934118\tT\tC\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\taTg/aCg\tM122T\tDLA-12\t0/1 (heterozygous)\tfalse positive variant call (17 reads ref & 0 reads alt)\tref/ref\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-7f729f6d9cf3",
+        "contig": "13",
+        "position": 38419800,
+        "ref": "T",
+        "alt": "G",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 3083,
+            "end": 3239,
+            "text": "13\t38419800\tT\tG\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\tagA/agC\tR238S\tIREB2\t0/1 (heterozygous)\theterozygous (10 reads ref & 16 reads alt)\tref/alt\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-1ebaeff8d6c4",
+        "contig": "17",
+        "position": 36253425,
+        "ref": "T",
+        "alt": "C",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 3240,
+            "end": 3398,
+            "text": "17\t36253425\tT\tC\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\taAt/aGt\tN1319S\tANAPC1\t0/1 (heterozygous)\theterozygous (17 reads ref & 16 reads alt)\tref/ref\tref/alt\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-4b444fe1602f",
+        "contig": "18",
+        "position": 32351198,
+        "ref": "C",
+        "alt": "G",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 3399,
+            "end": 3555,
+            "text": "18\t32351198\tC\tG\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\tGcc/Ccc\tA65P\tTRIM44\t0/1 (heterozygous)\theterozygous (23 reads ref & 10 reads alt)\tref/alt\tref/alt\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-b506d51e198b",
+        "contig": "20",
+        "position": 54174615,
+        "ref": "AGGT",
+        "alt": "A",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 3556,
+            "end": 3696,
+            "text": "20\t54174615\tAGGT\tA\tCODON_DELETION\tMODERATE\tggt/\tG476\tRANBP3\t0/1 (heterozygous)\theterozygous (12 reads ref & 16 reads alt)\tref/alt\tref/alt\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-549017a52abd",
+        "contig": "29",
+        "position": 118889,
+        "ref": "C",
+        "alt": "T",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 3697,
+            "end": 3852,
+            "text": "29\t118889\tC\tT\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\tcGt/cAt\tR2407H\tPRKDC\t0/1 (heterozygous)\theterozygous (22 reads ref & 20 reads alt)\tref/alt\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-24b6dbf5ba17",
+        "contig": "31",
+        "position": 38470534,
+        "ref": "A",
+        "alt": "AGGGGCTTAAAAATTGGAGACCCCGTGGGCAGCCGGGGGGGGG",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 3853,
+            "end": 4103,
+            "text": "31\t38470534\tA\tAGGGGCTTAAAAATTGGAGACCCCGTGGGCAGCCGGGGGGGGG\tCODON_INSERTION\tMODERATE\tagg/aGGGGCTTAAAAATTGGAGACCCCGTGGGCAGCCGGGGGGGGGgg\tR456RGLKIGDPVGSRGGG\tENSCAFG00000030560\t0/1 (heterozygous)\theterozygous (9 reads ref & 8 reads alt)\tref/ref\tref/alt\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-287709c47c14",
+        "contig": "36",
+        "position": 10044581,
+        "ref": "GC",
+        "alt": "G",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 4104,
+            "end": 4260,
+            "text": "36\t10044581\tGC\tG\tFRAME_SHIFT\tHIGH\tggc/\tG27\tENSCAFG00000031461\t0/1 (heterozygous)\tfalse positive variant call (23 reads ref & 0 reads alt)\tref/ref\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-e350faaef3c0",
+        "contig": "36",
+        "position": 10044586,
+        "ref": "TC",
+        "alt": "T",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 4261,
+            "end": 4417,
+            "text": "36\t10044586\tTC\tT\tFRAME_SHIFT\tHIGH\ttcc/\tS29\tENSCAFG00000031461\t0/1 (heterozygous)\tfalse positive variant call (14 reads ref & 0 reads alt)\tref/ref\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-394b8ea3f339",
+        "contig": "36",
+        "position": 10044591,
+        "ref": "GCC",
+        "alt": "G",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 4418,
+            "end": 4575,
+            "text": "36\t10044591\tGCC\tG\tFRAME_SHIFT\tHIGH\tccc/\tP31\tENSCAFG00000031461\t0/1 (heterozygous)\tfalse positive variant call (14 reads ref & 0 reads alt)\tref/ref\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-5d768c3f2862",
+        "contig": "9",
+        "position": 2980739,
+        "ref": "GC",
+        "alt": "G",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 4576,
+            "end": 4706,
+            "text": "9\t2980739\tGC\tG\tFRAME_SHIFT\tHIGH\tggc/\tG84\tC17orf99\t0/1 (heterozygous)\theterozygous (10 reads ref & 10 reads alt)\tref/alt\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-3e849867e5de",
+        "contig": "9",
+        "position": 21209146,
+        "ref": "G",
+        "alt": "A",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 4707,
+            "end": 4875,
+            "text": "9\t21209146\tG\tA\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\tGga/Aga\tG530R\tKRT9\t0/1 (heterozygous)\tfalse positive variant call (52 reads ref & 0 reads alt)\tref/ref\tref/ref\tno"
+          }
+        ]
+      },
+      {
+        "candidate_id": "v-cec9e78f7f77",
+        "contig": "X",
+        "position": 35885554,
+        "ref": "G",
+        "alt": "T",
+        "hgvs": [],
+        "rsids": [],
+        "sources": [
+          {
+            "document_id": "supp:pgen.1006651.s002.xlsx",
+            "section": "sheet1.xml",
+            "start": 4876,
+            "end": 5027,
+            "text": "X\t35885554\tG\tT\tNON_SYNONYMOUS_CODING\tMODERATE\tMISSENSE\tcGc/cTc\tR377L\tNYX\t0/1 (heterozygous)\theterozygous (12 reads ref & 13 reads alt)\tref/-\tref/alt\tno"
+          }
+        ]
+      }
+    ]
+  }
+}

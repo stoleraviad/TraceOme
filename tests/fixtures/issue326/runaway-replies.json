@@ -1,0 +1,102 @@
+{
+  "source": {
+    "run_root": "326-live-nemotron-s5-20261014T163221Z-a08697cc-a1",
+    "journey_id": "9c7e7e49-c64c-4453-bd77-163e6d3459b0",
+    "journey_file": "runs/9c7e7e49-c64c-4453-bd77-163e6d3459b0/journey.jsonl",
+    "source_commit": "a08697cc",
+    "extracted_by": "https://github.com/stoleraviad/BioNeb/issues/336",
+    "transformation": "Each ModelResponseRecorded reply keeps its finish_reason, output_tokens and its tool calls in the order sent, with each call's recorded argument text; consecutive identical calls are run-length encoded as `sent`. Thinking, text and call ids are left out. journey_line is the 0-based line index; event_line_sha256 hashes the line's exact bytes."
+  },
+  "replies": [
+    {
+      "journey_line": 34,
+      "event_id": "1dfc6756-7478-4bfd-b461-356d763282d6",
+      "event_line_sha256": "69d4aaff143b6079e2a7e56c101d10399e9b1880ad82fd964a4cc57e8c1c59cd",
+      "finish_reason": "length",
+      "output_tokens": 221319,
+      "calls": [
+        {
+          "tool_name": "resolve_taxon",
+          "args": "{\"term\": \"6239\"}",
+          "sent": 1
+        },
+        {
+          "tool_name": "record_supplied_reference",
+          "args": "{\"reason\": \"The request names this exact assembly.\"}",
+          "sent": 1
+        },
+        {
+          "tool_name": "inspect_reference",
+          "args": "{\"accession\": \"GCF_000002985.6\"}",
+          "sent": 1
+        },
+        {
+          "tool_name": "describe_companion",
+          "args": "{\"asset\": \"genomic_fasta\", \"accession\": \"GCF_000002985.6\"}",
+          "sent": 1
+        },
+        {
+          "tool_name": "attest_sample",
+          "args": "{}",
+          "sent": 1
+        },
+        {
+          "tool_name": "search_journey",
+          "args": "{\"text\": \"Parabricks germline variant calling\", \"kinds\": [\"proposal_requirements\", \"planning\"], \"limit\": 20}",
+          "sent": 2626
+        },
+        {
+          "tool_name": "search_journey",
+          "args": "{}",
+          "sent": 1
+        }
+      ],
+      "call_count": 2632
+    },
+    {
+      "journey_line": 40,
+      "event_id": "16149170-ea63-413d-bb33-e64129c50661",
+      "event_line_sha256": "b9c521fda9ef85650a8c2a2517410ec2fbc328d932ff06a153188b00af30ee59",
+      "finish_reason": "length",
+      "output_tokens": 221153,
+      "calls": [
+        {
+          "tool_name": "resolve_taxon",
+          "args": "{\"term\": \"6239\"}",
+          "sent": 1
+        },
+        {
+          "tool_name": "record_supplied_reference",
+          "args": "{\"reason\": \"Researcher supplied exact reference assembly accession GCF_000002985.6\"}",
+          "sent": 1
+        },
+        {
+          "tool_name": "inspect_reference",
+          "args": "{\"accession\": \"GCF_000002985.6\"}",
+          "sent": 1
+        },
+        {
+          "tool_name": "attest_sample",
+          "args": "{}",
+          "sent": 1
+        },
+        {
+          "tool_name": "describe_companion",
+          "args": "{\"asset\": \"genomic_fasta\", \"accession\": \"GCF_000002985.6\"}",
+          "sent": 1
+        },
+        {
+          "tool_name": "search_journey",
+          "args": "{\"kinds\": [\"PlanningOutput\"], \"limit\": 5}",
+          "sent": 3497
+        },
+        {
+          "tool_name": "search_journey",
+          "args": "{\"kinds\": [\"PlanningOutput\"]}",
+          "sent": 1
+        }
+      ],
+      "call_count": 3503
+    }
+  ]
+}

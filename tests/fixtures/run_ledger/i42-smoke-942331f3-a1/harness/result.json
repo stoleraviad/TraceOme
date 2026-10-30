@@ -1,0 +1,456 @@
+{
+  "adapter_calls": [],
+  "admission_failure_reason": null,
+  "cache_miss_reason": null,
+  "configuration_id": "prepared-reference-candidate-configuration:95ffe3e54e3c290c5858672dc28dafe9d43e5388eed0792e8f53be7f8348c0ff",
+  "contacts": {
+    "bucket_create_count": 1,
+    "credential_reads": 0,
+    "gpu_contact_count": 0,
+    "journey_writes": 0,
+    "provider_create_count": 0,
+    "storage_contact_count": 336
+  },
+  "credential_names": [
+    "AWS_ACCESS_KEY_ID",
+    "AWS_SECRET_ACCESS_KEY",
+    "BIO_NEB_S3_CREDENTIALS_PROFILE"
+  ],
+  "facts": [
+    {
+      "event_type": "PreparedReferenceCandidateConfigured",
+      "payload": {
+        "authority_id": "execution-authority:i42-smoke-942331f3-a1",
+        "configuration": {
+          "assembly_accession": "GCF_000001405.40",
+          "bounded_get_bytes": 8388608,
+          "candidate": {
+            "bucket": "bio-neb-t10-miss-20260917-95d0500c-a2",
+            "endpoint_url": "https://storage.eu-north1.nebius.cloud",
+            "inventory_prefix": "references/901c628e6db8d16ad9471cefa5e972bdef12258ac8eff2dad1def2f10b424022/",
+            "manifest_byte_count": 6716,
+            "manifest_object_key": "references/901c628e6db8d16ad9471cefa5e972bdef12258ac8eff2dad1def2f10b424022/manifest.json",
+            "manifest_sha256": "91fb433b96c508f15c38480d9da951e9890b36c8554498bcd5ddea0a4f70b70b",
+            "region": "eu-north1"
+          },
+          "compatibility": {
+            "bwa_path": "/usr/bin/bwa",
+            "bwa_version": "Version: 0.7.17-r1188",
+            "samtools_path": "/usr/bin/samtools",
+            "samtools_version": "samtools 1.13",
+            "worker_image_child_digest": "sha256:11623e4631c57e7b46e4683e18475158c962f253888a4e5c0998339efa142a33",
+            "worker_request_schema": "bio-neb.parabricks-worker-request/5",
+            "worker_sha256": "9e2bf98574529f4f7eef49855da527d08fadba1e4c51d39b2f6911da3ec9995d"
+          },
+          "copy_prefix": "candidate-copy/issue42/smoke/942331f3/a1/",
+          "endpoint_url": "https://storage.eu-north1.nebius.cloud",
+          "local_bundle": null,
+          "placement": "verified_copy",
+          "plain_fasta_byte_count": 3339739109,
+          "plain_fasta_sha256": "df6e4918316e05a9cc1fd29c352841d3678b607d7a436819cd43371b52c814c0",
+          "reference_asset_id": "all_genomic_fasta",
+          "region": "eu-north1",
+          "run_bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+          "schema_version": "prepared-reference-candidate-admission/1",
+          "source_byte_count": 972898531,
+          "source_derivation_rule": "decompress_gzip",
+          "source_sha256": "0000000000000000000000000000000000000000000000000000000000000044",
+          "verification_mode": "producer_attested_object_metadata"
+        },
+        "configuration_id": "prepared-reference-candidate-configuration:95ffe3e54e3c290c5858672dc28dafe9d43e5388eed0792e8f53be7f8348c0ff",
+        "proposal_id": "execution-proposal:i42-smoke-942331f3-a1"
+      }
+    },
+    {
+      "event_type": "PreparedReferenceCandidateAdmitted",
+      "payload": {
+        "authority_id": "execution-authority:i42-smoke-942331f3-a1",
+        "configuration_id": "prepared-reference-candidate-configuration:95ffe3e54e3c290c5858672dc28dafe9d43e5388eed0792e8f53be7f8348c0ff",
+        "manifest_document": {
+          "compatibility": {
+            "bwa_path": "/usr/bin/bwa",
+            "bwa_version": "Version: 0.7.17-r1188",
+            "samtools_path": "/usr/bin/samtools",
+            "samtools_version": "samtools 1.13",
+            "worker_image_child_digest": "sha256:11623e4631c57e7b46e4683e18475158c962f253888a4e5c0998339efa142a33",
+            "worker_request_schema": "bio-neb.parabricks-worker-request/5",
+            "worker_sha256": "9e2bf98574529f4f7eef49855da527d08fadba1e4c51d39b2f6911da3ec9995d"
+          },
+          "derivation_rule": "decompress_gzip_then_bwa_samtools",
+          "exact_inventory": [
+            "candidate-copy/issue42/smoke/942331f3/a1/admission-manifest.json",
+            "candidate-copy/issue42/smoke/942331f3/a1/bwa_amb",
+            "candidate-copy/issue42/smoke/942331f3/a1/bwa_ann",
+            "candidate-copy/issue42/smoke/942331f3/a1/bwa_bwt",
+            "candidate-copy/issue42/smoke/942331f3/a1/bwa_pac",
+            "candidate-copy/issue42/smoke/942331f3/a1/bwa_sa",
+            "candidate-copy/issue42/smoke/942331f3/a1/fasta_fai",
+            "candidate-copy/issue42/smoke/942331f3/a1/genomic_fasta",
+            "candidate-copy/issue42/smoke/942331f3/a1/reference_dict",
+            "candidate-copy/issue42/smoke/942331f3/a1/worker_receipt"
+          ],
+          "manifest_object_key": "candidate-copy/issue42/smoke/942331f3/a1/admission-manifest.json",
+          "objects": [
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 3339739109,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/genomic_fasta",
+              "role": "genomic_fasta",
+              "sha256": "df6e4918316e05a9cc1fd29c352841d3678b607d7a436819cd43371b52c814c0"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 26165,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/fasta_fai",
+              "role": "fasta_fai",
+              "sha256": "0afdd6ac2a873585725622de2310a55a5f6065b623a093467e7e26c66ba61de7"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 74153,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/reference_dict",
+              "role": "reference_dict",
+              "sha256": "52d004386af0a621af6af5af7fc01b74254e9eceb098bfdd86a259d72bd9623c"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 21626,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_amb",
+              "role": "bwa_amb",
+              "sha256": "ee057c0f95a538a8a60eb3d4e4c22162ea72bfe341be0d1ff69365b1b1007879"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 92376,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_ann",
+              "role": "bwa_ann",
+              "sha256": "9967e6661ffe46da79977599ae073f903decaa7b759bb318b0ea38328d28319d"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 3298430720,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_bwt",
+              "role": "bwa_bwt",
+              "sha256": "2ec212b75db119d1a650bd187be975ab87c5b5a7949d383d71193d5cfaa38bf6"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 824607661,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_pac",
+              "role": "bwa_pac",
+              "sha256": "bb87a8aa50f07ba8f04c17097f2988585a89402ae8d87f14f9e5209d60c7f5a3"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 1649215368,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_sa",
+              "role": "bwa_sa",
+              "sha256": "248fb01229f60153f92863dde23c0d9048491c13994f8c2fac0e6cc4bba1ab41"
+            }
+          ],
+          "plain_fasta": {
+            "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+            "byte_count": 3339739109,
+            "object_key": "candidate-copy/issue42/smoke/942331f3/a1/genomic_fasta",
+            "role": "genomic_fasta",
+            "sha256": "df6e4918316e05a9cc1fd29c352841d3678b607d7a436819cd43371b52c814c0"
+          },
+          "schema_version": "bio-neb.prepared-reference-admission-manifest/1",
+          "source": {
+            "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+            "byte_count": 972898531,
+            "object_key": "raw/issue42/smoke/942331f3/a1/GCF_000001405.40_GRCh38.p14_genomic.fna.gz",
+            "role": "reference_source",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000044"
+          },
+          "worker_receipt": {
+            "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+            "byte_count": 3003,
+            "object_key": "candidate-copy/issue42/smoke/942331f3/a1/worker_receipt",
+            "role": "worker_receipt",
+            "sha256": "f65fcb2bea11abca4e31184303d111e6e2456d7dcaff3e1418582cf0c993b0ca"
+          }
+        },
+        "normalized_manifest_byte_count": 3896,
+        "normalized_manifest_sha256": "978dc6be992315c920e45221d7ad559ab708f4d2347870e3e3d6f5715eb76efd",
+        "proposal_id": "execution-proposal:i42-smoke-942331f3-a1",
+        "receipt": {
+          "admission_id": "prepared-reference-admission:82809eb91b849923d8975c4fc6b4bfd57bc30bb5f9882abc3209453c5570e9a1",
+          "authority_id": "execution-authority:i42-smoke-942331f3-a1",
+          "configuration_id": "prepared-reference-candidate-configuration:95ffe3e54e3c290c5858672dc28dafe9d43e5388eed0792e8f53be7f8348c0ff",
+          "independently_full_read": false,
+          "journey_id": "i42-smoke-942331f3-a1",
+          "local_origins": [],
+          "logical_bundle_id": "prepared-reference-bundle:2412730e7e96669f99582f926dd36f2e0a296c1df9c1c915e4c069a14710cf3d",
+          "manifest_bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+          "manifest_byte_count": 3896,
+          "manifest_object_key": "candidate-copy/issue42/smoke/942331f3/a1/admission-manifest.json",
+          "manifest_sha256": "978dc6be992315c920e45221d7ad559ab708f4d2347870e3e3d6f5715eb76efd",
+          "objects": [
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 3339739109,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/genomic_fasta",
+              "role": "genomic_fasta",
+              "sha256": "df6e4918316e05a9cc1fd29c352841d3678b607d7a436819cd43371b52c814c0"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 26165,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/fasta_fai",
+              "role": "fasta_fai",
+              "sha256": "0afdd6ac2a873585725622de2310a55a5f6065b623a093467e7e26c66ba61de7"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 74153,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/reference_dict",
+              "role": "reference_dict",
+              "sha256": "52d004386af0a621af6af5af7fc01b74254e9eceb098bfdd86a259d72bd9623c"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 21626,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_amb",
+              "role": "bwa_amb",
+              "sha256": "ee057c0f95a538a8a60eb3d4e4c22162ea72bfe341be0d1ff69365b1b1007879"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 92376,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_ann",
+              "role": "bwa_ann",
+              "sha256": "9967e6661ffe46da79977599ae073f903decaa7b759bb318b0ea38328d28319d"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 3298430720,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_bwt",
+              "role": "bwa_bwt",
+              "sha256": "2ec212b75db119d1a650bd187be975ab87c5b5a7949d383d71193d5cfaa38bf6"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 824607661,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_pac",
+              "role": "bwa_pac",
+              "sha256": "bb87a8aa50f07ba8f04c17097f2988585a89402ae8d87f14f9e5209d60c7f5a3"
+            },
+            {
+              "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+              "byte_count": 1649215368,
+              "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_sa",
+              "role": "bwa_sa",
+              "sha256": "248fb01229f60153f92863dde23c0d9048491c13994f8c2fac0e6cc4bba1ab41"
+            }
+          ],
+          "placement": "verified_copy",
+          "proposal_id": "execution-proposal:i42-smoke-942331f3-a1",
+          "qualification_id": null,
+          "source": {
+            "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+            "byte_count": 972898531,
+            "object_key": "raw/issue42/smoke/942331f3/a1/GCF_000001405.40_GRCh38.p14_genomic.fna.gz",
+            "role": "reference_source",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000044"
+          },
+          "source_verification": "manifest_attested",
+          "transfer_proof": {
+            "accounting_basis": "derived_from_recorded_producer_identity",
+            "assurance": "producer_stream_sha256_in_controlled_metadata",
+            "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+            "byte_count": 9112207178,
+            "configuration_id": "prepared-reference-candidate-configuration:95ffe3e54e3c290c5858672dc28dafe9d43e5388eed0792e8f53be7f8348c0ff",
+            "consumer_checkpoint": "worker_download_stream_sha256",
+            "controller_bundle_bytes_read": 0,
+            "endpoint_url": "https://storage.eu-north1.nebius.cloud",
+            "integrity_failure": "refuse_without_retry_or_adoption",
+            "lineage": "source_head_and_server_side_copy",
+            "logical_bundle_id": "prepared-reference-bundle:2412730e7e96669f99582f926dd36f2e0a296c1df9c1c915e4c069a14710cf3d",
+            "metadata_check": "head_content_length_and_controlled_checksum_sha256",
+            "object_count": 8,
+            "producer_checkpoint": "worker_upload_stream_sha256",
+            "proof_id": "prepared-reference-bundle-proof:8a40ecde47c9dd4d82dede6d0948648b03af6cbca1ec0d5f04887096d6d4e6d4",
+            "region": "eu-north1",
+            "verification_mode": "producer_attested_object_metadata"
+          },
+          "verification_mode": "producer_attested_object_metadata",
+          "worker_receipt": {
+            "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+            "byte_count": 3003,
+            "object_key": "candidate-copy/issue42/smoke/942331f3/a1/worker_receipt",
+            "role": "worker_receipt",
+            "sha256": "f65fcb2bea11abca4e31184303d111e6e2456d7dcaff3e1418582cf0c993b0ca"
+          }
+        }
+      }
+    }
+  ],
+  "failure_evidence": null,
+  "input_id": "reference-placement-stage-input:6ebc55bbe3f9e2e7b244fc936b2653bd67c988f8b98f34d7c59ee3ac8c56c5a1",
+  "journal": {
+    "byte_count": 372365,
+    "classifications": {
+      "absent": 6,
+      "json_parse_pending": 2,
+      "response_received": 330,
+      "version_text": 1
+    },
+    "complete": true,
+    "dispositions": {
+      "failed": 6,
+      "succeeded": 333
+    },
+    "locator": "/workspaces/bio-neb-work-issue29-retry/.bio-neb-local/live-runs/i42-smoke-942331f3-a1/harness/journal.jsonl",
+    "operations": {
+      "nebius.version": 1,
+      "s3.complete-multipart-upload": 4,
+      "s3.copy-object": 5,
+      "s3.create-multipart-upload": 4,
+      "s3.get-object": 3,
+      "s3.head-object": 33,
+      "s3.list-multipart-uploads": 6,
+      "s3.list-objects-v2": 6,
+      "s3.put-object": 1,
+      "s3.upload-part-copy": 274,
+      "storage.bucket.create": 1,
+      "storage.bucket.list": 1
+    },
+    "sha256": "fa454c32d075c581ecaa8b41e61c154b42bf8528577c7a0541ea58535f204f51"
+  },
+  "live_binding": {
+    "journal_file": "/workspaces/bio-neb-work-issue29-retry/.bio-neb-local/live-runs/i42-smoke-942331f3-a1/harness/journal.jsonl",
+    "nebius_cli_profile": "bio-neb-sa",
+    "project_id": "project-e00s3g1cpr00frvz8p69pz",
+    "tenant_id": "tenant-e00s6gp44qj5qzdke7"
+  },
+  "logical_bundle_id": "prepared-reference-bundle:2412730e7e96669f99582f926dd36f2e0a296c1df9c1c915e4c069a14710cf3d",
+  "mode": "live",
+  "normalized_manifest_byte_count": 3896,
+  "normalized_manifest_sha256": "978dc6be992315c920e45221d7ad559ab708f4d2347870e3e3d6f5715eb76efd",
+  "outcome": "cache_hit",
+  "partial_copy_inventory": [],
+  "pending_review": null,
+  "receipt": {
+    "admission_id": "prepared-reference-admission:82809eb91b849923d8975c4fc6b4bfd57bc30bb5f9882abc3209453c5570e9a1",
+    "authority_id": "execution-authority:i42-smoke-942331f3-a1",
+    "configuration_id": "prepared-reference-candidate-configuration:95ffe3e54e3c290c5858672dc28dafe9d43e5388eed0792e8f53be7f8348c0ff",
+    "independently_full_read": false,
+    "journey_id": "i42-smoke-942331f3-a1",
+    "local_origins": [],
+    "logical_bundle_id": "prepared-reference-bundle:2412730e7e96669f99582f926dd36f2e0a296c1df9c1c915e4c069a14710cf3d",
+    "manifest_bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+    "manifest_byte_count": 3896,
+    "manifest_object_key": "candidate-copy/issue42/smoke/942331f3/a1/admission-manifest.json",
+    "manifest_sha256": "978dc6be992315c920e45221d7ad559ab708f4d2347870e3e3d6f5715eb76efd",
+    "objects": [
+      {
+        "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+        "byte_count": 3339739109,
+        "object_key": "candidate-copy/issue42/smoke/942331f3/a1/genomic_fasta",
+        "role": "genomic_fasta",
+        "sha256": "df6e4918316e05a9cc1fd29c352841d3678b607d7a436819cd43371b52c814c0"
+      },
+      {
+        "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+        "byte_count": 26165,
+        "object_key": "candidate-copy/issue42/smoke/942331f3/a1/fasta_fai",
+        "role": "fasta_fai",
+        "sha256": "0afdd6ac2a873585725622de2310a55a5f6065b623a093467e7e26c66ba61de7"
+      },
+      {
+        "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+        "byte_count": 74153,
+        "object_key": "candidate-copy/issue42/smoke/942331f3/a1/reference_dict",
+        "role": "reference_dict",
+        "sha256": "52d004386af0a621af6af5af7fc01b74254e9eceb098bfdd86a259d72bd9623c"
+      },
+      {
+        "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+        "byte_count": 21626,
+        "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_amb",
+        "role": "bwa_amb",
+        "sha256": "ee057c0f95a538a8a60eb3d4e4c22162ea72bfe341be0d1ff69365b1b1007879"
+      },
+      {
+        "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+        "byte_count": 92376,
+        "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_ann",
+        "role": "bwa_ann",
+        "sha256": "9967e6661ffe46da79977599ae073f903decaa7b759bb318b0ea38328d28319d"
+      },
+      {
+        "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+        "byte_count": 3298430720,
+        "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_bwt",
+        "role": "bwa_bwt",
+        "sha256": "2ec212b75db119d1a650bd187be975ab87c5b5a7949d383d71193d5cfaa38bf6"
+      },
+      {
+        "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+        "byte_count": 824607661,
+        "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_pac",
+        "role": "bwa_pac",
+        "sha256": "bb87a8aa50f07ba8f04c17097f2988585a89402ae8d87f14f9e5209d60c7f5a3"
+      },
+      {
+        "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+        "byte_count": 1649215368,
+        "object_key": "candidate-copy/issue42/smoke/942331f3/a1/bwa_sa",
+        "role": "bwa_sa",
+        "sha256": "248fb01229f60153f92863dde23c0d9048491c13994f8c2fac0e6cc4bba1ab41"
+      }
+    ],
+    "placement": "verified_copy",
+    "proposal_id": "execution-proposal:i42-smoke-942331f3-a1",
+    "qualification_id": null,
+    "source": {
+      "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+      "byte_count": 972898531,
+      "object_key": "raw/issue42/smoke/942331f3/a1/GCF_000001405.40_GRCh38.p14_genomic.fna.gz",
+      "role": "reference_source",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000044"
+    },
+    "source_verification": "manifest_attested",
+    "transfer_proof": {
+      "accounting_basis": "derived_from_recorded_producer_identity",
+      "assurance": "producer_stream_sha256_in_controlled_metadata",
+      "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+      "byte_count": 9112207178,
+      "configuration_id": "prepared-reference-candidate-configuration:95ffe3e54e3c290c5858672dc28dafe9d43e5388eed0792e8f53be7f8348c0ff",
+      "consumer_checkpoint": "worker_download_stream_sha256",
+      "controller_bundle_bytes_read": 0,
+      "endpoint_url": "https://storage.eu-north1.nebius.cloud",
+      "integrity_failure": "refuse_without_retry_or_adoption",
+      "lineage": "source_head_and_server_side_copy",
+      "logical_bundle_id": "prepared-reference-bundle:2412730e7e96669f99582f926dd36f2e0a296c1df9c1c915e4c069a14710cf3d",
+      "metadata_check": "head_content_length_and_controlled_checksum_sha256",
+      "object_count": 8,
+      "producer_checkpoint": "worker_upload_stream_sha256",
+      "proof_id": "prepared-reference-bundle-proof:8a40ecde47c9dd4d82dede6d0948648b03af6cbca1ec0d5f04887096d6d4e6d4",
+      "region": "eu-north1",
+      "verification_mode": "producer_attested_object_metadata"
+    },
+    "verification_mode": "producer_attested_object_metadata",
+    "worker_receipt": {
+      "bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+      "byte_count": 3003,
+      "object_key": "candidate-copy/issue42/smoke/942331f3/a1/worker_receipt",
+      "role": "worker_receipt",
+      "sha256": "f65fcb2bea11abca4e31184303d111e6e2456d7dcaff3e1418582cf0c993b0ca"
+    }
+  },
+  "run_bucket": {
+    "bucket_id": "storagebucket-e007156108089713208101",
+    "domain": "storage.eu-north1.nebius.cloud",
+    "name": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+    "parent_id": "project-e00s3g1cpr00frvz8p69pz",
+    "reconciled_after_ambiguous_create": 0,
+    "region": "eu-north1",
+    "state": "ACTIVE",
+    "suspended": false
+  },
+  "schema_version": "bio-neb.reference-placement-stage-result/1",
+  "stage": "reference-placement",
+  "terminal_fact": "PreparedReferenceCandidateAdmitted"
+}

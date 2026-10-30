@@ -1,0 +1,49 @@
+schema_version: bio-neb.eval-case/1
+case_id: s20-bsubtilis-t30r7-clean-L2-snp3
+family: s20-bsubtilis-t30r7-clean
+scenario: s20-bsubtilis-t30r7
+split: train
+level: L2
+evidence_shape: clean
+donor: {path: work/research/2026-09-24-nemotron/eval/corpus/cases/s20-bsubtilis-t30r7-clean-L2-snp3.yaml, case_id: c-2b5bee, version: 1}
+refresh:
+  - "Added by #466 (owner Q5 a, 2026-10-26): a haploid bacterium whose sites are written on RefSeq NZ_ names. Gold drafted from the donor; approved by the owner on 2026-10-27 (\"approved\", at e1ba98f3)."
+  - "Request unwrapped (the donor's YAML block broke the request across lines)."
+  - "Planning block only. The donor's investigation questions q2-q4, loop_gold and haploid science_gold stay in the donor file for #325's Investigation blocks."
+  - "Roles, inputs, prepared answers and terminal refreshed as for s1-pig-clean-L2."
+  - "q1 keeps the donor's gold: three separate known_variant items, compared by quote. q2 and q3 are typed checks of donor gold already in the case: the sample and its describe_reference fixture (GCF_002055965.1)."
+  - "B-PLOIDY added by #470 (owner Q7 a, 2026-10-27): a haploid bacterium: the Review asks before diploid calling."
+public:
+  research_request: "Sample T30R7_1, Bacillus subtilis (NCBI Taxonomy 1423), paired-end Illumina reads registered. Reference GCF_002055965.1 with the genomic FASTA. Call variants to a VCF, then tell me whether T30R7_1 carries NZ_CP020102.1:2552672 C>G, NZ_CP020102.1:1702691 G>T and NZ_CP020102.1:3666050 A>T.\n"
+  fastq_roles: [read_1, read_2]
+planning:
+  prepared_answers:
+    - {review: analysis_recipe, answer: "gDNA / paired", reason: "Paired-end Illumina reads of a B. subtilis isolate for variant calling: genomic DNA, paired."}
+  questions:
+    - {ref: B-ALL-KINDS}
+    - {ref: B-SUPPLIED-KEPT, params: {asserted: [sample_identity, taxon_identity, reference_assembly_identity]}}
+    - {ref: B-FIRST-ATTEMPT}
+    - {ref: B-NO-INVENT}
+    - {ref: B-TERMINAL, params: {terminal: execution_review}}
+    - {ref: B-PLOIDY, params: {asks: true}}
+    - {ref: B-REVIEWS-RAISED, params: {reviews: [analysis_recipe]}}
+    - id: q1
+      ask: "Are the three sites kept as three separate scientific_investigation items (known_variant), none dropped, none merged, and no rsID invented for them?"
+      check: investigation_items
+      spec: {purpose: known_variant, quotes: ["NZ_CP020102.1:2552672 C>G", "NZ_CP020102.1:1702691 G>T", "NZ_CP020102.1:3666050 A>T"]}
+      gate: hard
+    - id: q2
+      ask: "Is sample_identity asserted exactly as T30R7_1?"
+      check: plan_value
+      spec: {kind: sample_identity, state: asserted, value: T30R7_1}
+      gate: hard
+    - id: q3
+      ask: "Is the verified reference GCF_002055965.1 (not the species reference genome GCF_000009045.1, strain 168)?"
+      check: reference_verified
+      spec: {accession: GCF_002055965.1}
+      gate: hard
+  good_answer: "T30R7_1 / 1423 / GCF_002055965.1 asserted bare; three known_variant items, one site each, no rsIDs; one recipe Review; Execution Review reached."
+  bad_answers:
+    - {summary: "Invents rsIDs for the B. subtilis sites", must_fail: [q1, B-NO-INVENT], label: fabrication}
+    - {summary: "Sites 1702691 and 3666050 merged into one 'sibling mutations' item", must_fail: [q1], label: semantic_coverage}
+    - {summary: "Swaps the reference to the species reference genome GCF_000009045.1 (strain 168)", must_fail: [q3, B-SUPPLIED-KEPT], label: semantic_binding}

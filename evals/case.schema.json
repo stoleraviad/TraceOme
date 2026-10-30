@@ -1,0 +1,326 @@
+{
+  "$defs": {
+    "BadAnswer": {
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "title": "Summary",
+          "type": "string"
+        },
+        "must_fail": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Must Fail",
+          "type": "array"
+        },
+        "label": {
+          "enum": [
+            "transport",
+            "truncation",
+            "empty_or_misplaced_output",
+            "schema",
+            "hallucinated_tool",
+            "unauthorized_action",
+            "fabrication",
+            "grounding",
+            "value_not_atomic",
+            "repair_stagnation",
+            "repeated_call",
+            "wrong_tool",
+            "premature_final",
+            "budget_exhausted",
+            "missed_clarification",
+            "wrong_terminal",
+            "over_clarification",
+            "semantic_binding",
+            "semantic_coverage",
+            "semantic_other"
+          ],
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "summary",
+        "must_fail",
+        "label"
+      ],
+      "title": "BadAnswer",
+      "type": "object"
+    },
+    "Donor": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "case_id",
+        "version"
+      ],
+      "title": "Donor",
+      "type": "object"
+    },
+    "PlanningBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "prepared_answers": {
+          "items": {
+            "$ref": "#/$defs/PreparedAnswer"
+          },
+          "title": "Prepared Answers",
+          "type": "array"
+        },
+        "questions": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/QuestionRef"
+              },
+              {
+                "$ref": "#/$defs/Question"
+              }
+            ]
+          },
+          "minItems": 1,
+          "title": "Questions",
+          "type": "array"
+        },
+        "good_answer": {
+          "title": "Good Answer",
+          "type": "string"
+        },
+        "bad_answers": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/BadAnswer"
+          },
+          "title": "Bad Answers",
+          "type": "array"
+        }
+      },
+      "required": [
+        "prepared_answers",
+        "questions",
+        "good_answer"
+      ],
+      "title": "PlanningBlock",
+      "type": "object"
+    },
+    "PreparedAnswer": {
+      "additionalProperties": false,
+      "description": "How the runner answers one planning Review, as the researcher would.",
+      "properties": {
+        "review": {
+          "description": "The Review's subject_key, e.g. analysis_recipe.",
+          "title": "Review",
+          "type": "string"
+        },
+        "answer": {
+          "description": "The display label of the candidate to select.",
+          "title": "Answer",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "review",
+        "answer",
+        "reason"
+      ],
+      "title": "PreparedAnswer",
+      "type": "object"
+    },
+    "Public": {
+      "additionalProperties": false,
+      "description": "Everything the model may see: the request text and the registered read roles.",
+      "properties": {
+        "research_request": {
+          "title": "Research Request",
+          "type": "string"
+        },
+        "fastq_roles": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Fastq Roles",
+          "type": "array"
+        }
+      },
+      "required": [
+        "research_request",
+        "fastq_roles"
+      ],
+      "title": "Public",
+      "type": "object"
+    },
+    "Question": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[A-Za-z][A-Za-z0-9-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "ask": {
+          "title": "Ask",
+          "type": "string"
+        },
+        "check": {
+          "enum": [
+            "kinds_present",
+            "knowledge_states",
+            "first_attempt",
+            "no_invented_identifier",
+            "terminal",
+            "reviews_raised",
+            "plan_value",
+            "taxon_resolved",
+            "reference_verified",
+            "reference_from_discovery",
+            "investigation_items",
+            "ploidy_notice"
+          ],
+          "title": "Check",
+          "type": "string"
+        },
+        "spec": {
+          "additionalProperties": true,
+          "title": "Spec",
+          "type": "object"
+        },
+        "gate": {
+          "enum": [
+            "hard",
+            "graded"
+          ],
+          "title": "Gate",
+          "type": "string"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        }
+      },
+      "required": [
+        "id",
+        "ask",
+        "check",
+        "gate"
+      ],
+      "title": "Question",
+      "type": "object"
+    },
+    "QuestionRef": {
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "title": "Ref",
+          "type": "string"
+        },
+        "params": {
+          "additionalProperties": true,
+          "title": "Params",
+          "type": "object"
+        }
+      },
+      "required": [
+        "ref"
+      ],
+      "title": "QuestionRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "bio-neb.eval-case/1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "case_id": {
+      "pattern": "^s[0-9]+-[A-Za-z0-9-]+$",
+      "title": "Case Id",
+      "type": "string"
+    },
+    "family": {
+      "title": "Family",
+      "type": "string"
+    },
+    "scenario": {
+      "title": "Scenario",
+      "type": "string"
+    },
+    "split": {
+      "const": "train",
+      "title": "Split",
+      "type": "string"
+    },
+    "level": {
+      "title": "Level",
+      "type": "string"
+    },
+    "evidence_shape": {
+      "title": "Evidence Shape",
+      "type": "string"
+    },
+    "donor": {
+      "$ref": "#/$defs/Donor"
+    },
+    "refresh": {
+      "description": "What changed from the donor and why.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Refresh",
+      "type": "array"
+    },
+    "public": {
+      "$ref": "#/$defs/Public"
+    },
+    "planning": {
+      "$ref": "#/$defs/PlanningBlock"
+    }
+  },
+  "required": [
+    "schema_version",
+    "case_id",
+    "family",
+    "scenario",
+    "split",
+    "level",
+    "evidence_shape",
+    "donor",
+    "refresh",
+    "public",
+    "planning"
+  ],
+  "title": "EvalCase",
+  "type": "object"
+}

@@ -1,0 +1,42 @@
+schema_version: bio-neb.eval-case/1
+case_id: s5-celegans-ma1a-clean-L2-snp4
+family: s5-celegans-ma1a-clean
+scenario: s5-celegans-ma1a
+split: train
+level: L2
+evidence_shape: clean
+donor: {path: work/research/2026-09-24-nemotron/eval/corpus/cases/s5-celegans-ma1a-clean-L2-snp4.yaml, case_id: c-eb3526, version: 2}
+refresh:
+  - "Request unwrapped (the donor's YAML block broke three sentences across lines)."
+  - "Planning block only. The donor's investigation questions q2-q4, loop_gold, science_gold and fixtures stay in the donor file for #283/#296; whether positional sites are supported after planning is theirs."
+  - "Roles, inputs, prepared answers and terminal refreshed as for s1-pig-clean-L2."
+  - "q1 keeps the donor's gold, split in two typed checks: four separate known_variant items (one site per item, compared by quote) and sample_identity SAMN09099384 (q2)."
+  - "B-PLOIDY added by #470 (owner Q7 a, 2026-10-27): a diploid nematode: no question."
+public:
+  research_request: "Sample SAMN09099384 (C. elegans mutation-accumulation line 1A), NCBI Taxonomy 6239, paired-end WGS reads registered. Reference GCF_000002985.6 with the genomic FASTA. Call variants to a VCF, then tell me whether the sample carries these sites (1-based, on GCF_000002985.6): V:2129317 C>T, X:765242 C>A, III:4821044 G>A and X:15696111 G>C.\n"
+  fastq_roles: [read_1, read_2]
+planning:
+  prepared_answers:
+    - {review: analysis_recipe, answer: "gDNA / paired", reason: "The request says paired-end WGS: genomic DNA in a paired layout."}
+  questions:
+    - {ref: B-ALL-KINDS}
+    - {ref: B-SUPPLIED-KEPT, params: {asserted: [sample_identity, taxon_identity, reference_assembly_identity]}}
+    - {ref: B-FIRST-ATTEMPT}
+    - {ref: B-NO-INVENT}
+    - {ref: B-TERMINAL, params: {terminal: execution_review}}
+    - {ref: B-PLOIDY, params: {asks: false}}
+    - {ref: B-REVIEWS-RAISED, params: {reviews: [analysis_recipe]}}
+    - id: q1
+      ask: "Are the four sites kept as four separate scientific_investigation items (known_variant), none dropped, none merged, and no rsID invented for them?"
+      check: investigation_items
+      spec: {purpose: known_variant, quotes: ["V:2129317 C>T", "X:765242 C>A", "III:4821044 G>A", "X:15696111 G>C"]}
+      gate: hard
+    - id: q2
+      ask: "Is sample_identity asserted exactly as SAMN09099384?"
+      check: plan_value
+      spec: {kind: sample_identity, state: asserted, value: SAMN09099384}
+      gate: hard
+  good_answer: "SAMN09099384 / 6239 / GCF_000002985.6 asserted bare; four known_variant items, one site each, no rsIDs; one recipe Review; Execution Review reached."
+  bad_answers:
+    - {summary: "Invents rsIDs (or WormBase variation ids) for the sites", must_fail: [q1, B-NO-INVENT], label: fabrication}
+    - {summary: "The four sites recorded as one item", must_fail: [q1], label: semantic_coverage}

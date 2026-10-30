@@ -1,0 +1,126 @@
+{
+ "_note": "Plan v2 gold, drafted by Claude from each paper's text for Budi to check. key = the variant(s) the paper presents as its finding; a key matches by position, HGVS name, or a phrase in the returned quote. 'all' coverage uses the eval corpus items the paper text states.",
+ "_source": "codex/tools-paper fc4b0a8c work/research/2026-10-08-paper-retrieval/v2/gold.json: its h1, s3, s16 and s17 entries, values unchanged (#419)",
+ "h1-human-kcnh2": {
+  "paper": "doi:10.3389/fgene.2024.1395012",
+  "pmcid": "PMC11217513",
+  "organism": "Homo sapiens",
+  "reference": {
+   "names": [
+    "hg38"
+   ],
+   "accession": null
+  },
+  "_why_no_accession": "The paper names only \"the reference genome (hg38)\" (2.5 Genomic data analysis); the accession is lane Rf's to resolve.",
+  "key": [
+   {
+    "gene": "KCNH2",
+    "rsid": "rs199472944",
+    "hgvs": [
+     "c.1841C>T",
+     "p.(Ala614Val)",
+     "p.Ala614Val"
+    ],
+    "chrom": "7",
+    "pos": 150951552
+   },
+   {
+    "gene": "TTN",
+    "rsid": "rs773002407",
+    "hgvs": [
+     "c.103957C>T",
+     "p.(Arg34653Cys)",
+     "p.Arg34653Cys"
+    ],
+    "chrom": "2",
+    "pos": 178532658
+   }
+  ],
+  "_not_snv": "Table 1 also lists AKAP9 chr7:92042078 NM_005751.5 c.4960_4961del p.(Arg1654GlyfsTer23) rs779447911, a frameshift deletion: an answer that reports it as an SNV finding counts it extra. Genomic REF and ALT are not stated (only c. names); the later dbSNP step supplies them.",
+  "_source": "#335: found by the research helper with Europe PMC search (PMC11217513 fullTextXML, Table 1 and 2.5/2.6), confirmed by the tools orchestrator under the owner's overnight delegation, 2026-10-14."
+ },
+ "s3-yeast-dby11331": {
+  "paper": "doi:10.1186/1471-2164-11-88",
+  "organism": "Saccharomyces cerevisiae",
+  "reference": {
+   "names": [
+    "sacCer1"
+   ],
+   "accession": null
+  },
+  "_why_no_accession": "UCSC sacCer1 (2003) has no NCBI assembly record under that name.",
+  "key": [
+   {
+    "gene": "PBP2",
+    "phrases": [
+     "Y127X"
+    ]
+   },
+   {
+    "gene": "SGF73",
+    "phrases": [
+     "E294X"
+    ]
+   },
+   {
+    "gene": "UPF3",
+    "phrases": [
+     "G6W"
+    ]
+   },
+   {
+    "gene": "RRN3/YPK1",
+    "chrom": "11",
+    "pos": 207469,
+    "phrases": [
+     "207,469"
+    ]
+   }
+  ]
+ },
+ "s16-dog-asprv1": {
+  "paper": "doi:10.1371/journal.pgen.1006651",
+  "organism": "Canis lupus familiaris",
+  "reference": {
+   "names": [
+    "CanFam3.1",
+    "CanFam 3.1"
+   ],
+   "accession": "GCF_000002285.3"
+  },
+  "key": [
+   {
+    "gene": "ASPRV1",
+    "hgvs": [
+     "c.1052T>C",
+     "p.(Leu351Pro)",
+     "p.Leu351Pro",
+     "p.L351P"
+    ],
+    "chrom": "10",
+    "pos": 68587027
+   }
+  ]
+ },
+ "s17-horse-rapgef5": {
+  "paper": "doi:10.1371/journal.pgen.1009028",
+  "organism": "Equus caballus",
+  "reference": {
+   "names": [
+    "EquCab3.0"
+   ],
+   "accession": "GCA_002863925.1"
+  },
+  "key": [
+   {
+    "gene": "RAPGEF5",
+    "hgvs": [
+     "c.2624C>A",
+     "p.Ser875*"
+    ],
+    "chrom": "4",
+    "pos": 54108297
+   }
+  ]
+ }
+}

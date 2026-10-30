@@ -1,0 +1,145 @@
+{
+  "question": "Which point mutations does the paper report in the evolved strain DBY11331? List every one.",
+  "paper": {
+    "doi": "10.1186/1471-2164-11-88",
+    "pmid": "20128923",
+    "pmcid": "PMC2829512",
+    "title": "Whole-genome sequencing of a laboratory-evolved yeast strain.",
+    "journal": "BMC Genomics",
+    "year": "2010",
+    "open_access": true,
+    "resolved_by": "europe_pmc",
+    "landing_url": null
+  },
+  "documents": [
+    {
+      "document_id": "main",
+      "kind": "main_text",
+      "url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2829512.1/PMC2829512.1.xml",
+      "via": "recorded",
+      "characters": 34129
+    }
+  ],
+  "reference": {
+    "candidate": {
+      "candidate_id": "r-b8a9216d7b93",
+      "name": "sacCer1",
+      "spellings": [
+        "sacCer1"
+      ],
+      "sources": [
+        {
+          "document_id": "main",
+          "section": "Methods",
+          "start": 24561,
+          "end": 24769,
+          "text": "Reads were aligned to the UCSC sacCer1 reference sequence using Maq [23] with default parameters for single-end reads (12,274,183 evolved strain and 10,441,548 parental strain reads), to a coverage of ≥99.8%."
+        }
+      ]
+    },
+    "reason": "The Methods section states reads were aligned to the UCSC sacCer1 reference sequence, and the reference candidates list sacCer1 as r-b8a9216d7b93."
+  },
+  "findings": [
+    {
+      "variants": [],
+      "passages": [
+        {
+          "document_id": "main",
+          "section": "A heuristic approach to point mutation detection",
+          "start": 7723,
+          "end": 9115,
+          "text": "Applying these heuristics, we detected four single-point differences between the laboratory evolved strain and that of its parent: the previously-described point mutations at PBP2 (Y127X), SGF73 (E294X), and UPF3 (G6W) [4], and an additional point mutation intergenic to RRN3 and YPK1 (chr11: 207,469:A>C) which we confirmed by Sanger sequencing (Figure 1). The function of the RNA polymerase I-specific transcription initiation factor RRN3 is conserved between yeast and humans [24,25]. In humans, TIF-IA (the RRN3 ortholog) modulates ribosomal gene expression in response to nutrient limitation via the mTOR pathway [26]. The expression of RRN3 is less than half the level in the evolved strain compared to its ancestor, suggesting that this SNP may be regulatory and part of the adaptive response in this lineage. The finding of an additional SNP in the sequencing data but missed by array-based comparative genome sequencing is consistent with the estimated 15% false negative rate for the SNPScanner algorithm [3]. In addition, we searched for small insertions and deletions via gapped alignment of reads unmapped in the Maq alignment, requiring that candidate indel coordinates were sequenced as wildtype in the comparison strain. However, no small insertion or deletion differences between the evolved and parental genomes could be detected [Additional File 1: Supplementary Table S4]."
+        }
+      ],
+      "reason": "The paper states in the Results/heuristic approach section that four single-point differences were detected between the evolved strain DBY11331 and its parent: three previously-described point mutations including PBP2 (Y127X) [reference 4]. The paper reports the mutation at the gene level (PBP2 Y127X) but does not provide a variant candidate ID (v-...) for this mutation in this paper.",
+      "gene": "PBP2",
+      "unlocated": null
+    },
+    {
+      "variants": [],
+      "passages": [
+        {
+          "document_id": "main",
+          "section": "A heuristic approach to point mutation detection",
+          "start": 7723,
+          "end": 9115,
+          "text": "Applying these heuristics, we detected four single-point differences between the laboratory evolved strain and that of its parent: the previously-described point mutations at PBP2 (Y127X), SGF73 (E294X), and UPF3 (G6W) [4], and an additional point mutation intergenic to RRN3 and YPK1 (chr11: 207,469:A>C) which we confirmed by Sanger sequencing (Figure 1). The function of the RNA polymerase I-specific transcription initiation factor RRN3 is conserved between yeast and humans [24,25]. In humans, TIF-IA (the RRN3 ortholog) modulates ribosomal gene expression in response to nutrient limitation via the mTOR pathway [26]. The expression of RRN3 is less than half the level in the evolved strain compared to its ancestor, suggesting that this SNP may be regulatory and part of the adaptive response in this lineage. The finding of an additional SNP in the sequencing data but missed by array-based comparative genome sequencing is consistent with the estimated 15% false negative rate for the SNPScanner algorithm [3]. In addition, we searched for small insertions and deletions via gapped alignment of reads unmapped in the Maq alignment, requiring that candidate indel coordinates were sequenced as wildtype in the comparison strain. However, no small insertion or deletion differences between the evolved and parental genomes could be detected [Additional File 1: Supplementary Table S4]."
+        }
+      ],
+      "reason": "The paper states in the Results/heuristic approach section that four single-point differences were detected between the evolved strain DBY11331 and its parent: three previously-described point mutations including SGF73 (E294X) [reference 4]. The paper reports the mutation at the gene level (SGF73 E294X) but does not provide a variant candidate ID (v-...) for this mutation in this paper.",
+      "gene": "SGF73",
+      "unlocated": null
+    },
+    {
+      "variants": [],
+      "passages": [
+        {
+          "document_id": "main",
+          "section": "A heuristic approach to point mutation detection",
+          "start": 7723,
+          "end": 9115,
+          "text": "Applying these heuristics, we detected four single-point differences between the laboratory evolved strain and that of its parent: the previously-described point mutations at PBP2 (Y127X), SGF73 (E294X), and UPF3 (G6W) [4], and an additional point mutation intergenic to RRN3 and YPK1 (chr11: 207,469:A>C) which we confirmed by Sanger sequencing (Figure 1). The function of the RNA polymerase I-specific transcription initiation factor RRN3 is conserved between yeast and humans [24,25]. In humans, TIF-IA (the RRN3 ortholog) modulates ribosomal gene expression in response to nutrient limitation via the mTOR pathway [26]. The expression of RRN3 is less than half the level in the evolved strain compared to its ancestor, suggesting that this SNP may be regulatory and part of the adaptive response in this lineage. The finding of an additional SNP in the sequencing data but missed by array-based comparative genome sequencing is consistent with the estimated 15% false negative rate for the SNPScanner algorithm [3]. In addition, we searched for small insertions and deletions via gapped alignment of reads unmapped in the Maq alignment, requiring that candidate indel coordinates were sequenced as wildtype in the comparison strain. However, no small insertion or deletion differences between the evolved and parental genomes could be detected [Additional File 1: Supplementary Table S4]."
+        }
+      ],
+      "reason": "The paper states in the Results/heuristic approach section that four single-point differences were detected between the evolved strain DBY11331 and its parent: three previously-described point mutations including UPF3 (G6W) [reference 4]. The paper reports the mutation at the gene level (UPF3 G6W) but does not provide a variant candidate ID (v-...) for this mutation in this paper.",
+      "gene": "UPF3",
+      "unlocated": null
+    },
+    {
+      "variants": [
+        {
+          "candidate_id": "v-fb0b4cb88112",
+          "contig": "11",
+          "position": 207469,
+          "ref": "A",
+          "alt": "C",
+          "hgvs": [],
+          "rsids": [],
+          "sources": [
+            {
+              "document_id": "main",
+              "section": "A heuristic approach to point mutation detection",
+              "start": 7723,
+              "end": 8080,
+              "text": "Applying these heuristics, we detected four single-point differences between the laboratory evolved strain and that of its parent: the previously-described point mutations at PBP2 (Y127X), SGF73 (E294X), and UPF3 (G6W) [4], and an additional point mutation intergenic to RRN3 and YPK1 (chr11: 207,469:A>C) which we confirmed by Sanger sequencing (Figure 1)."
+            },
+            {
+              "document_id": "main",
+              "section": "A heuristic approach to point mutation detection",
+              "start": 9507,
+              "end": 9621,
+              "text": "Sanger-sequence traces from evolved and ancestor genomes validate the SNP at chr11: 207,469 in the adaptive clone."
+            },
+            {
+              "document_id": "main",
+              "section": "A heuristic approach to point mutation detection",
+              "start": 9622,
+              "end": 9828,
+              "text": "Sanger sequence data derived from a population sample suggest that the chr11: 207,469 SNP is in high frequency in the evolving population time-point from which the evolved clone was isolated (bottom trace)."
+            }
+          ]
+        }
+      ],
+      "passages": [
+        {
+          "document_id": "main",
+          "section": "A heuristic approach to point mutation detection",
+          "start": 7723,
+          "end": 9115,
+          "text": "Applying these heuristics, we detected four single-point differences between the laboratory evolved strain and that of its parent: the previously-described point mutations at PBP2 (Y127X), SGF73 (E294X), and UPF3 (G6W) [4], and an additional point mutation intergenic to RRN3 and YPK1 (chr11: 207,469:A>C) which we confirmed by Sanger sequencing (Figure 1). The function of the RNA polymerase I-specific transcription initiation factor RRN3 is conserved between yeast and humans [24,25]. In humans, TIF-IA (the RRN3 ortholog) modulates ribosomal gene expression in response to nutrient limitation via the mTOR pathway [26]. The expression of RRN3 is less than half the level in the evolved strain compared to its ancestor, suggesting that this SNP may be regulatory and part of the adaptive response in this lineage. The finding of an additional SNP in the sequencing data but missed by array-based comparative genome sequencing is consistent with the estimated 15% false negative rate for the SNPScanner algorithm [3]. In addition, we searched for small insertions and deletions via gapped alignment of reads unmapped in the Maq alignment, requiring that candidate indel coordinates were sequenced as wildtype in the comparison strain. However, no small insertion or deletion differences between the evolved and parental genomes could be detected [Additional File 1: Supplementary Table S4]."
+        },
+        {
+          "document_id": "main",
+          "section": "A heuristic approach to point mutation detection",
+          "start": 9125,
+          "end": 9828,
+          "text": "Point mutation discovery in an evolved yeast genome. SNPs that are supported by a read depth of ≥6 and ≥5 in the evolved and ancestor strain sequence data, respectively, are shown. These SNPS are also supported by ≥80% of the base calls for the position in the evolved strain and ≥70% of the calls in the parental strain. Tiling array-discovered SNPs in DBY11331 are labeled green. Sanger-sequence traces from evolved and ancestor genomes validate the SNP at chr11: 207,469 in the adaptive clone. Sanger sequence data derived from a population sample suggest that the chr11: 207,469 SNP is in high frequency in the evolving population time-point from which the evolved clone was isolated (bottom trace)."
+        }
+      ],
+      "reason": "The paper states in the Results/heuristic approach section that four single-point differences were detected between the evolved strain DBY11331 and its parent, including one novel intergenic point mutation intergenic to RRN3 and YPK1 at chr11:207,469:A>C confirmed by Sanger sequencing. This mutation has candidate ID v-fb0b4cb88112 (chr11:207469:A>C) in this paper.",
+      "gene": "intergenic to RRN3 and YPK1",
+      "unlocated": null
+    }
+  ],
+  "not_answered": null
+}

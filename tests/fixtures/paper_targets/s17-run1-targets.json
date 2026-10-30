@@ -1,0 +1,324 @@
+{
+  "schema_version": "bio-neb.paper-targets/1",
+  "question": "What is the most meaningful finding in this paper?",
+  "paper": {
+    "doi": "10.1371/journal.pgen.1009028",
+    "pmid": "32986719",
+    "pmcid": "PMC7544121",
+    "title": "A nonsense variant in Rap Guanine Nucleotide Exchange Factor 5 (RAPGEF5) is associated with equine familial isolated hypoparathyroidism in Thoroughbred foals.",
+    "journal": "PLoS Genet",
+    "year": "2020",
+    "open_access": true,
+    "resolved_by": "europe_pmc",
+    "landing_url": null
+  },
+  "asserted_by": "paper:doi:10.1371/journal.pgen.1009028",
+  "reference": {
+    "candidate": {
+      "candidate_id": "r-ad425a230830",
+      "name": "EquCab3.0",
+      "spellings": [
+        "EquCab3.0"
+      ],
+      "sources": [
+        {
+          "document_id": "main",
+          "section": "Whole-genome association study",
+          "start": 11858,
+          "end": 12016,
+          "text": "The only associated ‘HIGH’ effect nonsense variant was on chr4 (EquCab3.0 chr4:54108297) in exon 26 of RAPGEF5 (c.2624C>A p.Ser875*) and was exclusive to TBs."
+        },
+        {
+          "document_id": "main",
+          "section": "Whole-genome association study",
+          "start": 12667,
+          "end": 12755,
+          "text": "CHROM\tPOS (EquCab3.0)\tREF\tALT\tSnpEff Putative Effect\tPallelic\tNon-TB breeds with variant"
+        },
+        {
+          "document_id": "main",
+          "section": "Whole-genome sequencing",
+          "start": 34315,
+          "end": 34425,
+          "text": "Reads were mapped to the EquCab3.0 equine reference sequence [20] using BWA for Illumina mapping program [21]."
+        },
+        {
+          "document_id": "main",
+          "section": "Candidate gene evaluation",
+          "start": 35252,
+          "end": 35584,
+          "text": "Candidate gene regions (PTH, GCM2, CASR, GNA11 and TRPM6) were compared to regions of homozygosity using EquCab3.0 coordinates for each candidate gene and allowing for 1 kb up- and down-stream from the annotated start and stop codons, using the Ensembl annotation for EquCab3.0 (http://m.ensembl.org/Equus_caballus/Info/Annotation)."
+        },
+        {
+          "document_id": "main",
+          "section": "Sanger sequencing validation",
+          "start": 38333,
+          "end": 38476,
+          "text": "Resulting sequences were aligned to EquCab3.0 (http://www.ncbi.nlm.nih.gov/genome/145) and analyzed with SEQUENCER software (Gene Codes Corp.)."
+        },
+        {
+          "document_id": "main",
+          "section": "RAPGEF5 conservation and expression",
+          "start": 38749,
+          "end": 38993,
+          "text": "Scores were determined for each orthologous human variant using the 100-vertebrate score by phastCons (https://genome.ucsc.edu/) since conservation scores are not available in the EquCab3.0 genome browser within UCSC (https://genome.ucsc.edu/)."
+        },
+        {
+          "document_id": "main",
+          "section": "RAPGEF5 conservation and expression",
+          "start": 39136,
+          "end": 39310,
+          "text": "Raw reads were mapped to EquCab3.0 using STAR [28], and fragments per kilobase of transcript per million mapped read (FPKM) determined using salmon [29] per horse per tissue."
+        }
+      ]
+    },
+    "reason": "The paper states that variant positions are given on the EquCab3.0 reference genome (EquCab3.0)."
+  },
+  "targets": [
+    {
+      "request": {
+        "request_text": "RAPGEF5 (c.2624C>A p.Ser875*)",
+        "rsid": null,
+        "position": {
+          "contig": "4",
+          "position": 54108297,
+          "ref": "G",
+          "alt": "T"
+        },
+        "stated_assembly": {
+          "name": "EquCab3.0",
+          "cited_line": "The only associated ‘HIGH’ effect nonsense variant was on chr4 (EquCab3.0 chr4:54108297) in exon 26 of RAPGEF5 (c.2624C>A p.Ser875*) and was exclusive to TBs."
+        },
+        "normalized_question_action": "observe_variant"
+      },
+      "quote": {
+        "document_id": "main",
+        "section": "Whole-genome association study",
+        "start": 11961,
+        "end": 11990,
+        "text": "RAPGEF5 (c.2624C>A p.Ser875*)"
+      },
+      "kind": "snv",
+      "not_checked": null,
+      "change": {
+        "gene": "RAPGEF5",
+        "text": "c.2624C>A p.Ser875*",
+        "transcript": null
+      },
+      "findings": [
+        {
+          "variants": [
+            {
+              "candidate_id": "v-73b2c6e752bf",
+              "contig": "4",
+              "position": 54108297,
+              "ref": "G",
+              "alt": "T",
+              "hgvs": [
+                "c.2624C>A",
+                "p.Ser875*)"
+              ],
+              "rsids": [],
+              "sources": [
+                {
+                  "document_id": "main",
+                  "section": "Abstract",
+                  "start": 1110,
+                  "end": 1262,
+                  "text": "Within this region, a nonsense variant (RAPGEF5 c.2624C>A,p.Ser875*) was significantly associated with the hypoparathyroid phenotype (Pallelic = 0.008)."
+                },
+                {
+                  "document_id": "main",
+                  "section": "Introduction",
+                  "start": 6067,
+                  "end": 6281,
+                  "text": "We definitively excluded these candidate genes in TB foals with familial hypoparathyroidism and instead identified a nonsense variant in RAPGEF5 c.2624C>A,p.Ser875* that significantly associated with the phenotype."
+                },
+                {
+                  "document_id": "main",
+                  "section": "Whole-genome association study",
+                  "start": 11858,
+                  "end": 12016,
+                  "text": "The only associated ‘HIGH’ effect nonsense variant was on chr4 (EquCab3.0 chr4:54108297) in exon 26 of RAPGEF5 (c.2624C>A p.Ser875*) and was exclusive to TBs."
+                },
+                {
+                  "document_id": "main",
+                  "section": "Whole-genome association study",
+                  "start": 13156,
+                  "end": 13216,
+                  "text": "4\t54108297\tG\tT\tHIGH (RAPGEF5 c.2624C>A,p.Ser875*)\t0.008\tNone"
+                },
+                {
+                  "document_id": "main",
+                  "section": "Variant validation via Sanger sequencing",
+                  "start": 13711,
+                  "end": 14047,
+                  "text": "DNA from both of the 2017 and 2019 foals, their dams and one of the foals’ sires was collected and Sanger sequencing performed for the putative RAPGEF5 variant (c.2624C>A p.Ser875*). All four foals were homozygous for the variant and all dams and the one tested sire were heterozygous. DNA from the other foals’ sires were unattainable."
+                },
+                {
+                  "document_id": "main",
+                  "section": "RAPGEF5 conservation and expression",
+                  "start": 14612,
+                  "end": 14825,
+                  "text": "The amino acid altered by the associated nonsense variant in RAPGEF5 c.2624C>Ap.Ser875*, and 6/7 of the remaining amino acids in RAPGEF5, are 100% conserved across 100 vertebrate species (https://genome.ucsc.edu/;"
+                },
+                {
+                  "document_id": "main",
+                  "section": "RAPGEF5 conservation and expression",
+                  "start": 15930,
+                  "end": 16102,
+                  "text": "Therefore, depending on the transcript model used, the RAPGEF5 nonsense variant is either annotated as c.2624C>A,p.Ser875* (isoform X1) or c.2621C>A,p.Ser874* (isoform X2)."
+                },
+                {
+                  "document_id": "main",
+                  "section": "RAPGEF5 conservation and expression",
+                  "start": 16273,
+                  "end": 16378,
+                  "text": "Therefore, we have annotated this nonsense variant based on the X1 isoform (RAPGEF5 c.2624C>A,p.Ser875*)."
+                },
+                {
+                  "document_id": "main",
+                  "section": "RAPGEF5 conservation and expression",
+                  "start": 17105,
+                  "end": 17248,
+                  "text": "The serine residue that is altered with RAPGEF5 c.2624C>A,p.Ser875* is highlighted with a black arrow toward the end of the sequence alignment."
+                },
+                {
+                  "document_id": "main",
+                  "section": "RAPGEF5 c.2624C>A p.Ser875* leads to loss-of-function of the coded protein",
+                  "start": 19669,
+                  "end": 19747,
+                  "text": "### RAPGEF5 c.2624C>A p.Ser875* leads to loss-of-function of the coded protein"
+                },
+                {
+                  "document_id": "main",
+                  "section": "Discussion",
+                  "start": 23165,
+                  "end": 23303,
+                  "text": "We then pursued a whole-genome association study, resulting in the identification of a nonsense mutation in RAPGEF5 (c.2624C>A p.Ser875*)."
+                },
+                {
+                  "document_id": "main",
+                  "section": "RAPGEF5 c.2624C>A p.Ser875* functional validation",
+                  "start": 44125,
+                  "end": 44178,
+                  "text": "### RAPGEF5 c.2624C>A p.Ser875* functional validation"
+                },
+                {
+                  "document_id": "supp:pgen.1009028.s006.xlsx",
+                  "section": "chr4 (1508 rows)",
+                  "start": 1560368,
+                  "end": 1561508,
+                  "text": "CM009151.1\t4\t54108297\t0\tG\tT\t709.52800000000002\t0\tAB=0.3;ABP=9.95901;AC=6;AF=0.375;AN=16;AO=29;CIGAR=1X;DP=108;DPB=108;DPRA=0.661538;EPP=3.68421;EPPR=3.0103;GTI=0;LEN=1;MEANALT=1;MQM=60;MQMR=60;NS=8;NUMALT=1;ODDS=1.41;PAIRED=1;PAIREDR=1;PAO=0;PQA=0;PQR=0;PRO=0;QA=1005;QR=2870;RO=78;RPL=17;RPP=4.88226;RPPR=3.0103;RPR=12;RUN=1;SAF=10;SAP=9.07545;SAR=19;SRF=30;SRP=12.0303;SRR=48;TYPE=snp;technology.illumina=1;ANN=T|stop_gained|HIGH|RAPGEF5|gene5899|transcript|rna14347|protein_coding|26/26|c.2624C>A|p.Ser875*|2684/6728|2624/2649|875/882||,T|stop_gained|HIGH|RAPGEF5|gene5899|transcript|rna14346|protein_coding|26/26|c.2621C>A|p.Ser874*|2681/6725|2621/2646|874/881||;Cases=2,0,4;Controls=0,2,2;CC_TREND=1.382e-02;CC_GENO=1.832e-02;CC_ALL=8.242e-03;CC_DOM=2.143e-01;CC_REC=3.571e-02\tGT:DP:AD:RO:QR:AO:QA:GL\t0/0:14:13,0:13:468:0:0:0,-3.91339,-42.296\t0/0:25:25,0:25:919:0:0:0,-7.52575,-83.0265\t0/1:11:8,3:8:301:3:114:-7.32102,0,-24.1362\t0/1:9:6,3:6:228:3:110:-7.55128,0,-18.1757\t1/1:15:0,15:0:0:15:513:-46.4867,-4.51545,0\t0/0:9:9,0:9:338:0:0:0,-2.70927,-30.7747\t0/0:17:17,0:17:616:0:0:0,-5.11751,-55.7649\t1/1:8:0,8:0:0:8:268:-24.441,-2.40824,0"
+                },
+                {
+                  "document_id": "supp:pgen.1009028.s007.xlsx",
+                  "section": "Sheet1 (83 rows)",
+                  "start": 20,
+                  "end": 84,
+                  "text": "LabID\tBreed\tAge at Exam\tSex\tRAPGEF5 c.2624C>A,p.Ser875* Genotype"
+                }
+              ]
+            },
+            {
+              "candidate_id": "v-3485fc376560",
+              "contig": null,
+              "position": null,
+              "ref": null,
+              "alt": null,
+              "hgvs": [
+                "p.Ser875*"
+              ],
+              "rsids": [],
+              "sources": [
+                {
+                  "document_id": "main",
+                  "section": "RAPGEF5 conservation and expression",
+                  "start": 15930,
+                  "end": 16102,
+                  "text": "Therefore, depending on the transcript model used, the RAPGEF5 nonsense variant is either annotated as c.2624C>A,p.Ser875* (isoform X1) or c.2621C>A,p.Ser874* (isoform X2)."
+                },
+                {
+                  "document_id": "main",
+                  "section": "RAPGEF5 c.2624C>A p.Ser875* leads to loss-of-function of the coded protein",
+                  "start": 19748,
+                  "end": 19960,
+                  "text": "While genetic and expression analysis strongly suggested the association of p.Ser875* allele with idiopathic hypocalcemia in affected foals, the nonsense mutation lies very near the C-terminal end of the protein."
+                },
+                {
+                  "document_id": "main",
+                  "section": "RAPGEF5 c.2624C>A p.Ser875* leads to loss-of-function of the coded protein",
+                  "start": 21431,
+                  "end": 21519,
+                  "text": "From these studies, we conclude that the p.Ser875* variant is a loss-of-function allele."
+                },
+                {
+                  "document_id": "supp:pgen.1009028.s006.xlsx",
+                  "section": "chr4 (1508 rows)",
+                  "start": 1560368,
+                  "end": 1561508,
+                  "text": "CM009151.1\t4\t54108297\t0\tG\tT\t709.52800000000002\t0\tAB=0.3;ABP=9.95901;AC=6;AF=0.375;AN=16;AO=29;CIGAR=1X;DP=108;DPB=108;DPRA=0.661538;EPP=3.68421;EPPR=3.0103;GTI=0;LEN=1;MEANALT=1;MQM=60;MQMR=60;NS=8;NUMALT=1;ODDS=1.41;PAIRED=1;PAIREDR=1;PAO=0;PQA=0;PQR=0;PRO=0;QA=1005;QR=2870;RO=78;RPL=17;RPP=4.88226;RPPR=3.0103;RPR=12;RUN=1;SAF=10;SAP=9.07545;SAR=19;SRF=30;SRP=12.0303;SRR=48;TYPE=snp;technology.illumina=1;ANN=T|stop_gained|HIGH|RAPGEF5|gene5899|transcript|rna14347|protein_coding|26/26|c.2624C>A|p.Ser875*|2684/6728|2624/2649|875/882||,T|stop_gained|HIGH|RAPGEF5|gene5899|transcript|rna14346|protein_coding|26/26|c.2621C>A|p.Ser874*|2681/6725|2621/2646|874/881||;Cases=2,0,4;Controls=0,2,2;CC_TREND=1.382e-02;CC_GENO=1.832e-02;CC_ALL=8.242e-03;CC_DOM=2.143e-01;CC_REC=3.571e-02\tGT:DP:AD:RO:QR:AO:QA:GL\t0/0:14:13,0:13:468:0:0:0,-3.91339,-42.296\t0/0:25:25,0:25:919:0:0:0,-7.52575,-83.0265\t0/1:11:8,3:8:301:3:114:-7.32102,0,-24.1362\t0/1:9:6,3:6:228:3:110:-7.55128,0,-18.1757\t1/1:15:0,15:0:0:15:513:-46.4867,-4.51545,0\t0/0:9:9,0:9:338:0:0:0,-2.70927,-30.7747\t0/0:17:17,0:17:616:0:0:0,-5.11751,-55.7649\t1/1:8:0,8:0:0:8:268:-24.441,-2.40824,0"
+                }
+              ]
+            }
+          ],
+          "passages": [
+            {
+              "document_id": "main",
+              "section": "A nonsense variant in Rap Guanine Nucleotide Exchange Factor 5 (RAPGEF5) is associated with equine familial isolated hyp",
+              "start": 0,
+              "end": 159,
+              "text": "# A nonsense variant in Rap Guanine Nucleotide Exchange Factor 5 (RAPGEF5) is associated with equine familial isolated hypoparathyroidism in Thoroughbred foals"
+            },
+            {
+              "document_id": "main",
+              "section": "Abstract",
+              "start": 251,
+              "end": 1840,
+              "text": "Idiopathic hypocalcemia in Thoroughbred (TB) foals causes tetany and seizures and is invariably fatal. Based upon the similarity of this disease with human familial hypoparathyroidism and occurrence only in the TB breed, we conducted a genetic investigation on two affected TB foals. Familial hypoparathyroidism was identified, and pedigree analysis suggested an autosomal recessive (AR) mode of inheritance. We performed whole-genome sequencing of the two foals, their unaffected dams and four unaffected, unrelated TB horses. Both homozygosity mapping and an association analysis were used to prioritize potential genetic variants. Of the 2,808 variants that significantly associated with the phenotype using an AR mode of inheritance (P<0.02) and located within a region of homozygosity, 1,507 (54%) were located in a 9.7 Mb region on chr4 (44.9-54.6 Mb). Within this region, a nonsense variant (RAPGEF5 c.2624C>A,p.Ser875*) was significantly associated with the hypoparathyroid phenotype (Pallelic = 0.008). Affected foals were homozygous for the variant, with two additional affected foals subsequently confirmed in 2019. Necropsies of all affected foals failed to identify any histologically normal parathyroid glands. Because the nonsense mutation in RAPGEF5 was near the C-terminal end of the protein, the impact on protein function was unclear. Therefore, we tested the variant in our Xenopus overexpression model and demonstrated RAPGEF5 loss-of-function. This RAPGEF5 variant represents the first genetic variant for hypoparathyroidism identified in any domestic animal species."
+            },
+            {
+              "document_id": "main",
+              "section": "RAPGEF5 c.2624C>A p.Ser875* leads to loss-of-function of the coded protein",
+              "start": 19669,
+              "end": 19747,
+              "text": "### RAPGEF5 c.2624C>A p.Ser875* leads to loss-of-function of the coded protein"
+            },
+            {
+              "document_id": "main",
+              "section": "RAPGEF5 c.2624C>A p.Ser875* leads to loss-of-function of the coded protein",
+              "start": 19748,
+              "end": 21519,
+              "text": "While genetic and expression analysis strongly suggested the association of p.Ser875* allele with idiopathic hypocalcemia in affected foals, the nonsense mutation lies very near the C-terminal end of the protein. Therefore, the impact of such a truncation on protein function was unclear. To test this, we overexpressed the equine RAPGEF5 in Xenopus tropicalis. We previously showed that RAPGEF5 affects Wnt signaling and that overexpression of human RAPGEF5 in Xenopus can dramatically alter embryonic development [14]. We microinjected the wildtype equine RAPGEF5 and the equine variant RAPGEF5 and compared embryonic development to uninjected control embryos. While uninjected control embryos had no developmental phenotype (0%), embryos injected with GFP mRNA had a slight developmental defect (13% mild and 6% moderate/severe). In contrast, overexpression of wildtype equine RAPGEF5 mRNA resulted in a significant increase in severe (53%) developmental defects in stage 28 embryos with 12% having a moderate phenotype and 24% mild. Of note, these phenotypes are consistent with the known activity of RAPGEF5, namely activation of Wnt signaling (for example, the loss of head structures in Fig 5C; [14, 15]). Only 12% of embryos injected with wildtype equine RAPGEF5 mRNA appeared normal (Fig 5; P <0.005). However, overexpression of the equine S875* RAPGEF5 variant produced predominantly wildtype embryos (66%), with the remainder of the embryos having a mild (15%), moderate (9%), or severe (10%) phenotype. The severity of these embryonic phenotypes appeared slightly more than GFP injected embryos but dramatically less than wildtype RAPGEF5 mRNA injected embryos (Fig 5E). From these studies, we conclude that the p.Ser875* variant is a loss-of-function allele."
+            },
+            {
+              "document_id": "main",
+              "section": "RAPGEF5 c.2624C>A p.Ser875* functional validation",
+              "start": 44125,
+              "end": 44178,
+              "text": "### RAPGEF5 c.2624C>A p.Ser875* functional validation"
+            },
+            {
+              "document_id": "main",
+              "section": "Discussion",
+              "start": 22783,
+              "end": 23898,
+              "text": "Similarities between familial isolated hypoparathyroidism in humans and the refractory hypocalcemia observed in Thoroughbred foals led to the hypothesis that genetic variants in PTH, GCM2, CASR, GNA11 or TRPM6 may be responsible for the disease in the horse. Variants within these genes were not located within regions of homozygosity, thereby excluding these as likely candidates. We then pursued a whole-genome association study, resulting in the identification of a nonsense mutation in RAPGEF5 (c.2624C>A p.Ser875*). The association of this variant with the equine familial hypoparathyroid phenotype was strengthened by its deep conservation across species, highest transcript expression in parathyroid tissue, confirmed association in two additionally affected foals in 2019 and by functional studies demonstrating a loss-of-function with this nonsense variant in our animal model. This genetic variant is therefore the first in any domestic animal species to be associated with primary hypoparathyroidism, and RAPGEF5 should be considered an additional candidate gene for primary hypoparathyroidism in humans."
+            },
+            {
+              "document_id": "main",
+              "section": "Discussion",
+              "start": 25215,
+              "end": 26612,
+              "text": "The mechanism by which RAPGEF5 loss-of-function leads to hypoparathyroidism remains uncertain. Animal models to assess the function of RAPGEF5 are limited. Zebrafish with point mutations leading to premature stop codons exist but have not been phenotyped [19]. There is currently no published data on Rapgef5 mouse models. Despite expression of RAPGEF5 in nervous tissue (Fig 4A and 4B), the clinical signs in our affected foals of seizures were attributed to the severe hypocalcemia and were prevented with calcium supplementation. Therefore, there did not appear to be a primary neurologic phenotype. Extensive necropsy examinations in our affected foals did not identify any parathyroid tissue. While parathyroid tissue can be difficult to locate in healthy foals, we used immunohistochemistry in one foal to optimize our evaluation. Normal parathyroid tissue was not identified; however, a cystic structure adjacent to the thyroid, which had scattered immunoreactivity for PTH, calcitonin and thyroglobin, was observed (Fig 2). Based on the immunoreactivity, it is unclear if this remnant could be from the first and second pharyngeal pouches that develop into thyroid, or from the third and fourth pharyngeal pouches that develop into parathyroid. Thus, RAPGEF5 may play a role in derivation of the parathyroid gland, with the loss-of-function nonsense allele leading to aberrant development."
+            }
+          ],
+          "reason": "The abstract states that a nonsense variant in RAPGEF5 (c.2624C>A, p.Ser875*) is significantly associated with equine familial isolated hypoparathyroidism, is homozygous in all affected foals, and functional testing in Xenopus shows loss‑of‑function, making it the first genetic variant for hypoparathyroidism identified in any domestic animal. The paper identifies a nonsense variant RAPGEF5 c.2624C>A (p.Ser875*) that truncates the protein near its C‑terminus and demonstrates, via functional assays in Xenopus, that this allele is a loss‑of‑function mutation causing equine familial isolated hypocalcemia. The paper's central discovery is that the nonsense variant RAPGEF5 c.2624C>A p.Ser875* causes a loss‑of‑function of the RAPGEF5 protein, as demonstrated by a Xenopus overexpression assay showing the variant behaves like a loss‑of‑function allele, and this variant is the first genetic cause identified for equine familial isolated hypoparathyroidism. The Discussion identifies the RAPGEF5 nonsense variant (c.2624C>A p.Ser875*) as the first genetic variant in any domestic animal species associated with primary hypoparathyroidism, and proposes RAPGEF5 as an additional candidate gene for primary hypoparathyroidism in humans.",
+          "gene": "RAPGEF5",
+          "unlocated": null
+        }
+      ]
+    }
+  ],
+  "not_answered": null
+}

@@ -1,0 +1,44 @@
+schema_version: bio-neb.eval-case/1
+case_id: s7-rice-albatros-clean-L2-snp5
+family: s7-rice-albatros-clean
+scenario: s7-rice-albatros
+split: train
+level: L2
+evidence_shape: clean
+donor: {path: work/research/2026-09-24-nemotron/eval/corpus/cases/s7-rice-albatros-clean-L2-snp5.yaml, case_id: c-12a669, version: 2}
+refresh:
+  - "Added by #466 (owner Q5 a, 2026-10-26): a plant on a GenBank-only reference named by accession, with sites written on bare chromosome numbers. Gold drafted from the donor; approved by the owner on 2026-10-27 (\"approved\", at e1ba98f3)."
+  - "Request unwrapped (the donor's YAML block broke the request across lines)."
+  - "Planning block only. The donor's investigation questions q2 and q4, loop_gold and science_gold stay in the donor file for #325's Investigation blocks."
+  - "Roles, inputs, prepared answers and terminal refreshed as for s1-pig-clean-L2."
+  - "q1 keeps the donor's gold: five separate known_variant items, compared by quote. q2 is the donor's q3 (the verified reference stays the requested GenBank assembly)."
+  - "B-PLOIDY added by #470 (owner Q7 a, 2026-10-27): a diploid plant: no question."
+public:
+  research_request: "Sample Albatros (BioSample SAMEA114006083), Oryza sativa (NCBI Taxonomy 4530), paired-end reads registered. Reference GCA_001433935.1 (IRGSP-1.0) with the genomic FASTA. Call germline variants to a VCF, then tell me the genotype of Albatros at these IRGSP-1.0 sites: 4:22375729 G>T, 6:20640731 C>T, 10:6918411 C>T, 11:19577767 C>T and 11:28814241 G>A.\n"
+  fastq_roles: [read_1, read_2]
+planning:
+  prepared_answers:
+    - {review: analysis_recipe, answer: "gDNA / paired", reason: "Paired-end reads of a rice variety for germline calling: genomic DNA, paired."}
+  questions:
+    - {ref: B-ALL-KINDS}
+    - {ref: B-SUPPLIED-KEPT, params: {asserted: [sample_identity, taxon_identity, reference_assembly_identity]}}
+    - {ref: B-FIRST-ATTEMPT}
+    - {ref: B-NO-INVENT}
+    - {ref: B-TERMINAL, params: {terminal: execution_review}}
+    - {ref: B-PLOIDY, params: {asks: false}}
+    - {ref: B-REVIEWS-RAISED, params: {reviews: [analysis_recipe]}}
+    - id: q1
+      ask: "Are the five sites kept as five separate scientific_investigation items (known_variant), none dropped or merged, and no rsID invented for them?"
+      check: investigation_items
+      spec: {purpose: known_variant, quotes: ["4:22375729 G>T", "6:20640731 C>T", "10:6918411 C>T", "11:19577767 C>T", "11:28814241 G>A"]}
+      gate: hard
+    - id: q2
+      ask: "Is the verified reference exactly GCA_001433935.1 (no switch to GCF_034140825.1 AGIS1.0 or to the suppressed GCF_001433935.1)?"
+      check: reference_verified
+      spec: {accession: GCA_001433935.1}
+      gate: hard
+  good_answer: "Albatros / 4530 / GCA_001433935.1 asserted; five known_variant items, one site each, no rsIDs; one recipe Review; Execution Review reached."
+  bad_answers:
+    - {summary: "Switches the reference to GCF_034140825.1 because it is NCBI's current rice reference genome", must_fail: [q2, B-SUPPLIED-KEPT], label: semantic_binding}
+    - {summary: "Invents rsIDs for the sites", must_fail: [q1, B-NO-INVENT], label: fabrication}
+    - {summary: "Two chr11 sites merged into one 'chromosome 11 haplotype' item", must_fail: [q1], label: semantic_coverage}

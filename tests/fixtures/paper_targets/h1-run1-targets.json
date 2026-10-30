@@ -1,0 +1,401 @@
+{
+  "schema_version": "bio-neb.paper-targets/1",
+  "question": "Which SNVs does this paper report as its findings?",
+  "paper": {
+    "doi": "10.3389/fgene.2024.1395012",
+    "pmid": "38957812",
+    "pmcid": "PMC11217513",
+    "title": "Identifying genomic variant associated with long QT syndrome type 2 in an ecuadorian mestizo individual: a case report.",
+    "journal": "Front Genet",
+    "year": "2024",
+    "open_access": true,
+    "resolved_by": "europe_pmc",
+    "landing_url": null
+  },
+  "asserted_by": "paper:doi:10.3389/fgene.2024.1395012",
+  "reference": {
+    "candidate": {
+      "candidate_id": "r-630079351dde",
+      "name": "hg38",
+      "spellings": [
+        "hg38"
+      ],
+      "sources": [
+        {
+          "document_id": "main",
+          "section": "2.5 Genomic data analysis",
+          "start": 8715,
+          "end": 9059,
+          "text": "For data analyses, Dragen Enrichment (v. 3.9.5) was used to perform a workflow starting with: 1) alignment to the reference genome (hg38), 2) identifying genetic variants from the sequencing reads, 3) annotating those variants with relevant information, and 4) filtering and prioritizing variants that are likely to cause the patient condition."
+        },
+        {
+          "document_id": "main",
+          "section": "2.6 Diagnostic assessment",
+          "start": 9793,
+          "end": 9909,
+          "text": "Besides, the length of targeted reference (hg38) was 571.899 bp, and the depth coverage was 90.14% for 30X or above."
+        }
+      ]
+    },
+    "reason": "The paper states that variant filtering used alignment to the reference genome hg38 (candidate r-630079351dde)."
+  },
+  "targets": [
+    {
+      "request": {
+        "request_text": "KCNH2\tchr7:150951552/NM_000238.4\tc.1841C>T p. (Ala614Val)\tMissense variant\tD/PD\trs199472944\tPathogenic",
+        "rsid": "rs199472944",
+        "position": {
+          "contig": "7",
+          "position": 150951552
+        },
+        "stated_assembly": {
+          "name": "hg38",
+          "cited_line": "For data analyses, Dragen Enrichment (v. 3.9.5) was used to perform a workflow starting with: 1) alignment to the reference genome (hg38), 2) identifying genetic variants from the sequencing reads, 3) annotating those variants with relevant information, and 4) filtering and prioritizing variants that are likely to cause the patient condition."
+        },
+        "normalized_question_action": "observe_variant"
+      },
+      "quote": {
+        "document_id": "main",
+        "section": "2.6 Diagnostic assessment",
+        "start": 10615,
+        "end": 10717,
+        "text": "KCNH2\tchr7:150951552/NM_000238.4\tc.1841C>T p. (Ala614Val)\tMissense variant\tD/PD\trs199472944\tPathogenic"
+      },
+      "kind": "snv",
+      "not_checked": null,
+      "change": null,
+      "findings": [
+        {
+          "variants": [
+            {
+              "candidate_id": "v-882e0157f9c2",
+              "contig": "7",
+              "position": 150951552,
+              "ref": null,
+              "alt": null,
+              "hgvs": [
+                "c.1841C>T",
+                "p.Ala614Val"
+              ],
+              "rsids": [
+                "rs199472944"
+              ],
+              "sources": [
+                {
+                  "document_id": "main",
+                  "section": "2.6 Diagnostic assessment",
+                  "start": 10615,
+                  "end": 10717,
+                  "text": "KCNH2\tchr7:150951552/NM_000238.4\tc.1841C>T p. (Ala614Val)\tMissense variant\tD/PD\trs199472944\tPathogenic"
+                },
+                {
+                  "document_id": "main",
+                  "section": "2.6 Diagnostic assessment",
+                  "start": 11027,
+                  "end": 11085,
+                  "text": "The genomic test detected a missense variant c.1841C>T; p."
+                }
+              ]
+            },
+            {
+              "candidate_id": "v-4509e46b2efc",
+              "contig": null,
+              "position": null,
+              "ref": null,
+              "alt": null,
+              "hgvs": [
+                "p.Ala614Val"
+              ],
+              "rsids": [],
+              "sources": [
+                {
+                  "document_id": "main",
+                  "section": "2.6 Diagnostic assessment",
+                  "start": 11086,
+                  "end": 11175,
+                  "text": "(Ala614Val) in the KCNH2 gene, which was a known pathogenic variant associated with LQT2."
+                },
+                {
+                  "document_id": "main",
+                  "section": "3 Discussion",
+                  "start": 12651,
+                  "end": 12771,
+                  "text": "(Ala614Val) in the KCNH2 gene (also known as hERG gene) have been described in several ethnic groups as a cause of LQT2."
+                },
+                {
+                  "document_id": "main",
+                  "section": "3 Discussion",
+                  "start": 13046,
+                  "end": 13199,
+                  "text": "(Ala614Val) in the KCNH2 gene, prolonged corrected QT interval (528 msec), propranolol resistance, and high SCD risk, which allows the diagnosis of LQT2."
+                },
+                {
+                  "document_id": "main",
+                  "section": "3 Discussion",
+                  "start": 14830,
+                  "end": 14916,
+                  "text": "(Ala614Val) in the KCNH2 gene shows a dominant negative effect (Anderson et al., 2014;"
+                },
+                {
+                  "document_id": "main",
+                  "section": "3 Discussion",
+                  "start": 15247,
+                  "end": 15414,
+                  "text": "(Ala614Val) variant in the pore region of the KCNH2 gene, along with the prolonged QTc interval observed in this proband, allowed the diagnosis of LQT2 (Figures 1, 3)."
+                }
+              ]
+            },
+            {
+              "candidate_id": "v-e26293eb3e38",
+              "contig": null,
+              "position": null,
+              "ref": null,
+              "alt": null,
+              "hgvs": [
+                "p.(Ala614Val)"
+              ],
+              "rsids": [],
+              "sources": [
+                {
+                  "document_id": "main",
+                  "section": "Case presentation",
+                  "start": 1144,
+                  "end": 1411,
+                  "text": "Moreover, by performing Next-Generation Sequencing, a pathogenic variant in the KCNH2 gene p.(Ala614Val) (ClinVar ID: VCV000029777.14) associated with LQTS type 2, and two variants of uncertain significance in the AKAP9 p.(Arg1654GlyfsTer23) (rs779447911), and TTN p."
+                },
+                {
+                  "document_id": "main",
+                  "section": "1 Introduction",
+                  "start": 3914,
+                  "end": 4259,
+                  "text": "We report the case of a female adolescent diagnosed with LQT2, in whom the identification of a mutation p.(Ala614Val) (ClinVar ID: VCV000029777.14) in the KCNH2 gene, the persistence of cardiac events under beta blocker treatment, and an increased SCD risk, allowed the configuration of a high-risk profile aiding the decision to implant an ICD."
+                },
+                {
+                  "document_id": "main",
+                  "section": "2.1 Clinical phenotype",
+                  "start": 6004,
+                  "end": 6154,
+                  "text": "A pathogenic variant in the KCNH2 gene p.(Ala614Val) was detected, which along with abnormal electrocardiogram confirm the diagnosis of LQT2 syndrome."
+                },
+                {
+                  "document_id": "main",
+                  "section": "3 Discussion",
+                  "start": 15424,
+                  "end": 15535,
+                  "text": "Schematic representation of the hERG protein variant (p.(Ala614Val)), located at the transmembrane pore region."
+                }
+              ]
+            }
+          ],
+          "passages": [
+            {
+              "document_id": "main",
+              "section": "2.6 Diagnostic assessment",
+              "start": 10615,
+              "end": 10717,
+              "text": "KCNH2\tchr7:150951552/NM_000238.4\tc.1841C>T p. (Ala614Val)\tMissense variant\tD/PD\trs199472944\tPathogenic"
+            },
+            {
+              "document_id": "main",
+              "section": "2.6 Diagnostic assessment",
+              "start": 11027,
+              "end": 11445,
+              "text": "The genomic test detected a missense variant c.1841C>T; p. (Ala614Val) in the KCNH2 gene, which was a known pathogenic variant associated with LQT2. This result was thoughtfully discussed with the patient and her parents, and an ICD implantation was decided based on: the presence of syncope while resting, which is considered an ominous symptom, female gender, location of the variant, and lack of treatment response."
+            },
+            {
+              "document_id": "main",
+              "section": "2.1 Clinical phenotype",
+              "start": 4310,
+              "end": 6604,
+              "text": "A 14-year-old Ecuadorian female was referred to the Arrhythmia Unit for evaluation after two episodes of loss of consciousness. The first event occurred 30 min after practicing sport; while resting, she described a brief period of dizziness before losing consciousness and falling unconscious from the bed. She recovered immediately, feeling dizzy with visual dimming, pale, and diaphoretic; micturition occurred during the event. The second episode was after getting out of bed in the morning; no prodromal symptoms were reported before losing consciousness and falling; the recovery was rapid, and micturition also was present. The subject’s father shows cardiac symptoms; however, he does not have a definitive diagnosis and has refused to participate in the study. Similarly, no other family members agreed to participate in the research. Her physical exam was unremarkable. The electrocardiogram showed sinus rhythm, abnormal T waves, and a prolonged QTc interval (528 msec) (Figure 1). In the stress test, at recovery, she developed sinus tachycardia conducted with aberrancy, and when the QRS normalized, the QTc was normal (390-411 msec). The echocardiogram confirmed a structurally normal heart. According to the Schwartz score, a high probability of LQTS was estimated (5 points) (Wilde et al., 2022b). Propranolol was prescribed; however, even under treatment, the patient suffered from cardiac symptoms with increased SCD risk. Approval by the Ethics Committee of Universidad UTE, the participant informed assent and legal guardian consent were obtained. A genomic test was performed in accordance with the Declaration of Helsinki and relevant guidelines (Supplementary Figure S1). A pathogenic variant in the KCNH2 gene p.(Ala614Val) was detected, which along with abnormal electrocardiogram confirm the diagnosis of LQT2 syndrome. The high SCD risk observed in this proband allows the ICD implantation as the best treatment option based on genomic results and lack of treatment response (persistent VT and prolonged QTc). After ICD implantation, lifestyle changes, adequate serum K+ levels maintenance, exercise restriction, and a reduction in auditory triggers were recommended (Cho, 2016b; Goldstein et al., 2017). Figure 2 presents a timeline with the episodes of care history."
+            },
+            {
+              "document_id": "main",
+              "section": "2.6 Diagnostic assessment",
+              "start": 10718,
+              "end": 10841,
+              "text": "AKAP9\tchr7:92042078/NM_005751.5\tc.4960_4961del p. (Arg1654GlyfsTer23)\tFrameshift Indels\tNA/NA\trs779447911\tNot Reported (US)"
+            }
+          ],
+          "reason": "Table 1 reports a pathogenic missense variant c.1841C>T p.(Ala614Val) in KCNH2 at chr7:150951552 (rs199472944) associated with LQT2; the Diagnostic assessment section confirms this pathogenic variant and the ICD implantation decision. The case presentation and Table 1 report a pathogenic single‑nucleotide variant in KCNH2 (c.1841C>T, p.(Ala614Val)), listed with dbSNP rs199472944 and ClinVar ID VCV000029777.14.",
+          "gene": "KCNH2",
+          "unlocated": null
+        }
+      ]
+    },
+    {
+      "request": {
+        "request_text": "AKAP9\tchr7:92042078/NM_005751.5\tc.4960_4961del p. (Arg1654GlyfsTer23)\tFrameshift Indels\tNA/NA\trs779447911\tNot Reported (US)",
+        "rsid": "rs779447911",
+        "position": {
+          "contig": "7",
+          "position": 92042078
+        },
+        "stated_assembly": {
+          "name": "hg38",
+          "cited_line": "For data analyses, Dragen Enrichment (v. 3.9.5) was used to perform a workflow starting with: 1) alignment to the reference genome (hg38), 2) identifying genetic variants from the sequencing reads, 3) annotating those variants with relevant information, and 4) filtering and prioritizing variants that are likely to cause the patient condition."
+        },
+        "normalized_question_action": "observe_variant"
+      },
+      "quote": {
+        "document_id": "main",
+        "section": "2.6 Diagnostic assessment",
+        "start": 10718,
+        "end": 10841,
+        "text": "AKAP9\tchr7:92042078/NM_005751.5\tc.4960_4961del p. (Arg1654GlyfsTer23)\tFrameshift Indels\tNA/NA\trs779447911\tNot Reported (US)"
+      },
+      "kind": "indel",
+      "not_checked": null,
+      "change": null,
+      "findings": [
+        {
+          "variants": [
+            {
+              "candidate_id": "v-6251c0cded89",
+              "contig": "7",
+              "position": 92042078,
+              "ref": null,
+              "alt": null,
+              "hgvs": [
+                "c.4960_4961del"
+              ],
+              "rsids": [
+                "rs779447911"
+              ],
+              "sources": [
+                {
+                  "document_id": "main",
+                  "section": "Case presentation",
+                  "start": 1144,
+                  "end": 1411,
+                  "text": "Moreover, by performing Next-Generation Sequencing, a pathogenic variant in the KCNH2 gene p.(Ala614Val) (ClinVar ID: VCV000029777.14) associated with LQTS type 2, and two variants of uncertain significance in the AKAP9 p.(Arg1654GlyfsTer23) (rs779447911), and TTN p."
+                },
+                {
+                  "document_id": "main",
+                  "section": "2.6 Diagnostic assessment",
+                  "start": 10718,
+                  "end": 10841,
+                  "text": "AKAP9\tchr7:92042078/NM_005751.5\tc.4960_4961del p. (Arg1654GlyfsTer23)\tFrameshift Indels\tNA/NA\trs779447911\tNot Reported (US)"
+                },
+                {
+                  "document_id": "main",
+                  "section": "3 Discussion",
+                  "start": 15973,
+                  "end": 16128,
+                  "text": "(Arg1654GlyfsTer23) (rs779447911) classified as a variant of uncertain significance (VUS) but the in silico predictions indicate likely pathogenic effects."
+                }
+              ]
+            }
+          ],
+          "passages": [
+            {
+              "document_id": "main",
+              "section": "2.6 Diagnostic assessment",
+              "start": 10718,
+              "end": 10841,
+              "text": "AKAP9\tchr7:92042078/NM_005751.5\tc.4960_4961del p. (Arg1654GlyfsTer23)\tFrameshift Indels\tNA/NA\trs779447911\tNot Reported (US)"
+            },
+            {
+              "document_id": "main",
+              "section": "3 Discussion",
+              "start": 15868,
+              "end": 16530,
+              "text": "In addition to the KCNH2 gene variant, the patient had a mutation in the AKAP9 gene c.4960_4961delAG; p. (Arg1654GlyfsTer23) (rs779447911) classified as a variant of uncertain significance (VUS) but the in silico predictions indicate likely pathogenic effects. This gene encodes for an isoform of kinase-A anchoring protein (AKAP9), which forms a complex with the α subunit of voltage-gated potassium channel (KCNQ1) and associates with ß subunits (KCNE1), that control the slowly activating delayed rectifier potassium channels (IKs). Pathogenic variants in this gene have been associated with the progress of long QT syndrome type 1 (de Villiers et al., 2015)."
+            }
+          ],
+          "reason": "Table 1 reports a frameshift indel c.4960_4961del p.(Arg1654GlyfsTer23) in AKAP9 at chr7:92042078 (rs779447911) classified as VUS/Not Reported; the Discussion section notes this variant of uncertain significance with predicted pathogenic effects.",
+          "gene": "AKAP9",
+          "unlocated": null
+        }
+      ]
+    },
+    {
+      "request": {
+        "request_text": "TTN\tchr2:178532658/NM_173,648.4\tc.103957C>T p. (Arg34653Cys)\tMissense variant\tNA/PD\trs773002407\tUS",
+        "rsid": "rs773002407",
+        "position": {
+          "contig": "2",
+          "position": 178532658
+        },
+        "stated_assembly": {
+          "name": "hg38",
+          "cited_line": "For data analyses, Dragen Enrichment (v. 3.9.5) was used to perform a workflow starting with: 1) alignment to the reference genome (hg38), 2) identifying genetic variants from the sequencing reads, 3) annotating those variants with relevant information, and 4) filtering and prioritizing variants that are likely to cause the patient condition."
+        },
+        "normalized_question_action": "observe_variant"
+      },
+      "quote": {
+        "document_id": "main",
+        "section": "2.6 Diagnostic assessment",
+        "start": 10842,
+        "end": 10940,
+        "text": "TTN\tchr2:178532658/NM_173,648.4\tc.103957C>T p. (Arg34653Cys)\tMissense variant\tNA/PD\trs773002407\tUS"
+      },
+      "kind": "snv",
+      "not_checked": null,
+      "change": null,
+      "findings": [
+        {
+          "variants": [
+            {
+              "candidate_id": "v-88d5e49b3f91",
+              "contig": "2",
+              "position": 178532658,
+              "ref": null,
+              "alt": null,
+              "hgvs": [
+                "c.103957C>T",
+                "p.Arg34653Cys"
+              ],
+              "rsids": [
+                "rs773002407"
+              ],
+              "sources": [
+                {
+                  "document_id": "main",
+                  "section": "2.6 Diagnostic assessment",
+                  "start": 10842,
+                  "end": 10940,
+                  "text": "TTN\tchr2:178532658/NM_173,648.4\tc.103957C>T p. (Arg34653Cys)\tMissense variant\tNA/PD\trs773002407\tUS"
+                },
+                {
+                  "document_id": "main",
+                  "section": "3 Discussion",
+                  "start": 18295,
+                  "end": 18642,
+                  "text": "Similarly, a missense variant in the TTN gene c.103957C>T p. (Arg34653Cys) (ClinVar ID: VCV001475968.4), classified as VUS, has not been previously described in LQT2. However, several nonsynonymous variants in this gene have been associated with QT interval variation and act as a risk factor for cardiac arrhythmias and SCD (Kapoor et al., 2016)."
+                }
+              ]
+            }
+          ],
+          "passages": [
+            {
+              "document_id": "main",
+              "section": "2.6 Diagnostic assessment",
+              "start": 10842,
+              "end": 10940,
+              "text": "TTN\tchr2:178532658/NM_173,648.4\tc.103957C>T p. (Arg34653Cys)\tMissense variant\tNA/PD\trs773002407\tUS"
+            },
+            {
+              "document_id": "main",
+              "section": "3 Discussion",
+              "start": 18295,
+              "end": 18642,
+              "text": "Similarly, a missense variant in the TTN gene c.103957C>T p. (Arg34653Cys) (ClinVar ID: VCV001475968.4), classified as VUS, has not been previously described in LQT2. However, several nonsynonymous variants in this gene have been associated with QT interval variation and act as a risk factor for cardiac arrhythmias and SCD (Kapoor et al., 2016)."
+            },
+            {
+              "document_id": "main",
+              "section": "Rare coding TTN variants are associated with electrocardiographic QT interval in the general population",
+              "start": 23590,
+              "end": 23695,
+              "text": "# Rare coding TTN variants are associated with electrocardiographic QT interval in the general population"
+            }
+          ],
+          "reason": "Table 1 reports a missense variant c.103957C>T p.(Arg34653Cys) in TTN at chr2:178532658 (rs773002407) with ClinVar US classification; the Discussion section notes this VUS variant not previously associated with LQTS. The diagnostic assessment and Table 1 describe a missense single‑nucleotide variant in TTN (c.103957C>T, p.(Arg34653Cys)), reported with dbSNP rs773002407 and ClinVar VUS (VCV001475968.4).",
+          "gene": "TTN",
+          "unlocated": null
+        }
+      ]
+    }
+  ],
+  "not_answered": "/"
+}

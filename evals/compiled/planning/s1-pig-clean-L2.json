@@ -1,0 +1,168 @@
+{
+  "schema_version": "bio-neb.eval-case-compiled/1",
+  "case_id": "s1-pig-clean-L2",
+  "family": "s1-pig-clean",
+  "scenario": "s1-pig-duroc07",
+  "split": "train",
+  "level": "L2",
+  "evidence_shape": "clean",
+  "donor": {
+    "path": "work/research/2026-09-24-nemotron/eval/batch1/cases/s1-pig-clean-L2.yaml",
+    "case_id": "c-7f3a02",
+    "version": 1
+  },
+  "public": {
+    "research_request": "I have paired-end WGS reads from pig sample DUROC-07 (NCBI Taxonomy 9823). Please plan germline variant calling against GCF_054392235.1 with the genomic FASTA as companion, and give me a VCF.\n",
+    "fastq_roles": [
+      "read_1",
+      "read_2"
+    ]
+  },
+  "planning": {
+    "prepared_answers": [
+      {
+        "review": "analysis_recipe",
+        "answer": "gDNA / paired",
+        "reason": "The request says paired-end WGS: genomic DNA in a paired layout."
+      }
+    ],
+    "gates": [
+      "accepted",
+      "usable"
+    ],
+    "questions": [
+      {
+        "id": "B-ALL-KINDS",
+        "ask": "Are all nine required requirement kinds in the accepted plan?",
+        "check": "kinds_present",
+        "spec": {
+          "kinds": [
+            "research_goal",
+            "registered_input",
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity",
+            "companion_asset",
+            "analysis_recipe",
+            "resource_profile",
+            "scientific_investigation"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-SUPPLIED-KEPT",
+        "ask": "Is every fact the request states asserted, not left to find?",
+        "check": "knowledge_states",
+        "spec": {
+          "asserted": [
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-FIRST-ATTEMPT",
+        "ask": "Was the first proposal Tool call accepted, with no refused proposal turn before it?",
+        "check": "first_attempt",
+        "spec": {},
+        "gate": "graded",
+        "note": "The S1 widening and the resource_profile routing (#279 finding 2) show up here as refused turns."
+      },
+      {
+        "id": "B-NO-INVENT",
+        "ask": "Does every accession, TaxId and rsID in the planning Tool calls appear in the request or an earlier recorded result?",
+        "check": "no_invented_identifier",
+        "spec": {},
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-TERMINAL",
+        "ask": "Does the planning layer stop at the expected terminal?",
+        "check": "terminal",
+        "spec": {
+          "terminal": "execution_review"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-REVIEWS-RAISED",
+        "ask": "Are the planning Reviews raised exactly the ones the request leaves open (no over-clarification)?",
+        "check": "reviews_raised",
+        "spec": {
+          "reviews": [
+            "analysis_recipe"
+          ]
+        },
+        "gate": "graded",
+        "note": null
+      },
+      {
+        "id": "q1",
+        "ask": "Is taxon_identity asserted as 9823, not as 'pig'?",
+        "check": "plan_value",
+        "spec": {
+          "kind": "taxon_identity",
+          "state": "asserted",
+          "value": "9823"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q2",
+        "ask": "Is the verified reference GCF_054392235.1?",
+        "check": "reference_verified",
+        "spec": {
+          "accession": "GCF_054392235.1"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q3",
+        "ask": "Is sample_identity asserted exactly as DUROC-07?",
+        "check": "plan_value",
+        "spec": {
+          "kind": "sample_identity",
+          "state": "asserted",
+          "value": "DUROC-07"
+        },
+        "gate": "hard",
+        "note": null
+      }
+    ],
+    "good_answer": "DUROC-07 / 9823 / GCF_054392235.1 asserted bare; reference and genomic FASTA verified; one recipe Review; Execution Review reached.",
+    "bad_answers": [
+      {
+        "summary": "sample_identity 'pig sample DUROC-07'",
+        "must_fail": [
+          "q3",
+          "B-FIRST-ATTEMPT"
+        ],
+        "label": "value_not_atomic"
+      },
+      {
+        "summary": "taxon asserted as 'pig' (the common name) instead of the given TaxId",
+        "must_fail": [
+          "q1"
+        ],
+        "label": "semantic_binding"
+      },
+      {
+        "summary": "reference swapped to GCF_000003025.5 (Sscrofa10.2) from memory",
+        "must_fail": [
+          "q2",
+          "B-NO-INVENT"
+        ],
+        "label": "fabrication"
+      }
+    ]
+  }
+}

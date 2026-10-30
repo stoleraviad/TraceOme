@@ -1,0 +1,8 @@
+##fileformat=VCFv4.3
+##source=synthetic for #466: tetraploid calls; VCF 4.3 lets each allele carry its own separator
+##contig=<ID=NC_057794.1,length=598660471>
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+NC_057794.1	1000	.	C	T	.	PASS	.	GT	0/0/1/1
+NC_057794.1	2000	.	G	A	.	PASS	.	GT	0/0/0/0
+NC_057794.1	3000	.	A	C	.	PASS	.	GT	0/1|1

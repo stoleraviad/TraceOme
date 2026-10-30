@@ -1,0 +1,202 @@
+{
+  "schema_version": "bio-neb.eval-case-compiled/1",
+  "case_id": "s12-human-hg005-clean-L3",
+  "family": "s12-human-hg005-clean",
+  "scenario": "s12-human-hg005",
+  "split": "train",
+  "level": "L3",
+  "evidence_shape": "clean",
+  "donor": {
+    "path": "work/research/2026-09-24-nemotron/eval/corpus/cases/s12-human-hg005-clean-L3.yaml",
+    "case_id": "c-9eafc7",
+    "version": 1
+  },
+  "public": {
+    "research_request": "These are paired-end Illumina reads from HG005 (Homo sapiens). Align them to GRCh38 and call germline variants; I need a VCF, the reference FASTA, and whether the sample carries the ALDH2 variant rs671.\n",
+    "fastq_roles": [
+      "read_1",
+      "read_2"
+    ]
+  },
+  "planning": {
+    "prepared_answers": [
+      {
+        "review": "analysis_recipe",
+        "answer": "gDNA / paired",
+        "reason": "Paired-end Illumina reads of HG005 for germline calling: genomic DNA, paired."
+      },
+      {
+        "review": "reference_assembly_identity",
+        "answer": "GCF_000001405.40",
+        "reason": "The request names GRCh38; the current RefSeq GRCh38 is GCF_000001405.40 (GRCh38.p14)."
+      }
+    ],
+    "gates": [
+      "accepted",
+      "usable"
+    ],
+    "questions": [
+      {
+        "id": "B-ALL-KINDS",
+        "ask": "Are all nine required requirement kinds in the accepted plan?",
+        "check": "kinds_present",
+        "spec": {
+          "kinds": [
+            "research_goal",
+            "registered_input",
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity",
+            "companion_asset",
+            "analysis_recipe",
+            "resource_profile",
+            "scientific_investigation"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-SUPPLIED-KEPT",
+        "ask": "Is every fact the request states asserted, not left to find?",
+        "check": "knowledge_states",
+        "spec": {
+          "asserted": [
+            "sample_identity"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-UNSUPPLIED-TO-FIND",
+        "ask": "Is every fact the request names but does not state as an identifier left to find, not asserted?",
+        "check": "knowledge_states",
+        "spec": {
+          "to_find": [
+            "taxon_identity",
+            "reference_assembly_identity"
+          ]
+        },
+        "gate": "hard",
+        "note": "Replaces B-UNSUPPLIED-UNKNOWN: today's Tool says to_find, with the request's words as the quote."
+      },
+      {
+        "id": "B-FIRST-ATTEMPT",
+        "ask": "Was the first proposal Tool call accepted, with no refused proposal turn before it?",
+        "check": "first_attempt",
+        "spec": {},
+        "gate": "graded",
+        "note": "The S1 widening and the resource_profile routing (#279 finding 2) show up here as refused turns."
+      },
+      {
+        "id": "B-NO-INVENT",
+        "ask": "Does every accession, TaxId and rsID in the planning Tool calls appear in the request or an earlier recorded result?",
+        "check": "no_invented_identifier",
+        "spec": {},
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-TERMINAL",
+        "ask": "Does the planning layer stop at the expected terminal?",
+        "check": "terminal",
+        "spec": {
+          "terminal": "execution_review"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-REVIEWS-RAISED",
+        "ask": "Are the planning Reviews raised exactly the ones the request leaves open (no over-clarification)?",
+        "check": "reviews_raised",
+        "spec": {
+          "reviews": [
+            "analysis_recipe"
+          ]
+        },
+        "gate": "graded",
+        "note": null
+      },
+      {
+        "id": "q1",
+        "ask": "Does GCF_000001405.40 first appear as a discovery result, not typed by the model from memory?",
+        "check": "reference_from_discovery",
+        "spec": {
+          "accession": "GCF_000001405.40"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q2",
+        "ask": "Is sample_identity exactly 'HG005' (not NA24631, not SAMN03283350, not 'HG005 (Homo sapiens)')?",
+        "check": "plan_value",
+        "spec": {
+          "kind": "sample_identity",
+          "state": "asserted",
+          "value": "HG005"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q3",
+        "ask": "Does taxon resolution find NCBI Taxonomy 9606 from 'Homo sapiens'?",
+        "check": "taxon_resolved",
+        "spec": {
+          "ncbi_tax_id": 9606
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q4",
+        "ask": "Is rs671 kept as one scientific_investigation item (known_variant)?",
+        "check": "investigation_items",
+        "spec": {
+          "purpose": "known_variant",
+          "values": [
+            "rs671"
+          ]
+        },
+        "gate": "graded",
+        "note": null
+      }
+    ],
+    "good_answer": "HG005 asserted bare; 'Homo sapiens' resolved to 9606 and GCF_000001405.40 taken from discovery; rs671 kept as one known_variant item; one recipe Review; Execution Review reached.",
+    "bad_answers": [
+      {
+        "summary": "Asserts GCA_000001405.15 (the GIAB analysis-set base) from memory",
+        "must_fail": [
+          "q1",
+          "B-NO-INVENT"
+        ],
+        "label": "fabrication"
+      },
+      {
+        "summary": "Asserts an older GRCh38 RefSeq version (e.g. GCF_000001405.39) from memory",
+        "must_fail": [
+          "q1",
+          "B-NO-INVENT"
+        ],
+        "label": "fabrication"
+      },
+      {
+        "summary": "sample_identity 'HG005 (NA24631)'",
+        "must_fail": [
+          "q2"
+        ],
+        "label": "value_not_atomic"
+      },
+      {
+        "summary": "Asks the user which GRCh38 patch to use although discovery returns one current reference",
+        "must_fail": [
+          "B-REVIEWS-RAISED"
+        ],
+        "label": "over_clarification"
+      }
+    ]
+  }
+}

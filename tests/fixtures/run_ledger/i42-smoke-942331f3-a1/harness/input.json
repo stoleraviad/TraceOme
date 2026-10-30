@@ -1,0 +1,46 @@
+{
+ "launch": {
+  "accepted_plain_fasta": {
+   "byte_count": 3339739109,
+   "sha256": "df6e4918316e05a9cc1fd29c352841d3678b607d7a436819cd43371b52c814c0"
+  },
+  "authority_id": "execution-authority:i42-smoke-942331f3-a1",
+  "bounded_get_bytes": 8388608,
+  "compatibility": {
+   "bwa_path": "/usr/bin/bwa",
+   "bwa_version": "Version: 0.7.17-r1188",
+   "samtools_path": "/usr/bin/samtools",
+   "samtools_version": "samtools 1.13",
+   "worker_image_child_digest": "sha256:11623e4631c57e7b46e4683e18475158c962f253888a4e5c0998339efa142a33",
+   "worker_request_schema": "bio-neb.parabricks-worker-request/5",
+   "worker_sha256": "9e2bf98574529f4f7eef49855da527d08fadba1e4c51d39b2f6911da3ec9995d"
+  },
+  "endpoint_url": "https://storage.eu-north1.nebius.cloud",
+  "journey_id": "i42-smoke-942331f3-a1",
+  "object_scope": "issue42/smoke/942331f3/a1",
+  "proposal_id": "execution-proposal:i42-smoke-942331f3-a1",
+  "reference": {
+   "assembly_accession": "GCF_000001405.40",
+   "expected_checksum": "0000000000000000000000000000000000000000000000000000000000000044",
+   "expected_size_bytes": 972898531,
+   "reference_asset_id": "all_genomic_fasta"
+  },
+  "region": "eu-north1",
+  "run_bucket": "bio-neb-issue42-smoke-20260920-942331f3-a1",
+  "source_object_key": "raw/issue42/smoke/942331f3/a1/GCF_000001405.40_GRCh38.p14_genomic.fna.gz",
+  "verification_mode": "producer_attested_object_metadata"
+ },
+ "local_bundle": null,
+ "offline": null,
+ "schema_version": "bio-neb.stage-harness-input/1",
+ "selected_candidate": {
+  "bucket": "bio-neb-t10-miss-20260917-95d0500c-a2",
+  "endpoint_url": "https://storage.eu-north1.nebius.cloud",
+  "inventory_prefix": "references/901c628e6db8d16ad9471cefa5e972bdef12258ac8eff2dad1def2f10b424022/",
+  "manifest_byte_count": 6716,
+  "manifest_object_key": "references/901c628e6db8d16ad9471cefa5e972bdef12258ac8eff2dad1def2f10b424022/manifest.json",
+  "manifest_sha256": "91fb433b96c508f15c38480d9da951e9890b36c8554498bcd5ddea0a4f70b70b",
+  "region": "eu-north1"
+ },
+ "stage": "reference-placement"
+}

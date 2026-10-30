@@ -1,0 +1,80 @@
+case_id: c-9b2e06
+version: 1
+state: draft
+family: s2-giab-hg002-clean
+scenario: s2-giab-hg002          # truth lives in ../scenarios/s2-giab-hg002.yaml
+source: {kind: paper, ref: "Zook et al. 2016"}
+level: L2
+evidence_shape: clean
+variant_count: 3                 # new axis: n3 | n10 | n100 subsets of the scenario's panel
+split: null
+roles: [proposal_information_planner, reference_identity_planner, reference_facts_planner, investigation_planner]
+knowledge_reference: [G5, G7, G8, G9, V-panel]
+
+public:
+  research_request: |
+    Sample HG002, human (NCBI Taxonomy 9606), reads registered, reference GCF_000001405.40 with the genomic
+    FASTA. Call germline variants to a VCF, then tell me whether HG002 carries rs7412, rs429358 and rs1801133.
+  inspected_inputs:
+    - {role: READ-1, registered_path: reads/run_R1.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+    - {role: READ-2, registered_path: reads/run_R2.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+
+fixtures:
+  same_as: s2-giab-hg002-clean-L2
+  fetch_refsnp:                  # from captures/dbsnp/, shape re-fit to RefSnpToolResult at re-anchor
+    - {rsid: rs7412,    status: resolved, assembly: GCF_000001405.40, contig: NC_000019.10, pos: 44908822, ref: C, alt: T}
+    - {rsid: rs429358,  status: resolved, assembly: GCF_000001405.40, contig: NC_000019.10, pos: 44908684, ref: T, alt: C}
+    - {rsid: rs1801133, status: resolved, assembly: GCF_000001405.40, contig: NC_000001.11, pos: 11796321, ref: G, alt: A}
+  fetch_assembly_report: [{assembly: GCF_000001405.40, status: compatible}]
+scripted_answers:
+  - {field: companion_roles, answer: "companion-role-set:genomic_fasta"}
+
+expectations:
+  today: {outcome: ready, terminal: "investigation:compile_proposal x3"}
+
+downstream:                      # expected answers after the loop
+  loop_gold:                     # what the investigation stage must return (planning gold, no GPU)
+    - {rsid: rs7412,    contig: NC_000019.10, pos: 44908822, ref: C, alt: T, intended_action: observe_variant}
+    - {rsid: rs429358,  contig: NC_000019.10, pos: 44908684, ref: T, alt: C, intended_action: observe_variant}
+    - {rsid: rs1801133, contig: NC_000001.11, pos: 11796321, ref: G, alt: A, intended_action: observe_variant}
+  science_gold:                  # what the called VCF must show (science suite, needs a real run)
+    - {rsid: rs7412,    carried: true,  gt: "0/1"}
+    - {rsid: rs429358,  carried: false, gt: "0/0"}
+    - {rsid: rs1801133, carried: true,  gt: "0/1"}
+
+scoring_questions:
+  - {ref: B-ATOMIC}
+  - {ref: B-NO-INVENT}
+  - id: q1
+    role: proposal_information_planner
+    ask: "Are the three rsIDs kept as three separate scientific_investigation items (known_variant), none dropped, none merged?"
+    check: set_equal
+    spec: {kind: scientific_investigation, purpose: known_variant, values: [rs7412, rs429358, rs1801133]}
+    gate: hard
+  - id: q2
+    role: investigation_planner
+    ask: "For each rsID, do contig, position, ref and alt equal loop_gold, taken from fetch_refsnp (not from memory)?"
+    check: exact_norm
+    spec: {compare: downstream.loop_gold, source: tool_result}
+    gate: hard
+  - id: q3
+    role: investigation_planner
+    ask: "Did every rsID get fetch_refsnp before fetch_assembly_report, and no other tool?"
+    check: journey_fact
+    spec: {per_rsid_order: [fetch_refsnp, fetch_assembly_report, compile_proposal]}
+    gate: hard
+  - id: q4
+    role: science
+    ask: "Does the called genotype at each site match science_gold (carried / not carried)?"
+    check: exact_norm
+    spec: {compare: downstream.science_gold}
+    gate: graded
+    applies_to: [science_suite]
+
+good_answer: {summary: "Three known_variant items; three fetch_refsnp → fetch_assembly_report → compile_proposal chains with exact dbSNP fields."}
+bad_answers:
+  - {summary: "Positions given in GRCh37 (rs7412 at 45412079) from memory", must_fail: [q2, B-NO-INVENT], label: fabrication}
+  - {summary: "rs429358 and rs7412 merged into one 'APOE genotype' item", must_fail: [q1], label: semantic_coverage}
+  - {summary: "Position off by one (0-based SPDI copied as 1-based)", must_fail: [q2], label: semantic_binding}
+  - {summary: "Says HG002 carries rs429358 (APOE4) because the model assumes it", must_fail: [q4], label: fabrication}
+review: {solver_disagreements: [], approved_by: null, approved_at: null, frozen_sha256: null}

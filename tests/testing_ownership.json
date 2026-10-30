@@ -1,0 +1,1268 @@
+{
+  "schema_version": "bio-neb.testing-ownership/2",
+  "fallback": "checkpoint",
+  "regression_selections": {
+    "function-tool-migration": {
+      "description": "Known Function Tool migration, recovery, deleted-lane, retained-midpoint, and deterministic progress regressions; supplemental only",
+      "test_ids": [
+        "tests.test_cli.CliTests.test_public_commands_accept_no_stage_selector_arguments",
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_fork_from_the_after_execution_point_reaches_investigation_without_execution",
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_verified_execution_with_a_captured_request_continues_to_collection_review",
+        "tests.test_investigation.InvestigationContractTests.test_public_begin_reaches_review_when_planner_requires_one_final_output_call",
+        "tests.test_operation.OperationTests.test_quiet_operation_keeps_heartbeat_and_excludes_private_receipt_fields"
+      ]
+    },
+    "model-provider-recovery": {
+      "description": "Offline shared model contact policy, exact typed continuation across independent answers and Passes, source-built retry, findings-changing effort stops and output-only holds; live recovery remains separate",
+      "test_ids": [
+        "tests.test_agent_application_recovery.AgentApplicationRecoveryIntegrationTests.test_a_full_default_window_leaves_application_pending_with_exact_policy",
+        "tests.test_agent_application_recovery.AgentApplicationRecoveryIntegrationTests.test_provider_retry_preserves_completed_reference_tools",
+        "tests.test_agent_application_recovery.AgentApplicationRecoveryIntegrationTests.test_provider_retry_preserves_multi_call_correction_counts",
+        "tests.test_agent_application_recovery.AgentApplicationRecoveryIntegrationTests.test_public_retry_records_received_messages_and_instruction_parts",
+        "tests.test_agent_effort.AgentEffortTests.test_findings_change_effort_stop_reopens_with_exact_pending_context",
+        "tests.test_investigation.InvestigationContractTests.test_causal_rework_provider_review_takes_precedence_over_completed_evidence",
+        "tests.test_investigation.InvestigationContractTests.test_provider_retry_preserves_completed_member_and_output_repair",
+        "tests.test_investigation.InvestigationContractTests.test_transient_model_outage_preserves_completed_source_tools",
+        "tests.test_model_availability_recovery.ObservedAvailabilityRecoveryTests.test_adapter_sends_the_exact_retained_pending_request",
+        "tests.test_model_availability_recovery.ObservedAvailabilityRecoveryTests.test_retry_refuses_changed_instruction_parts_before_contact",
+        "tests.test_model_availability_recovery.ObservedAvailabilityRecoveryTests.test_retry_with_changed_tools_messages_or_instructions_refuses_before_contact",
+        "tests.test_model_availability_recovery.ObservedAvailabilityRecoveryTests.test_shared_invocation_keeps_retry_history_equal_to_received_request",
+        "tests.test_model_availability_recovery.ObservedAvailabilityRecoveryTests.test_six_contact_window_preserves_one_logical_request",
+        "tests.test_model_transport_evidence.ModelTransportEvidenceTests.test_failed_send_keeps_prepared_body_and_physical_failure_source",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_planning_retry_beside_target_question_resends_exact_pending_request",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_target_answer_after_effort_extension_preserves_answers_across_passes",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_target_answer_before_provider_retry_preserves_current_tool_ancestry",
+        "tests.test_run_observation_application.SettledTargetGateTests.test_a_target_hold_reentry_closes_without_new_facts_or_model_contact"
+      ]
+    },
+    "planning-attempt-defect-reproducers": {
+      "description": "Reproducers of inherited planning-path defects: failed planning Attempts that read back with their exact failure source (fixed by #143), accepted-worker binding errors that escaped advance (fixed by #145), and a transport-aware preparation request (the coordinator's since #301) that the Journey writer's preparation_review admission admits over its semantic-only prefix, whose preparation context reads no transport or contact evidence (fixed by #144), and the planning output question that only the coordinator asks, with an Attempt that closes when nothing is offered (fixed by #146), and a TaxId organism assertion whose discovery or supplied-accession inspection repeated the raw taxonomy query instead of offering its refinements (fixed by #149), and planning requirements no source can satisfy that ended the Run or crashed a contact-free planning rerun (fixed by #207); supplemental only",
+      "test_ids": [
+        "tests.test_execution_planning_agent.ExecutionPlanningThroughAssignmentTests.test_planning_attempt_failed_by_a_capability_error_reads_back",
+        "tests.test_model_transport_evidence.ModelTransportEvidenceTests.test_preparation_context_reads_no_transport_or_contact_evidence",
+        "tests.test_model_transport_evidence.ModelTransportEvidenceTests.test_transport_planning_reaches_the_preparation_review_and_reopens",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_a_comma_term_is_refused_by_the_port_before_contact_and_the_model_recovers",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_a_not_found_term_returns_to_the_model_which_chooses_the_next",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_an_unexpected_tool_failure_is_shown_once_then_holds_the_run",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_each_negative_taxonomy_result_returns_and_the_question_names_it",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_replay_refuses_a_taxon_fact_its_admitted_term_did_not_produce",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_supplied_accession_is_inspected_once_the_model_resolves_its_taxon",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_supplied_accession_with_an_unresolved_taxon_asks_the_taxon_question",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_a_request_naming_no_target_opens_the_target_question",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_a_requirement_no_tool_can_satisfy_never_reruns_planning_unbounded",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_a_target_found_after_execution_is_still_asked_before_it",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_a_target_with_no_source_returns_to_the_agent_and_never_ends_the_run",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_abort_and_scoped_reject_do_not_restart_reference_work_behind_target_question",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_default_resume_holds_on_a_changed_worker_contract_before_contact",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_default_resume_holds_on_a_changed_worker_digest_before_contact",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_public_answers_preserve_an_independent_pending_question_and_rejection",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_resume_opens_the_target_question_without_contact"
+      ]
+    }
+  },
+  "representative_selections": {
+    "tests.test_cli": {
+      "description": "Representative depth for the CLI adapter (#278): the public scientific continuation through the real contact-free pipeline, cross-process observer nouns and framing, observer-driven begin/answer and interactive begin, review choices, response-file and stage-selector refusals, a missing credential hold, a configuration fault before any Journey, an invalid answer leaving the Run waiting, and captured-request conflicts; supplemental only",
+      "test_ids": [
+        "tests.test_cli.CapturedInvestigationRequestCliTests.test_public_begin_refuses_conflicting_or_missing_requests_before_any_work",
+        "tests.test_cli.CliTests.test_a_missing_model_credential_holds_the_run_on_each_resume",
+        "tests.test_cli.CliTests.test_all_review_kinds_present_their_legal_researcher_choices",
+        "tests.test_cli.CliTests.test_answer_response_file_failures_precede_advancement",
+        "tests.test_cli.CliTests.test_interactive_begin_answers_one_review_and_shows_resumed_frontier",
+        "tests.test_cli.CliTests.test_observer_driven_answer_derives_review_kind_and_resumes",
+        "tests.test_cli.CliTests.test_observer_driven_begin_uses_only_registered_run_inputs",
+        "tests.test_cli.CliTests.test_observer_driven_nouns_and_invalid_framing_cross_process",
+        "tests.test_cli.CliTests.test_public_commands_accept_no_stage_selector_arguments",
+        "tests.test_cli.CliTests.test_public_scientific_continuation_runs_real_contact_free_pipeline",
+        "tests.test_cli.CliTests.test_relative_journey_paths_resolve_at_the_cli_boundary",
+        "tests.test_cli.CommandValidationBoundaryTests.test_an_invalid_review_answer_refuses_and_leaves_the_run_waiting",
+        "tests.test_cli.ConfigurationFaultTests.test_begin_refuses_a_refused_setting_before_any_journey"
+      ]
+    },
+    "tests.test_default_agentic_loop": {
+      "description": "Representative depth for the default agentic loop (#278): the tool registry and stage tool sets, continuation progress, premature-call refusal, an attempt ending at its researcher question, two ordered calls with their own receipts, a failing first call and an exhausted refusal allowance, bounded Journey search, stage findings, and negative-result, transient-fault, operational-fault and model-recovery paths; supplemental only",
+      "test_ids": [
+        "tests.test_default_agentic_loop.ContinuationProgressTests.test_new_receipts_advance_even_when_domain_result_kind_repeats",
+        "tests.test_default_agentic_loop.DefaultLoopTests.test_a_premature_call_is_refused_with_tool_slot_value_and_reason",
+        "tests.test_default_agentic_loop.DefaultLoopTests.test_an_attempt_ends_at_its_pending_researcher_question",
+        "tests.test_default_agentic_loop.JourneySearchTests.test_a_text_search_returns_bounded_recorded_matches",
+        "tests.test_default_agentic_loop.NegativeResultTests.test_a_negative_domain_result_returns_to_the_model_and_the_attempt_continues",
+        "tests.test_default_agentic_loop.NegativeResultTests.test_an_operational_fault_waits_at_a_scoped_failure_review",
+        "tests.test_default_agentic_loop.NegativeResultTests.test_model_recovery_holds_on_unavailable_assignment_before_answer_write",
+        "tests.test_default_agentic_loop.NegativeResultTests.test_transient_source_faults_retry_before_recording_one_result",
+        "tests.test_default_agentic_loop.OrderedCallsTests.test_a_failing_first_call_is_shown_and_the_same_failure_again_holds",
+        "tests.test_default_agentic_loop.OrderedCallsTests.test_a_refusal_after_an_earlier_call_ran_is_not_a_failed_turn",
+        "tests.test_default_agentic_loop.OrderedCallsTests.test_two_calls_in_one_response_run_in_order_with_their_own_receipts",
+        "tests.test_default_agentic_loop.StageFindingsTests.test_the_findings_view_fills_as_tools_answer",
+        "tests.test_default_agentic_loop.ToolRegistryTests.test_each_stage_has_its_own_tool_set",
+        "tests.test_default_agentic_loop.ToolRegistryTests.test_every_planning_refusal_code_is_declared_with_its_explanation",
+        "tests.test_default_agentic_loop.ToolRegistryTests.test_every_planning_tool_declares_stages_purpose_examples_and_preconditions"
+      ]
+    },
+    "tests.test_execution_application_integration": {
+      "description": "Representative depth for Execution through the application (#278): verified Execution with a captured request reaching collection review, the CLI investigation begin supplying the request inside one pass, adaptive composition stopping at planning review, exact approval as the only authority fact, dispatch interruption and replay without repeated effects, reject as terminal, reopen refusals on corrupted selection, and the absent preparation question Tool; supplemental only",
+      "test_ids": [
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_cli_investigation_begin_supplies_the_request_inside_one_pass",
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_current_planning_selection_and_role_corruption_refuse_on_reopen",
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_dispatch_interruption_replay_conflict_and_stale_answers_do_not_repeat_effects",
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_exact_approval_is_the_only_retained_authority_fact",
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_full_adaptive_composition_stops_at_genuine_planning_review",
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_reject_is_terminal_and_reopens_without_provider_construction",
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_the_model_has_no_preparation_question_tool",
+        "tests.test_execution_application_integration.ExecutionApplicationIntegrationTests.test_verified_execution_with_a_captured_request_continues_to_collection_review"
+      ]
+    },
+    "tests.test_execution_planning_agent": {
+      "description": "Representative depth for the execution planning agent (#278): an execution revision re-entering planning with its instruction visible, the unchanged planning tool contract, ungrounded recipe lookup and no-compatible-recipe returns to the model, a capability-error attempt reading back, and generic observation of an unexpected selection failure; supplemental only",
+      "test_ids": [
+        "tests.test_execution_planning_agent.ExecutionPlanningThroughAssignmentTests.test_execution_revision_reenters_planning_with_its_instruction_visible",
+        "tests.test_execution_planning_agent.ExecutionPlanningThroughAssignmentTests.test_no_compatible_recipe_returns_to_the_model_before_any_terminal",
+        "tests.test_execution_planning_agent.ExecutionPlanningThroughAssignmentTests.test_planning_attempt_failed_by_a_capability_error_reads_back",
+        "tests.test_execution_planning_agent.ExecutionPlanningThroughAssignmentTests.test_unexpected_selection_request_failure_is_generically_observed",
+        "tests.test_execution_planning_agent.ExecutionPlanningThroughAssignmentTests.test_ungrounded_recipe_lookup_is_refused_before_the_eligibility_question",
+        "tests.test_execution_planning_agent.ExecutionPlanningToolContractTests.test_every_execution_planning_action_is_an_unchanged_planning_contract"
+      ]
+    },
+    "tests.test_finalization": {
+      "description": "Representative depth for Finalization (#278): public compile, inspect, approve and reopen digest-bound and contact-free, retained-owner byte reuse with stale-history refusal, input abort and finalization stop reopening without a report, and an accounting-only basis; supplemental only",
+      "test_ids": [
+        "tests.test_finalization.FinalizationPublicPathTests.test_accounting_only_basis_retains_request_and_stop_without_scientific_members",
+        "tests.test_finalization.FinalizationPublicPathTests.test_input_abort_and_finalization_stop_reopen_without_a_report",
+        "tests.test_finalization.FinalizationPublicPathTests.test_public_compile_inspect_approve_reopen_is_digest_bound_and_contact_free",
+        "tests.test_finalization.FinalizationPublicPathTests.test_retained_owner_reuses_bytes_across_finalization_approval_and_refuses_stale_history"
+      ]
+    },
+    "tests.test_grounded_report": {
+      "description": "Representative depth for the grounded report (#278): public publish and reopen deterministic, grounded and projection-equivalent, and reopen refusing an unverifiable artifact without contact or mutation; supplemental only",
+      "test_ids": [
+        "tests.test_grounded_report.GroundedReportPublicPathTests.test_public_publish_reopen_is_deterministic_grounded_and_projection_equivalent",
+        "tests.test_grounded_report.GroundedReportPublicPathTests.test_public_reopen_refuses_unverifiable_artifact_without_contact_or_mutation"
+      ]
+    },
+    "tests.test_h100_stage": {
+      "description": "Representative depth for the H100 stage (#278): full operation verifying outputs and reopening without contact, the real job runner consuming the H100 recipe, public BAM/VCF materialization, inert artifact export, failed-submission retry, replacement then publication retry, placement failure before submission, missing durable validation, contact review binding, and disk-quantity validation; supplemental only",
+      "test_ids": [
+        "tests.test_h100_stage.H100StageTests.test_failed_submission_can_retry_at_designed_h100_review",
+        "tests.test_h100_stage.H100StageTests.test_full_operation_verifies_outputs_and_reopens_without_contact",
+        "tests.test_h100_stage.H100StageTests.test_local_request_placement_failure_stops_before_each_job_submission",
+        "tests.test_h100_stage.H100StageTests.test_missing_durable_validation_never_publishes_h100_success",
+        "tests.test_h100_stage.H100StageTests.test_public_materialization_acquires_exact_bam_and_vcf",
+        "tests.test_h100_stage.H100StageTests.test_real_job_runner_consumes_h100_recipe_and_reuses_named_job",
+        "tests.test_h100_stage.H100StageTests.test_replacement_then_publication_retry_keeps_one_job_per_answer",
+        "tests.test_h100_stage.H100StageTests.test_review_binds_journal_and_contact_receipt_bytes",
+        "tests.test_h100_stage.H100StageTests.test_runtime_disk_quantity_rejects_invalid_or_fractional_bytes",
+        "tests.test_h100_stage.H100StageTests.test_successful_semantic_run_exports_inert_artifacts_with_unknown_counts"
+      ]
+    },
+    "tests.test_operation": {
+      "description": "Representative depth for the post-HITL operation module (#201): one approved execution flow, its first contact failure, a changed-input refusal, interrupted-pass replay, and production construction through actual callers; supplemental only",
+      "test_ids": [
+        "tests.test_operation.OperationTests.test_changed_approved_input_is_refused_before_continuation_effects",
+        "tests.test_operation.OperationTests.test_execution_shares_coordinator_pass_and_retains_exact_early_binding",
+        "tests.test_operation.OperationTests.test_first_execution_contact_failure_retains_incomplete_pass",
+        "tests.test_operation.OperationTests.test_interrupted_answered_execution_pass_cannot_repeat_effects",
+        "tests.test_operation.OperationTests.test_production_construction_shares_authentication_through_actual_callers"
+      ]
+    },
+    "tests.test_planning_assignment": {
+      "description": "Representative depth for planning assignment (#278): the application combining input, plan, reference and history, refused-call continuation, configuration and pre-response faults, re-entry and invalid-action holds, source failure and transport, exhausted and unresolved taxon questions, supplied exact reference reopen, history read without unapproved Execution, and slot-producer tools; supplemental only",
+      "test_ids": [
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_a_planning_configuration_failure_holds_the_run_on_every_resume",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_a_planning_fault_before_any_model_response_fails_its_attempt",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_application_combines_input_plan_reference_and_history",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_different_refused_planning_calls_are_failed_turns_in_a_row",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_each_slot_producer_tool_is_a_planning_tool",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_exhausted_taxon_lookup_asks_exact_taxon_question_before_discovery",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_history_read_does_not_admit_unapproved_execution",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_reentry_without_work_carrying_the_recorded_assignment_holds",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_rejected_invalid_action_review_retains_work_and_holds_planning",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_source_failure_is_retained_and_never_becomes_empty_discovery",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_source_tool_transport_uses_its_active_child_and_preserves_source_failure",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_supplied_accession_with_an_unresolved_taxon_asks_the_taxon_question",
+        "tests.test_planning_assignment.PlanningAssignmentTests.test_supplied_exact_reference_bypasses_discovery_and_reopens"
+      ]
+    },
+    "tests.test_reference_stages": {
+      "description": "Representative depth for the reference stages (#278): no-candidate preparation through H100, completed-job reuse with the real job runner, the offline harness across both stage seams, a bound prebuilt index's miss then exact approval, decline, submission failure and exhaustion, and placement refusal; supplemental only",
+      "test_ids": [
+        "tests.test_reference_stages.ReferenceStagesTests.test_candidate_miss_waits_then_exact_approval_prepares_in_second_pass",
+        "tests.test_reference_stages.ReferenceStagesTests.test_completed_job_reuse_reaches_cpu_closure_with_the_real_job_runner",
+        "tests.test_reference_stages.ReferenceStagesTests.test_decline_never_submits",
+        "tests.test_reference_stages.ReferenceStagesTests.test_exhausted_submission_requests_generic_review_without_reference_fact",
+        "tests.test_reference_stages.ReferenceStagesTests.test_explicit_no_candidate_prepares_then_runs_h100_without_dev_milestone_stop",
+        "tests.test_reference_stages.ReferenceStagesTests.test_offline_harness_crosses_both_reference_stage_seams",
+        "tests.test_reference_stages.ReferenceStagesTests.test_rejected_placement_preserves_failure_and_does_not_offer_cpu",
+        "tests.test_reference_stages.ReferenceStagesTests.test_submission_failure_retains_the_name_before_any_provider_result"
+      ]
+    },
+    "tests.test_run_observation_application": {
+      "description": "Representative depth for Run observation through the application (#278): begin advancing to planning review, contact-free observe and resume at a pending review, public dependency binding, holds on dispatch, untyped error and changed worker digest, a durable hold lift, scoped reject and abort, terminal planning stop, total status routing, and a premature recipe call refused at the settled-output gate; supplemental only",
+      "test_ids": [
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_a_dispatch_that_writes_nothing_holds_the_run_until_resume",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_a_resume_that_writes_nothing_still_lifts_the_hold_durably",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_abort_and_scoped_reject_do_not_restart_reference_work_behind_target_question",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_an_untyped_error_escaping_the_coordinator_holds_the_run",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_answer_planning_stop_is_terminal_idempotent_and_conflict_safe",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_begin_registers_and_automatically_advances_to_planning_review",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_default_resume_holds_on_a_changed_worker_digest_before_contact",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_every_run_status_has_one_coordinator_route",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_every_run_status_is_in_exactly_one_projection_status_set",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_observe_reconstructs_registered_run_without_contact_or_mutation",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_public_dependencies_bind_planning_adapters_and_explicit_environment",
+        "tests.test_run_observation_application.RunObservationApplicationTests.test_resume_at_pending_planning_review_returns_canonical_observation_without_contact_or_mutation",
+        "tests.test_run_observation_application.SettledTargetGateTests.test_a_premature_recipe_call_is_refused_while_companion_work_remains"
+      ]
+    },
+    "tests.test_sequential_investigation": {
+      "description": "Representative depth for sequential investigation (#201): selected approval, observation and reopen through the public path, observation failure propagation, a corrected public begin, collection attempt order, total fold states, stale partial-review refusal, and contact-free finalization reopen; supplemental only",
+      "test_ids": [
+        "tests.test_sequential_investigation.SequentialInvestigationPublicPathTests.test_collection_attempt_runs_agent_and_tools_in_selected_order",
+        "tests.test_sequential_investigation.SequentialInvestigationPublicPathTests.test_collection_finalization_report_preserves_membership_status_and_contact_free_reopen",
+        "tests.test_sequential_investigation.SequentialInvestigationPublicPathTests.test_observation_factory_failure_stops_once_after_receipt_validation",
+        "tests.test_sequential_investigation.SequentialInvestigationPublicPathTests.test_partial_review_refuses_stale_overlapping_and_unknown_selections_without_mutation",
+        "tests.test_sequential_investigation.SequentialInvestigationPublicPathTests.test_public_begin_accepts_corrected_three_rsid_request",
+        "tests.test_sequential_investigation.SequentialInvestigationPublicPathTests.test_selected_approval_observes_eight_then_pending_two_and_reopens",
+        "tests.test_sequential_investigation.SequentialInvestigationPublicPathTests.test_total_collection_fold_isolates_failure_negative_and_stop_states"
+      ]
+    },
+    "tests.test_shared_review_responses": {
+      "description": "Representative depth for shared review responses (#278): the CLI finalization response publishing the exact approved basis from the shared executed parent, and a selected approval observing from the Run's own inputs whose replay writes nothing (#107); supplemental only",
+      "test_ids": [
+        "tests.test_shared_review_responses.SharedReviewResponseTests.test_a_selected_approval_observes_once_and_its_replay_writes_nothing",
+        "tests.test_shared_review_responses.SharedReviewResponseTests.test_cli_finalization_response_publishes_exact_approved_basis"
+      ]
+    }
+  },
+  "core_tests": [
+    "tests/test_journey.py",
+    "tests/test_lifecycle.py",
+    "tests/test_artifact_verification.py",
+    "tests/test_runtime_config.py",
+    "tests/test_operation.py"
+  ],
+  "prerequisite_builder": "tests/run_prerequisites.py",
+  "serial_only": [],
+  "paths": {
+    "*.md": [
+      "tests/test_repository_contract.py"
+    ],
+    "docs/agents/issue-tracker.md": [
+      "src/bio_neb/devtools/testing.py"
+    ],
+    "docs/agents/native-ubuntu-operator.md": [
+      "src/bio_neb/devtools/testing.py"
+    ],
+    "docs/agents/testing.md": [
+      "src/bio_neb/devtools/testing.py"
+    ],
+    ".githooks/*": [
+      "tests/test_repository_contract.py"
+    ],
+    "evals/*": [
+      "tests/test_evals.py"
+    ],
+    "docs/runs/*": [
+      "tests/test_run_ledger_contract.py"
+    ],
+    "containers/parabricks-worker/*": [
+      "tests/test_reusable_parabricks_worker_image_contract.py"
+    ],
+    "src/bio_neb/agentic_journey/instructions/*": [
+      "src/bio_neb/agentic_journey/role_instructions.py"
+    ],
+    "tests/fixtures/execution-fixture.json": [
+      "tests/test_parabricks_fixture_export.py"
+    ],
+    "tests/fixtures/input-storage-live.json": [
+      "tests/test_parabricks_fixture_export.py"
+    ],
+    "tests/fixtures/parabricks-run-fixture.json": [
+      "tests/parabricks_run_fixture.py"
+    ],
+    "tests/fixtures/run_ledger/*": [
+      "tests/test_run_ledger_add.py",
+      "tests/test_run_ledger_inventory.py",
+      "tests/test_run_ledger_ledger.py"
+    ],
+    "tests/fixtures/ncbi/*": [
+      "tests/test_ncbi_reference_companion_adapter.py"
+    ],
+    "tests/fixtures/run_health/*": [
+      "tests/test_run_health_items.py"
+    ],
+    "tests/testing_ownership.json": [
+      "src/bio_neb/devtools/testing.py",
+      "tests/execution_fixture.py",
+      "tests/issue98_execution_fixture.py",
+      "tests/retained_live_fixture.py",
+      "tests/test_parabricks_fixture_export.py",
+      "tests/test_retained_live_fixtures.py"
+    ],
+    "pyproject.toml": "checkpoint",
+    "uv.lock": "checkpoint",
+    "tests/fixtures/paper_retrieval/*": [
+      "tests/test_paper_reading.py"
+    ],
+    "tests/fixtures/paper_retrieval/answers/*/answer.json": [
+      "tests/test_paper_targets.py",
+      "tests/test_paper_targets_chain.py"
+    ],
+    "tests/fixtures/issue387/human-a2-11c8261d-replies.json": [
+      "tests/test_fault_messages.py"
+    ],
+    "tests/fixtures/issue387/explainer-refused-drafts.json": [
+      "tests/test_explanation_draft.py"
+    ],
+    "tests/fixtures/paper_targets/*": [
+      "tests/test_paper_targets_chain.py",
+      "tests/test_paper_targets_placement.py"
+    ],
+    "tests/fixtures/source_answers/*": [
+      "tests/recorded_sources.py"
+    ],
+    "tests/value_guard.json": [
+      "tests/value_guard.py"
+    ]
+  },
+  "execution_fixture": {
+    "path": "tests/fixtures/execution-fixture.json",
+    "loader": "tests/execution_fixture.py",
+    "byte_count": 314974,
+    "sha256": "a3170c354f063b3f6943b593e44a1698d1b068eab5d11d6970d9de84297ddfcc",
+    "source_commit": "719b5f470fa7a5a5c17deb72a546ea6b35da830a",
+    "source_tickets": [
+      22
+    ],
+    "evidence_kind": "retained_live",
+    "purpose": "artifact_and_flow",
+    "grants_live_authority": false,
+    "tests": [
+      "tests/test_vcf_materialization.py"
+    ],
+    "scenario_count": 1
+  },
+  "additional_execution_fixtures": {
+    "issue98": {
+      "path": "tests/fixtures/execution-fixture-issue98.json",
+      "loader": "tests/issue98_execution_fixture.py",
+      "byte_count": 277087,
+      "sha256": "a5b6f7446abbf2f85aa26bcdd734eb0332857498511cce30c6ba17e6e096bd01",
+      "source_commit": "d23dc9d1511ba805a3ed93f599968d2b0b8c4cb6",
+      "source_tickets": [
+        98
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "artifact_and_flow",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_nebius_object_storage.py",
+        "tests/test_reference_stages.py"
+      ],
+      "scenario_count": 1
+    },
+    "cp_a": {
+      "path": "tests/fixtures/pre-execution-fixture-cp-a.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 97996,
+      "sha256": "5e123b68fd32fcf07a7a6ae4cb94c4a23c83ddf238c07b0de14bdadda859d364",
+      "source_commit": "8430dbb5d3f1459d0aeeb192d01b4046346bf57f",
+      "source_tickets": [
+        150
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "planning_flow",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "cp_a_execution": {
+      "path": "tests/fixtures/execution-fixture-cp-a.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 148971,
+      "sha256": "6f5a8fccf868842fe635735f0d27845dea13088ab4564a98c4972a556d366e87",
+      "source_commit": "992bcaeb3beb7cd77237aa0d390dbc2f7246b4fb",
+      "source_tickets": [
+        182
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "artifact_and_flow",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "issue206_execution": {
+      "path": "tests/fixtures/execution-fixture-issue206.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 140429,
+      "sha256": "6762293962eeb91684b35c313455e3ee8536e4170d9e4628368dfc1c977699a9",
+      "source_commit": "2754d75f5f9f81ebfd1ec47bb383b1c9016f1b0f",
+      "source_tickets": [
+        206
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "artifact_and_flow",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "issue206_planning": {
+      "path": "tests/fixtures/pre-execution-fixture-issue206.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 103801,
+      "sha256": "be4e184fc554942f72d39a3759d96bcf5786f68ad41c23708a3eb46757194715",
+      "source_commit": "2754d75f5f9f81ebfd1ec47bb383b1c9016f1b0f",
+      "source_tickets": [
+        206
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "planning_flow",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "issue266_execution": {
+      "path": "tests/fixtures/execution-fixture-issue266.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 141488,
+      "sha256": "24126830667a14f0899439ecf8059be8162c1d7daf12ec4b35a094cdf4f30da0",
+      "source_commit": "39475b5ad02a68047e6be36c6f2845c7dac15213",
+      "source_tickets": [
+        266
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "artifact_and_flow",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "issue266_planning": {
+      "path": "tests/fixtures/pre-execution-fixture-issue266.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 105100,
+      "sha256": "ea61ad131541f9a615791c42d279e8f2c91b613982938c439434ddc378a876fb",
+      "source_commit": "39475b5ad02a68047e6be36c6f2845c7dac15213",
+      "source_tickets": [
+        266
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "planning_flow",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "issue300_execution": {
+      "path": "tests/fixtures/execution-fixture-issue300.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 287619,
+      "sha256": "7d8ecc674c6cc376c700c427007488b136e3d04dbfaebc039323442326a191a1",
+      "source_commit": "e6030e44a1e165cb34280f48bbfd52063eb7f314",
+      "source_tickets": [
+        300
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "artifact_and_flow",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "issue300_planning": {
+      "path": "tests/fixtures/pre-execution-fixture-issue300.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 105614,
+      "sha256": "ba817238459fad6189a4b75624db47b31f92c0360a8b9f9e6f55beb6239da8e5",
+      "source_commit": "e6030e44a1e165cb34280f48bbfd52063eb7f314",
+      "source_tickets": [
+        300
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "planning_flow",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "issue387_collection_review": {
+      "path": "tests/fixtures/reached-fixture-issue387-collection-review.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 185038,
+      "sha256": "d5e38aedc5385b5791594ad2d86617c287a5d8965d956a5b20084040314a6a5d",
+      "source_commit": "7be9123cdda15fab0032042bc9b02aa917f96b1e",
+      "source_tickets": [
+        387
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "reached_prefix",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "issue387_human": {
+      "path": "tests/fixtures/reached-fixture-issue387-human.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 6486058,
+      "sha256": "610a9e88088c414aab14a58f3abeafba9363ee1040f57c4de352dcd2490332b5",
+      "source_commit": "7be9123cdda15fab0032042bc9b02aa917f96b1e",
+      "source_tickets": [
+        387
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "reached_prefix",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    },
+    "issue387_celegans": {
+      "path": "tests/fixtures/reached-fixture-issue387-celegans.json",
+      "loader": "tests/retained_live_fixture.py",
+      "byte_count": 950893,
+      "sha256": "2a04846a580674970937626c32cdaceeb1254bfca8f2144265751a11e2f8496f",
+      "source_commit": "59c33dda81dafebbfa129e2d6a3e1441b512eb6b",
+      "source_tickets": [
+        387
+      ],
+      "evidence_kind": "retained_live",
+      "purpose": "reached_prefix",
+      "grants_live_authority": false,
+      "tests": [
+        "tests/test_retained_live_fixtures.py"
+      ],
+      "scenario_count": 1
+    }
+  },
+  "unregistered_fixtures": {
+    "tests/fixtures/input-storage-live.json": {
+      "kind": "historical",
+      "owner_ticket": 215,
+      "reason": "input-storage exporter evidence; follows the exporter disposition (RED-3)"
+    },
+    "tests/fixtures/parabricks-run-fixture.json": {
+      "kind": "historical",
+      "owner_ticket": 137,
+      "reason": "pre-regeneration historical bundle; consumer migration stays with #137"
+    },
+    "tests/fixtures/ncbi/GCF_054392235.1-md5checksums.txt": {
+      "kind": "historical",
+      "owner_ticket": 298,
+      "reason": "recorded NCBI md5checksums.txt for GCF_054392235.1 (2026-10-13); companion adapter test input"
+    },
+    "tests/fixtures/reasoning_only/issue395-base-4.json": {
+      "kind": "historical",
+      "owner_ticket": 421,
+      "reason": "lane P #395 recorded Qwen reasoning-only reply (base-4: finish_reason tool_calls, no call, no content), a byte copy of docs/development/reviews/issue395-paper-reader/runs/replay-request3/raw/base-4.json, replayed through the adapter"
+    },
+    "tests/fixtures/reasoning_only/issue395-base-5.json": {
+      "kind": "historical",
+      "owner_ticket": 421,
+      "reason": "lane P #395 recorded Qwen reasoning-only reply (base-5: finish_reason tool_calls, no call, no content), a byte copy of docs/development/reviews/issue395-paper-reader/runs/replay-request3/raw/base-5.json, replayed through the adapter"
+    },
+    "tests/fixtures/tool_result_cleanup/issue395-run2-paper-reading-1c2e42ae.jsonl": {
+      "kind": "historical",
+      "owner_ticket": 422,
+      "reason": "lane P #395 run 2's recorded read_paper result that held raw tabs: event PaperReadingRecorded 1c2e42ae, one line copied byte for byte from the frozen spike Journey .bio-neb-local/issue395-spike/h1-20261019T184151Z-67f51ad9-a3 (journey.jsonl SHA-256 4b2d71a4...); shown through the Tool-result guard"
+    },
+    "tests/fixtures/tool_result_cleanup/issue403-s3-run1-response-53c14084.jsonl": {
+      "kind": "historical",
+      "owner_ticket": 422,
+      "reason": "lane P #403 closing spike run 1's recorded reply whose nullable reference object arrived as JSON text under tool choice auto: event ModelResponseRecorded 53c14084, one line copied byte for byte from the frozen spike Journey .bio-neb-local/issue403-spike/s3-20261019T231336Z-2937613d-a1 (journey.jsonl SHA-256 c9cfeb3f...); read through the Model turn"
+    },
+    "tests/fixtures/tool_result_cleanup/issue403-s3-run1-request-d82e8e38-output-tools.json": {
+      "kind": "historical",
+      "owner_ticket": 422,
+      "reason": "the output_tools of the request that reply answered (ModelRequestRecorded d82e8e38 of the same frozen #403 Journey), extracted unchanged and re-serialized as indented JSON; the schema the Model turn reads the reply against"
+    },
+    "tests/fixtures/run_ledger/i42-smoke-942331f3-a1/harness/input.json": {
+      "kind": "synthetic",
+      "owner_ticket": 44,
+      "reason": "synthetic finished run root read by the run-ledger add and inventory tests"
+    },
+    "tests/fixtures/run_ledger/i42-smoke-942331f3-a1/harness/journal.jsonl": {
+      "kind": "synthetic",
+      "owner_ticket": 44,
+      "reason": "synthetic finished run root read by the run-ledger add and inventory tests"
+    },
+    "tests/fixtures/run_ledger/i42-smoke-942331f3-a1/harness/result.json": {
+      "kind": "synthetic",
+      "owner_ticket": 44,
+      "reason": "synthetic finished run root read by the run-ledger add and inventory tests"
+    },
+    "tests/fixtures/run_ledger/i42-smoke-942331f3-a1/operator/finished.json": {
+      "kind": "synthetic",
+      "owner_ticket": 44,
+      "reason": "synthetic finished run root read by the run-ledger add and inventory tests"
+    },
+    "tests/fixtures/issue326/runaway-replies.json": {
+      "kind": "historical",
+      "owner_ticket": 336,
+      "reason": "#326 Journey 9c7e7e49 replies 4 and 5 (2,632 and 3,503 calls), run-length encoded with provenance; offline replay input of tests/test_turn_routing.py"
+    },
+    "tests/fixtures/issue387/celegans-a1-7df8a326-replies.json": {
+      "kind": "historical",
+      "owner_ticket": 444,
+      "reason": "#387 celegans-a1 Journey 2d8c28a2 member Attempt 7df8a326's eleven replies (nine call stubs, two empty replies) with their contact ordinals, copied as recorded with provenance; offline replay input of tests/test_transcript_composer.py"
+    },
+    "tests/fixtures/issue387/human-a2-11c8261d-replies.json": {
+      "kind": "historical",
+      "owner_ticket": 445,
+      "reason": "#387 human-a2 Journey c92bc647 planning Attempt 11c8261d's twelve replies (three refused single calls, one text ending live), copied as recorded with provenance; offline replay input of tests/test_fault_messages.py"
+    },
+    "tests/fixtures/issue387/explainer-refused-drafts.json": {
+      "kind": "historical",
+      "owner_ticket": 448,
+      "reason": "#387's 23 refused report_explainer outputs (human-a2 Journey c92bc647, 20; celegans-a2 Journey bf826444, 3), copied as recorded with each Attempt's recorded binding and provenance; offline replay input of tests/test_explanation_draft.py"
+    },
+    "tests/fixtures/run_health/hg001-slices/aligned.bam": {
+      "kind": "historical",
+      "owner_ticket": 405,
+      "reason": "HG001 (#141 Run 476f611d) reads in five rebased slices around six Work items, cut by docs/development/reviews/issue405-lane-h-spike/cut_fixture.py; input of tests/test_run_health_items.py"
+    },
+    "tests/fixtures/run_health/hg001-slices/reference.fa": {
+      "kind": "historical",
+      "owner_ticket": 405,
+      "reason": "HG001 (#141 Run 476f611d) reference bases in five rebased slices around six Work items, cut by docs/development/reviews/issue405-lane-h-spike/cut_fixture.py; input of tests/test_run_health_items.py"
+    },
+    "tests/fixtures/run_health/hg001-slices/variants.vcf": {
+      "kind": "historical",
+      "owner_ticket": 405,
+      "reason": "HG001 (#141 Run 476f611d) VCF records in five rebased slices around six Work items, cut by docs/development/reviews/issue405-lane-h-spike/cut_fixture.py; input of tests/test_run_health_items.py"
+    },
+    "tests/fixtures/run_health/hg001-slices/items.json": {
+      "kind": "historical",
+      "owner_ticket": 405,
+      "reason": "HG001 (#141 Run 476f611d) items, slice offsets and original-BAM depths in five rebased slices around six Work items, cut by docs/development/reviews/issue405-lane-h-spike/cut_fixture.py; input of tests/test_run_health_items.py"
+    },
+    "tests/fixtures/paper_retrieval/gold.json": {
+      "kind": "historical",
+      "owner_ticket": 419,
+      "reason": "c1-c3 gold, a byte copy of docs/development/reviews/issue396-generalization/gold.json (#396); read by tests/test_paper_reading.py's leak test"
+    },
+    "tests/fixtures/paper_retrieval/gold-v2.json": {
+      "kind": "historical",
+      "owner_ticket": 419,
+      "reason": "h1, s3, s16 and s17 gold: those entries of codex/tools-paper fc4b0a8c work/research/2026-10-08-paper-retrieval/v2/gold.json, values unchanged; read by tests/test_paper_reading.py's leak test"
+    },
+    "tests/fixtures/paper_retrieval/answers/h1-run1/answer.json": {
+      "kind": "historical",
+      "owner_ticket": 419,
+      "reason": "#349's retained h1 answer, a byte copy of docs/development/reviews/issue349-paper-spikes/runs/h1-run1/answer.json; read through tests/paper_targets_support.py"
+    },
+    "tests/fixtures/paper_retrieval/answers/s15-run1/answer.json": {
+      "kind": "historical",
+      "owner_ticket": 419,
+      "reason": "#349's retained s15 answer, a byte copy of docs/development/reviews/issue349-paper-spikes/runs/s15-run1/answer.json; read through tests/paper_targets_support.py"
+    },
+    "tests/fixtures/paper_retrieval/answers/s3-run1/answer.json": {
+      "kind": "historical",
+      "owner_ticket": 419,
+      "reason": "#349's retained s3 answer, a byte copy of docs/development/reviews/issue349-paper-spikes/runs/s3-run1/answer.json; read through tests/paper_targets_support.py"
+    },
+    "tests/fixtures/paper_retrieval/s16-candidates.json": {
+      "kind": "historical",
+      "owner_ticket": 351,
+      "reason": "#333 live run 1 s16 candidates (ledger row 333-p1-run1, source commit e8d3857c), a byte copy of codex/tools-paper 4b054edf work/research/2026-10-08-paper-retrieval/results/p1-candidates-run1/candidates.json; its recorded identity read by tests/test_paper_reading.py (the candidates in it are retired, #397)"
+    },
+    "tests/fixtures/paper_targets/h1-run1-targets.json": {
+      "kind": "historical",
+      "owner_ticket": 385,
+      "reason": "lane P's retained #349 targets.json for h1 (hg38, three positioned targets with rsIDs), copied by #376; read as data by place-targets' contract test"
+    },
+    "tests/fixtures/paper_targets/s17-run1-targets.json": {
+      "kind": "historical",
+      "owner_ticket": 385,
+      "reason": "lane P's retained #349 targets.json for s17 (EquCab3.0, one positioned target with a change), copied by #376; read as data by place-targets' contract test"
+    },
+    "tests/fixtures/paper_targets/s3-run1-targets.json": {
+      "kind": "historical",
+      "owner_ticket": 385,
+      "reason": "lane P's retained #349 targets.json for s3 (sacCer1: three gene changes and one position), copied by #376; read as data by place-targets' contract test"
+    },
+    "tests/fixtures/paper_targets/ncbi/gcf-000001405.25-sequence-report.json": {
+      "kind": "historical",
+      "owner_ticket": 393,
+      "reason": "#393's stage D development GET (owner-approved run plan v1, 2026-10-19), byte for byte from docs/development/reviews/issue393-resolver/devgets/: GRCh37.p13's assembled-molecule sequence report; names hg19 19 as NC_000019.9 for the resolver's contract test"
+    },
+    "tests/fixtures/paper_targets/ncbi/spdi-NC_000019.9-45411940-T-C-equivalents.json": {
+      "kind": "historical",
+      "owner_ticket": 393,
+      "reason": "#393's stage D development GET (owner-approved run plan v1, 2026-10-19), byte for byte from docs/development/reviews/issue393-resolver/devgets/: the Variation service's all_equivalent_contextual for APOE e4 on GRCh37 (NC_000019.10:44908683:T:C among them); step 3 of the resolver's contract test"
+    },
+    "tests/fixtures/paper_targets/ncbi/spdi-NC_001143.9-207822-A-C-equivalents.json": {
+      "kind": "historical",
+      "owner_ticket": 393,
+      "reason": "#393's stage D development GET (owner-approved run plan v1, 2026-10-19), byte for byte from docs/development/reviews/issue393-resolver/devgets/: the Variation service's all_equivalent_contextual for a yeast SPDI, an empty list (no yeast coverage); the resolver's step 3 miss"
+    },
+    "tests/fixtures/paper_targets/ncbi/taxon-559292-refseq-all-versions.json": {
+      "kind": "historical",
+      "owner_ticket": 393,
+      "reason": "#393's stage D development GET (owner-approved run plan v1, 2026-10-19), byte for byte from docs/development/reviews/issue393-resolver/devgets/: NCBI Datasets' RefSeq assemblies of taxon 559292, every version (R64 only); the resolver's NCBI naming miss"
+    },
+    "tests/fixtures/paper_targets/ncbi/taxon-9606-refseq-all-versions.json": {
+      "kind": "historical",
+      "owner_ticket": 393,
+      "reason": "#393's stage D development GET (owner-approved run plan v1, 2026-10-19), byte for byte from docs/development/reviews/issue393-resolver/devgets/: NCBI Datasets' RefSeq assemblies of taxon 9606, every version (27, hg19 on six GRCh37 patches); the resolver's NCBI naming"
+    },
+    "tests/fixtures/paper_targets/stated-sequences-saccer1.json": {
+      "kind": "synthetic",
+      "owner_ticket": 393,
+      "reason": "the s3 sacCer1 stated-sequence table (bio-neb.stated-sequences/1) built for #393 from #332's proof (NC_001143.4:207439-207499 equals the sacCer1-era chrXI window); the code holds no rows, so place-targets' tests and spike pass it per Run"
+    },
+    "tests/fixtures/source_answers/manifest.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "index of #466's recorded source answers: each GET's URL, status, kept headers, sha256, the rule it breaks, its owning ticket and expected-red tests; read by tests/recorded_sources.py"
+    },
+    "tests/fixtures/source_answers/README.md": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "how #466's recorded source answers are recorded, derived and promoted from a live Run's retained answers (owner Q8 a)"
+    },
+    "tests/fixtures/source_answers/naming-nz-sequence/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-nz-sequence: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000743255.1/sequence_reports?role_filters=assembled-molecule (HTTP 200, 2026-10-27T05:44:50Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-nz-sequence/01.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-nz-sequence: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000743255.1/sequence_reports?page_size=1000 (HTTP 200, 2026-10-27T05:44:51Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-nz-sequence/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-nz-sequence: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000743255.1/dataset_report (HTTP 200, 2026-10-27T05:44:52Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-wgs-scaffold/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-wgs-scaffold: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/sequence_reports?role_filters=assembled-molecule (HTTP 200, 2026-10-27T05:44:53Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-wgs-scaffold/01.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-wgs-scaffold: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/sequence_reports?page_size=1000 (HTTP 200, 2026-10-27T05:44:55Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-wgs-scaffold/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-wgs-scaffold: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/dataset_report (HTTP 200, 2026-10-27T05:44:56Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-wgs-scaffold/03.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-wgs-scaffold: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/dataset_report?filters.assembly_version=all_assemblies (HTTP 200, 2026-10-27T05:44:56Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-mitochondrion/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-mitochondrion: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.40/sequence_reports?role_filters=assembled-molecule (HTTP 200, 2026-10-27T05:44:58Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-mitochondrion/01.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-mitochondrion: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.40/sequence_reports?page_size=1000 (HTTP 200, 2026-10-27T05:44:59Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-mitochondrion/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-mitochondrion: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.40/dataset_report (HTTP 200, 2026-10-27T05:45:00Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-roman-chromosome/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-roman-chromosome: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/sequence_reports?role_filters=assembled-molecule (HTTP 200, 2026-10-27T05:45:02Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-roman-chromosome/01.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-roman-chromosome: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/sequence_reports?page_size=1000 (HTTP 200, 2026-10-27T05:45:03Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-roman-chromosome/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-roman-chromosome: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/dataset_report (HTTP 200, 2026-10-27T05:45:04Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-plant-chromosome/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-plant-chromosome: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001735.4/sequence_reports?role_filters=assembled-molecule (HTTP 200, 2026-10-27T05:45:05Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-plant-chromosome/01.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-plant-chromosome: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001735.4/sequence_reports?page_size=1000 (HTTP 200, 2026-10-27T05:45:06Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-plant-chromosome/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-plant-chromosome: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001735.4/dataset_report (HTTP 200, 2026-10-27T05:45:08Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-large-report/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-large-report: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/sequence_reports?role_filters=assembled-molecule (HTTP 200, 2026-10-27T05:45:09Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-large-report/01.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-large-report: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/sequence_reports?page_size=1000 (HTTP 200, 2026-10-27T05:45:10Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-large-report/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-large-report: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/dataset_report (HTTP 200, 2026-10-27T05:45:12Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-large-report/03.txt.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-large-report: GET https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/018/294/505/GCF_018294505.1_IWGSC_CS_RefSeq_v2.1/GCF_018294505.1_IWGSC_CS_RefSeq_v2.1_assembly_report.txt (HTTP 200, 2026-10-27T05:45:14Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-large-report/04.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-large-report: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/sequence_reports?page_size=1000&page_token=eNrjYjM0MDQxMQUABJUBQA (HTTP 200, 2026-10-27T05:46:03Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/00.txt.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: GET http://datacache.galaxyproject.org/brc/config/bwa_mem_index.loc (HTTP 200, 2026-10-27T05:45:18Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/01.txt": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: GET http://datacache.galaxyproject.org/vgp/config/bwa_mem_index.loc (HTTP 200, 2026-10-27T05:45:19Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/02.txt.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: GET http://datacache.galaxyproject.org/brc/config/fasta_indexes.loc (HTTP 200, 2026-10-27T05:45:24Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/03.txt": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: GET https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.27_GRCm39/GCF_000001635.27_GRCm39_assembly_report.txt (HTTP 200, 2026-10-27T05:45:25Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/04.txt": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: GET http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/sam_fasta_index/v1/GCF_000001635.27/GCF_000001635.27.fa.fai (HTTP 200, 2026-10-27T05:46:05Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/05.txt": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/sam_fasta_index/v1/GCF_000001635.27/GCF_000001635.27.fa (HTTP 200, 2026-10-27T05:46:06Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/06.txt": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.amb (HTTP 200, 2026-10-27T05:46:07Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/07.txt": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.ann (HTTP 200, 2026-10-27T05:46:10Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/08.txt": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.bwt (HTTP 200, 2026-10-27T05:46:13Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/09.txt": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.pac (HTTP 200, 2026-10-27T05:46:16Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/10.txt": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "naming-galaxy-unit: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.sa (HTTP 200, 2026-10-27T05:46:19Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-species-pages/00.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-species-pages: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?page_size=100&filters.assembly_source=all (HTTP 200, 2026-10-27T05:46:21Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-species-pages/01.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-species-pages: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?filters.reference_only=true (HTTP 200, 2026-10-27T05:46:22Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-species-pages/02.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-species-pages: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?filters.assembly_source=refseq&filters.assembly_version=all_assemblies&page_size=1000 (HTTP 200, 2026-10-27T05:46:31Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-species-pages/03.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-species-pages: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?page_size=100&filters.assembly_source=all&page_token=eNrjMo1WMnU2jDAwNTC1tDQxNjSwMDQyMLEwNbOwNDK1tLC0UNJRUHJ3douHC-oZKsUCAEETC5o (HTTP 200, 2026-10-27T05:47:33Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-strain/00.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-strain: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/511145/dataset_report?page_size=100&filters.assembly_source=all (HTTP 200, 2026-10-27T05:46:33Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-genbank-only/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-genbank-only: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/3352/dataset_report?filters.assembly_source=refseq&filters.assembly_version=all_assemblies&page_size=1000 (HTTP 200, 2026-10-27T05:46:34Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-genbank-only/01.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-genbank-only: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/3352/dataset_report?page_size=100&filters.assembly_source=all (HTTP 200, 2026-10-27T05:46:35Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-suppressed/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-suppressed: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_002863925.1/dataset_report (HTTP 200, 2026-10-27T05:46:36Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-suppressed/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-suppressed: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9796/dataset_report?page_size=100&filters.assembly_source=all (HTTP 200, 2026-10-27T05:46:39Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-stated-grch37/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-stated-grch37: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9606/dataset_report?filters.assembly_source=refseq&filters.assembly_version=all_assemblies&page_size=1000 (HTTP 200, 2026-10-27T05:46:40Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-stated-grch37/01.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-stated-grch37: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.25/sequence_reports?role_filters=assembled-molecule (HTTP 200, 2026-10-27T05:46:41Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-stated-grch37/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "assembly-stated-grch37: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.13/sequence_reports?role_filters=assembled-molecule (HTTP 200, 2026-10-27T05:46:43Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-eva-retired/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-eva-retired: GET https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/160719159 (HTTP 410, 2026-10-27T05:47:34Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-non-human-snp/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-non-human-snp: GET https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/7089734242 (HTTP 404, 2026-10-27T05:47:35Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-non-human-snp/01.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-non-human-snp: GET https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/7089734242 (HTTP 200, 2026-10-27T05:47:36Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-non-human-snp/04.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-non-human-snp: GET https://www.ebi.ac.uk/eva/webservices/contig-alias/v1/chromosomes/genbank/BX284603.4 (HTTP 200, 2026-10-27T05:48:46Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-non-human-snp/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-non-human-snp: GET https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/7089734242/submitted (HTTP 200, 2026-10-27T05:47:37Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-non-human-snp/03.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-non-human-snp: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002985.6/dataset_report (HTTP 200, 2026-10-27T05:47:38Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-dbsnp-non-ptlp/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-dbsnp-non-ptlp: GET https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/429358 (HTTP 200, 2026-10-27T05:47:39Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-merged/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-merged: GET https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/60037639 (HTTP 200, 2026-10-27T05:47:40Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-dbsnp-withdrawn/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-dbsnp-withdrawn: GET https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/94 (HTTP 200, 2026-10-27T05:47:41Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/identifiers-rsid-text/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "identifiers-rsid-text: GET https://api.ncbi.nlm.nih.gov/variation/v0/refsnp/7412 (HTTP 200, 2026-10-27T05:47:43Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/identifiers-hgvs-text/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "identifiers-hgvs-text: GET https://api.ncbi.nlm.nih.gov/variation/v0/hgvs/NC_049231.1:g.69888722_69888723del/contextuals (HTTP 400, 2026-10-27T05:47:44Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/identifiers-hgvs-human/00.json": {
+      "kind": "historical",
+      "owner_ticket": 473,
+      "reason": "identifiers-hgvs-human: GET https://api.ncbi.nlm.nih.gov/variation/v0/hgvs/NM_004333.6:c.1799T%3EA/contextuals (HTTP 200, 2026-10-28T13:13:31Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/identifiers-hgvs-human/01.json": {
+      "kind": "historical",
+      "owner_ticket": 473,
+      "reason": "identifiers-hgvs-human: GET https://api.ncbi.nlm.nih.gov/variation/v0/hgvs/NP_004324.2:p.V600E/contextuals (HTTP 200, 2026-10-28T13:13:32Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/identifiers-hgvs-human/02.json": {
+      "kind": "historical",
+      "owner_ticket": 473,
+      "reason": "identifiers-hgvs-human: GET https://api.ncbi.nlm.nih.gov/variation/v0/spdi/NM_004333.6:2024:T:A/all_equivalent_contextual (HTTP 200, 2026-10-28T13:13:45Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/biology-genetic-code/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "biology-genetic-code: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/dataset_report (HTTP 200, 2026-10-27T05:47:45Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/biology-genetic-code/01.zip": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "biology-genetic-code: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/download?include_annotation_type=GENOME_GFF (HTTP 200, 2026-10-27T05:47:48Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/biology-genetic-code/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "biology-genetic-code: GET https://api.ncbi.nlm.nih.gov/variation/v0/spdi/NC_001224.1:28687:3:NNN/contextual (HTTP 200, 2026-10-27T05:48:42Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-many-placements/00.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-many-placements: original of a derived answer, GET https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/109500000 (HTTP 200, 2026-10-27T05:51:11Z)"
+    },
+    "tests/fixtures/source_answers/variant-many-placements/01.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-many-placements: original of a derived answer, GET https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/41255587 (HTTP 200, 2026-10-27T05:51:14Z)"
+    },
+    "tests/fixtures/source_answers/variant-many-placements/04.json": {
+      "kind": "synthetic",
+      "owner_ticket": 466,
+      "reason": "variant-many-placements: DERIVED from variant-many-placements/00.json, variant-many-placements/01.json: rs109500000's four placements as recorded, then rs41255587's placements on GCA_000003055.5/GK000007.2 and GCA_000003205.1/CM000183.4 with accession set to 109500000; compact JSON as EVA writes it."
+    },
+    "tests/fixtures/source_answers/variant-many-placements/02.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-many-placements: GET https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants/109500000/submitted (HTTP 200, 2026-10-27T05:51:15Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-many-placements/03.json": {
+      "kind": "historical",
+      "owner_ticket": 466,
+      "reason": "variant-many-placements: GET https://www.ebi.ac.uk/eva/webservices/contig-alias/v1/chromosomes/genbank/CM008183.2 (HTTP 200, 2026-10-27T05:51:21Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-many-placements/05.json": {
+      "kind": "historical",
+      "owner_ticket": 468,
+      "reason": "variant-many-placements: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_002263795.3/dataset_report (HTTP 200, 2026-10-27T12:34:47Z), byte for byte: the Run's paired INSDC accession an EVA lookup reads (owner #468 R2 a)"
+    },
+    "tests/fixtures/source_answers/biology-ploidy/haploid.vcf": {
+      "kind": "synthetic",
+      "owner_ticket": 466,
+      "reason": "biology-ploidy: tiny haploid VCF 4.3 whose GT values feed the VCF lookup's genotype reader (#470's expected-red tests)"
+    },
+    "tests/fixtures/source_answers/biology-ploidy/polyploid.vcf": {
+      "kind": "synthetic",
+      "owner_ticket": 466,
+      "reason": "biology-ploidy: tiny polyploid VCF 4.3 whose GT values feed the VCF lookup's genotype reader (#470's expected-red tests)"
+    },
+    "tests/fixtures/source_answers/paper-allele-labels/table.tsv": {
+      "kind": "synthetic",
+      "owner_ticket": 466,
+      "reason": "paper-allele-labels: an invented table row headed Major/Minor allele, no REF/ALT word (#383's control test since #486)"
+    },
+    "tests/fixtures/source_answers/naming-nz-sequence/03.json": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-nz-sequence: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000743255.1/links (HTTP 200, 2026-10-27T08:26:20Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-nz-sequence/04.txt": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-nz-sequence: GET https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/743/255/GCF_000743255.1_ASM74325v1/GCF_000743255.1_ASM74325v1_assembly_report.txt (HTTP 200, 2026-10-27T08:26:21Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-wgs-scaffold/04.json": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-wgs-scaffold: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002285.3/links (HTTP 200, 2026-10-27T08:26:22Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-wgs-scaffold/05.txt.gz": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-wgs-scaffold: GET https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/285/GCF_000002285.3_CanFam3.1/GCF_000002285.3_CanFam3.1_assembly_report.txt (HTTP 200, 2026-10-27T08:26:23Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-mitochondrion/03.json": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-mitochondrion: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001405.40/links (HTTP 200, 2026-10-27T08:26:24Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-mitochondrion/04.txt": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-mitochondrion: GET https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_assembly_report.txt (HTTP 200, 2026-10-27T08:26:25Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-roman-chromosome/03.json": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-roman-chromosome: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000146045.2/links (HTTP 200, 2026-10-27T08:26:26Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-roman-chromosome/04.txt": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-roman-chromosome: GET https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_assembly_report.txt (HTTP 200, 2026-10-27T08:26:27Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-plant-chromosome/03.json": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-plant-chromosome: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000001735.4/links (HTTP 200, 2026-10-27T08:26:28Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-plant-chromosome/04.txt": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-plant-chromosome: GET https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/735/GCF_000001735.4_TAIR10.1/GCF_000001735.4_TAIR10.1_assembly_report.txt (HTTP 200, 2026-10-27T08:26:31Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-large-report/05.json": {
+      "kind": "historical",
+      "owner_ticket": 467,
+      "reason": "naming-large-report: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_018294505.1/links (HTTP 200, 2026-10-27T08:26:32Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-eva-by-position/00.json": {
+      "kind": "historical",
+      "owner_ticket": 469,
+      "reason": "variant-eva-by-position: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCF_000002985.6/links (HTTP 200, 2026-10-27T16:02:16Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-eva-by-position/01.txt": {
+      "kind": "historical",
+      "owner_ticket": 469,
+      "reason": "variant-eva-by-position: GET https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/985/GCF_000002985.6_WBcel235/GCF_000002985.6_WBcel235_assembly_report.txt (HTTP 200, 2026-10-27T16:02:17Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-eva-by-position/02.json": {
+      "kind": "historical",
+      "owner_ticket": 469,
+      "reason": "variant-eva-by-position: GET https://api.ncbi.nlm.nih.gov/variation/v0/spdi/NC_003281.10:931671:3:NNN/contextual (HTTP 200, 2026-10-27T16:02:19Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-eva-by-position/03.json": {
+      "kind": "historical",
+      "owner_ticket": 469,
+      "reason": "variant-eva-by-position: GET https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants?assemblyId=GCA_000002985.3&referenceName=BX284603.4&start=931673&variantType=DEL (HTTP 200, 2026-10-27T16:02:20Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-eva-by-position/04.txt": {
+      "kind": "historical",
+      "owner_ticket": 469,
+      "reason": "variant-eva-by-position: GET https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants?assemblyId=GCA_000002985.3&referenceName=BX284603.4&start=931673&variantType=INDEL (HTTP 404, 2026-10-27T16:02:21Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/variant-eva-by-position/05.json": {
+      "kind": "historical",
+      "owner_ticket": 469,
+      "reason": "variant-eva-by-position: GET https://www.ebi.ac.uk/eva/webservices/identifiers/v1/clustered-variants?assemblyId=GCA_000002985.3&referenceName=NC_003281.10&start=931673&variantType=DEL&contigNamingConvention=REFSEQ (HTTP 200, 2026-10-27T17:16:32Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-species-pages/04.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 471,
+      "reason": "assembly-species-pages: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?page_size=100 (HTTP 200, 2026-10-27T21:12:04Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-species-pages/05.json": {
+      "kind": "historical",
+      "owner_ticket": 471,
+      "reason": "assembly-species-pages: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?filters.reference_only=true&page_size=100 (HTTP 200, 2026-10-27T21:12:06Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-species-pages/06.json": {
+      "kind": "historical",
+      "owner_ticket": 471,
+      "reason": "assembly-species-pages: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?filters.exclude_paired_reports=true&filters.assembly_version=all_assemblies&filters.search_text=ASM584v2&page_size=100 (HTTP 200, 2026-10-27T21:12:07Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-species-pages/07.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 471,
+      "reason": "assembly-species-pages: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/562/dataset_report?page_size=100&page_token=eNrjMo1WMnU2jDAwNTC1tDQxNjSwMDQyMLEwNbOwNDK1tLC0UNJRUHJ3douHC-oZKsUCAEETC5o (HTTP 200, 2026-10-27T21:12:34Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-strain/01.json.gz": {
+      "kind": "historical",
+      "owner_ticket": 471,
+      "reason": "assembly-strain: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/511145/dataset_report?page_size=100 (HTTP 200, 2026-10-27T21:12:09Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-strain/02.json": {
+      "kind": "historical",
+      "owner_ticket": 471,
+      "reason": "assembly-strain: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/511145/dataset_report?page_size=100&page_token=eNrjMo1WsnQ2izAwNTK1tLS0MLIwNLAwMDMyMLG0NDaytDAwUNJRUHJ3doyHC-oZKsUCAEIhC4g (HTTP 200, 2026-10-27T21:12:35Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-genbank-only/02.json": {
+      "kind": "historical",
+      "owner_ticket": 471,
+      "reason": "assembly-genbank-only: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/3352/dataset_report?filters.exclude_paired_reports=true&filters.assembly_version=all_assemblies&filters.search_text=Ptaeda2.0&page_size=100 (HTTP 200, 2026-10-27T21:12:12Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-suppressed/01.json": {
+      "kind": "historical",
+      "owner_ticket": 471,
+      "reason": "assembly-suppressed: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9796/dataset_report?page_size=100 (HTTP 200, 2026-10-27T21:12:11Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/assembly-stated-grch37/03.json": {
+      "kind": "historical",
+      "owner_ticket": 471,
+      "reason": "assembly-stated-grch37: GET https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/9606/dataset_report?filters.exclude_paired_reports=true&filters.assembly_version=all_assemblies&filters.search_text=GRCh37&page_size=100 (HTTP 200, 2026-10-27T21:12:13Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-human/00.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-human: GET http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.ann (HTTP 200, 2026-10-29T12:11:56Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-human/01.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-human: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/sam_fasta_index/v1/GCF_000001405.40/GCF_000001405.40.fa (HTTP 200, 2026-10-29T12:11:59Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-human/02.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-human: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/sam_fasta_index/v1/GCF_000001405.40/GCF_000001405.40.fa.fai (HTTP 200, 2026-10-29T12:12:02Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-human/03.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-human: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.amb (HTTP 200, 2026-10-29T12:12:03Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-human/04.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-human: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.ann (HTTP 200, 2026-10-29T12:12:04Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-human/05.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-human: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.bwt (HTTP 200, 2026-10-29T12:12:05Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-human/06.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-human: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.pac (HTTP 200, 2026-10-29T12:12:08Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-human/07.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-human: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001405.40/bwa_mem_index/v1/GCF_000001405.40/GCF_000001405.40.fa.sa (HTTP 200, 2026-10-29T12:12:11Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/11.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-unit: GET http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/bwa_mem_index/v1/GCF_000001635.27/GCF_000001635.27.fa.ann (HTTP 200, 2026-10-29T12:11:54Z), byte for byte"
+    },
+    "tests/fixtures/source_answers/naming-galaxy-unit/12.txt": {
+      "kind": "historical",
+      "owner_ticket": 464,
+      "reason": "naming-galaxy-unit: HEAD http://datacache.galaxyproject.org/brc/data/genomes/GCF_000001635.27/sam_fasta_index/v1/GCF_000001635.27/GCF_000001635.27.fa.fai (HTTP 200, 2026-10-29T12:11:55Z), byte for byte"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+##fileformat=VCFv4.3
+##source=synthetic for #466: haploid calls as a bacterial caller writes them (one allele per GT)
+##contig=<ID=NZ_CP020102.1,length=4215607>
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+NZ_CP020102.1	1000	.	G	T	.	PASS	.	GT	1
+NZ_CP020102.1	2000	.	A	T	.	PASS	.	GT	0

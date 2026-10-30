@@ -1,0 +1,171 @@
+{
+  "schema_version": "bio-neb.eval-case-compiled/1",
+  "case_id": "s7-rice-albatros-clean-L2-snp5",
+  "family": "s7-rice-albatros-clean",
+  "scenario": "s7-rice-albatros",
+  "split": "train",
+  "level": "L2",
+  "evidence_shape": "clean",
+  "donor": {
+    "path": "work/research/2026-09-24-nemotron/eval/corpus/cases/s7-rice-albatros-clean-L2-snp5.yaml",
+    "case_id": "c-12a669",
+    "version": 2
+  },
+  "public": {
+    "research_request": "Sample Albatros (BioSample SAMEA114006083), Oryza sativa (NCBI Taxonomy 4530), paired-end reads registered. Reference GCA_001433935.1 (IRGSP-1.0) with the genomic FASTA. Call germline variants to a VCF, then tell me the genotype of Albatros at these IRGSP-1.0 sites: 4:22375729 G>T, 6:20640731 C>T, 10:6918411 C>T, 11:19577767 C>T and 11:28814241 G>A.\n",
+    "fastq_roles": [
+      "read_1",
+      "read_2"
+    ]
+  },
+  "planning": {
+    "prepared_answers": [
+      {
+        "review": "analysis_recipe",
+        "answer": "gDNA / paired",
+        "reason": "Paired-end reads of a rice variety for germline calling: genomic DNA, paired."
+      }
+    ],
+    "gates": [
+      "accepted",
+      "usable"
+    ],
+    "questions": [
+      {
+        "id": "B-ALL-KINDS",
+        "ask": "Are all nine required requirement kinds in the accepted plan?",
+        "check": "kinds_present",
+        "spec": {
+          "kinds": [
+            "research_goal",
+            "registered_input",
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity",
+            "companion_asset",
+            "analysis_recipe",
+            "resource_profile",
+            "scientific_investigation"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-SUPPLIED-KEPT",
+        "ask": "Is every fact the request states asserted, not left to find?",
+        "check": "knowledge_states",
+        "spec": {
+          "asserted": [
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-FIRST-ATTEMPT",
+        "ask": "Was the first proposal Tool call accepted, with no refused proposal turn before it?",
+        "check": "first_attempt",
+        "spec": {},
+        "gate": "graded",
+        "note": "The S1 widening and the resource_profile routing (#279 finding 2) show up here as refused turns."
+      },
+      {
+        "id": "B-NO-INVENT",
+        "ask": "Does every accession, TaxId and rsID in the planning Tool calls appear in the request or an earlier recorded result?",
+        "check": "no_invented_identifier",
+        "spec": {},
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-TERMINAL",
+        "ask": "Does the planning layer stop at the expected terminal?",
+        "check": "terminal",
+        "spec": {
+          "terminal": "execution_review"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-PLOIDY",
+        "ask": "Does the Execution Review state diploid calling with the model's judgment of the organism, citing one of the Run's organism records, and ask exactly when the organism is likely not diploid?",
+        "check": "ploidy_notice",
+        "spec": {
+          "asks": false
+        },
+        "gate": "hard",
+        "note": "#470 (owner Q7 a, 2026-10-27): calling is diploid; the model judges the organism's ploidy from its record, never a code organism list."
+      },
+      {
+        "id": "B-REVIEWS-RAISED",
+        "ask": "Are the planning Reviews raised exactly the ones the request leaves open (no over-clarification)?",
+        "check": "reviews_raised",
+        "spec": {
+          "reviews": [
+            "analysis_recipe"
+          ]
+        },
+        "gate": "graded",
+        "note": null
+      },
+      {
+        "id": "q1",
+        "ask": "Are the five sites kept as five separate scientific_investigation items (known_variant), none dropped or merged, and no rsID invented for them?",
+        "check": "investigation_items",
+        "spec": {
+          "purpose": "known_variant",
+          "quotes": [
+            "4:22375729 G>T",
+            "6:20640731 C>T",
+            "10:6918411 C>T",
+            "11:19577767 C>T",
+            "11:28814241 G>A"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q2",
+        "ask": "Is the verified reference exactly GCA_001433935.1 (no switch to GCF_034140825.1 AGIS1.0 or to the suppressed GCF_001433935.1)?",
+        "check": "reference_verified",
+        "spec": {
+          "accession": "GCA_001433935.1"
+        },
+        "gate": "hard",
+        "note": null
+      }
+    ],
+    "good_answer": "Albatros / 4530 / GCA_001433935.1 asserted; five known_variant items, one site each, no rsIDs; one recipe Review; Execution Review reached.",
+    "bad_answers": [
+      {
+        "summary": "Switches the reference to GCF_034140825.1 because it is NCBI's current rice reference genome",
+        "must_fail": [
+          "q2",
+          "B-SUPPLIED-KEPT"
+        ],
+        "label": "semantic_binding"
+      },
+      {
+        "summary": "Invents rsIDs for the sites",
+        "must_fail": [
+          "q1",
+          "B-NO-INVENT"
+        ],
+        "label": "fabrication"
+      },
+      {
+        "summary": "Two chr11 sites merged into one 'chromosome 11 haplotype' item",
+        "must_fail": [
+          "q1"
+        ],
+        "label": "semantic_coverage"
+      }
+    ]
+  }
+}

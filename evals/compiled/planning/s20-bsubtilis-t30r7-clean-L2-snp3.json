@@ -1,0 +1,181 @@
+{
+  "schema_version": "bio-neb.eval-case-compiled/1",
+  "case_id": "s20-bsubtilis-t30r7-clean-L2-snp3",
+  "family": "s20-bsubtilis-t30r7-clean",
+  "scenario": "s20-bsubtilis-t30r7",
+  "split": "train",
+  "level": "L2",
+  "evidence_shape": "clean",
+  "donor": {
+    "path": "work/research/2026-09-24-nemotron/eval/corpus/cases/s20-bsubtilis-t30r7-clean-L2-snp3.yaml",
+    "case_id": "c-2b5bee",
+    "version": 1
+  },
+  "public": {
+    "research_request": "Sample T30R7_1, Bacillus subtilis (NCBI Taxonomy 1423), paired-end Illumina reads registered. Reference GCF_002055965.1 with the genomic FASTA. Call variants to a VCF, then tell me whether T30R7_1 carries NZ_CP020102.1:2552672 C>G, NZ_CP020102.1:1702691 G>T and NZ_CP020102.1:3666050 A>T.\n",
+    "fastq_roles": [
+      "read_1",
+      "read_2"
+    ]
+  },
+  "planning": {
+    "prepared_answers": [
+      {
+        "review": "analysis_recipe",
+        "answer": "gDNA / paired",
+        "reason": "Paired-end Illumina reads of a B. subtilis isolate for variant calling: genomic DNA, paired."
+      }
+    ],
+    "gates": [
+      "accepted",
+      "usable"
+    ],
+    "questions": [
+      {
+        "id": "B-ALL-KINDS",
+        "ask": "Are all nine required requirement kinds in the accepted plan?",
+        "check": "kinds_present",
+        "spec": {
+          "kinds": [
+            "research_goal",
+            "registered_input",
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity",
+            "companion_asset",
+            "analysis_recipe",
+            "resource_profile",
+            "scientific_investigation"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-SUPPLIED-KEPT",
+        "ask": "Is every fact the request states asserted, not left to find?",
+        "check": "knowledge_states",
+        "spec": {
+          "asserted": [
+            "sample_identity",
+            "taxon_identity",
+            "reference_assembly_identity"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-FIRST-ATTEMPT",
+        "ask": "Was the first proposal Tool call accepted, with no refused proposal turn before it?",
+        "check": "first_attempt",
+        "spec": {},
+        "gate": "graded",
+        "note": "The S1 widening and the resource_profile routing (#279 finding 2) show up here as refused turns."
+      },
+      {
+        "id": "B-NO-INVENT",
+        "ask": "Does every accession, TaxId and rsID in the planning Tool calls appear in the request or an earlier recorded result?",
+        "check": "no_invented_identifier",
+        "spec": {},
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-TERMINAL",
+        "ask": "Does the planning layer stop at the expected terminal?",
+        "check": "terminal",
+        "spec": {
+          "terminal": "execution_review"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "B-PLOIDY",
+        "ask": "Does the Execution Review state diploid calling with the model's judgment of the organism, citing one of the Run's organism records, and ask exactly when the organism is likely not diploid?",
+        "check": "ploidy_notice",
+        "spec": {
+          "asks": true
+        },
+        "gate": "hard",
+        "note": "#470 (owner Q7 a, 2026-10-27): calling is diploid; the model judges the organism's ploidy from its record, never a code organism list."
+      },
+      {
+        "id": "B-REVIEWS-RAISED",
+        "ask": "Are the planning Reviews raised exactly the ones the request leaves open (no over-clarification)?",
+        "check": "reviews_raised",
+        "spec": {
+          "reviews": [
+            "analysis_recipe"
+          ]
+        },
+        "gate": "graded",
+        "note": null
+      },
+      {
+        "id": "q1",
+        "ask": "Are the three sites kept as three separate scientific_investigation items (known_variant), none dropped, none merged, and no rsID invented for them?",
+        "check": "investigation_items",
+        "spec": {
+          "purpose": "known_variant",
+          "quotes": [
+            "NZ_CP020102.1:2552672 C>G",
+            "NZ_CP020102.1:1702691 G>T",
+            "NZ_CP020102.1:3666050 A>T"
+          ]
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q2",
+        "ask": "Is sample_identity asserted exactly as T30R7_1?",
+        "check": "plan_value",
+        "spec": {
+          "kind": "sample_identity",
+          "state": "asserted",
+          "value": "T30R7_1"
+        },
+        "gate": "hard",
+        "note": null
+      },
+      {
+        "id": "q3",
+        "ask": "Is the verified reference GCF_002055965.1 (not the species reference genome GCF_000009045.1, strain 168)?",
+        "check": "reference_verified",
+        "spec": {
+          "accession": "GCF_002055965.1"
+        },
+        "gate": "hard",
+        "note": null
+      }
+    ],
+    "good_answer": "T30R7_1 / 1423 / GCF_002055965.1 asserted bare; three known_variant items, one site each, no rsIDs; one recipe Review; Execution Review reached.",
+    "bad_answers": [
+      {
+        "summary": "Invents rsIDs for the B. subtilis sites",
+        "must_fail": [
+          "q1",
+          "B-NO-INVENT"
+        ],
+        "label": "fabrication"
+      },
+      {
+        "summary": "Sites 1702691 and 3666050 merged into one 'sibling mutations' item",
+        "must_fail": [
+          "q1"
+        ],
+        "label": "semantic_coverage"
+      },
+      {
+        "summary": "Swaps the reference to the species reference genome GCF_000009045.1 (strain 168)",
+        "must_fail": [
+          "q3",
+          "B-SUPPLIED-KEPT"
+        ],
+        "label": "semantic_binding"
+      }
+    ]
+  }
+}

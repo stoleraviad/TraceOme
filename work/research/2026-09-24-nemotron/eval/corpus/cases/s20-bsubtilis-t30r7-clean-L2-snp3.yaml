@@ -1,0 +1,89 @@
+case_id: c-2b5bee
+version: 1
+state: draft
+family: s20-bsubtilis-t30r7-clean
+scenario: s20-bsubtilis-t30r7          # truth lives in ../scenarios/s20-bsubtilis-t30r7.yaml
+source: {kind: paper, ref: "Nordgaard et al. 2022, iScience 25:104406, doi:10.1016/j.isci.2022.104406", chain: [p19-F1, p19-F11, p19-F12, p19-F17, p19-F9]}
+level: L2
+evidence_shape: clean
+variant_count: 3
+variant_load: small
+split: null
+roles: [proposal_information_planner, reference_identity_planner, reference_facts_planner, investigation_planner]
+knowledge_reference: [p19-F6, p19-F7, p19-F8, p19-F9, p19-F11, p19-F16, p19-F17, p19-F18, p19-F24, p19-F25, p19-F27, p19-F28, p19-F31]
+open: "positional (non-rsID) requests: product support checked at re-anchor"
+
+public:
+  research_request: |
+    Sample T30R7_1, Bacillus subtilis (NCBI Taxonomy 1423), paired-end Illumina reads registered. Reference
+    GCF_002055965.1 with the genomic FASTA. Call variants to a VCF, then tell me whether T30R7_1 carries
+    NZ_CP020102.1:2552672 C>G, NZ_CP020102.1:1702691 G>T and NZ_CP020102.1:3666050 A>T.
+  inspected_inputs:
+    - {role: READ-1, registered_path: reads/run_1.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+    - {role: READ-2, registered_path: reads/run_2.fastq.gz, exists: true, regular_file: true, size_bytes: 1048576}
+
+fixtures:
+  resolve_taxon: [{query: "1423", resolution: resolved, candidates: [{taxon: 1423, name: "Bacillus subtilis", rank: SPECIES}], provenance: "record: captures/s20-bsubtilis-t30r7/datasets_taxonomy_1423.json"}]
+  discover_assemblies: [{taxon: 1423, resolution: shortlist_ready, candidates: [GCF_000009045.1], candidate_names: {GCF_000009045.1: "strain 168, ASM904v1 (species reference genome)"}, provenance: "record: datasets_taxon1423_reference_only.json. The request already names GCF_002055965.1, so discovery is not needed; if run, 168 is not a substitute."}]
+  describe_reference: [{accession: GCF_002055965.1, resolution: verified, name: ASM205596v1, provenance: "record: datasets_GCF_002055965.1.json"}]
+  describe_companions: [{accession: GCF_002055965.1, role: genomic_fasta, outcome: verified}]
+  fetch_assembly_report:
+    - assembly: GCF_002055965.1
+      status: compatible
+      sequences:
+        - {sequence_name: CP020102.1, genbank: CP020102.1, refseq: NZ_CP020102.1, role: assembled-molecule, molecule: Chromosome, length: 4215607}
+        - {sequence_name: pBS32, genbank: CP020103.1, refseq: NZ_CP020103.1, role: assembled-molecule, molecule: Plasmid, length: 84215}
+      provenance: "record: GCF_002055965.1_ASM205596v1_assembly_report.txt"
+scripted_answers:
+  - {field: companion_roles, answer: "companion-role-set:genomic_fasta"}
+
+expectations:
+  today: {outcome: ready, terminal: "investigation:compile_proposal x3", note: "If the product cannot take positional sites today, the case is re-scored at re-anchor (see open)."}
+
+downstream:
+  loop_gold:
+    - {site: "NZ_CP020102.1:2552672 C>G", contig: NZ_CP020102.1, pos: 2552672, ref: C, alt: G, intended_action: observe_variant}
+    - {site: "NZ_CP020102.1:1702691 G>T", contig: NZ_CP020102.1, pos: 1702691, ref: G, alt: T, intended_action: observe_variant}
+    - {site: "NZ_CP020102.1:3666050 A>T", contig: NZ_CP020102.1, pos: 3666050, ref: A, alt: T, intended_action: observe_variant}
+  science_gold:                      # haploid: 1 = carried, 0 = reference (a diploid caller reports 1/1, 0/0)
+    - {site: "NZ_CP020102.1:2552672 C>G", carried: true,  gt: "1", note: "sinI/sinR intergenic, 2 bp before the sinR start; in all population-7 T18/T30 isolates"}
+    - {site: "NZ_CP020102.1:1702691 G>T", carried: false, gt: "0", note: "fliM R326I, sibling isolates Ev6.1 and Ev6.3 (T30) only"}
+    - {site: "NZ_CP020102.1:3666050 A>T", carried: false, gt: "0", note: "gtaB (RefSeq galU) synonymous, Ev1.1 (T30) only"}
+
+scoring_questions:
+  - {ref: B-ATOMIC}
+  - {ref: B-NO-INVENT}
+  - {ref: B-SUPPLIED-KEPT, params: {asserted_kinds: [sample_identity, taxon_identity, reference_assembly_identity, proposal_output]}}
+  - id: q1
+    role: proposal_information_planner
+    ask: "Are the three sites kept as three separate scientific_investigation items (known_variant), none dropped, none merged?"
+    check: set_equal
+    spec: {kind: scientific_investigation, purpose: known_variant, values: ["NZ_CP020102.1:2552672 C>G", "NZ_CP020102.1:1702691 G>T", "NZ_CP020102.1:3666050 A>T"]}
+    gate: hard
+  - id: q2
+    role: investigation_planner
+    ask: "For each site, do contig, position, ref and alt equal loop_gold, with the contig confirmed by fetch_assembly_report (not rewritten as CP020102.1, unversioned NZ_CP020102 or the plasmid NZ_CP020103.1, not shifted by one)?"
+    check: exact_norm
+    spec: {compare: downstream.loop_gold, source: tool_result}
+    gate: hard
+  - id: q3
+    role: investigation_planner
+    ask: "Is no rsID looked up or invented for these sites (B. subtilis has no dbSNP rsIDs)?"
+    check: journey_fact
+    spec: {absent_tools: [fetch_refsnp], absent_patterns: ['rs[0-9]+']}
+    gate: hard
+  - id: q4
+    role: science
+    ask: "Does the called genotype at each site match science_gold (carried / not carried)?"
+    check: exact_norm
+    spec: {compare: downstream.science_gold}
+    gate: graded
+    applies_to: [science_suite]
+
+good_answer: {summary: "T30R7_1 / 1423 / GCF_002055965.1 asserted bare; three known_variant items; each site checked against the assembly report (NZ_CP020102.1, chromosome) and compiled with pos/ref/alt unchanged; no species-reference (168) detour."}
+bad_answers:
+  - {summary: "Contig written as 'NZ_CP020102' (the paper's unversioned form) or 'CP020102.1' (GenBank) instead of NZ_CP020102.1", must_fail: [q2], label: semantic_binding}
+  - {summary: "Invents rsIDs for the B. subtilis sites and calls fetch_refsnp", must_fail: [q3, B-NO-INVENT], label: fabrication}
+  - {summary: "Sites 1702691 and 3666050 merged into one 'sibling mutations' item", must_fail: [q1], label: semantic_coverage}
+  - {summary: "Says 1702691 G>T is carried because the model assumes all T30 isolates lost motility through fliM", must_fail: [q4], label: fabrication}
+review: {solver_disagreements: [], approved_by: null, approved_at: null, frozen_sha256: null, second_review: null, user_verified: null}

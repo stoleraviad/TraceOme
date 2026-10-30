@@ -1,0 +1,5361 @@
+{
+ "_source": "lane M response schemas at BioNeb 88bf87dd, from tools/gui_schemas (mirrors reviews.py _legal_actions)",
+ "agent_effort": {
+  "extend": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "extend",
+     "title": "Action",
+     "type": "string"
+    },
+    "additional_requests": {
+     "exclusiveMinimum": 0,
+     "title": "Additional Requests",
+     "type": "integer"
+    }
+   },
+   "required": [
+    "action",
+    "additional_requests"
+   ],
+   "title": "ExtendAgentEffortResponse",
+   "type": "object"
+  },
+  "stop": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "stop",
+     "title": "Action",
+     "type": "string"
+    },
+    "reason": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Reason",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "reason"
+   ],
+   "title": "StopAgentEffortResponse",
+   "type": "object"
+  }
+ },
+ "agent_work": {
+  "continue": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "continue",
+     "title": "Action",
+     "type": "string"
+    },
+    "failed_turns": {
+     "anyOf": [
+      {
+       "maximum": 20,
+       "minimum": 1,
+       "type": "integer"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Failed Turns"
+    },
+    "instruction": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Instruction"
+    }
+   },
+   "required": [
+    "action"
+   ],
+   "title": "ContinueAgentWorkResponse",
+   "type": "object"
+  },
+  "reject": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "reject",
+     "title": "Action",
+     "type": "string"
+    },
+    "asserted_by": {
+     "minLength": 1,
+     "title": "Asserted By",
+     "type": "string"
+    },
+    "reason": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Reason",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "reason",
+    "asserted_by"
+   ],
+   "title": "RejectAgentWorkResponse",
+   "type": "object"
+  }
+ },
+ "execution": {
+  "approve": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "approve",
+     "title": "Action",
+     "type": "string"
+    },
+    "proposal_id": {
+     "const": "execution-proposal:1111111111111111111111111111111111111111111111111111111111111111",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "proposal_id"
+   ],
+   "type": "object"
+  },
+  "reject": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "reject",
+     "title": "Action",
+     "type": "string"
+    },
+    "proposal_id": {
+     "const": "execution-proposal:1111111111111111111111111111111111111111111111111111111111111111",
+     "type": "string"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    }
+   },
+   "required": [
+    "action",
+    "proposal_id"
+   ],
+   "type": "object"
+  },
+  "revise": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "revise",
+     "title": "Action",
+     "type": "string"
+    },
+    "instruction": {
+     "title": "Instruction",
+     "type": "string"
+    },
+    "proposal_id": {
+     "const": "execution-proposal:1111111111111111111111111111111111111111111111111111111111111111",
+     "type": "string"
+    },
+    "revalidation_scope": {
+     "enum": [
+      "execution_planning",
+      "reference"
+     ],
+     "title": "Revalidation Scope",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "proposal_id",
+    "instruction",
+    "revalidation_scope"
+   ],
+   "type": "object"
+  }
+ },
+ "execution_path": {
+  "abort": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "abort",
+      "approve_cpu_preparation"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "default": null,
+     "title": "Field",
+     "type": "null"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "default": null,
+     "title": "Value",
+     "type": "null"
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "Answered",
+   "type": "object"
+  },
+  "approve_cpu_preparation": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "abort",
+      "approve_cpu_preparation"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "default": null,
+     "title": "Field",
+     "type": "null"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "default": null,
+     "title": "Value",
+     "type": "null"
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "Answered",
+   "type": "object"
+  }
+ },
+ "finalization": {
+  "approve": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "approve",
+     "type": "string"
+    },
+    "basis_digest": {
+     "title": "Basis Digest",
+     "type": "string"
+    },
+    "head_event_id": {
+     "title": "Head Event Id",
+     "type": "string"
+    }
+   },
+   "required": [
+    "basis_digest",
+    "head_event_id",
+    "action"
+   ],
+   "title": "ApproveFinalizationCommand",
+   "type": "object"
+  },
+  "correct": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "correct",
+     "type": "string"
+    },
+    "basis_digest": {
+     "title": "Basis Digest",
+     "type": "string"
+    },
+    "correction_file": {
+     "title": "Correction File",
+     "type": "string"
+    },
+    "head_event_id": {
+     "title": "Head Event Id",
+     "type": "string"
+    }
+   },
+   "required": [
+    "basis_digest",
+    "head_event_id",
+    "correction_file",
+    "action"
+   ],
+   "title": "CorrectFinalizationCommand",
+   "type": "object"
+  },
+  "stop": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "stop",
+     "type": "string"
+    },
+    "basis_digest": {
+     "title": "Basis Digest",
+     "type": "string"
+    },
+    "head_event_id": {
+     "title": "Head Event Id",
+     "type": "string"
+    },
+    "reason_file": {
+     "title": "Reason File",
+     "type": "string"
+    }
+   },
+   "required": [
+    "basis_digest",
+    "head_event_id",
+    "reason_file",
+    "action"
+   ],
+   "title": "StopFinalizationCommand",
+   "type": "object"
+  }
+ },
+ "finalization_files": {
+  "correction_file": {
+   "$defs": {
+    "AddInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "add",
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      }
+     },
+     "required": [
+      "operation",
+      "request"
+     ],
+     "title": "AddInvestigationMember",
+     "type": "object"
+    },
+    "AdjustInvestigationSearch": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "search_adjustment",
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation",
+      "request"
+     ],
+     "title": "AdjustInvestigationSearch",
+     "type": "object"
+    },
+    "AmendInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "amend",
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation",
+      "request"
+     ],
+     "title": "AmendInvestigationMember",
+     "type": "object"
+    },
+    "ClarifyInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "clarify",
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation",
+      "request"
+     ],
+     "title": "ClarifyInvestigationMember",
+     "type": "object"
+    },
+    "ClarifyInvestigationRequest": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "enum": [
+        "clarify_request",
+        "amend_request"
+       ],
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      },
+      "request_member_id": {
+       "pattern": "^request-member:[0-9a-f]{64}$",
+       "title": "Request Member Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "operation",
+      "request_member_id",
+      "request"
+     ],
+     "title": "ClarifyInvestigationRequest",
+     "type": "object"
+    },
+    "CodingChangeDraft": {
+     "additionalProperties": false,
+     "description": "A coding-strand substitution the model types (#473 Q2 a): its CDS position\n(``c.N``), the reference base and the base it becomes.",
+     "properties": {
+      "alt": {
+       "description": "The base it becomes.",
+       "enum": [
+        "A",
+        "C",
+        "G",
+        "T"
+       ],
+       "title": "Alt",
+       "type": "string"
+      },
+      "cds_position": {
+       "description": "The CDS position, N of c.N.",
+       "exclusiveMinimum": 0,
+       "title": "Cds Position",
+       "type": "integer"
+      },
+      "ref": {
+       "description": "The reference base on the coding strand.",
+       "enum": [
+        "A",
+        "C",
+        "G",
+        "T"
+       ],
+       "title": "Ref",
+       "type": "string"
+      }
+     },
+     "required": [
+      "cds_position",
+      "ref",
+      "alt"
+     ],
+     "title": "CodingChangeDraft",
+     "type": "object"
+    },
+    "DeferInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "defer",
+       "title": "Operation",
+       "type": "string"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation"
+     ],
+     "title": "DeferInvestigationMember",
+     "type": "object"
+    },
+    "InvestigationRequestItem": {
+     "additionalProperties": false,
+     "description": "One target as its request states it: its words, the typed target (an rsID, a\nposition, a region or a gene and change), the version its source states, how\nplacement answered it, and who asserts it when that is not the request's own\nasserter (#367). Every optional field is left out when empty.",
+     "properties": {
+      "asserted_by": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Asserted By"
+      },
+      "gene_change": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedChange"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "normalized_question_action": {
+       "default": "observe_variant",
+       "enum": [
+        "observe_variant",
+        "observe_region"
+       ],
+       "title": "Normalized Question Action",
+       "type": "string"
+      },
+      "placement": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/RequestPlacement"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "position": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedPosition"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "region": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedRegion"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "request_text": {
+       "maxLength": 4000,
+       "title": "Request Text",
+       "type": "string"
+      },
+      "rsid": {
+       "anyOf": [
+        {
+         "pattern": "^rs[1-9][0-9]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Rsid"
+      },
+      "stated_assembly": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedAssembly"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      }
+     },
+     "required": [
+      "request_text"
+     ],
+     "title": "InvestigationRequestItem",
+     "type": "object"
+    },
+    "InvestigationRequiredChange": {
+     "additionalProperties": false,
+     "properties": {
+      "action": {
+       "enum": [
+        "add_scientific_fact",
+        "change_source",
+        "change_observation",
+        "change_assessment_or_admission",
+        "change_target_or_question",
+        "new_research"
+       ],
+       "title": "Action",
+       "type": "string"
+      },
+      "description": {
+       "minLength": 1,
+       "title": "Description",
+       "type": "string"
+      }
+     },
+     "required": [
+      "action",
+      "description"
+     ],
+     "title": "InvestigationRequiredChange",
+     "type": "object"
+    },
+    "KeepInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "keep",
+       "title": "Operation",
+       "type": "string"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation"
+     ],
+     "title": "KeepInvestigationMember",
+     "type": "object"
+    },
+    "PlacedPosition": {
+     "additionalProperties": false,
+     "description": "Where placement put a target on the Run's assembly (#367): a position no source\nstates on the Run's version, kept apart from the stated one it came from.",
+     "properties": {
+      "alt": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Alt"
+      },
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "position": {
+       "exclusiveMinimum": 0,
+       "title": "Position",
+       "type": "integer"
+      },
+      "ref": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Ref"
+      }
+     },
+     "required": [
+      "contig",
+      "position"
+     ],
+     "title": "PlacedPosition",
+     "type": "object"
+    },
+    "ProteinChangeDraft": {
+     "additionalProperties": false,
+     "description": "A residue change the model types from the words that state it (#473 Q2 a):\nthe reference residue, its codon number and the residue it becomes, one-letter,\na stop ``*``.",
+     "properties": {
+      "alt": {
+       "description": "The residue it becomes, one-letter; * for a stop (X, Ter, *).",
+       "enum": [
+        "A",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "Y",
+        "*"
+       ],
+       "title": "Alt",
+       "type": "string"
+      },
+      "codon": {
+       "description": "The codon number the change names.",
+       "exclusiveMinimum": 0,
+       "title": "Codon",
+       "type": "integer"
+      },
+      "ref": {
+       "description": "The reference residue, one-letter.",
+       "enum": [
+        "A",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "Y",
+        "*"
+       ],
+       "title": "Ref",
+       "type": "string"
+      }
+     },
+     "required": [
+      "ref",
+      "codon",
+      "alt"
+     ],
+     "title": "ProteinChangeDraft",
+     "type": "object"
+    },
+    "RemoveInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "remove",
+       "title": "Operation",
+       "type": "string"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation"
+     ],
+     "title": "RemoveInvestigationMember",
+     "type": "object"
+    },
+    "RequestPlacement": {
+     "additionalProperties": false,
+     "description": "How placement answered one target (#367): the step that placed it, the written\nversion name that matched (the source's own, or another name it writes for that\nversion), the placed position on the Run's assembly and why. A target no step\nplaced has step ``none``, no position, and its reason.",
+     "properties": {
+      "matched_name": {
+       "anyOf": [
+        {
+         "maxLength": 200,
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Matched Name"
+      },
+      "position": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/PlacedPosition"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "reason": {
+       "maxLength": 1500,
+       "minLength": 1,
+       "title": "Reason",
+       "type": "string"
+      },
+      "step": {
+       "enum": [
+        "same_version",
+        "table",
+        "database_equivalence",
+        "flank_alignment",
+        "gene_change",
+        "none"
+       ],
+       "title": "Step",
+       "type": "string"
+      }
+     },
+     "required": [
+      "step",
+      "reason"
+     ],
+     "title": "RequestPlacement",
+     "type": "object"
+    },
+    "RetryInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "retry",
+       "title": "Operation",
+       "type": "string"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation"
+     ],
+     "title": "RetryInvestigationMember",
+     "type": "object"
+    },
+    "ReviseInvestigationResponse": {
+     "additionalProperties": false,
+     "properties": {
+      "action": {
+       "const": "revise",
+       "title": "Action",
+       "type": "string"
+      },
+      "asserted_by": {
+       "title": "Asserted By",
+       "type": "string"
+      },
+      "operations": {
+       "items": {
+        "discriminator": {
+         "mapping": {
+          "add": "#/$defs/AddInvestigationMember",
+          "amend": "#/$defs/AmendInvestigationMember",
+          "amend_request": "#/$defs/ClarifyInvestigationRequest",
+          "clarify": "#/$defs/ClarifyInvestigationMember",
+          "clarify_request": "#/$defs/ClarifyInvestigationRequest",
+          "defer": "#/$defs/DeferInvestigationMember",
+          "keep": "#/$defs/KeepInvestigationMember",
+          "remove": "#/$defs/RemoveInvestigationMember",
+          "retry": "#/$defs/RetryInvestigationMember",
+          "search_adjustment": "#/$defs/AdjustInvestigationSearch"
+         },
+         "propertyName": "operation"
+        },
+        "oneOf": [
+         {
+          "$ref": "#/$defs/KeepInvestigationMember"
+         },
+         {
+          "$ref": "#/$defs/RetryInvestigationMember"
+         },
+         {
+          "$ref": "#/$defs/AddInvestigationMember"
+         },
+         {
+          "$ref": "#/$defs/AmendInvestigationMember"
+         },
+         {
+          "$ref": "#/$defs/RemoveInvestigationMember"
+         },
+         {
+          "$ref": "#/$defs/DeferInvestigationMember"
+         },
+         {
+          "$ref": "#/$defs/ClarifyInvestigationMember"
+         },
+         {
+          "$ref": "#/$defs/AdjustInvestigationSearch"
+         },
+         {
+          "$ref": "#/$defs/ClarifyInvestigationRequest"
+         }
+        ]
+       },
+       "minItems": 1,
+       "title": "Operations",
+       "type": "array"
+      },
+      "proposal_id": {
+       "pattern": "^investigation-proposal:[0-9a-f]{64}$",
+       "title": "Proposal Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "action",
+      "proposal_id",
+      "asserted_by",
+      "operations"
+     ],
+     "title": "ReviseInvestigationResponse",
+     "type": "object"
+    },
+    "SetReportMembershipChange": {
+     "additionalProperties": false,
+     "properties": {
+      "action": {
+       "const": "set_report_membership",
+       "default": "set_report_membership",
+       "title": "Action",
+       "type": "string"
+      },
+      "included": {
+       "title": "Included",
+       "type": "boolean"
+      },
+      "member_id": {
+       "title": "Member Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "member_id",
+      "included"
+     ],
+     "title": "SetReportMembershipChange",
+     "type": "object"
+    },
+    "StatedAssembly": {
+     "additionalProperties": false,
+     "description": "The genome version a request's source states, and the line that states it.",
+     "properties": {
+      "cited_line": {
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Cited Line",
+       "type": "string"
+      },
+      "name": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Name",
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "cited_line"
+     ],
+     "title": "StatedAssembly",
+     "type": "object"
+    },
+    "StatedChange": {
+     "additionalProperties": false,
+     "description": "A gene and the change a source writes for it: ``PBP2 (Y127X)`` is gene ``PBP2``\nand change ``Y127X``, as written (G15's claim, #376). The model types the change\nfrom the words (#473 Q2 a): its transcript when one is written, and a protein\nchange, a coding change or both. Code reads nothing out of ``change``; a change\nwith neither typed part is untyped, as a paper's change stays until #383.",
+     "properties": {
+      "change": {
+       "description": "The change exactly as the words write it, e.g. V600E or c.1799T>A.",
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Change",
+       "type": "string"
+      },
+      "coding": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/CodingChangeDraft"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "The coding change the words write, typed."
+      },
+      "gene": {
+       "description": "The gene symbol exactly as the words write it.",
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Gene",
+       "type": "string"
+      },
+      "protein": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/ProteinChangeDraft"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "The protein change the words write, typed."
+      },
+      "transcript": {
+       "anyOf": [
+        {
+         "maxLength": 200,
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "Optional. The transcript accession the words write, as written.",
+       "title": "Transcript"
+      }
+     },
+     "required": [
+      "gene",
+      "change"
+     ],
+     "title": "StatedChange",
+     "type": "object"
+    },
+    "StatedPosition": {
+     "additionalProperties": false,
+     "description": "Where a request's source places its target, on the version it states: a\nsequence as the request names it, a one-based position and, when stated, the\nalleles in VCF form (#369).\n\nThe sequence keeps the request's own name (\"chr11\", \"NC_000011.10\"); naming it\non the Run's assembly is the location lookup's. No coordinates are mapped\nbetween versions here: a position placement, or its lookup (#462 R2), moved is a\n`PlacedPosition`.",
+     "properties": {
+      "alt": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Alt"
+      },
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "position": {
+       "exclusiveMinimum": 0,
+       "title": "Position",
+       "type": "integer"
+      },
+      "ref": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Ref"
+      }
+     },
+     "required": [
+      "contig",
+      "position"
+     ],
+     "title": "StatedPosition",
+     "type": "object"
+    },
+    "StatedRegion": {
+     "additionalProperties": false,
+     "description": "A stretch of one sequence a request names (#367, from #377): the sequence as\nnamed and its first and last one-based positions. Every VCF record in it is its\nown outcome.",
+     "properties": {
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "end": {
+       "exclusiveMinimum": 0,
+       "title": "End",
+       "type": "integer"
+      },
+      "start": {
+       "exclusiveMinimum": 0,
+       "title": "Start",
+       "type": "integer"
+      }
+     },
+     "required": [
+      "contig",
+      "start",
+      "end"
+     ],
+     "title": "StatedRegion",
+     "type": "object"
+    }
+   },
+   "additionalProperties": false,
+   "properties": {
+    "asserted_by": {
+     "minLength": 1,
+     "title": "Asserted By",
+     "type": "string"
+    },
+    "investigation_revision": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/ReviseInvestigationResponse"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "reason": {
+     "minLength": 1,
+     "title": "Reason",
+     "type": "string"
+    },
+    "requested_changes": {
+     "items": {
+      "discriminator": {
+       "mapping": {
+        "add_scientific_fact": "#/$defs/InvestigationRequiredChange",
+        "change_assessment_or_admission": "#/$defs/InvestigationRequiredChange",
+        "change_observation": "#/$defs/InvestigationRequiredChange",
+        "change_source": "#/$defs/InvestigationRequiredChange",
+        "change_target_or_question": "#/$defs/InvestigationRequiredChange",
+        "new_research": "#/$defs/InvestigationRequiredChange",
+        "set_report_membership": "#/$defs/SetReportMembershipChange"
+       },
+       "propertyName": "action"
+      },
+      "oneOf": [
+       {
+        "$ref": "#/$defs/SetReportMembershipChange"
+       },
+       {
+        "$ref": "#/$defs/InvestigationRequiredChange"
+       }
+      ]
+     },
+     "minItems": 1,
+     "title": "Requested Changes",
+     "type": "array"
+    },
+    "schema_version": {
+     "const": "bio-neb.finalization-correction/1",
+     "default": "bio-neb.finalization-correction/1",
+     "title": "Schema Version",
+     "type": "string"
+    }
+   },
+   "required": [
+    "asserted_by",
+    "reason",
+    "requested_changes"
+   ],
+   "title": "FinalizationCorrectionAssertion",
+   "type": "object"
+  },
+  "reason_file": {
+   "additionalProperties": false,
+   "properties": {
+    "asserted_by": {
+     "minLength": 1,
+     "title": "Asserted By",
+     "type": "string"
+    },
+    "reason": {
+     "minLength": 1,
+     "title": "Reason",
+     "type": "string"
+    },
+    "schema_version": {
+     "const": "bio-neb.finalization-stop/1",
+     "default": "bio-neb.finalization-stop/1",
+     "title": "Schema Version",
+     "type": "string"
+    }
+   },
+   "required": [
+    "asserted_by",
+    "reason"
+   ],
+   "title": "FinalizationStopAssertion",
+   "type": "object"
+  }
+ },
+ "input": {
+  "abort": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  },
+  "amend": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  },
+  "retry": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  }
+ },
+ "investigation": {
+  "approve": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "approve",
+     "title": "Action",
+     "type": "string"
+    },
+    "proposal_id": {
+     "pattern": "^investigation-proposal:[0-9a-f]{64}$",
+     "title": "Proposal Id",
+     "type": "string"
+    },
+    "work_item_ids": {
+     "anyOf": [
+      {
+       "items": {
+        "type": "string"
+       },
+       "minItems": 1,
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Work Item Ids"
+    }
+   },
+   "required": [
+    "action",
+    "proposal_id"
+   ],
+   "title": "ApproveInvestigationResponse",
+   "type": "object"
+  },
+  "clarify": {
+   "$defs": {
+    "CodingChangeDraft": {
+     "additionalProperties": false,
+     "description": "A coding-strand substitution the model types (#473 Q2 a): its CDS position\n(``c.N``), the reference base and the base it becomes.",
+     "properties": {
+      "alt": {
+       "description": "The base it becomes.",
+       "enum": [
+        "A",
+        "C",
+        "G",
+        "T"
+       ],
+       "title": "Alt",
+       "type": "string"
+      },
+      "cds_position": {
+       "description": "The CDS position, N of c.N.",
+       "exclusiveMinimum": 0,
+       "title": "Cds Position",
+       "type": "integer"
+      },
+      "ref": {
+       "description": "The reference base on the coding strand.",
+       "enum": [
+        "A",
+        "C",
+        "G",
+        "T"
+       ],
+       "title": "Ref",
+       "type": "string"
+      }
+     },
+     "required": [
+      "cds_position",
+      "ref",
+      "alt"
+     ],
+     "title": "CodingChangeDraft",
+     "type": "object"
+    },
+    "ProteinChangeDraft": {
+     "additionalProperties": false,
+     "description": "A residue change the model types from the words that state it (#473 Q2 a):\nthe reference residue, its codon number and the residue it becomes, one-letter,\na stop ``*``.",
+     "properties": {
+      "alt": {
+       "description": "The residue it becomes, one-letter; * for a stop (X, Ter, *).",
+       "enum": [
+        "A",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "Y",
+        "*"
+       ],
+       "title": "Alt",
+       "type": "string"
+      },
+      "codon": {
+       "description": "The codon number the change names.",
+       "exclusiveMinimum": 0,
+       "title": "Codon",
+       "type": "integer"
+      },
+      "ref": {
+       "description": "The reference residue, one-letter.",
+       "enum": [
+        "A",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "Y",
+        "*"
+       ],
+       "title": "Ref",
+       "type": "string"
+      }
+     },
+     "required": [
+      "ref",
+      "codon",
+      "alt"
+     ],
+     "title": "ProteinChangeDraft",
+     "type": "object"
+    },
+    "StatedAssembly": {
+     "additionalProperties": false,
+     "description": "The genome version a request's source states, and the line that states it.",
+     "properties": {
+      "cited_line": {
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Cited Line",
+       "type": "string"
+      },
+      "name": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Name",
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "cited_line"
+     ],
+     "title": "StatedAssembly",
+     "type": "object"
+    },
+    "StatedChange": {
+     "additionalProperties": false,
+     "description": "A gene and the change a source writes for it: ``PBP2 (Y127X)`` is gene ``PBP2``\nand change ``Y127X``, as written (G15's claim, #376). The model types the change\nfrom the words (#473 Q2 a): its transcript when one is written, and a protein\nchange, a coding change or both. Code reads nothing out of ``change``; a change\nwith neither typed part is untyped, as a paper's change stays until #383.",
+     "properties": {
+      "change": {
+       "description": "The change exactly as the words write it, e.g. V600E or c.1799T>A.",
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Change",
+       "type": "string"
+      },
+      "coding": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/CodingChangeDraft"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "The coding change the words write, typed."
+      },
+      "gene": {
+       "description": "The gene symbol exactly as the words write it.",
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Gene",
+       "type": "string"
+      },
+      "protein": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/ProteinChangeDraft"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "The protein change the words write, typed."
+      },
+      "transcript": {
+       "anyOf": [
+        {
+         "maxLength": 200,
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "Optional. The transcript accession the words write, as written.",
+       "title": "Transcript"
+      }
+     },
+     "required": [
+      "gene",
+      "change"
+     ],
+     "title": "StatedChange",
+     "type": "object"
+    },
+    "StatedPosition": {
+     "additionalProperties": false,
+     "description": "Where a request's source places its target, on the version it states: a\nsequence as the request names it, a one-based position and, when stated, the\nalleles in VCF form (#369).\n\nThe sequence keeps the request's own name (\"chr11\", \"NC_000011.10\"); naming it\non the Run's assembly is the location lookup's. No coordinates are mapped\nbetween versions here: a position placement, or its lookup (#462 R2), moved is a\n`PlacedPosition`.",
+     "properties": {
+      "alt": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Alt"
+      },
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "position": {
+       "exclusiveMinimum": 0,
+       "title": "Position",
+       "type": "integer"
+      },
+      "ref": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Ref"
+      }
+     },
+     "required": [
+      "contig",
+      "position"
+     ],
+     "title": "StatedPosition",
+     "type": "object"
+    },
+    "StatedRegion": {
+     "additionalProperties": false,
+     "description": "A stretch of one sequence a request names (#367, from #377): the sequence as\nnamed and its first and last one-based positions. Every VCF record in it is its\nown outcome.",
+     "properties": {
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "end": {
+       "exclusiveMinimum": 0,
+       "title": "End",
+       "type": "integer"
+      },
+      "start": {
+       "exclusiveMinimum": 0,
+       "title": "Start",
+       "type": "integer"
+      }
+     },
+     "required": [
+      "contig",
+      "start",
+      "end"
+     ],
+     "title": "StatedRegion",
+     "type": "object"
+    },
+    "StatedTarget": {
+     "additionalProperties": false,
+     "description": "A typed target: what a request or an amend states (#369): an rsID, a position, or\nboth; in a ``/3`` request also a region or a gene and change (#367). Prose never\nstates one.",
+     "properties": {
+      "gene_change": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedChange"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "position": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedPosition"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "region": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedRegion"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "rsid": {
+       "anyOf": [
+        {
+         "pattern": "^rs[1-9][0-9]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Rsid"
+      }
+     },
+     "title": "StatedTarget",
+     "type": "object"
+    }
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "clarify",
+     "title": "Action",
+     "type": "string"
+    },
+    "asserted_by": {
+     "minLength": 1,
+     "title": "Asserted By",
+     "type": "string"
+    },
+    "collection_member_id": {
+     "title": "Collection Member Id",
+     "type": "string"
+    },
+    "instruction": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Instruction",
+     "type": "string"
+    },
+    "revision_number": {
+     "exclusiveMinimum": 0,
+     "title": "Revision Number",
+     "type": "integer"
+    },
+    "stated_assembly": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/StatedAssembly"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "target": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/StatedTarget"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    }
+   },
+   "required": [
+    "action",
+    "collection_member_id",
+    "revision_number",
+    "instruction",
+    "asserted_by"
+   ],
+   "title": "ClarifyInvestigationResponse",
+   "type": "object"
+  },
+  "reject": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "reject",
+     "title": "Action",
+     "type": "string"
+    },
+    "asserted_by": {
+     "minLength": 1,
+     "title": "Asserted By",
+     "type": "string"
+    },
+    "collection_member_id": {
+     "title": "Collection Member Id",
+     "type": "string"
+    },
+    "reason": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Reason",
+     "type": "string"
+    },
+    "revision_number": {
+     "exclusiveMinimum": 0,
+     "title": "Revision Number",
+     "type": "integer"
+    }
+   },
+   "required": [
+    "action",
+    "collection_member_id",
+    "revision_number",
+    "reason",
+    "asserted_by"
+   ],
+   "title": "RejectInvestigationResponse",
+   "type": "object"
+  },
+  "revise": {
+   "$defs": {
+    "AddInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "add",
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      }
+     },
+     "required": [
+      "operation",
+      "request"
+     ],
+     "title": "AddInvestigationMember",
+     "type": "object"
+    },
+    "AdjustInvestigationSearch": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "search_adjustment",
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation",
+      "request"
+     ],
+     "title": "AdjustInvestigationSearch",
+     "type": "object"
+    },
+    "AmendInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "amend",
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation",
+      "request"
+     ],
+     "title": "AmendInvestigationMember",
+     "type": "object"
+    },
+    "ClarifyInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "clarify",
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation",
+      "request"
+     ],
+     "title": "ClarifyInvestigationMember",
+     "type": "object"
+    },
+    "ClarifyInvestigationRequest": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "enum": [
+        "clarify_request",
+        "amend_request"
+       ],
+       "title": "Operation",
+       "type": "string"
+      },
+      "request": {
+       "$ref": "#/$defs/InvestigationRequestItem"
+      },
+      "request_member_id": {
+       "pattern": "^request-member:[0-9a-f]{64}$",
+       "title": "Request Member Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "operation",
+      "request_member_id",
+      "request"
+     ],
+     "title": "ClarifyInvestigationRequest",
+     "type": "object"
+    },
+    "CodingChangeDraft": {
+     "additionalProperties": false,
+     "description": "A coding-strand substitution the model types (#473 Q2 a): its CDS position\n(``c.N``), the reference base and the base it becomes.",
+     "properties": {
+      "alt": {
+       "description": "The base it becomes.",
+       "enum": [
+        "A",
+        "C",
+        "G",
+        "T"
+       ],
+       "title": "Alt",
+       "type": "string"
+      },
+      "cds_position": {
+       "description": "The CDS position, N of c.N.",
+       "exclusiveMinimum": 0,
+       "title": "Cds Position",
+       "type": "integer"
+      },
+      "ref": {
+       "description": "The reference base on the coding strand.",
+       "enum": [
+        "A",
+        "C",
+        "G",
+        "T"
+       ],
+       "title": "Ref",
+       "type": "string"
+      }
+     },
+     "required": [
+      "cds_position",
+      "ref",
+      "alt"
+     ],
+     "title": "CodingChangeDraft",
+     "type": "object"
+    },
+    "DeferInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "defer",
+       "title": "Operation",
+       "type": "string"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation"
+     ],
+     "title": "DeferInvestigationMember",
+     "type": "object"
+    },
+    "InvestigationRequestItem": {
+     "additionalProperties": false,
+     "description": "One target as its request states it: its words, the typed target (an rsID, a\nposition, a region or a gene and change), the version its source states, how\nplacement answered it, and who asserts it when that is not the request's own\nasserter (#367). Every optional field is left out when empty.",
+     "properties": {
+      "asserted_by": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Asserted By"
+      },
+      "gene_change": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedChange"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "normalized_question_action": {
+       "default": "observe_variant",
+       "enum": [
+        "observe_variant",
+        "observe_region"
+       ],
+       "title": "Normalized Question Action",
+       "type": "string"
+      },
+      "placement": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/RequestPlacement"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "position": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedPosition"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "region": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedRegion"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "request_text": {
+       "maxLength": 4000,
+       "title": "Request Text",
+       "type": "string"
+      },
+      "rsid": {
+       "anyOf": [
+        {
+         "pattern": "^rs[1-9][0-9]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Rsid"
+      },
+      "stated_assembly": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedAssembly"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      }
+     },
+     "required": [
+      "request_text"
+     ],
+     "title": "InvestigationRequestItem",
+     "type": "object"
+    },
+    "KeepInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "keep",
+       "title": "Operation",
+       "type": "string"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation"
+     ],
+     "title": "KeepInvestigationMember",
+     "type": "object"
+    },
+    "PlacedPosition": {
+     "additionalProperties": false,
+     "description": "Where placement put a target on the Run's assembly (#367): a position no source\nstates on the Run's version, kept apart from the stated one it came from.",
+     "properties": {
+      "alt": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Alt"
+      },
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "position": {
+       "exclusiveMinimum": 0,
+       "title": "Position",
+       "type": "integer"
+      },
+      "ref": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Ref"
+      }
+     },
+     "required": [
+      "contig",
+      "position"
+     ],
+     "title": "PlacedPosition",
+     "type": "object"
+    },
+    "ProteinChangeDraft": {
+     "additionalProperties": false,
+     "description": "A residue change the model types from the words that state it (#473 Q2 a):\nthe reference residue, its codon number and the residue it becomes, one-letter,\na stop ``*``.",
+     "properties": {
+      "alt": {
+       "description": "The residue it becomes, one-letter; * for a stop (X, Ter, *).",
+       "enum": [
+        "A",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "Y",
+        "*"
+       ],
+       "title": "Alt",
+       "type": "string"
+      },
+      "codon": {
+       "description": "The codon number the change names.",
+       "exclusiveMinimum": 0,
+       "title": "Codon",
+       "type": "integer"
+      },
+      "ref": {
+       "description": "The reference residue, one-letter.",
+       "enum": [
+        "A",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "Y",
+        "*"
+       ],
+       "title": "Ref",
+       "type": "string"
+      }
+     },
+     "required": [
+      "ref",
+      "codon",
+      "alt"
+     ],
+     "title": "ProteinChangeDraft",
+     "type": "object"
+    },
+    "RemoveInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "remove",
+       "title": "Operation",
+       "type": "string"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation"
+     ],
+     "title": "RemoveInvestigationMember",
+     "type": "object"
+    },
+    "RequestPlacement": {
+     "additionalProperties": false,
+     "description": "How placement answered one target (#367): the step that placed it, the written\nversion name that matched (the source's own, or another name it writes for that\nversion), the placed position on the Run's assembly and why. A target no step\nplaced has step ``none``, no position, and its reason.",
+     "properties": {
+      "matched_name": {
+       "anyOf": [
+        {
+         "maxLength": 200,
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Matched Name"
+      },
+      "position": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/PlacedPosition"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "reason": {
+       "maxLength": 1500,
+       "minLength": 1,
+       "title": "Reason",
+       "type": "string"
+      },
+      "step": {
+       "enum": [
+        "same_version",
+        "table",
+        "database_equivalence",
+        "flank_alignment",
+        "gene_change",
+        "none"
+       ],
+       "title": "Step",
+       "type": "string"
+      }
+     },
+     "required": [
+      "step",
+      "reason"
+     ],
+     "title": "RequestPlacement",
+     "type": "object"
+    },
+    "RetryInvestigationMember": {
+     "additionalProperties": false,
+     "properties": {
+      "operation": {
+       "const": "retry",
+       "title": "Operation",
+       "type": "string"
+      },
+      "work_item_id": {
+       "pattern": "^work-item:[0-9a-f]{64}$",
+       "title": "Work Item Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "work_item_id",
+      "operation"
+     ],
+     "title": "RetryInvestigationMember",
+     "type": "object"
+    },
+    "StatedAssembly": {
+     "additionalProperties": false,
+     "description": "The genome version a request's source states, and the line that states it.",
+     "properties": {
+      "cited_line": {
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Cited Line",
+       "type": "string"
+      },
+      "name": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Name",
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "cited_line"
+     ],
+     "title": "StatedAssembly",
+     "type": "object"
+    },
+    "StatedChange": {
+     "additionalProperties": false,
+     "description": "A gene and the change a source writes for it: ``PBP2 (Y127X)`` is gene ``PBP2``\nand change ``Y127X``, as written (G15's claim, #376). The model types the change\nfrom the words (#473 Q2 a): its transcript when one is written, and a protein\nchange, a coding change or both. Code reads nothing out of ``change``; a change\nwith neither typed part is untyped, as a paper's change stays until #383.",
+     "properties": {
+      "change": {
+       "description": "The change exactly as the words write it, e.g. V600E or c.1799T>A.",
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Change",
+       "type": "string"
+      },
+      "coding": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/CodingChangeDraft"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "The coding change the words write, typed."
+      },
+      "gene": {
+       "description": "The gene symbol exactly as the words write it.",
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Gene",
+       "type": "string"
+      },
+      "protein": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/ProteinChangeDraft"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "The protein change the words write, typed."
+      },
+      "transcript": {
+       "anyOf": [
+        {
+         "maxLength": 200,
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "Optional. The transcript accession the words write, as written.",
+       "title": "Transcript"
+      }
+     },
+     "required": [
+      "gene",
+      "change"
+     ],
+     "title": "StatedChange",
+     "type": "object"
+    },
+    "StatedPosition": {
+     "additionalProperties": false,
+     "description": "Where a request's source places its target, on the version it states: a\nsequence as the request names it, a one-based position and, when stated, the\nalleles in VCF form (#369).\n\nThe sequence keeps the request's own name (\"chr11\", \"NC_000011.10\"); naming it\non the Run's assembly is the location lookup's. No coordinates are mapped\nbetween versions here: a position placement, or its lookup (#462 R2), moved is a\n`PlacedPosition`.",
+     "properties": {
+      "alt": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Alt"
+      },
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "position": {
+       "exclusiveMinimum": 0,
+       "title": "Position",
+       "type": "integer"
+      },
+      "ref": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Ref"
+      }
+     },
+     "required": [
+      "contig",
+      "position"
+     ],
+     "title": "StatedPosition",
+     "type": "object"
+    },
+    "StatedRegion": {
+     "additionalProperties": false,
+     "description": "A stretch of one sequence a request names (#367, from #377): the sequence as\nnamed and its first and last one-based positions. Every VCF record in it is its\nown outcome.",
+     "properties": {
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "end": {
+       "exclusiveMinimum": 0,
+       "title": "End",
+       "type": "integer"
+      },
+      "start": {
+       "exclusiveMinimum": 0,
+       "title": "Start",
+       "type": "integer"
+      }
+     },
+     "required": [
+      "contig",
+      "start",
+      "end"
+     ],
+     "title": "StatedRegion",
+     "type": "object"
+    }
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "revise",
+     "title": "Action",
+     "type": "string"
+    },
+    "asserted_by": {
+     "title": "Asserted By",
+     "type": "string"
+    },
+    "operations": {
+     "items": {
+      "discriminator": {
+       "mapping": {
+        "add": "#/$defs/AddInvestigationMember",
+        "amend": "#/$defs/AmendInvestigationMember",
+        "amend_request": "#/$defs/ClarifyInvestigationRequest",
+        "clarify": "#/$defs/ClarifyInvestigationMember",
+        "clarify_request": "#/$defs/ClarifyInvestigationRequest",
+        "defer": "#/$defs/DeferInvestigationMember",
+        "keep": "#/$defs/KeepInvestigationMember",
+        "remove": "#/$defs/RemoveInvestigationMember",
+        "retry": "#/$defs/RetryInvestigationMember",
+        "search_adjustment": "#/$defs/AdjustInvestigationSearch"
+       },
+       "propertyName": "operation"
+      },
+      "oneOf": [
+       {
+        "$ref": "#/$defs/KeepInvestigationMember"
+       },
+       {
+        "$ref": "#/$defs/RetryInvestigationMember"
+       },
+       {
+        "$ref": "#/$defs/AddInvestigationMember"
+       },
+       {
+        "$ref": "#/$defs/AmendInvestigationMember"
+       },
+       {
+        "$ref": "#/$defs/RemoveInvestigationMember"
+       },
+       {
+        "$ref": "#/$defs/DeferInvestigationMember"
+       },
+       {
+        "$ref": "#/$defs/ClarifyInvestigationMember"
+       },
+       {
+        "$ref": "#/$defs/AdjustInvestigationSearch"
+       },
+       {
+        "$ref": "#/$defs/ClarifyInvestigationRequest"
+       }
+      ]
+     },
+     "minItems": 1,
+     "title": "Operations",
+     "type": "array"
+    },
+    "proposal_id": {
+     "pattern": "^investigation-proposal:[0-9a-f]{64}$",
+     "title": "Proposal Id",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "proposal_id",
+    "asserted_by",
+    "operations"
+   ],
+   "title": "ReviseInvestigationResponse",
+   "type": "object"
+  },
+  "stop": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "stop",
+     "title": "Action",
+     "type": "string"
+    },
+    "proposal_id": {
+     "pattern": "^investigation-proposal:[0-9a-f]{64}$",
+     "title": "Proposal Id",
+     "type": "string"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    }
+   },
+   "required": [
+    "action",
+    "proposal_id"
+   ],
+   "title": "StopInvestigationResponse",
+   "type": "object"
+  }
+ },
+ "investigation_download": {
+  "abort": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  },
+  "retry": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  }
+ },
+ "investigation_finding": {
+  "amend": {
+   "$defs": {
+    "CodingChangeDraft": {
+     "additionalProperties": false,
+     "description": "A coding-strand substitution the model types (#473 Q2 a): its CDS position\n(``c.N``), the reference base and the base it becomes.",
+     "properties": {
+      "alt": {
+       "description": "The base it becomes.",
+       "enum": [
+        "A",
+        "C",
+        "G",
+        "T"
+       ],
+       "title": "Alt",
+       "type": "string"
+      },
+      "cds_position": {
+       "description": "The CDS position, N of c.N.",
+       "exclusiveMinimum": 0,
+       "title": "Cds Position",
+       "type": "integer"
+      },
+      "ref": {
+       "description": "The reference base on the coding strand.",
+       "enum": [
+        "A",
+        "C",
+        "G",
+        "T"
+       ],
+       "title": "Ref",
+       "type": "string"
+      }
+     },
+     "required": [
+      "cds_position",
+      "ref",
+      "alt"
+     ],
+     "title": "CodingChangeDraft",
+     "type": "object"
+    },
+    "ProteinChangeDraft": {
+     "additionalProperties": false,
+     "description": "A residue change the model types from the words that state it (#473 Q2 a):\nthe reference residue, its codon number and the residue it becomes, one-letter,\na stop ``*``.",
+     "properties": {
+      "alt": {
+       "description": "The residue it becomes, one-letter; * for a stop (X, Ter, *).",
+       "enum": [
+        "A",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "Y",
+        "*"
+       ],
+       "title": "Alt",
+       "type": "string"
+      },
+      "codon": {
+       "description": "The codon number the change names.",
+       "exclusiveMinimum": 0,
+       "title": "Codon",
+       "type": "integer"
+      },
+      "ref": {
+       "description": "The reference residue, one-letter.",
+       "enum": [
+        "A",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "M",
+        "N",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "Y",
+        "*"
+       ],
+       "title": "Ref",
+       "type": "string"
+      }
+     },
+     "required": [
+      "ref",
+      "codon",
+      "alt"
+     ],
+     "title": "ProteinChangeDraft",
+     "type": "object"
+    },
+    "StatedAssembly": {
+     "additionalProperties": false,
+     "description": "The genome version a request's source states, and the line that states it.",
+     "properties": {
+      "cited_line": {
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Cited Line",
+       "type": "string"
+      },
+      "name": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Name",
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "cited_line"
+     ],
+     "title": "StatedAssembly",
+     "type": "object"
+    },
+    "StatedChange": {
+     "additionalProperties": false,
+     "description": "A gene and the change a source writes for it: ``PBP2 (Y127X)`` is gene ``PBP2``\nand change ``Y127X``, as written (G15's claim, #376). The model types the change\nfrom the words (#473 Q2 a): its transcript when one is written, and a protein\nchange, a coding change or both. Code reads nothing out of ``change``; a change\nwith neither typed part is untyped, as a paper's change stays until #383.",
+     "properties": {
+      "change": {
+       "description": "The change exactly as the words write it, e.g. V600E or c.1799T>A.",
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Change",
+       "type": "string"
+      },
+      "coding": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/CodingChangeDraft"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "The coding change the words write, typed."
+      },
+      "gene": {
+       "description": "The gene symbol exactly as the words write it.",
+       "maxLength": 4000,
+       "minLength": 1,
+       "title": "Gene",
+       "type": "string"
+      },
+      "protein": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/ProteinChangeDraft"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "The protein change the words write, typed."
+      },
+      "transcript": {
+       "anyOf": [
+        {
+         "maxLength": 200,
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "description": "Optional. The transcript accession the words write, as written.",
+       "title": "Transcript"
+      }
+     },
+     "required": [
+      "gene",
+      "change"
+     ],
+     "title": "StatedChange",
+     "type": "object"
+    },
+    "StatedPosition": {
+     "additionalProperties": false,
+     "description": "Where a request's source places its target, on the version it states: a\nsequence as the request names it, a one-based position and, when stated, the\nalleles in VCF form (#369).\n\nThe sequence keeps the request's own name (\"chr11\", \"NC_000011.10\"); naming it\non the Run's assembly is the location lookup's. No coordinates are mapped\nbetween versions here: a position placement, or its lookup (#462 R2), moved is a\n`PlacedPosition`.",
+     "properties": {
+      "alt": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Alt"
+      },
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "position": {
+       "exclusiveMinimum": 0,
+       "title": "Position",
+       "type": "integer"
+      },
+      "ref": {
+       "anyOf": [
+        {
+         "pattern": "^[ACGTN]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Ref"
+      }
+     },
+     "required": [
+      "contig",
+      "position"
+     ],
+     "title": "StatedPosition",
+     "type": "object"
+    },
+    "StatedRegion": {
+     "additionalProperties": false,
+     "description": "A stretch of one sequence a request names (#367, from #377): the sequence as\nnamed and its first and last one-based positions. Every VCF record in it is its\nown outcome.",
+     "properties": {
+      "contig": {
+       "maxLength": 200,
+       "minLength": 1,
+       "title": "Contig",
+       "type": "string"
+      },
+      "end": {
+       "exclusiveMinimum": 0,
+       "title": "End",
+       "type": "integer"
+      },
+      "start": {
+       "exclusiveMinimum": 0,
+       "title": "Start",
+       "type": "integer"
+      }
+     },
+     "required": [
+      "contig",
+      "start",
+      "end"
+     ],
+     "title": "StatedRegion",
+     "type": "object"
+    },
+    "StatedTarget": {
+     "additionalProperties": false,
+     "description": "A typed target: what a request or an amend states (#369): an rsID, a position, or\nboth; in a ``/3`` request also a region or a gene and change (#367). Prose never\nstates one.",
+     "properties": {
+      "gene_change": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedChange"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "position": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedPosition"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "region": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/StatedRegion"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "rsid": {
+       "anyOf": [
+        {
+         "pattern": "^rs[1-9][0-9]*$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Rsid"
+      }
+     },
+     "title": "StatedTarget",
+     "type": "object"
+    }
+   },
+   "additionalProperties": false,
+   "description": "Amend one member's issue finding: its instruction sends that member back.",
+   "properties": {
+    "action": {
+     "const": "amend",
+     "title": "Action",
+     "type": "string"
+    },
+    "asserted_by": {
+     "minLength": 1,
+     "title": "Asserted By",
+     "type": "string"
+    },
+    "collection_member_id": {
+     "title": "Collection Member Id",
+     "type": "string"
+    },
+    "instruction": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Instruction",
+     "type": "string"
+    },
+    "revision_number": {
+     "exclusiveMinimum": 0,
+     "title": "Revision Number",
+     "type": "integer"
+    },
+    "stated_assembly": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/StatedAssembly"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "target": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/StatedTarget"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    }
+   },
+   "required": [
+    "action",
+    "collection_member_id",
+    "revision_number",
+    "instruction",
+    "asserted_by"
+   ],
+   "title": "AmendInvestigationFindingResponse",
+   "type": "object"
+  },
+  "approve": {
+   "additionalProperties": false,
+   "description": "Approve one member's issue finding: checked, not verified (#359).",
+   "properties": {
+    "action": {
+     "const": "approve",
+     "title": "Action",
+     "type": "string"
+    },
+    "asserted_by": {
+     "minLength": 1,
+     "title": "Asserted By",
+     "type": "string"
+    },
+    "collection_member_id": {
+     "title": "Collection Member Id",
+     "type": "string"
+    },
+    "revision_number": {
+     "exclusiveMinimum": 0,
+     "title": "Revision Number",
+     "type": "integer"
+    }
+   },
+   "required": [
+    "action",
+    "collection_member_id",
+    "revision_number",
+    "asserted_by"
+   ],
+   "title": "ApproveInvestigationFindingResponse",
+   "type": "object"
+  },
+  "reject": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "reject",
+     "title": "Action",
+     "type": "string"
+    },
+    "asserted_by": {
+     "minLength": 1,
+     "title": "Asserted By",
+     "type": "string"
+    },
+    "collection_member_id": {
+     "title": "Collection Member Id",
+     "type": "string"
+    },
+    "reason": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Reason",
+     "type": "string"
+    },
+    "revision_number": {
+     "exclusiveMinimum": 0,
+     "title": "Revision Number",
+     "type": "integer"
+    }
+   },
+   "required": [
+    "action",
+    "collection_member_id",
+    "revision_number",
+    "reason",
+    "asserted_by"
+   ],
+   "title": "RejectInvestigationResponse",
+   "type": "object"
+  }
+ },
+ "junction": {
+  "amend": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  },
+  "retry": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  },
+  "stop": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  }
+ },
+ "model_availability": {
+  "amend": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "amend",
+     "title": "Action",
+     "type": "string"
+    },
+    "instruction": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Instruction",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "instruction"
+   ],
+   "title": "AmendModelAvailabilityResponse",
+   "type": "object"
+  },
+  "retry": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "retry",
+     "title": "Action",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action"
+   ],
+   "title": "RetryModelAvailabilityResponse",
+   "type": "object"
+  },
+  "stop": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "stop",
+     "title": "Action",
+     "type": "string"
+    },
+    "reason": {
+     "maxLength": 2000,
+     "title": "Reason",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "reason"
+   ],
+   "title": "StopModelAvailabilityResponse",
+   "type": "object"
+  }
+ },
+ "paper": {
+  "abort": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  },
+  "amend": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  },
+  "continue": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  },
+  "retry": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  }
+ },
+ "planning": {
+  "clarify": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "clarify",
+     "title": "Action",
+     "type": "string"
+    },
+    "instruction": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Instruction",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "instruction"
+   ],
+   "type": "object"
+  },
+  "reject": {
+   "additionalProperties": false,
+   "description": "Resolve only this scoped request, retaining its issue and prior evidence.",
+   "properties": {
+    "action": {
+     "const": "reject",
+     "title": "Action",
+     "type": "string"
+    },
+    "reason": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Reason",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "reason"
+   ],
+   "type": "object"
+  },
+  "select": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "select",
+     "title": "Action",
+     "type": "string"
+    },
+    "candidate_id": {
+     "enum": [
+      "wgs",
+      "wes"
+     ],
+     "type": "string"
+    },
+    "instruction": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Instruction"
+    }
+   },
+   "required": [
+    "action",
+    "candidate_id"
+   ],
+   "type": "object"
+  },
+  "stop": {
+   "additionalProperties": false,
+   "description": "Researcher confirmation that required evidence cannot be supplied.",
+   "properties": {
+    "action": {
+     "const": "stop",
+     "title": "Action",
+     "type": "string"
+    },
+    "reason": {
+     "maxLength": 2000,
+     "minLength": 1,
+     "title": "Reason",
+     "type": "string"
+    }
+   },
+   "required": [
+    "action",
+    "reason"
+   ],
+   "type": "object"
+  }
+ },
+ "preparation": {
+  "stop": {
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "stop",
+     "default": "stop",
+     "title": "Action",
+     "type": "string"
+    },
+    "reason": {
+     "minLength": 1,
+     "title": "Reason",
+     "type": "string"
+    }
+   },
+   "required": [
+    "reason"
+   ],
+   "title": "StopPreparation",
+   "type": "object"
+  },
+  "supply": {
+   "$defs": {
+    "CapabilityImageClaim": {
+     "additionalProperties": false,
+     "properties": {
+      "image_id": {
+       "title": "Image Id",
+       "type": "string"
+      },
+      "image_index_digest": {
+       "pattern": "^sha256:[0-9a-f]{64}$",
+       "title": "Image Index Digest",
+       "type": "string"
+      },
+      "platform": {
+       "const": "linux/amd64",
+       "title": "Platform",
+       "type": "string"
+      },
+      "platform_child_digest": {
+       "pattern": "^sha256:[0-9a-f]{64}$",
+       "title": "Platform Child Digest",
+       "type": "string"
+      },
+      "provider_image": {
+       "title": "Provider Image",
+       "type": "string"
+      },
+      "worker_entrypoint": {
+       "maxItems": 2,
+       "minItems": 2,
+       "prefixItems": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "string"
+        }
+       ],
+       "title": "Worker Entrypoint",
+       "type": "array"
+      },
+      "worker_module": {
+       "title": "Worker Module",
+       "type": "string"
+      },
+      "worker_receipt_schema": {
+       "title": "Worker Receipt Schema",
+       "type": "string"
+      },
+      "worker_request_schema": {
+       "title": "Worker Request Schema",
+       "type": "string"
+      },
+      "worker_sha256": {
+       "pattern": "^[0-9a-f]{64}$",
+       "title": "Worker Sha256",
+       "type": "string"
+      }
+     },
+     "required": [
+      "image_id",
+      "provider_image",
+      "image_index_digest",
+      "platform",
+      "platform_child_digest",
+      "worker_sha256",
+      "worker_module",
+      "worker_request_schema",
+      "worker_receipt_schema",
+      "worker_entrypoint"
+     ],
+     "title": "CapabilityImageClaim",
+     "type": "object"
+    },
+    "CapabilityPolicyRecipe": {
+     "additionalProperties": false,
+     "properties": {
+      "assay": {
+       "title": "Assay",
+       "type": "string"
+      },
+      "output_kind": {
+       "title": "Output Kind",
+       "type": "string"
+      },
+      "read_layout": {
+       "enum": [
+        "paired",
+        "single"
+       ],
+       "title": "Read Layout",
+       "type": "string"
+      },
+      "recipe_id": {
+       "title": "Recipe Id",
+       "type": "string"
+      },
+      "requires_companion_roles": {
+       "items": {
+        "type": "string"
+       },
+       "title": "Requires Companion Roles",
+       "type": "array"
+      },
+      "requires_prepared_reference": {
+       "default": true,
+       "title": "Requires Prepared Reference",
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "recipe_id",
+      "assay",
+      "read_layout",
+      "output_kind",
+      "requires_companion_roles"
+     ],
+     "title": "CapabilityPolicyRecipe",
+     "type": "object"
+    },
+    "CapabilityPolicyResource": {
+     "additionalProperties": false,
+     "properties": {
+      "accelerator_count": {
+       "minimum": 1,
+       "title": "Accelerator Count",
+       "type": "integer"
+      },
+      "accelerator_memory_gib": {
+       "minimum": 1,
+       "title": "Accelerator Memory Gib",
+       "type": "integer"
+      },
+      "cpu_count": {
+       "minimum": 1,
+       "title": "Cpu Count",
+       "type": "integer"
+      },
+      "image_id": {
+       "title": "Image Id",
+       "type": "string"
+      },
+      "memory_gib": {
+       "minimum": 1,
+       "title": "Memory Gib",
+       "type": "integer"
+      },
+      "profile_id": {
+       "title": "Profile Id",
+       "type": "string"
+      },
+      "recipe_id": {
+       "title": "Recipe Id",
+       "type": "string"
+      },
+      "tool_ids": {
+       "items": {
+        "type": "string"
+       },
+       "minItems": 1,
+       "title": "Tool Ids",
+       "type": "array"
+      }
+     },
+     "required": [
+      "profile_id",
+      "recipe_id",
+      "image_id",
+      "tool_ids",
+      "accelerator_count",
+      "cpu_count",
+      "memory_gib",
+      "accelerator_memory_gib"
+     ],
+     "title": "CapabilityPolicyResource",
+     "type": "object"
+    },
+    "CapabilityRuntimeProfile": {
+     "additionalProperties": false,
+     "description": "Complete runtime claim, including provider target values absent from resources.",
+     "properties": {
+      "cpu": {
+       "$ref": "#/$defs/CpuReferenceRuntime"
+      },
+      "h100": {
+       "$ref": "#/$defs/H100Runtime"
+      },
+      "profile_id": {
+       "title": "Profile Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "profile_id",
+      "cpu",
+      "h100"
+     ],
+     "title": "CapabilityRuntimeProfile",
+     "type": "object"
+    },
+    "CapabilitySnapshot": {
+     "additionalProperties": false,
+     "properties": {
+      "capability_version": {
+       "title": "Capability Version",
+       "type": "string"
+      },
+      "images": {
+       "items": {
+        "$ref": "#/$defs/CapabilityImageClaim"
+       },
+       "minItems": 1,
+       "title": "Images",
+       "type": "array"
+      },
+      "recipes": {
+       "items": {
+        "$ref": "#/$defs/CapabilityPolicyRecipe"
+       },
+       "title": "Recipes",
+       "type": "array"
+      },
+      "resources": {
+       "items": {
+        "$ref": "#/$defs/CapabilityPolicyResource"
+       },
+       "title": "Resources",
+       "type": "array"
+      },
+      "runtime_profiles": {
+       "default": [],
+       "items": {
+        "$ref": "#/$defs/CapabilityRuntimeProfile"
+       },
+       "title": "Runtime Profiles",
+       "type": "array"
+      },
+      "schema_version": {
+       "const": "bio-neb.execution-capability-snapshot/1",
+       "title": "Schema Version",
+       "type": "string"
+      },
+      "snapshot_id": {
+       "pattern": "^[0-9a-f]{64}$",
+       "title": "Snapshot Id",
+       "type": "string"
+      },
+      "source_manifest": {
+       "items": {
+        "$ref": "#/$defs/CapabilitySourceManifestEntry"
+       },
+       "minItems": 1,
+       "title": "Source Manifest",
+       "type": "array"
+      },
+      "tools": {
+       "items": {
+        "$ref": "#/$defs/CapabilityToolClaim"
+       },
+       "minItems": 1,
+       "title": "Tools",
+       "type": "array"
+      }
+     },
+     "required": [
+      "schema_version",
+      "snapshot_id",
+      "capability_version",
+      "source_manifest",
+      "recipes",
+      "resources",
+      "images",
+      "tools"
+     ],
+     "title": "CapabilitySnapshot",
+     "type": "object"
+    },
+    "CapabilitySourceManifestEntry": {
+     "additionalProperties": false,
+     "properties": {
+      "content_assurance": {
+       "default": "retained_exact_digest",
+       "enum": [
+        "application_hashed_local_bytes",
+        "retained_exact_digest"
+       ],
+       "title": "Content Assurance",
+       "type": "string"
+      },
+      "content_digest": {
+       "pattern": "^[0-9a-f]{64}$",
+       "title": "Content Digest",
+       "type": "string"
+      },
+      "locator": {
+       "title": "Locator",
+       "type": "string"
+      },
+      "retrieved_at": {
+       "title": "Retrieved At",
+       "type": "string"
+      }
+     },
+     "required": [
+      "locator",
+      "content_digest",
+      "retrieved_at"
+     ],
+     "title": "CapabilitySourceManifestEntry",
+     "type": "object"
+    },
+    "CapabilityToolClaim": {
+     "additionalProperties": false,
+     "properties": {
+      "absolute_path": {
+       "title": "Absolute Path",
+       "type": "string"
+      },
+      "executable_byte_count": {
+       "anyOf": [
+        {
+         "minimum": 1,
+         "type": "integer"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Executable Byte Count"
+      },
+      "executable_sha256": {
+       "anyOf": [
+        {
+         "pattern": "^[0-9a-f]{64}$",
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Executable Sha256"
+      },
+      "execution_scope": {
+       "enum": [
+        "controller",
+        "worker_image"
+       ],
+       "title": "Execution Scope",
+       "type": "string"
+      },
+      "image_id": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Image Id"
+      },
+      "tool_id": {
+       "title": "Tool Id",
+       "type": "string"
+      },
+      "version": {
+       "title": "Version",
+       "type": "string"
+      }
+     },
+     "required": [
+      "tool_id",
+      "execution_scope",
+      "absolute_path",
+      "version"
+     ],
+     "title": "CapabilityToolClaim",
+     "type": "object"
+    },
+    "CpuReferenceRuntime": {
+     "additionalProperties": false,
+     "properties": {
+      "bwa_version": {
+       "default": "Version: 0.7.17-r1188",
+       "title": "Bwa Version",
+       "type": "string"
+      },
+      "disk_size": {
+       "default": "100Gi",
+       "title": "Disk Size",
+       "type": "string"
+      },
+      "platform": {
+       "default": "cpu-d3",
+       "title": "Platform",
+       "type": "string"
+      },
+      "preset": {
+       "default": "4vcpu-16gb",
+       "title": "Preset",
+       "type": "string"
+      },
+      "provider_image_index_digest": {
+       "default": "sha256:1c1f7eb88b71b56c42e9a31e36a734123b0f1bba9bc97079e03d47fc3afeda5b",
+       "pattern": "^sha256:[0-9a-f]{64}$",
+       "title": "Provider Image Index Digest",
+       "type": "string"
+      },
+      "provider_image_reference": {
+       "default": "cr.eu-north1.nebius.cloud/e00md63vxjxams912c/bio-neb-parabricks-worker:i464-20261029T150408Z-0447bb17",
+       "title": "Provider Image Reference",
+       "type": "string"
+      },
+      "restart_policy": {
+       "default": "never",
+       "title": "Restart Policy",
+       "type": "string"
+      },
+      "samtools_version": {
+       "default": "samtools 1.13",
+       "title": "Samtools Version",
+       "type": "string"
+      },
+      "worker_module": {
+       "default": "bio_neb.parabricks.reusable_object_storage_parabricks",
+       "title": "Worker Module",
+       "type": "string"
+      },
+      "worker_runtime_image": {
+       "default": "cr.eu-north1.nebius.cloud/e00md63vxjxams912c/bio-neb-parabricks-worker@sha256:4121c9d26c21cd902938322ce314a63ff26340d6caac1173e0c3ed08ccb7927c",
+       "title": "Worker Runtime Image",
+       "type": "string"
+      },
+      "worker_sha256": {
+       "default": "0447bb178c2b6f35322e2fc9169655c2df550ea232c74021c21eedde95db3a56",
+       "pattern": "^[0-9a-f]{64}$",
+       "title": "Worker Sha256",
+       "type": "string"
+      }
+     },
+     "title": "CpuReferenceRuntime",
+     "type": "object"
+    },
+    "ExecutionRuntimeSelection": {
+     "additionalProperties": false,
+     "properties": {
+      "capability": {
+       "$ref": "#/$defs/CapabilitySnapshot"
+      },
+      "profile_ids": {
+       "items": {
+        "type": "string"
+       },
+       "minItems": 1,
+       "title": "Profile Ids",
+       "type": "array"
+      }
+     },
+     "required": [
+      "capability",
+      "profile_ids"
+     ],
+     "title": "ExecutionRuntimeSelection",
+     "type": "object"
+    },
+    "H100Runtime": {
+     "additionalProperties": false,
+     "properties": {
+      "accelerator_memory_gib": {
+       "default": 80,
+       "minimum": 1,
+       "title": "Accelerator Memory Gib",
+       "type": "integer"
+      },
+      "cpu_count": {
+       "default": 16,
+       "minimum": 1,
+       "title": "Cpu Count",
+       "type": "integer"
+      },
+      "disk_size": {
+       "default": "250Gi",
+       "title": "Disk Size",
+       "type": "string"
+      },
+      "gpu_count": {
+       "default": 1,
+       "minimum": 1,
+       "title": "Gpu Count",
+       "type": "integer"
+      },
+      "memory_gib": {
+       "default": 200,
+       "minimum": 1,
+       "title": "Memory Gib",
+       "type": "integer"
+      },
+      "pbrun_path": {
+       "default": "/usr/local/parabricks/pbrun",
+       "title": "Pbrun Path",
+       "type": "string"
+      },
+      "pbrun_version": {
+       "default": "pbrun: 4.7.0-1",
+       "title": "Pbrun Version",
+       "type": "string"
+      },
+      "platform": {
+       "default": "gpu-h100-sxm",
+       "title": "Platform",
+       "type": "string"
+      },
+      "preset": {
+       "default": "1gpu-16vcpu-200gb",
+       "title": "Preset",
+       "type": "string"
+      },
+      "provider_image_index_digest": {
+       "default": "sha256:1c1f7eb88b71b56c42e9a31e36a734123b0f1bba9bc97079e03d47fc3afeda5b",
+       "pattern": "^sha256:[0-9a-f]{64}$",
+       "title": "Provider Image Index Digest",
+       "type": "string"
+      },
+      "provider_image_reference": {
+       "default": "cr.eu-north1.nebius.cloud/e00md63vxjxams912c/bio-neb-parabricks-worker:i464-20261029T150408Z-0447bb17",
+       "title": "Provider Image Reference",
+       "type": "string"
+      },
+      "python_path": {
+       "default": "/opt/bio-neb/venv/bin/python",
+       "title": "Python Path",
+       "type": "string"
+      },
+      "python_version": {
+       "default": "3.10.12",
+       "title": "Python Version",
+       "type": "string"
+      },
+      "recipe_id": {
+       "title": "Recipe Id",
+       "type": "string"
+      },
+      "resource_profile_id": {
+       "title": "Resource Profile Id",
+       "type": "string"
+      },
+      "restart_policy": {
+       "default": "never",
+       "title": "Restart Policy",
+       "type": "string"
+      },
+      "shared_memory_bytes": {
+       "default": 17179869184,
+       "minimum": 1,
+       "title": "Shared Memory Bytes",
+       "type": "integer"
+      },
+      "worker_runtime_image": {
+       "default": "cr.eu-north1.nebius.cloud/e00md63vxjxams912c/bio-neb-parabricks-worker@sha256:4121c9d26c21cd902938322ce314a63ff26340d6caac1173e0c3ed08ccb7927c",
+       "title": "Worker Runtime Image",
+       "type": "string"
+      },
+      "worker_sha256": {
+       "default": "0447bb178c2b6f35322e2fc9169655c2df550ea232c74021c21eedde95db3a56",
+       "pattern": "^[0-9a-f]{64}$",
+       "title": "Worker Sha256",
+       "type": "string"
+      }
+     },
+     "required": [
+      "recipe_id",
+      "resource_profile_id"
+     ],
+     "title": "H100Runtime",
+     "type": "object"
+    },
+    "LocalReferenceSource": {
+     "additionalProperties": false,
+     "description": "A selected local replica of the approved compressed reference.\n\nIt carries no byte identity: upload checks the approved publisher md5 and size\nwhile streaming, as for the public URL.",
+     "properties": {
+      "path": {
+       "title": "Path",
+       "type": "string"
+      }
+     },
+     "required": [
+      "path"
+     ],
+     "title": "LocalReferenceSource",
+     "type": "object"
+    },
+    "NebiusCliTarget": {
+     "additionalProperties": false,
+     "properties": {
+      "cli_version": {
+       "const": "0.12.263",
+       "title": "Cli Version",
+       "type": "string"
+      },
+      "controller_runtime": {
+       "const": "native_ubuntu",
+       "title": "Controller Runtime",
+       "type": "string"
+      },
+      "executable": {
+       "title": "Executable",
+       "type": "string"
+      },
+      "executable_byte_count": {
+       "exclusiveMinimum": 0,
+       "title": "Executable Byte Count",
+       "type": "integer"
+      },
+      "executable_sha256": {
+       "pattern": "^[0-9a-f]{64}$",
+       "title": "Executable Sha256",
+       "type": "string"
+      },
+      "profile": {
+       "title": "Profile",
+       "type": "string"
+      },
+      "project_id": {
+       "title": "Project Id",
+       "type": "string"
+      },
+      "registry_id": {
+       "pattern": "^registry-[a-z0-9]+$",
+       "title": "Registry Id",
+       "type": "string"
+      },
+      "resolved_executable": {
+       "title": "Resolved Executable",
+       "type": "string"
+      },
+      "subnet_id": {
+       "pattern": "^vpcsubnet-[a-z0-9]+$",
+       "title": "Subnet Id",
+       "type": "string"
+      },
+      "tenant_id": {
+       "title": "Tenant Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "controller_runtime",
+      "executable",
+      "resolved_executable",
+      "cli_version",
+      "executable_byte_count",
+      "executable_sha256",
+      "profile",
+      "tenant_id",
+      "project_id",
+      "subnet_id",
+      "registry_id"
+     ],
+     "title": "NebiusCliTarget",
+     "type": "object"
+    },
+    "NebiusExecutionContextSelection": {
+     "additionalProperties": false,
+     "description": "Selected native-Ubuntu Nebius CLI identity and its one Object Storage topology.",
+     "properties": {
+      "bootstrap_mutation_count": {
+       "const": 0,
+       "default": 0,
+       "title": "Bootstrap Mutation Count",
+       "type": "integer"
+      },
+      "controller_runtime": {
+       "const": "native_ubuntu",
+       "title": "Controller Runtime",
+       "type": "string"
+      },
+      "exact_topology_match_count": {
+       "const": 1,
+       "default": 1,
+       "title": "Exact Topology Match Count",
+       "type": "integer"
+      },
+      "nebius_cli_version": {
+       "const": "0.12.263",
+       "title": "Nebius Cli Version",
+       "type": "string"
+      },
+      "nebius_executable": {
+       "title": "Nebius Executable",
+       "type": "string"
+      },
+      "nebius_executable_byte_count": {
+       "exclusiveMinimum": 0,
+       "title": "Nebius Executable Byte Count",
+       "type": "integer"
+      },
+      "nebius_executable_sha256": {
+       "pattern": "^[0-9a-f]{64}$",
+       "title": "Nebius Executable Sha256",
+       "type": "string"
+      },
+      "resolved_nebius_executable": {
+       "title": "Resolved Nebius Executable",
+       "type": "string"
+      },
+      "schema_version": {
+       "const": "bio-neb.nebius-execution-context-selection/2",
+       "default": "bio-neb.nebius-execution-context-selection/2",
+       "title": "Schema Version",
+       "type": "string"
+      },
+      "topology": {
+       "$ref": "#/$defs/NebiusObjectStorageTopologyCandidate"
+      }
+     },
+     "required": [
+      "controller_runtime",
+      "nebius_executable",
+      "resolved_nebius_executable",
+      "nebius_cli_version",
+      "nebius_executable_byte_count",
+      "nebius_executable_sha256",
+      "topology"
+     ],
+     "title": "NebiusExecutionContextSelection",
+     "type": "object"
+    },
+    "NebiusObjectStorageTopologyCandidate": {
+     "additionalProperties": false,
+     "properties": {
+      "access_key_id": {
+       "title": "Access Key Id",
+       "type": "string"
+      },
+      "access_key_resource_id": {
+       "title": "Access Key Resource Id",
+       "type": "string"
+      },
+      "access_key_state": {
+       "const": "ACTIVE",
+       "default": "ACTIVE",
+       "title": "Access Key State",
+       "type": "string"
+      },
+      "access_permit_id": {
+       "title": "Access Permit Id",
+       "type": "string"
+      },
+      "candidate_id": {
+       "pattern": "^nebius-object-storage-topology:[0-9a-f]{64}$",
+       "title": "Candidate Id",
+       "type": "string"
+      },
+      "group_id": {
+       "title": "Group Id",
+       "type": "string"
+      },
+      "group_membership_id": {
+       "title": "Group Membership Id",
+       "type": "string"
+      },
+      "profile": {
+       "title": "Profile",
+       "type": "string"
+      },
+      "project_id": {
+       "title": "Project Id",
+       "type": "string"
+      },
+      "secret_delivery_mode": {
+       "const": "mystery_box",
+       "default": "mystery_box",
+       "title": "Secret Delivery Mode",
+       "type": "string"
+      },
+      "service_account_id": {
+       "title": "Service Account Id",
+       "type": "string"
+      },
+      "tenant_id": {
+       "title": "Tenant Id",
+       "type": "string"
+      }
+     },
+     "required": [
+      "candidate_id",
+      "profile",
+      "tenant_id",
+      "project_id",
+      "service_account_id",
+      "access_key_resource_id",
+      "access_key_id",
+      "group_id",
+      "group_membership_id",
+      "access_permit_id"
+     ],
+     "title": "NebiusObjectStorageTopologyCandidate",
+     "type": "object"
+    },
+    "ObjectVerificationOverrides": {
+     "additionalProperties": false,
+     "description": "Sparse per-slot selections; a full read must say why it was selected.",
+     "properties": {
+      "h100_outputs": {
+       "anyOf": [
+        {
+         "enum": [
+          "reuse_creation_proof",
+          "independent_full_read"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "H100 Outputs"
+      },
+      "input_storage": {
+       "anyOf": [
+        {
+         "enum": [
+          "reuse_creation_proof",
+          "independent_full_read"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Input Storage"
+      },
+      "prepared_candidate": {
+       "anyOf": [
+        {
+         "enum": [
+          "reuse_creation_proof",
+          "independent_full_read"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Prepared Candidate"
+      },
+      "reason": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Reason"
+      },
+      "reference_preparation": {
+       "anyOf": [
+        {
+         "enum": [
+          "reuse_creation_proof",
+          "independent_full_read"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null,
+       "title": "Reference Preparation"
+      }
+     },
+     "title": "ObjectVerificationOverrides",
+     "type": "object"
+    },
+    "ParabricksConfiguration": {
+     "additionalProperties": false,
+     "properties": {
+      "launch": {
+       "$ref": "#/$defs/ParabricksLaunch"
+      },
+      "observation_interval_seconds": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "integer"
+        }
+       ],
+       "default": 5,
+       "gt": 0,
+       "title": "Observation Interval Seconds"
+      },
+      "runtime_selection": {
+       "$ref": "#/$defs/ExecutionRuntimeSelection"
+      }
+     },
+     "required": [
+      "launch",
+      "runtime_selection"
+     ],
+     "title": "ParabricksConfiguration",
+     "type": "object"
+    },
+    "ParabricksLaunch": {
+     "additionalProperties": false,
+     "description": "Explicit secret-free launch choices; recipe, resources and layout are derived.",
+     "properties": {
+      "bounded_get_bytes": {
+       "maximum": 67108864,
+       "minimum": 1024,
+       "title": "Bounded Get Bytes",
+       "type": "integer"
+      },
+      "cleanup_owner": {
+       "title": "Cleanup Owner",
+       "type": "string"
+      },
+      "context": {
+       "$ref": "#/$defs/NebiusExecutionContextSelection"
+      },
+      "heartbeat_interval_seconds": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "integer"
+        }
+       ],
+       "gt": 0,
+       "title": "Heartbeat Interval Seconds"
+      },
+      "local_reference_source": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/LocalReferenceSource"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "default": null
+      },
+      "nebius": {
+       "$ref": "#/$defs/NebiusCliTarget"
+      },
+      "object_scope": {
+       "pattern": "^[a-z0-9][a-z0-9-]*(?:/[a-z0-9][a-z0-9-]*)*$",
+       "title": "Object Scope",
+       "type": "string"
+      },
+      "object_storage": {
+       "$ref": "#/$defs/RunObjectStorageTarget"
+      },
+      "verification_mode": {
+       "default": "reuse_creation_proof",
+       "enum": [
+        "independent_full_read",
+        "reuse_creation_proof"
+       ],
+       "title": "Verification Mode",
+       "type": "string"
+      },
+      "verification_overrides": {
+       "$ref": "#/$defs/ObjectVerificationOverrides",
+       "default": {}
+      },
+      "work_directory": {
+       "title": "Work Directory",
+       "type": "string"
+      }
+     },
+     "required": [
+      "object_scope",
+      "nebius",
+      "object_storage",
+      "context",
+      "work_directory",
+      "cleanup_owner",
+      "heartbeat_interval_seconds",
+      "bounded_get_bytes"
+     ],
+     "title": "ParabricksLaunch",
+     "type": "object"
+    },
+    "RunObjectStorageTarget": {
+     "additionalProperties": false,
+     "properties": {
+      "bucket": {
+       "pattern": "^[a-z0-9](?:[a-z0-9-]{1,61}[a-z0-9])$",
+       "title": "Bucket",
+       "type": "string"
+      },
+      "endpoint_url": {
+       "title": "Endpoint Url",
+       "type": "string"
+      },
+      "mount_path": {
+       "title": "Mount Path",
+       "type": "string"
+      },
+      "region": {
+       "title": "Region",
+       "type": "string"
+      }
+     },
+     "required": [
+      "endpoint_url",
+      "region",
+      "bucket",
+      "mount_path"
+     ],
+     "title": "RunObjectStorageTarget",
+     "type": "object"
+    }
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "const": "supply",
+     "default": "supply",
+     "title": "Action",
+     "type": "string"
+    },
+    "configuration": {
+     "$ref": "#/$defs/ParabricksConfiguration"
+    }
+   },
+   "required": [
+    "configuration"
+   ],
+   "title": "SupplyPreparationInformation",
+   "type": "object"
+  }
+ },
+ "run_health": {
+  "abort": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  },
+  "retry": {
+   "$defs": {
+    "JsonValue": {}
+   },
+   "additionalProperties": false,
+   "properties": {
+    "action": {
+     "enum": [
+      "retry",
+      "abort",
+      "approve_cpu_preparation",
+      "amend",
+      "stop",
+      "continue"
+     ],
+     "title": "Action",
+     "type": "string"
+    },
+    "by": {
+     "minLength": 1,
+     "title": "By",
+     "type": "string"
+    },
+    "field": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Field"
+    },
+    "reason": {
+     "anyOf": [
+      {
+       "maxLength": 2000,
+       "minLength": 1,
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Reason"
+    },
+    "request_id": {
+     "minLength": 1,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "state": {
+     "const": "answered",
+     "default": "answered",
+     "title": "State",
+     "type": "string"
+    },
+    "value": {
+     "$ref": "#/$defs/JsonValue",
+     "default": null
+    }
+   },
+   "required": [
+    "request_id",
+    "action",
+    "by"
+   ],
+   "title": "ReviewAnswer",
+   "type": "object"
+  }
+ }
+}

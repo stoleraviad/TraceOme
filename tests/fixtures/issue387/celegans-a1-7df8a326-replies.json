@@ -1,0 +1,516 @@
+{
+ "provenance": {
+  "ticket": 444,
+  "run_root": "387-celegans-a1-20261022T151018Z-f8148626-a1",
+  "journey_id": "2d8c28a2-6488-4639-b10d-fccc82b43186",
+  "journey_sha256": "9e17f28b5169968ab5945af1d94aba88c77c7f481c3b8ae5c2dbb073c21c694e",
+  "attempt_id": "7df8a326-8761-4e5a-bb0d-d3644b1fc712",
+  "role": "investigation_planner",
+  "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+  "selection": "every ModelResponseRecorded of the Attempt, in recorded order; message copied as recorded",
+  "postmortem": "docs/development/reviews/issue387-live-nemotron/celegans-a1/postmortem/reply-table.md"
+ },
+ "replies": [
+  {
+   "request_number": 1,
+   "physical_contact_ordinal": 1,
+   "response_event_id": "ab0acb8b-f325-424c-b8f7-8c39f03f8bc3",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [
+     {
+      "content": "The",
+      "id": null,
+      "part_kind": "text",
+      "provider_details": null,
+      "provider_name": null
+     }
+    ],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T15:34:13Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-8d1cb01b8bd66f3c0139a2645643286a",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T15:34:13.186153Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 1302,
+      "reasoning_tokens": 2
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 5654,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 2,
+     "output_tokens": 2
+    }
+   }
+  },
+  {
+   "request_number": 2,
+   "physical_contact_ordinal": 11,
+   "response_event_id": "e68ad20b-d196-4bc1-8d02-1d72ddb9428c",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [
+     {
+      "content": "那些从o�.f000经[\"publicıştırhel7fd1c1d682a5d71e9d0ba031\",\"public",
+      "id": null,
+      "part_kind": "text",
+      "provider_details": null,
+      "provider_name": null
+     }
+    ],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T17:17:38Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-065a810638f46f919fa1303db7f281a5",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T17:17:39.739427Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 1409,
+      "reasoning_tokens": 38
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 5761,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 38,
+     "output_tokens": 38
+    }
+   }
+  },
+  {
+   "request_number": 3,
+   "physical_contact_ordinal": 2,
+   "response_event_id": "ebc1e5a0-a7d8-4d67-8b05-6a9b963466b9",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [
+     {
+      "content": "public",
+      "id": null,
+      "part_kind": "text",
+      "provider_details": null,
+      "provider_name": null
+     }
+    ],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T17:27:40Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-7bb4b97984c707071f3c14367adf6654",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T17:27:40.913044Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 1588,
+      "reasoning_tokens": 2
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 5940,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 2,
+     "output_tokens": 2
+    }
+   }
+  },
+  {
+   "request_number": 4,
+   "physical_contact_ordinal": 1,
+   "response_event_id": "e1b2fd2f-8570-43a7-8eae-2679ef99458a",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [
+     {
+      "content": " PUBLIC",
+      "id": null,
+      "part_kind": "text",
+      "provider_details": null,
+      "provider_name": null
+     }
+    ],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T17:27:41Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-8ed7019571fea46619b3e9753e51ebd4",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T17:27:41.473064Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 1728,
+      "reasoning_tokens": 2
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 6080,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 2,
+     "output_tokens": 2
+    }
+   }
+  },
+  {
+   "request_number": 5,
+   "physical_contact_ordinal": 2,
+   "response_event_id": "241f64a0-b8ce-4878-9a77-a12c13ed42e0",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T17:37:45Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-9d7efa9bd7343d99a2ffc30a0176898e",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T17:37:45.694826Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 1835,
+      "reasoning_tokens": 1
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 6187,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 1,
+     "output_tokens": 1
+    }
+   }
+  },
+  {
+   "request_number": 6,
+   "physical_contact_ordinal": 1,
+   "response_event_id": "ff3cb5fb-7543-4284-b7a6-e30ec6a269fd",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [
+     {
+      "content": "\n PUBLIC",
+      "id": null,
+      "part_kind": "text",
+      "provider_details": null,
+      "provider_name": null
+     }
+    ],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T17:37:46Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-cbfa2c4217cc0d0000884868cc1d96d3",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T17:37:46.922496Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 1966,
+      "reasoning_tokens": 3
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 6318,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 3,
+     "output_tokens": 3
+    }
+   }
+  },
+  {
+   "request_number": 7,
+   "physical_contact_ordinal": 5,
+   "response_event_id": "5e0a5ef9-d9bc-4df8-b0dc-c1f8bf287f09",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [
+     {
+      "content": "\n\n `work`、`_`, `asun_assembly`, `all`, `se_D` ~年 `��_educ法耂ες`, `document_id`, `document_defined`, `定`, `the`, `本`, `the`, `the`. so nothing the connection.\n2 this request 2 times.\n0 the connection.\n2 the connection.",
+      "id": null,
+      "part_kind": "text",
+      "provider_details": null,
+      "provider_name": null
+     }
+    ],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T18:18:18Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-e0bdfd725ca184810969bd07f8ed9eee",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T18:18:19.774275Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 2074,
+      "reasoning_tokens": 77
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 6426,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 77,
+     "output_tokens": 77
+    }
+   }
+  },
+  {
+   "request_number": 8,
+   "physical_contact_ordinal": 1,
+   "response_event_id": "9f642bd5-9b55-4eef-ac25-6dcc86a935ae",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [
+     {
+      "content": " `PUBLIC",
+      "id": null,
+      "part_kind": "text",
+      "provider_details": null,
+      "provider_name": null
+     }
+    ],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T18:18:21Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-7007c3ed4248691a2cb07ef61689b482",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T18:18:20.449745Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 2287,
+      "reasoning_tokens": 4
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 6639,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 4,
+     "output_tokens": 4
+    }
+   }
+  },
+  {
+   "request_number": 9,
+   "physical_contact_ordinal": 1,
+   "response_event_id": "2d6a506b-0852-4436-8964-c9f13ddb014e",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T18:18:21Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-b931c8c0a8d962ead2592b69d3ab38c7",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T18:18:21.220361Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 2396,
+      "reasoning_tokens": 1
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 6748,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 1,
+     "output_tokens": 1
+    }
+   }
+  },
+  {
+   "request_number": 10,
+   "physical_contact_ordinal": 2,
+   "response_event_id": "941964b5-7484-4aa0-850c-ceee3d10e19b",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [
+     {
+      "content": " JSON",
+      "id": null,
+      "part_kind": "text",
+      "provider_details": null,
+      "provider_name": null
+     }
+    ],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T18:28:27Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-d8b8a636d1493fca597151d05da74926",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T18:28:27.340976Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 2494,
+      "reasoning_tokens": 2
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 6846,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 2,
+     "output_tokens": 2
+    }
+   }
+  },
+  {
+   "request_number": 11,
+   "physical_contact_ordinal": 1,
+   "response_event_id": "e979db95-beaa-4495-bae2-e8d68863af5c",
+   "message": {
+    "conversation_id": null,
+    "finish_reason": "tool_call",
+    "kind": "response",
+    "metadata": null,
+    "model_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "parts": [
+     {
+      "content": "果那些 PUBLIC",
+      "id": null,
+      "part_kind": "text",
+      "provider_details": null,
+      "provider_name": null
+     }
+    ],
+    "provider_details": {
+     "finish_reason": "tool_calls",
+     "timestamp": "2026-10-22T18:28:28Z"
+    },
+    "provider_name": "openai",
+    "provider_response_id": "chatcmpl-4d0b1995ea0bb8b2e5bf7fd250836823",
+    "provider_url": "https://api.tokenfactory.us-central1.nebius.com/v1/",
+    "run_id": null,
+    "state": "complete",
+    "timestamp": "2026-10-22T18:28:28.396507Z",
+    "usage": {
+     "cache_audio_read_tokens": 0,
+     "cache_read_tokens": 4352,
+     "cache_write_tokens": 0,
+     "cost": null,
+     "details": {
+      "prompt_cache_hit_tokens": 4352,
+      "prompt_cache_miss_tokens": 2655,
+      "reasoning_tokens": 4
+     },
+     "input_audio_tokens": 0,
+     "input_tokens": 7007,
+     "output_audio_tokens": 0,
+     "output_reasoning_tokens": 4,
+     "output_tokens": 4
+    }
+   }
+  }
+ ]
+}
